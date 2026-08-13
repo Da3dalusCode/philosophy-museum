@@ -1,6 +1,7 @@
 import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import {
   estimateMuseumHallTextureResidency,
+  MUSEUM_DECODED_TEXTURE_ADMISSION_BYTES,
   MUSEUM_DECODED_TEXTURE_BUDGET_BYTES,
   MUSEUM_PERSISTENT_TEXTURE_ESTIMATE,
   type MuseumHallTextureMode,
@@ -48,7 +49,7 @@ export const resolveMuseumHallResidencyPlan = ({
     if (!hallId || hallIds.includes(hallId)) return;
     if (hallIds.length >= MUSEUM_BUILDING_MANIFEST.residencyPolicy.maxResidentHallContents) return;
     const estimate = estimateMuseumHallTextureResidency(hallId, mode, entranceId);
-    if (!required && decodedTextureBytes + estimate.totalBytes > MUSEUM_DECODED_TEXTURE_BUDGET_BYTES) {
+    if (!required && decodedTextureBytes + estimate.totalBytes > MUSEUM_DECODED_TEXTURE_ADMISSION_BYTES) {
       skippedForTextureBudget.push(hallId);
       return;
     }

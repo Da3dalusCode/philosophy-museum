@@ -15,8 +15,8 @@ export const MUSEUM_CANONICAL_WALL_MATERIAL = Object.freeze({
 }) satisfies MuseumWallMaterialSpec;
 
 export const MUSEUM_CANONICAL_WALL_EDGE_MATERIAL = Object.freeze({
-  color: '#d9d4ca',
-  roughness: .86,
+  color: '#bdb6aa',
+  roughness: .82,
   metalness: 0,
 }) satisfies MuseumWallMaterialSpec;
 
@@ -29,23 +29,23 @@ export const MUSEUM_CANONICAL_CEILING_MATERIAL = Object.freeze({
 export const MUSEUM_ROUTE_INLAY_MATERIALS = Object.freeze({
   mainBorder: Object.freeze({
     color: '#3c2a1d',
-    roughness: .5,
-    metalness: .58,
+    roughness: .58,
+    metalness: .3,
   }),
   mainCore: Object.freeze({
     color: '#bd8a4f',
-    roughness: .34,
-    metalness: .72,
+    roughness: .44,
+    metalness: .38,
   }),
   crosscutBorder: Object.freeze({
     color: '#40362d',
     roughness: .6,
-    metalness: .42,
+    metalness: .28,
   }),
   crosscutCore: Object.freeze({
     color: '#846e56',
     roughness: .56,
-    metalness: .46,
+    metalness: .3,
   }),
 });
 

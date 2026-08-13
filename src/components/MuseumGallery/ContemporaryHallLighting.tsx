@@ -33,7 +33,10 @@ function ExhibitSpotlight({definition}: {definition: MuseumExhibitLightDefinitio
 }
 
 /** Stable, low-cost architectural light for a hall whose structure is permanent. */
-export function ContemporaryHallBaseLighting({lighting}: {lighting: MuseumLightingDefinition}) {
+export function ContemporaryHallBaseLighting({lighting, shadowsEnabled = false}: {
+  lighting: MuseumLightingDefinition;
+  shadowsEnabled?: boolean;
+}) {
   const directionalTarget = useMemo(() => new Object3D(), []);
 
   return <>
@@ -47,7 +50,17 @@ export function ContemporaryHallBaseLighting({lighting}: {lighting: MuseumLighti
       }}
       intensity={lighting.directionalIntensity}
       color="#fff4e2"
-      castShadow={false}
+      castShadow={shadowsEnabled}
+      shadow-mapSize-width={512}
+      shadow-mapSize-height={512}
+      shadow-camera-near={1}
+      shadow-camera-far={42}
+      shadow-camera-left={-16}
+      shadow-camera-right={16}
+      shadow-camera-top={16}
+      shadow-camera-bottom={-16}
+      shadow-bias={-.00012}
+      shadow-normalBias={.035}
     />
   </>;
 }

@@ -3,7 +3,7 @@ import {useEffect, useId, useRef, type KeyboardEvent} from 'react';
 import {getMuseumAsset} from '../../data/museum/museumAssets';
 import type {MuseumSupplementalExhibit} from '../../data/museum/platoSupplementalExhibits';
 import type {RouteHref} from '../../routing/routes';
-import {MuseumAssetImage, MuseumSourceDetails} from './MuseumInterpretationPanel';
+import {MuseumAssetImage, MuseumSourceDetails} from './MuseumAssetPresentation';
 import type {MuseumExitTrigger} from './museumVisitState';
 
 const focusableSelector = 'a[href],button:not([disabled]),summary,[tabindex]:not([tabindex="-1"])';

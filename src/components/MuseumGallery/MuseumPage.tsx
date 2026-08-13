@@ -40,7 +40,6 @@ import {
 import {MUSEUM_BUILDING_MANIFEST} from '../../data/museum/museumBuildingManifest';
 import {getMuseumPublicGalleryNumber} from '../../data/museum/museumPublicRoute';
 import {MUSEUM_PERMANENT_STRUCTURAL_HALL_IDS} from '../../data/museum/museumStructuralResidency';
-import {getMuseumInterpretation} from '../../data/museum/museumInterpretations';
 import {
   findMuseumSupplementalExhibit,
   findMuseumSupplementalExhibitEntry,
@@ -70,7 +69,6 @@ import type {
   RouteNavigator,
 } from '../../routing/routes';
 import {isRouteLoadError} from '../../routing/routeLoadErrors';
-import {MuseumInterpretationPanel} from './MuseumInterpretationPanel';
 import {MuseumSupplementalInterpretationPanel} from './MuseumSupplementalInterpretationPanel';
 import {MuseumModal} from './MuseumModal';
 import {MuseumTouchControls} from './MuseumTouchControls';
@@ -143,6 +141,17 @@ import './museum.css';
 
 const createLazyMuseumWorldScene = () => lazy(() => import('./MuseumWorldScene').then(
   ({MuseumWorldScene}) => ({default: MuseumWorldScene}),
+));
+
+const loadMuseumPrimaryRuntimeContent = () => import('./MuseumPrimaryRuntimeContent');
+const LazyMuseumPrimaryDirectorySummary = lazy(() => loadMuseumPrimaryRuntimeContent().then(
+  ({MuseumPrimaryDirectorySummary}) => ({default: MuseumPrimaryDirectorySummary}),
+));
+const LazyMuseumPrimaryProximityCard = lazy(() => loadMuseumPrimaryRuntimeContent().then(
+  ({MuseumPrimaryProximityCard}) => ({default: MuseumPrimaryProximityCard}),
+));
+const LazyMuseumPrimaryInterpretationModal = lazy(() => loadMuseumPrimaryRuntimeContent().then(
+  ({MuseumPrimaryInterpretationModal}) => ({default: MuseumPrimaryInterpretationModal}),
 ));
 
 type Overlay = 'directory' | 'help' | 'visitor-map' | null;
@@ -301,11 +310,12 @@ function DirectoryContents({route, hallId = route.hallId, href, push, onExhibitA
       <p className="museum-zone-period">{zone.period}</p><h3 id={`${headingPrefix}-${zone.id}`}>{zone.title}</h3><p>{zone.description}</p>
       <ul>{hall.exhibits.filter((item) => item.zoneId === zone.id).map((item) => {
         const current = route.hallId === hallId && route.exhibitId === item.id;
-        const summary = showSummaries ? getMuseumInterpretation({hallId, exhibitId: item.id}).lead : item.question;
         return <li key={item.id} className={current ? 'is-current' : ''} data-entity-kind={item.entityKind}>
           <div><b>{item.displayName}</b><span>{item.entityKind === 'philosopher' ? 'Philosopher' : 'School / tradition'}</span></div>
           {current && <strong className="museum-current-label">Currently open</strong>}
-          <p>{summary}</p>
+          {showSummaries
+            ? <Suspense fallback={<p>{item.question}</p>}><LazyMuseumPrimaryDirectorySummary hallId={hallId} exhibitId={item.id}/></Suspense>
+            : <p>{item.question}</p>}
           <div className="museum-directory-actions">
             <ExhibitRouteLink route={hallRoute} exhibit={item} href={href} push={push} origin={exhibitOrigin} onActivate={(selected, selectedHallId) => onExhibitActivate?.({hallId: selectedHallId, exhibitId: selected.id})} current={current}>View exhibit</ExhibitRouteLink>
             <a className="btn" href={href(articleRoute(item))}>Open full article</a>
@@ -481,7 +491,6 @@ export function MuseumPage({route, href, push, replace}: {
   const definition = registration.definition;
   const layout = definition.layout;
   const exhibit = route.hallId === activeHallId && route.exhibitId ? getMuseumExhibitCatalog(activeHallId, route.exhibitId) : undefined;
-  const content = useMemo(() => exhibit ? getMuseumInterpretation({hallId: activeHallId, exhibitId: exhibit.id}) : undefined, [activeHallId, exhibit]);
   const supplementalExhibit = route.hallId === activeHallId && route.exhibitId
     ? findMuseumSupplementalExhibit(activeHallId, route.exhibitId)
     : undefined;
@@ -847,6 +856,7 @@ export function MuseumPage({route, href, push, replace}: {
   }, []);
 
   const openExhibit = useCallback((id: MuseumExhibitId) => {
+    void loadMuseumPrimaryRuntimeContent();
     const origin: MuseumExhibitOrigin = museumPhaseHasActiveIntent(visitPhase) ? 'active-exploration' : 'paused-hall';
     const currentDefinition = activeDefinitionRef.current;
     const context = createMuseumExhibitVisitContext(currentDefinition.id, origin);
@@ -1877,7 +1887,6 @@ export function MuseumPage({route, href, push, replace}: {
   }, [saveCurrentHallSession]);
 
   const nearby = nearbyId ? getMuseumExhibitCatalog(activeHallId, nearbyId) : undefined;
-  const nearbyContent = useMemo(() => nearby ? getMuseumInterpretation({hallId: activeHallId, exhibitId: nearby.id}) : undefined, [activeHallId, nearby]);
   const nearbySupplemental = nearbySupplementalId
     ? findMuseumSupplementalExhibit(activeHallId, nearbySupplementalId)
     : undefined;
@@ -2283,12 +2292,15 @@ export function MuseumPage({route, href, push, replace}: {
             <button type="button" onClick={openVisitorMap}>E / Enter · Open map</button>
           </aside>}
 
-          {nearby && nearbyContent && exploring && <aside className="museum-proximity-card" data-zone={nearby.zoneId}>
-            <p><span>{nearby.entityKind === 'philosopher' ? 'Philosopher' : 'School & tradition'}</span><span>{nearbyContent.dateLabel}</span></p>
+          {nearby && exploring && <Suspense fallback={<aside className="museum-proximity-card" data-zone={nearby.zoneId} aria-busy="true">
+            <p><span>{nearby.entityKind === 'philosopher' ? 'Philosopher' : 'School & tradition'}</span><span>Preparing…</span></p>
             <h2>{nearby.displayName}</h2>
             <blockquote>{nearby.question}</blockquote>
-            <button type="button" onClick={() => openExhibit(nearby.id)}>E / Enter · Interpret exhibit</button>
-          </aside>}
+          </aside>}><LazyMuseumPrimaryProximityCard
+            hallId={activeHallId}
+            exhibit={nearby}
+            onOpen={() => openExhibit(nearby.id)}
+          /></Suspense>}
 
           {nearbySupplemental && exploring && <aside className="museum-proximity-card" data-zone={activeHallId === 'mediterranean-beginnings-classical' ? 'med-plato-aristotle' : activeHallId} data-supplemental-id={nearbySupplemental.id}>
             <p><span>{nearbySupplemental.presentation?.proximityKicker ?? 'Supplemental Plato work'}</span><span>{nearbySupplemental.dateLabel}</span></p>
@@ -2382,10 +2394,10 @@ export function MuseumPage({route, href, push, replace}: {
         walkingPace={controls.walkingPace}
         onWalkingPaceChange={controls.setWalkingPace}
       />}
-      {exhibit && content && <MuseumInterpretationPanel
+      {exhibit && <Suspense fallback={<div className="museum-load-chip" role="status">Preparing interpretation…</div>}><LazyMuseumPrimaryInterpretationModal
         key={exhibit.id}
+        reference={{hallId: activeHallId, exhibitId: exhibit.id}}
         exhibit={exhibit}
-        content={content}
         href={href}
         guided={guided}
         exhibitIndex={guidedStopIndex}
@@ -2422,7 +2434,7 @@ export function MuseumPage({route, href, push, replace}: {
             )},
           );
         }}
-      />}
+      /></Suspense>}
       {supplementalExhibit && <MuseumSupplementalInterpretationPanel
         key={supplementalExhibit.id}
         exhibit={supplementalExhibit}

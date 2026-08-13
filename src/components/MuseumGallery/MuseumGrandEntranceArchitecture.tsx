@@ -1,3 +1,5 @@
+import {useLayoutEffect, useMemo, useRef} from 'react';
+import {Group, Mesh, Object3D} from 'three';
 import type {MuseumRuntimeNodeDefinition} from '../../data/museum/museumWorldTypes';
 import {
   MUSEUM_GRAND_ENTRANCE_FRONT_DESK,
@@ -361,12 +363,61 @@ function GalleryOnePortal({x, z}: {x: number; z: number}) {
  * clarifies threshold, arrival, orientation, or the first chronological route.
  * It adds no fake exhibits and no dead interactive surfaces.
  */
-export function MuseumGrandEntranceArchitecture({node}: {node: MuseumRuntimeNodeDefinition}) {
+export function MuseumGrandEntranceArchitecture({node, shadowsEnabled}: {
+  node: MuseumRuntimeNodeDefinition;
+  shadowsEnabled: boolean;
+}) {
+  const entranceRef = useRef<Group>(null);
+  const shadowTarget = useMemo(() => {
+    const target = new Object3D();
+    target.position.set(0, 1.2, 0);
+    return target;
+  }, []);
+  useLayoutEffect(() => {
+    entranceRef.current?.traverse((object) => {
+      if (!(object instanceof Mesh)) return;
+      let owner: Object3D | null = object;
+      let feature: unknown;
+      while (owner && !feature) {
+        feature = owner.userData.museumEntranceFeature;
+        owner = owner.parent;
+      }
+      object.castShadow = shadowsEnabled
+        && feature !== 'coffered-ceiling'
+        && feature !== 'public-threshold';
+      object.receiveShadow = true;
+    });
+  }, [shadowsEnabled]);
   const publicEntry = node.entrances.find(({id}) => id === 'public-entry');
   const throughRoute = node.entrances.find(({id}) => id === 'through-route');
   if (!publicEntry || !throughRoute) return null;
 
-  return <group userData={{museumEntrance: 'ceremonial-threshold-sequence'}}>
+  return <group ref={entranceRef} userData={{museumEntrance: 'ceremonial-threshold-sequence'}}>
+    {shadowsEnabled && <>
+      <primitive object={shadowTarget}/>
+      <directionalLight
+        position={[17, 15, -12]}
+        target={shadowTarget}
+        color="#fff0d4"
+        intensity={.78}
+        castShadow
+        shadow-mapSize-width={512}
+        shadow-mapSize-height={512}
+        shadow-camera-near={1}
+        shadow-camera-far={62}
+        shadow-camera-left={-24}
+        shadow-camera-right={24}
+        shadow-camera-top={24}
+        shadow-camera-bottom={-24}
+        shadow-bias={-.00012}
+        shadow-normalBias={.04}
+        shadow-radius={2.5}
+        userData={{
+          museumLightId: 'entrance:depth-key',
+          museumLightRole: 'active-architecture-shadow-key',
+        }}
+      />
+    </>}
     <CofferedCeiling/>
     <ExteriorArrival x={publicEntry.position.x} z={publicEntry.position.z}/>
     <OrientationOculus/>

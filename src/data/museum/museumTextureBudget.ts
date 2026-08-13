@@ -30,6 +30,8 @@ export type MuseumHallTextureEstimate = {
 
 export type MuseumPersistentTextureEstimate = {
   buildingSignBytes: number;
+  grandEntranceOrientationSceneBytes: number;
+  grandEntranceOrientationCanvasBytes: number;
   permanentStructuralSignBytes: number;
   plannedStatusSignBytes: number;
   reservationSignBytes: number;
@@ -62,6 +64,13 @@ const persistentTextureEstimate = (): MuseumPersistentTextureEstimate => {
     5.6 * .27,
     MUSEUM_TEXTURE_SPECS.buildingSign,
   ));
+  const grandEntranceOrientationSceneBytes = MEDITERRANEAN_ORIENTATION_ASSET_IDS.reduce(
+    (sum, assetId) => sum + sceneAssetBytes(assetId),
+    0,
+  );
+  const grandEntranceOrientationCanvasBytes = decodedTextureBytes(
+    MUSEUM_TEXTURE_SPECS.mediterraneanOrientation,
+  );
   const permanentStructuralSignBytes = MUSEUM_WORLD_DEFINITIONS
     .filter(({id}) => museumHallHasPermanentSignFaces(id))
     .reduce((sum, definition) =>
@@ -105,6 +114,8 @@ const persistentTextureEstimate = (): MuseumPersistentTextureEstimate => {
   const maximumSimultaneousReadinessGates = Math.max(1, ...hallConnectionsByNode.values());
   const readinessGateBytes = decodedTextureBytes(MUSEUM_TEXTURE_SPECS.readinessSign);
   const totalBytes = buildingSignBytes
+    + grandEntranceOrientationSceneBytes
+    + grandEntranceOrientationCanvasBytes
     + permanentStructuralSignBytes
     + plannedStatusSignBytes
     + reservationSignBytes
@@ -112,6 +123,8 @@ const persistentTextureEstimate = (): MuseumPersistentTextureEstimate => {
     + readinessGateBytes * maximumSimultaneousReadinessGates;
   return {
     buildingSignBytes,
+    grandEntranceOrientationSceneBytes,
+    grandEntranceOrientationCanvasBytes,
     permanentStructuralSignBytes,
     plannedStatusSignBytes,
     reservationSignBytes,
@@ -199,9 +212,7 @@ const generatedHallSpecs = (hallId: MuseumHallId): readonly MuseumDecodedTexture
     const spec = museumTextureDimensionsForPlane(sign.width, sign.height, reference);
     return [spec];
   });
-  return hallId === MEDITERRANEAN_GALLERY_ID
-    ? [...signs, MUSEUM_TEXTURE_SPECS.mediterraneanOrientation]
-    : signs;
+  return signs;
 };
 
 const generatedSupplementalSpecs = (
@@ -253,13 +264,7 @@ export const estimateMuseumHallTextureResidency = (
     ...exhibits.flatMap(({scene}) => scene.mediaMounts.map(({assetId}) => assetId)),
     ...supplementalAssetIds,
   ])];
-  const orientationAssetIds = hallId === MEDITERRANEAN_GALLERY_ID
-    ? MEDITERRANEAN_ORIENTATION_ASSET_IDS
-    : [];
-  // Orientation media uses isolated textures and therefore remains an extra
-  // allocation even when the same source also appears in an exhibit.
-  const sceneBytes = sceneAssetIds.reduce((sum, assetId) => sum + sceneAssetBytes(assetId), 0)
-    + orientationAssetIds.reduce((sum, assetId) => sum + sceneAssetBytes(assetId), 0);
+  const sceneBytes = sceneAssetIds.reduce((sum, assetId) => sum + sceneAssetBytes(assetId), 0);
   const generatedBytes = sumSpecs([
     ...generatedHallSpecs(hallId),
     ...exhibits.flatMap((exhibit) => generatedSpecsForExhibit(hallId, exhibit)),
@@ -270,7 +275,7 @@ export const estimateMuseumHallTextureResidency = (
     hallId,
     mode,
     exhibitCount: exhibits.length,
-    sceneAssetCount: sceneAssetIds.length + orientationAssetIds.length,
+    sceneAssetCount: sceneAssetIds.length,
     sceneBytes,
     generatedBytes,
     totalBytes,
@@ -283,3 +288,6 @@ export const MUSEUM_PERSISTENT_TEXTURE_ESTIMATE = persistentTextureEstimate();
 export const MUSEUM_DECODED_TEXTURE_BUDGET_BYTES = textureBudgetBytes;
 export const MUSEUM_DECODED_TEXTURE_BUDGET_MIB =
   MUSEUM_BUILDING_MANIFEST.residencyPolicy.decodedTextureBudgetMiB;
+
+/** Leaves deterministic headroom for renderer internals and short-lived decode overlap. */
+export const MUSEUM_DECODED_TEXTURE_ADMISSION_BYTES = 92 * 1024 * 1024;

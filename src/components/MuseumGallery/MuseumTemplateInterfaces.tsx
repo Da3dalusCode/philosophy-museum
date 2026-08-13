@@ -29,7 +29,12 @@ export function MuseumTemplateInterfaces({definition, ownedPortalIds}: {
         }}
       >
         <boxGeometry args={normalRunsAlongX ? [depth, .045, width] : [width, .045, depth]}/>
-        <meshBasicMaterial color={THRESHOLD_LIGHT} toneMapped={false}/>
+        <meshStandardMaterial
+          color="#decfb5"
+          emissive={THRESHOLD_LIGHT}
+          emissiveIntensity={1.15}
+          roughness={.62}
+        />
       </mesh>;
     })}
   </group>;

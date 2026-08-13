@@ -1,6 +1,5 @@
 import type {MuseumAssetId} from './museum/museumAssetTypes';
-import {branches} from './branches';
-import {philosophers} from './philosophers';
+import routeManifestJson from './generated/routeManifest.json';
 import {
   MUSEUM_CANONICAL_PROGRAM,
   MUSEUM_HALL_ROUTE_ALIASES,
@@ -410,8 +409,8 @@ const LEGACY_MUSEUM_HALLS = [
   },
 ] as const satisfies readonly MuseumHallCatalog[];
 
-const philosopherTitleById = new Map(philosophers.map(({id, name}) => [id, name]));
-const branchTitleById = new Map(branches.map(({id, name}) => [id, name]));
+const philosopherTitleById = new Map(routeManifestJson.philosophers.map(({id, name}) => [id, name]));
+const branchTitleById = new Map(routeManifestJson.branches.map(({id, name}) => [id, name]));
 
 /** The sole runtime title resolver for every primary canonical Museum exhibit. */
 export const getCanonicalMuseumEntityTitle = (

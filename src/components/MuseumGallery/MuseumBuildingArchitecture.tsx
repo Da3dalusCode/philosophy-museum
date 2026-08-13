@@ -58,7 +58,7 @@ function StructuralCell({cell, forum}: {cell: MuseumSpatialCell; forum: boolean}
   return <group userData={{buildingCellId: cell.id}}>
     <mesh position={[x, -.1, z]} receiveShadow>
       <boxGeometry args={[width, .2, depth]}/>
-      <meshStandardMaterial color={forum ? FLOOR_FORUM : FLOOR} roughness={.94}/>
+      <meshStandardMaterial color={forum ? FLOOR_FORUM : FLOOR} roughness={.82}/>
     </mesh>
     <mesh position={[x, cell.ceilingHeight + .08, z]}>
       <boxGeometry args={[width, .16, depth]}/>
@@ -70,7 +70,7 @@ function StructuralCell({cell, forum}: {cell: MuseumSpatialCell; forum: boolean}
       userData={{circulationGuide: 'ceiling'}}
     >
       <boxGeometry args={alongZ ? [.72, .035, guideSegmentLength] : [guideSegmentLength, .035, .72]}/>
-      <meshBasicMaterial color="#fff0d3" toneMapped={false}/>
+      <meshStandardMaterial color="#e3d5bc" emissive="#fff0d3" emissiveIntensity={1.05} roughness={.72}/>
     </mesh>)}
     {markerCenters.map((center) => <mesh
       key={`floor-marker-${center}`}
@@ -210,7 +210,7 @@ function ReservationBarrier({reservation}: {reservation: MuseumManifestReserve})
   </group>;
 }
 
-function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
+function CirculationNode({node, shadowed}: {node: MuseumRuntimeNodeDefinition; shadowed: boolean}) {
   const forum = node.programHallId === 'core-questions-forum';
   const architectureWalls = node.architectureWalls ?? node.layout.wallColliders;
   const entranceCell = node.id === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId
@@ -229,7 +229,7 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
       .map((item) => <StructuralBench key={item.id} item={item}/>)}
     {(node.layout.signs ?? []).map((sign) => <AuthoredBuildingSign key={sign.id} sign={sign}/>)}
     {entranceCell && <>
-      <MuseumGrandEntranceArchitecture node={node}/>
+      <MuseumGrandEntranceArchitecture node={node} shadowsEnabled={shadowed}/>
       <MediterraneanGalleryCuration display={MEDITERRANEAN_ORIENTATION_DISPLAY}/>
     </>}
   </group>;
@@ -238,12 +238,14 @@ function CirculationNode({node}: {node: MuseumRuntimeNodeDefinition}) {
 export function MuseumBuildingArchitecture({
   activeNodeId,
   activeHallId,
+  shadowsEnabled,
   visitorMapNearby,
   onSelectVisitorMap,
   onSceneGesture,
 }: {
   activeNodeId: string;
   activeHallId: string;
+  shadowsEnabled: boolean;
   visitorMapNearby: boolean;
   onSelectVisitorMap: () => void;
   onSceneGesture: () => void;
@@ -255,9 +257,14 @@ export function MuseumBuildingArchitecture({
   };
   const kioskHost = getMuseumRuntimeNode(MUSEUM_VISITOR_MAP_KIOSK.nodeId);
   return <group onClick={activate} userData={{museumBuilding: MUSEUM_BUILDING_MANIFEST.manifestVersion}}>
-    {MUSEUM_CIRCULATION_NODES.map((node) => <CirculationNode key={node.id} node={node}/>)}
+    {MUSEUM_CIRCULATION_NODES.map((node) => <CirculationNode
+      key={node.id}
+      node={node}
+      shadowed={shadowsEnabled && activeNodeId === node.id}
+    />)}
     <MuseumPermanentHallStructure
       activeHallId={activeHallId}
+      shadowsEnabled={shadowsEnabled}
       onSceneGesture={onSceneGesture}
     />
     <MuseumRouteInlay/>

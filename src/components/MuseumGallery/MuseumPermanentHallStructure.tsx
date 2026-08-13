@@ -14,9 +14,11 @@ const MEDITERRANEAN_GALLERY_ID = 'mediterranean-beginnings-classical';
  */
 export function MuseumPermanentHallStructure({
   activeHallId,
+  shadowsEnabled,
   onSceneGesture,
 }: {
   activeHallId: string;
+  shadowsEnabled: boolean;
   onSceneGesture: () => void;
 }) {
   return <group userData={{museumStructuralResidency: 'permanent-world'}}>
@@ -32,11 +34,17 @@ export function MuseumPermanentHallStructure({
           includeSignFaces={museumHallHasPermanentSignFaces(hall.hallId)}
           onSceneGesture={onSceneGesture}
         />
-        <MuseumPrimaryExhibitStructures definition={hall.definition}/>
+        <MuseumPrimaryExhibitStructures
+          definition={hall.definition}
+          shadowed={shadowsEnabled && hall.hallId === activeHallId}
+        />
         {hall.hallId === MEDITERRANEAN_GALLERY_ID
           && <MediterraneanOrientationStructure/>}
         {hall.hallId === activeHallId
-          && <ContemporaryHallBaseLighting lighting={hall.definition.layout.lighting}/>}
+          && <ContemporaryHallBaseLighting
+            lighting={hall.definition.layout.lighting}
+            shadowsEnabled={shadowsEnabled}
+          />}
       </group>
     </MuseumHallSpatialRoot>)}
   </group>;

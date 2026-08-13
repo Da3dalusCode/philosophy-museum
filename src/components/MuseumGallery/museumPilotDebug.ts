@@ -53,6 +53,10 @@ export type MuseumPilotSceneTelemetry = {
     programs: number;
     toneMapping: number;
     exposure: number;
+    outputColorSpace: string;
+    shadowMapEnabled: boolean;
+    shadowMapType: number;
+    shadowCasterCount: number;
   };
   structuralMeshes: readonly MuseumPilotStructuralTelemetry[];
   lights: readonly {

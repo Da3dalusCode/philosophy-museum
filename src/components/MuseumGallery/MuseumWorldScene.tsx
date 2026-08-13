@@ -479,6 +479,7 @@ function MuseumPilotSceneBridge() {
     return registerMuseumPilotSceneReader(() => {
       scene.updateMatrixWorld(true);
       camera.updateMatrixWorld(true);
+      let shadowCasterCount = 0;
       const structuralMeshes: {
         id: string;
         category: string;
@@ -493,6 +494,7 @@ function MuseumPilotSceneBridge() {
         materials: readonly MuseumPilotMaterialTelemetry[];
       }[] = [];
       scene.traverse((object) => {
+        if (object instanceof Mesh && object.castShadow) shadowCasterCount += 1;
         const semanticStructuralId = typeof object.userData.museumStructuralId === 'string'
           ? object.userData.museumStructuralId
           : undefined;
@@ -605,6 +607,10 @@ function MuseumPilotSceneBridge() {
           programs: gl.info.programs?.length ?? 0,
           toneMapping: gl.toneMapping,
           exposure: gl.toneMappingExposure,
+          outputColorSpace: gl.outputColorSpace,
+          shadowMapEnabled: gl.shadowMap.enabled,
+          shadowMapType: gl.shadowMap.type,
+          shadowCasterCount,
         },
         structuralMeshes,
         lights,
@@ -615,7 +621,7 @@ function MuseumPilotSceneBridge() {
   return null;
 }
 
-function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
+function MuseumWorldContents(props: MuseumSceneRuntimeProps & {shadowsEnabled: boolean}) {
   const [nearbyTarget, setNearbyTarget] = useState<MuseumInteractionTarget | undefined>();
   const nearby = nearbyTarget?.kind === 'exhibit'
     ? {hallId: nearbyTarget.hallId, exhibitId: nearbyTarget.exhibitId}
@@ -628,8 +634,8 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
   // its connector. This prevents a hall from unloading or changing shade at
   // the physical seam before the next hall is actually entered.
   const activeHallLighting = getMuseumHallDefinition(props.activeHallId)?.layout.lighting;
-  const hemisphereIntensity = activeHallLighting?.hemisphereIntensity ?? .64;
-  const ambientIntensity = activeHallLighting?.ambientIntensity ?? .48;
+  const hemisphereIntensity = (activeHallLighting?.hemisphereIntensity ?? .64) * .78;
+  const ambientIntensity = (activeHallLighting?.ambientIntensity ?? .48) * .7;
   const connectedEntranceByHallId = useMemo(() => new Map(
     getMuseumNodeConnections(props.definition.id).flatMap((connection) => {
       const hallId = getMuseumConnectionTargetHallId(connection);
@@ -651,6 +657,7 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps) {
     <MuseumBuildingArchitecture
       activeNodeId={props.definition.id}
       activeHallId={props.activeHallId}
+      shadowsEnabled={props.shadowsEnabled}
       visitorMapNearby={visitorMapNearby}
       onSelectVisitorMap={props.onSelectVisitorMap}
       onSceneGesture={props.onSceneGesture}
@@ -752,11 +759,11 @@ export function MuseumWorldScene(props: MuseumSceneRuntimeProps) {
         dpr={museumPilotDebugEnabled() ? 1 : lowPower ? [1, 1.25] : [1, 1.5]}
         frameloop={renderable ? 'demand' : 'never'}
         gl={{antialias: !lowPower, alpha: false, powerPreference: lowPower ? 'low-power' : 'high-performance'}}
-        shadows={false}
+        shadows={!lowPower}
         onCreated={onCreated}
         onPointerMissed={props.onSceneGesture}
       >
-        <MuseumWorldContents {...props}/>
+        <MuseumWorldContents {...props} shadowsEnabled={!lowPower}/>
       </Canvas>
     </WorldSceneErrorBoundary>
   </div>;

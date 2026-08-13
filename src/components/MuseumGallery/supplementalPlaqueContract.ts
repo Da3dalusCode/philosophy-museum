@@ -1,5 +1,4 @@
-import {branches} from '../../data/branches';
-import {philosophers} from '../../data/philosophers';
+import routeManifestJson from '../../data/generated/routeManifest.json';
 import {
   getMuseumHallCatalog,
   type MuseumPublicHallId,
@@ -105,8 +104,8 @@ export const classifySupplementalPlaque = (
 
 const resolveContext = ({kind, id}: MuseumCanonicalContextRef): ResolvedSupplementalCanonicalContext | undefined => {
   const title = kind === 'philosopher'
-    ? philosophers.find((item) => item.id === id)?.name
-    : branches.find((item) => item.id === id)?.name;
+    ? routeManifestJson.philosophers.find((item) => item.id === id)?.name
+    : routeManifestJson.branches.find((item) => item.id === id)?.name;
   return title ? {kind, id, title} : undefined;
 };
 

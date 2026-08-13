@@ -415,6 +415,7 @@ const {
   MUSEUM_CANONICAL_PROGRAM,
   MUSEUM_DECODED_TEXTURE_BUDGET_BYTES,
   MUSEUM_DECODED_TEXTURE_BUDGET_MIB,
+  MUSEUM_DECODED_TEXTURE_ADMISSION_BYTES,
   MUSEUM_DIRECTED_CONNECTIONS,
   MUSEUM_BUILDING_GUIDED_FINAL_HALL_ID,
   MUSEUM_BUILDING_GUIDED_HALL_ORDER,
@@ -1977,7 +1978,11 @@ check('Grand Entrance is a legible ceremonial threshold rather than an undecorat
   );
   assert.equal(publicEntrySlot?.clearWidth, 4, 'Grand Entrance public threshold lost its 4 m clear width');
   assert.equal(firstGalleryRouteSlot?.clearWidth, 4, 'Gallery 01 threshold lost its 4 m clear width');
-  assert.match(buildingArchitectureSource, /<MuseumGrandEntranceArchitecture node=\{node\}\/>/u, 'Grand Entrance set piece is not mounted in persistent architecture');
+  assert.match(
+    buildingArchitectureSource,
+    /<MuseumGrandEntranceArchitecture node=\{node\} shadowsEnabled=\{shadowed\}\/>/u,
+    'Grand Entrance set piece is not mounted in persistent architecture with its active-node shadow budget',
+  );
   for (const feature of [
     'public-threshold',
     'orientation-oculus',
@@ -6000,12 +6005,24 @@ check('the physical visitor map is a truthful projection of live geometry and sa
 check('decoded texture residency admits every active and approached hall under 96 MiB', () => {
   assert.equal(MUSEUM_DECODED_TEXTURE_BUDGET_MIB, 96);
   assert.equal(MUSEUM_DECODED_TEXTURE_BUDGET_BYTES, 96 * 1024 * 1024);
+  assert.equal(MUSEUM_DECODED_TEXTURE_ADMISSION_BYTES, 92 * 1024 * 1024);
   assert.equal(buildingManifest.reserves.length, 2, 'persistent reserve-label count changed');
   const expectedBuildingSignBytes = independentDecodedTextureBytes(independentTextureDimensionsForPlane(
     5.6,
     5.6 * .27,
     {width: 600, height: 160, mipmaps: true},
   ));
+  const orientationAsset = MUSEUM_ASSETS.find(({id}) => id === 'plato-school-of-athens');
+  assert(orientationAsset, 'Grand Entrance orientation scene asset is missing');
+  const expectedGrandEntranceOrientationSceneBytes = Math.max(
+    independentDecodedTextureBytes({...orientationAsset.variants.scene, mipmaps: false}),
+    independentDecodedTextureBytes({width: 512, height: 341, mipmaps: true}),
+  );
+  const expectedGrandEntranceOrientationCanvasBytes = independentDecodedTextureBytes({
+    width: 704,
+    height: 352,
+    mipmaps: true,
+  });
   const permanentSignFaceHallIds = new Set(MUSEUM_PERMANENT_SIGN_FACE_HALL_IDS);
   const expectedPermanentStructuralSignBytes = MUSEUM_PERMANENT_STRUCTURAL_HALLS
     .filter(({hallId}) => permanentSignFaceHallIds.has(hallId))
@@ -6053,6 +6070,8 @@ check('decoded texture residency admits every active and approached hall under 9
   const expectedMaximumReadinessGates = Math.max(1, ...gateCounts.values());
   assert(expectedMaximumReadinessGates >= 1 && expectedMaximumReadinessGates <= 4, 'the independent physical-node gate count is unbounded');
   const expectedPersistentBytes = expectedBuildingSignBytes
+    + expectedGrandEntranceOrientationSceneBytes
+    + expectedGrandEntranceOrientationCanvasBytes
     + expectedPermanentStructuralSignBytes
     + expectedPlannedStatusSignBytes
     + expectedReservationSignBytes
@@ -6060,6 +6079,8 @@ check('decoded texture residency admits every active and approached hall under 9
     + expectedReadinessGateBytes * expectedMaximumReadinessGates;
   assert.deepEqual(MUSEUM_PERSISTENT_TEXTURE_ESTIMATE, {
     buildingSignBytes: expectedBuildingSignBytes,
+    grandEntranceOrientationSceneBytes: expectedGrandEntranceOrientationSceneBytes,
+    grandEntranceOrientationCanvasBytes: expectedGrandEntranceOrientationCanvasBytes,
     permanentStructuralSignBytes: expectedPermanentStructuralSignBytes,
     plannedStatusSignBytes: expectedPlannedStatusSignBytes,
     reservationSignBytes: expectedReservationSignBytes,
@@ -6102,11 +6123,14 @@ check('decoded texture residency admits every active and approached hall under 9
         if (!withRecent.hallIds.includes(activeHallId) || !withRecent.hallIds.includes(approachedHallId)) residencyAdmissionFailures.push(`${activeHallId} -> ${approachedHallId} with recent ${recentHallId}`);
         assert(withRecent.hallIds.length <= 3);
         assert(withRecent.decodedTextureBytes <= withRecent.decodedTextureBudgetBytes);
+        if (withRecent.hallIds.includes(recentHallId)) {
+          assert(withRecent.decodedTextureBytes <= MUSEUM_DECODED_TEXTURE_ADMISSION_BYTES);
+        }
         peak = Math.max(peak, withRecent.decodedTextureBytes);
       }
     }
   }
-  console.log(`  texture residency peak: ${(peak / 1024 / 1024).toFixed(2)} MiB / 96 MiB`);
+  console.log(`  texture residency peak: ${(peak / 1024 / 1024).toFixed(2)} MiB / 96 MiB · optional admission reserve 92 MiB`);
 });
 
 check('all 192 live canonical exhibits have substantial, sourced, route-aware interpretation', () => {

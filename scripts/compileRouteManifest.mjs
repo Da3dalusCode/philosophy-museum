@@ -68,6 +68,13 @@ const articleRecord = (record) => ({
   hasSources: Boolean(record.sourceLinks?.length || record.editorial?.sources?.length),
 });
 
+const canonicalEntityTitleByKind = {
+  branch: new Map(branches.map(({id, name}) => [id, name])),
+  philosopher: new Map(philosophers.map(({id, name}) => [id, name])),
+};
+const canonicalMuseumExhibitTitle = (exhibit) =>
+  canonicalEntityTitleByKind[exhibit.entityKind]?.get(exhibit.entityId) ?? exhibit.displayName;
+
 const supplementalByHall = new Map(MUSEUM_HALLS.map(({id}) => [id, []]));
 for (const {hallId, exhibit} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
   supplementalByHall.get(hallId)?.push({
@@ -88,7 +95,10 @@ const routeManifest = {
   museumHalls: MUSEUM_HALLS.map((hall) => ({
     id: hall.id,
     title: hall.title,
-    primaryExhibits: hall.exhibits.map(({id, displayName}) => ({id, displayName})),
+    primaryExhibits: hall.exhibits.map((exhibit) => ({
+      id: exhibit.id,
+      displayName: canonicalMuseumExhibitTitle(exhibit),
+    })),
     supplementalExhibits: supplementalByHall.get(hall.id) ?? [],
   })),
   museumHallAliases: MUSEUM_HALL_ROUTE_ALIASES,
@@ -150,9 +160,9 @@ const searchIndex = {
     ...MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({
       id: exhibit.id,
       hallId: hall.id,
-      label: exhibit.displayName,
+      label: canonicalMuseumExhibitTitle(exhibit),
       searchText: searchable([
-        exhibit.displayName,
+        canonicalMuseumExhibitTitle(exhibit),
         exhibit.curatorialDisplayName,
         exhibit.question,
         hall.title,

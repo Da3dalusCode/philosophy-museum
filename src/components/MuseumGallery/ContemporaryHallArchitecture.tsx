@@ -65,7 +65,7 @@ function CellShell({cell, renaissance, forum}: {
             : renaissance
               ? '#443a33'
               : FLOOR}
-        roughness={.94}
+        roughness={.82}
         metalness={.012}
       />
     </mesh>
@@ -86,13 +86,13 @@ function CeilingLightStrips({cell}: {cell: MuseumSpatialCell}) {
   const alongZ = depth >= width;
   if (cell.kind === 'passage') return <mesh position={[x, y, z]}>
     <boxGeometry args={alongZ ? [1.02, .035, Math.max(1.1, depth - .65)] : [Math.max(1.1, width - .65), .035, 1.02]}/>
-    <meshBasicMaterial color={LUMINOUS} toneMapped={false}/>
+    <meshStandardMaterial color="#e4d7bf" emissive={LUMINOUS} emissiveIntensity={1.05} roughness={.72}/>
   </mesh>;
   const run = Math.max(3, (alongZ ? depth : width) - 4);
   const offset = Math.min(5, (alongZ ? width : depth) * .23);
   return <group>{[-offset, offset].map((lane) => <mesh key={lane} position={alongZ ? [x + lane, y, z] : [x, y, z + lane]}>
     <boxGeometry args={alongZ ? [.7, .035, run] : [run, .035, .7]}/>
-    <meshBasicMaterial color={LUMINOUS} toneMapped={false}/>
+    <meshStandardMaterial color="#e4d7bf" emissive={LUMINOUS} emissiveIntensity={1.05} roughness={.72}/>
   </mesh>)}</group>;
 }
 
@@ -135,7 +135,7 @@ function Track({track}: {track: MuseumTrackDefinition}) {
     museumStructuralId: `track:${track.id}`,
   }}>
     <boxGeometry args={[track.size.width, track.size.height, track.size.depth]}/>
-    <meshStandardMaterial color={BLACK_METAL} roughness={.3} metalness={.72}/>
+    <meshStandardMaterial color="#252729" roughness={.56} metalness={.32}/>
   </mesh>;
 }
 
@@ -153,8 +153,8 @@ function Fixture({definition}: {definition: MuseumExhibitLightDefinition}) {
     quaternion={quaternion}
     userData={{museumStructuralId: `fixture:${definition.id}`}}
   >
-    <mesh position={[0, -.13, 0]}><cylinderGeometry args={[.065, .095, .3, 12]}/><meshStandardMaterial color={BLACK_METAL} metalness={.7} roughness={.32}/></mesh>
-    <mesh position={[0, -.29, 0]} rotation={[Math.PI / 2, 0, 0]}><circleGeometry args={[.08, 16]}/><meshBasicMaterial color={LUMINOUS} toneMapped={false}/></mesh>
+    <mesh position={[0, -.13, 0]}><cylinderGeometry args={[.065, .095, .3, 12]}/><meshStandardMaterial color="#252729" metalness={.3} roughness={.54}/></mesh>
+    <mesh position={[0, -.29, 0]} rotation={[Math.PI / 2, 0, 0]}><circleGeometry args={[.08, 16]}/><meshStandardMaterial color="#eadcc4" emissive={LUMINOUS} emissiveIntensity={1.15} roughness={.68}/></mesh>
   </group>;
 }
 
