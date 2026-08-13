@@ -81,3 +81,13 @@ export const museumPointerLockEventFailureRequestId = (
     ? transition.requestId
     : undefined
 );
+
+/**
+ * A readiness or route synchronization may resume an already-active visit
+ * without a fresh user gesture. When the browser still owns the exact Museum
+ * canvas, application state must remain locked so document mouse deltas keep
+ * driving the camera across physical thresholds.
+ */
+export const museumControlModeAfterUngesturedResume = (
+  exactCanvasIsLocked: boolean,
+): 'locked' | 'drag-look' => exactCanvasIsLocked ? 'locked' : 'drag-look';

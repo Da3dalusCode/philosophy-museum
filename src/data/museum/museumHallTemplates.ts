@@ -89,8 +89,8 @@ export type MuseumResolvedHallTemplate = {
   lightingInterface: {
     roles: MuseumHallTemplateContract['lightingInterface'];
     thresholdAnchors: readonly MuseumResolvedTemplatePortal['thresholdLightAnchor'][];
-    perimeterTrackIds: readonly string[];
-    anchorTrackIds: readonly string[];
+    fixtureIds: readonly string[];
+    trackIds: readonly string[];
     accessibleLabelAnchorIds: readonly string[];
   };
   collisionPolicy: MuseumHallTemplateContract['collisionPolicy'];
@@ -536,7 +536,7 @@ const resolveTemplate = (
     ) continue;
     deviations.push(`Portal ${portalInterface.manifestSlotId} expands the canonical 4.0 × 3.2 m interface.`);
   }
-  const anchorTrackIds = [...new Set(layout.lighting.exhibitLights.map(({trackId}) => trackId))];
+  const fixtureIds = (layout.lighting.fixtures ?? layout.lighting.exhibitLights).map(({id}) => id);
   const accessibleLabelAnchorIds = [
     ...(layout.signs ?? []).map(({id}) => id),
     ...layout.exhibits.map(({scene}) => scene.plaque.id),
@@ -605,8 +605,8 @@ const resolveTemplate = (
     lightingInterface: {
       roles: template.lightingInterface,
       thresholdAnchors: portals.filter(({active}) => active).map(({thresholdLightAnchor}) => thresholdLightAnchor),
-      perimeterTrackIds: layout.lighting.tracks.map(({id}) => id),
-      anchorTrackIds,
+      fixtureIds,
+      trackIds: layout.lighting.tracks.map(({id}) => id),
       accessibleLabelAnchorIds,
     },
     collisionPolicy: template.collisionPolicy,

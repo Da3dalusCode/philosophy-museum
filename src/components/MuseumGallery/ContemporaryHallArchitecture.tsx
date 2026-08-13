@@ -1,10 +1,23 @@
 import type {ThreeEvent} from '@react-three/fiber';
-import {useMemo} from 'react';
-import {Quaternion, Vector3} from 'three';
+import {useLayoutEffect, useMemo, useRef} from 'react';
+import {
+  BoxGeometry,
+  CircleGeometry,
+  Matrix4,
+  MeshStandardMaterial,
+  PlaneGeometry,
+  Quaternion,
+  Vector3,
+  type BufferGeometry,
+  type InstancedMesh,
+  type Material,
+} from 'three';
 import type {
   MuseumExhibitLightDefinition,
   MuseumFurnishingDefinition,
   MuseumHallDefinition,
+  MuseumLightingDefinition,
+  MuseumLightingFixtureDefinition,
   MuseumSignDefinition,
   MuseumSpatialCell,
   MuseumSpatialConnection,
@@ -39,6 +52,22 @@ const BLACK_METAL = '#151617';
 const BRONZE = '#8b6b43';
 const LUMINOUS = '#fff3dc';
 const SIGN_REAR = '#d8d2c7';
+const TRACK_GEOMETRY = new BoxGeometry(1, 1, 1);
+const TRACK_HEAD_BODY_GEOMETRY = new BoxGeometry(.14, .3, .13);
+const TRACK_HEAD_LENS_GEOMETRY = new CircleGeometry(.075, 6);
+const RECESSED_LENS_GEOMETRY = new CircleGeometry(.135, 8);
+const WALL_WASHER_APERTURE_GEOMETRY = new PlaneGeometry(1, 1);
+const FIXTURE_DARK_MATERIAL = new MeshStandardMaterial({
+  color: '#252729',
+  metalness: .3,
+  roughness: .54,
+});
+const FIXTURE_LENS_MATERIAL = new MeshStandardMaterial({
+  color: '#eadcc4',
+  emissive: LUMINOUS,
+  emissiveIntensity: 1.04,
+  roughness: .7,
+});
 
 function CellShell({cell, renaissance, forum}: {
   cell: MuseumSpatialCell;
@@ -129,32 +158,131 @@ function ThresholdFascia({connection, cells, wallMaterial}: {connection: MuseumS
   </mesh>;
 }
 
-function Track({track}: {track: MuseumTrackDefinition}) {
-  return <mesh position={[track.center.x, track.center.y, track.center.z]} userData={{
-    trackId: track.id,
-    museumStructuralId: `track:${track.id}`,
-  }}>
-    <boxGeometry args={[track.size.width, track.size.height, track.size.depth]}/>
-    <meshStandardMaterial color="#252729" roughness={.56} metalness={.32}/>
-  </mesh>;
+type FixtureDefinition = MuseumLightingFixtureDefinition | MuseumExhibitLightDefinition;
+
+function InstanceBatch({
+  geometry,
+  material,
+  matrices,
+  userData,
+}: {
+  geometry: BufferGeometry;
+  material: Material;
+  matrices: readonly Matrix4[];
+  userData: Record<string, unknown>;
+}) {
+  const meshRef = useRef<InstancedMesh>(null);
+  useLayoutEffect(() => {
+    const mesh = meshRef.current;
+    if (!mesh) return;
+    matrices.forEach((matrix, index) => mesh.setMatrixAt(index, matrix));
+    mesh.instanceMatrix.needsUpdate = true;
+    mesh.computeBoundingSphere();
+  }, [matrices]);
+  if (!matrices.length) return null;
+  return <instancedMesh
+    ref={meshRef}
+    args={[geometry, material, matrices.length]}
+    dispose={null}
+    userData={userData}
+  />;
 }
 
-function Fixture({definition}: {definition: MuseumExhibitLightDefinition}) {
-  const quaternion = useMemo(() => {
-    const direction = new Vector3(
-      definition.target.x - definition.mountPosition.x,
-      definition.target.y - definition.mountPosition.y,
-      definition.target.z - definition.mountPosition.z,
-    ).normalize();
-    return new Quaternion().setFromUnitVectors(new Vector3(0, -1, 0), direction);
-  }, [definition]);
-  return <group
-    position={[definition.mountPosition.x, definition.mountPosition.y, definition.mountPosition.z]}
-    quaternion={quaternion}
-    userData={{museumStructuralId: `fixture:${definition.id}`}}
-  >
-    <mesh position={[0, -.13, 0]}><cylinderGeometry args={[.065, .095, .3, 12]}/><meshStandardMaterial color="#252729" metalness={.3} roughness={.54}/></mesh>
-    <mesh position={[0, -.29, 0]} rotation={[Math.PI / 2, 0, 0]}><circleGeometry args={[.08, 16]}/><meshStandardMaterial color="#eadcc4" emissive={LUMINOUS} emissiveIntensity={1.15} roughness={.68}/></mesh>
+const fixtureRootMatrix = (definition: FixtureDefinition): Matrix4 => {
+  const direction = new Vector3(
+    definition.target.x - definition.mountPosition.x,
+    definition.target.y - definition.mountPosition.y,
+    definition.target.z - definition.mountPosition.z,
+  ).normalize();
+  const quaternion = new Quaternion().setFromUnitVectors(new Vector3(0, -1, 0), direction);
+  return new Matrix4().compose(
+    new Vector3(definition.mountPosition.x, definition.mountPosition.y, definition.mountPosition.z),
+    quaternion,
+    new Vector3(1, 1, 1),
+  );
+};
+
+function MuseumLightingInstallation({hallId, lighting}: {
+  hallId: string;
+  lighting: MuseumLightingDefinition;
+}) {
+  const batches = useMemo(() => {
+    const tracks = lighting.tracks.map((track: MuseumTrackDefinition) => new Matrix4().compose(
+      new Vector3(track.center.x, track.center.y, track.center.z),
+      new Quaternion().setFromAxisAngle(new Vector3(0, 1, 0), track.rotationY ?? 0),
+      new Vector3(track.size.width, track.size.height, track.size.depth),
+    ));
+    const fixtures: readonly FixtureDefinition[] = lighting.fixtures ?? lighting.exhibitLights;
+    const trackHeadBodies: Matrix4[] = [];
+    const trackHeadLenses: Matrix4[] = [];
+    const recessedLenses: Matrix4[] = [];
+    const wallWashers: Matrix4[] = [];
+    for (const fixture of fixtures) {
+      const kind = 'kind' in fixture ? fixture.kind : 'track-head';
+      const root = fixtureRootMatrix(fixture);
+      if (kind === 'track-head') {
+        trackHeadBodies.push(root.clone().multiply(new Matrix4().makeTranslation(0, -.13, 0)));
+        trackHeadLenses.push(root.clone()
+          .multiply(new Matrix4().makeTranslation(0, -.292, 0))
+          .multiply(new Matrix4().makeRotationX(Math.PI / 2)));
+      } else if (kind === 'recessed-spot') {
+        recessedLenses.push(root.clone()
+          .multiply(new Matrix4().makeTranslation(0, -.055, 0))
+          .multiply(new Matrix4().makeRotationX(Math.PI / 2)));
+      } else {
+        const width = 'width' in fixture ? fixture.width : .9;
+        wallWashers.push(root.clone()
+          .multiply(new Matrix4().makeTranslation(0, -.075, 0))
+          .multiply(new Matrix4().makeRotationX(Math.PI / 2))
+          .multiply(new Matrix4().makeScale(Math.max(.7, width - .18), .12, 1)));
+      }
+    }
+    const fixtureMetadata = fixtures.map((fixture) => ({
+      id: fixture.id,
+      kind: 'kind' in fixture ? fixture.kind : 'track-head',
+      ...('targetGroupId' in fixture ? {
+        targetGroupId: fixture.targetGroupId,
+        sourceIds: fixture.sourceIds,
+        spatialCellId: fixture.spatialCellId,
+      } : {}),
+    }));
+    return {tracks, trackHeadBodies, trackHeadLenses, recessedLenses, wallWashers, fixtureMetadata};
+  }, [lighting]);
+  const sharedUserData = {
+    museumLightingHallId: hallId,
+    museumFixtureInstances: batches.fixtureMetadata,
+  };
+  return <group userData={{museumLightingInstallationFor: hallId}}>
+    <InstanceBatch
+      geometry={TRACK_GEOMETRY}
+      material={FIXTURE_DARK_MATERIAL}
+      matrices={batches.tracks}
+      userData={{...sharedUserData, museumStructuralId: `lighting-tracks:${hallId}`}}
+    />
+    <InstanceBatch
+      geometry={TRACK_HEAD_BODY_GEOMETRY}
+      material={FIXTURE_DARK_MATERIAL}
+      matrices={batches.trackHeadBodies}
+      userData={{...sharedUserData, museumStructuralId: `lighting-track-heads:${hallId}`}}
+    />
+    <InstanceBatch
+      geometry={TRACK_HEAD_LENS_GEOMETRY}
+      material={FIXTURE_LENS_MATERIAL}
+      matrices={batches.trackHeadLenses}
+      userData={{...sharedUserData, museumStructuralId: `lighting-track-lenses:${hallId}`}}
+    />
+    <InstanceBatch
+      geometry={RECESSED_LENS_GEOMETRY}
+      material={FIXTURE_LENS_MATERIAL}
+      matrices={batches.recessedLenses}
+      userData={{...sharedUserData, museumStructuralId: `lighting-recessed-lenses:${hallId}`}}
+    />
+    <InstanceBatch
+      geometry={WALL_WASHER_APERTURE_GEOMETRY}
+      material={FIXTURE_LENS_MATERIAL}
+      matrices={batches.wallWashers}
+      userData={{...sharedUserData, museumStructuralId: `lighting-wall-washers:${hallId}`}}
+    />
   </group>;
 }
 
@@ -337,8 +465,7 @@ export function ContemporaryHallArchitecture({
     {architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall} wallMaterial={wallMaterial}/>)}
     <MuseumTemplateInterfaces definition={definition} ownedPortalIds={ownedPortalIds}/>
     {layout.furnishings.filter(({kind}) => kind === 'bench').map((item) => <Bench key={item.id} definition={item} mediterranean={mediterranean}/>)}
-    {layout.lighting.tracks.map((track) => <Track key={track.id} track={track}/>)}
-    {layout.lighting.exhibitLights.map((light) => <Fixture key={light.id} definition={light}/>)}
+    <MuseumLightingInstallation hallId={definition.id} lighting={layout.lighting}/>
     {layout.signs?.map((sign) => <PhysicalSign
       key={sign.id}
       definition={sign}

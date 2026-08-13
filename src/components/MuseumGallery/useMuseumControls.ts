@@ -20,6 +20,7 @@ import {
 } from './museumMovement';
 import {
   MUSEUM_POINTER_LOCK_SETTLED,
+  museumControlModeAfterUngesturedResume,
   museumPointerLockEventFailureRequestId,
   museumPointerLockSurvivesBlockedOverlay,
   transitionMuseumPointerLock,
@@ -322,18 +323,18 @@ export function useMuseumControls(options: UseMuseumControlsOptions): MuseumCont
     activeRef.current = true;
     suspendedRef.current = false;
     const locked = Boolean(canvas && document.pointerLockElement === canvas);
-    advancePointerLock({type: locked ? 'expect-release' : 'cancel'});
+    advancePointerLock({type: 'cancel'});
     clearInput();
     if (document.hidden || !document.hasFocus()) {
       activeRef.current = false;
       suspendedRef.current = true;
+      advancePointerLock({type: locked ? 'expect-release' : 'cancel'});
       setMode('suspended');
       if (locked) document.exitPointerLock?.();
       callbacksRef.current.onSuspend?.();
       return;
     }
-    advancePointerLock({type: 'cancel'});
-    setMode('drag-look');
+    setMode(museumControlModeAfterUngesturedResume(locked));
     window.requestAnimationFrame(() => canvas?.focus({preventScroll: true}));
   }, [advancePointerLock, canvas, clearInput, setMode]);
 

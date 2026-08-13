@@ -9,6 +9,7 @@ import {
   type MuseumPresentationTier,
 } from './museumCanonicalProgram';
 import {getMuseumHallTemplate} from './museumHallTemplates';
+import {createMuseumExhibitLightingPlan} from './museumExhibitLightingPlan';
 import {getMuseumManifestHallNode, MUSEUM_BUILDING_MANIFEST} from './museumBuildingManifest';
 import {MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY} from './museumArchitectureMaterials';
 import {
@@ -305,7 +306,6 @@ import type {
   MuseumSpatialCell,
   MuseumSpatialConnection,
   MuseumSupplementalExhibitLayout,
-  MuseumTrackDefinition,
   MuseumWallDefinition,
 } from './museumWorldTypes';
 import type {MuseumExhibitId, MuseumPublicHallId, MuseumZoneId} from '../museumCatalog';
@@ -1355,27 +1355,11 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         exhibitIds: room.exhibits.map(({id}) => id as MuseumExhibitId),
         lightingGroupId: `lighting:${room.id}`,
       }));
-  const tracks: MuseumTrackDefinition[] = cells.map((cell) => ({
-    id: `track:${cell.id}`,
-    center: {x: (cell.bounds.minX + cell.bounds.maxX) / 2, y: ceiling - .24, z: (cell.bounds.minZ + cell.bounds.maxZ) / 2},
-    size: {width: Math.max(2, cell.bounds.maxX - cell.bounds.minX - 1.2), height: .07, depth: .08},
-  }));
-  const exhibitLights = exhibits.map((layout) => {
-    const target = {x: layout.position.x, y: Math.min(1.72, layout.scene.focalTarget.y), z: layout.position.z};
-    const track = tracks.find(({id}) => id === `track:${layout.spatialCellId}`)!;
-    const mountPosition = {x: Math.max(track.center.x - track.size.width / 2, Math.min(track.center.x + track.size.width / 2, target.x)), y: ceiling - .28, z: track.center.z};
-    return {
-      id: `light:${layout.id}`,
-      exhibitId: layout.id,
-      trackId: track.id,
-      mountPosition,
-      position: {...mountPosition, y: mountPosition.y - .32},
-      target,
-      intensity: layout.presentationTier === 'anchor' ? 38 : 31,
-      distance: 10,
-      angle: .4,
-      penumbra: .72,
-    };
+  const lightingPlan = createMuseumExhibitLightingPlan({
+    cells,
+    exhibits,
+    supplementalExhibits,
+    crossroads: isCrossroads,
   });
   const wallColliders = [
     ...outerWalls(width, depth, ceiling, hall.id),
@@ -2393,8 +2377,12 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         ambientIntensity: isCrossroads ? .5 : .46,
         hemisphereIntensity: isCrossroads ? .68 : .62,
         directionalIntensity: .72,
-        tracks,
-        exhibitLights,
+        tracks: lightingPlan.tracks,
+        fixtures: lightingPlan.fixtures,
+        roomPlans: lightingPlan.roomPlans,
+        // Canonical halls use grouped visible fixtures plus shared world and
+        // architectural illumination, never one WebGL spotlight per exhibit.
+        exhibitLights: [],
       },
       signs,
     },

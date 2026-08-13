@@ -661,6 +661,8 @@ export type MuseumTrackDefinition = {
   id: string;
   center: MuseumPoint3;
   size: MuseumSize3;
+  /** Optional hall-local yaw for short rails that follow an exhibit wall. */
+  rotationY?: number;
 };
 
 export type MuseumExhibitLightDefinition = {
@@ -676,11 +678,43 @@ export type MuseumExhibitLightDefinition = {
   penumbra: number;
 };
 
+export type MuseumFixtureKind = 'track-head' | 'recessed-spot' | 'wall-washer';
+export type MuseumRoomLightingProfile = 'compact' | 'linear' | 'hub';
+
+/**
+ * A visible, non-WebGL fixture. One fixture may credibly serve a deliberately
+ * grouped display run; source membership is retained for complete audits.
+ */
+export type MuseumLightingFixtureDefinition = {
+  id: string;
+  kind: MuseumFixtureKind;
+  spatialCellId: string;
+  targetGroupId: string;
+  sourceIds: readonly string[];
+  trackId?: string;
+  mountPosition: MuseumPoint3;
+  target: MuseumPoint3;
+  coverageRadius: number;
+  width: number;
+};
+
+export type MuseumRoomLightingPlan = {
+  spatialCellId: string;
+  profile: MuseumRoomLightingProfile;
+  sourceIds: readonly string[];
+  fixtureIds: readonly string[];
+  trackIds: readonly string[];
+};
+
 export type MuseumLightingDefinition = {
   ambientIntensity: number;
   hemisphereIntensity: number;
   directionalIntensity: number;
   tracks: readonly MuseumTrackDefinition[];
+  /** Canonical grouped fixture geometry; absent on legacy authored halls. */
+  fixtures?: readonly MuseumLightingFixtureDefinition[];
+  roomPlans?: readonly MuseumRoomLightingPlan[];
+  /** Legacy live-light definitions. Canonical halls keep this array empty. */
   exhibitLights: readonly MuseumExhibitLightDefinition[];
 };
 

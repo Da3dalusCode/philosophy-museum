@@ -634,8 +634,11 @@ function MuseumWorldContents(props: MuseumSceneRuntimeProps & {shadowsEnabled: b
   // its connector. This prevents a hall from unloading or changing shade at
   // the physical seam before the next hall is actually entered.
   const activeHallLighting = getMuseumHallDefinition(props.activeHallId)?.layout.lighting;
-  const hemisphereIntensity = (activeHallLighting?.hemisphereIntensity ?? .64) * .78;
-  const ambientIntensity = (activeHallLighting?.ambientIntensity ?? .48) * .7;
+  // These authored values are the Museum's diffuse midtone baseline. Shadow
+  // grounding is supplied by the single physical-node key; reducing global
+  // fill here darkened every wall and display face without adding depth.
+  const hemisphereIntensity = activeHallLighting?.hemisphereIntensity ?? .64;
+  const ambientIntensity = activeHallLighting?.ambientIntensity ?? .48;
   const connectedEntranceByHallId = useMemo(() => new Map(
     getMuseumNodeConnections(props.definition.id).flatMap((connection) => {
       const hallId = getMuseumConnectionTargetHallId(connection);

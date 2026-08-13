@@ -1376,7 +1376,10 @@ export function MuseumPage({route, href, push, replace}: {
   const resumeVisitOffered = shouldShowMuseumResumeVisit({
     phase: visitPhase,
     controlMode: controls.mode,
-    interfaceOpen: modalOpen || atGrandEntrance || atFinalThreshold,
+    // Physical location is not an open interface. In particular, a focus loss
+    // in the Grand Entrance must expose the same centered Resume Visit control
+    // as every gallery while the browser and application lock states recover.
+    interfaceOpen: modalOpen || atFinalThreshold,
     unavailable: Boolean(sceneError) || activeHallLoading || activeHallLoadFailed,
   });
   const resumeVisit = () => {

@@ -5271,8 +5271,88 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
     assert.deepEqual(definition.layout.guidedOrder, definition.layout.exhibits.map(({id}) => id));
     assert.equal(definition.layout.guidedWalkLegs.length, Math.max(0, hall.exhibits.length - 1));
     assert.equal(definition.layout.entryViews.length, hall.zones.length);
-    assert.equal(definition.layout.lighting.tracks.length, expectedPhysicalRoomCount);
-    assert.equal(definition.layout.lighting.exhibitLights.length, hall.exhibits.length);
+    const lighting = definition.layout.lighting;
+    assert.equal(lighting.exhibitLights.length, 0, `${definition.id} still creates per-exhibit WebGL spotlights`);
+    assert.equal(lighting.roomPlans?.length, expectedPhysicalRoomCount, `${definition.id} has incomplete room lighting plans`);
+    assert(lighting.fixtures?.length, `${definition.id} has no deterministic fixture geometry`);
+    const expectedLightingSourceIds = [
+      ...definition.layout.exhibits.map(({id}) => `primary:${id}`),
+      ...(definition.layout.supplementalExhibits ?? []).map(({id}) => `supplemental:${id}`),
+    ].sort();
+    const fixtureSourceIds = lighting.fixtures.flatMap(({sourceIds}) => sourceIds).sort();
+    assert.deepEqual(
+      fixtureSourceIds,
+      expectedLightingSourceIds,
+      `${definition.id} fixture membership does not cover every primary and supplemental display exactly once`,
+    );
+    assert.equal(new Set(lighting.fixtures.map(({id}) => id)).size, lighting.fixtures.length, `${definition.id} repeats fixture IDs`);
+    assert.equal(new Set(lighting.fixtures.map(({targetGroupId}) => targetGroupId)).size, lighting.fixtures.length, `${definition.id} repeats fixture target groups`);
+    assert.equal(new Set(lighting.tracks.map(({id}) => id)).size, lighting.tracks.length, `${definition.id} repeats track IDs`);
+    const trackIds = new Set(lighting.tracks.map(({id}) => id));
+    const referencedTrackIds = new Set(lighting.fixtures.flatMap(({trackId}) => trackId ? [trackId] : []));
+    assert.deepEqual([...trackIds].sort(), [...referencedTrackIds].sort(), `${definition.id} has an orphaned or missing fixture rail`);
+    for (const track of lighting.tracks) {
+      const plan = lighting.roomPlans.find(({trackIds: roomTrackIds}) => roomTrackIds.includes(track.id));
+      const cell = definition.layout.spatialCells.find(({id}) => id === plan?.spatialCellId);
+      assert(cell, `${definition.id}/${track.id} is not owned by a physical room`);
+      const longDimension = Math.max(
+        cell.bounds.maxX - cell.bounds.minX,
+        cell.bounds.maxZ - cell.bounds.minZ,
+      );
+      assert(
+        track.size.width >= 3.2 - .001 && track.size.width <= longDimension - 3.2 + .001,
+        `${definition.id}/${track.id} is not a restrained large-room rail`,
+      );
+    }
+    for (const plan of lighting.roomPlans) {
+      const cell = definition.layout.spatialCells.find(({id}) => id === plan.spatialCellId);
+      assert(cell, `${definition.id} lighting plan references missing cell ${plan.spatialCellId}`);
+      const expectedProfile = definition.resolvedTemplate.templateId === 'crossroads-4'
+        ? 'hub'
+        : Math.min(cell.bounds.maxX - cell.bounds.minX, cell.bounds.maxZ - cell.bounds.minZ) <= 12
+          || (cell.bounds.maxX - cell.bounds.minX) * (cell.bounds.maxZ - cell.bounds.minZ) <= 300
+            ? 'compact'
+            : 'linear';
+      assert.equal(plan.profile, expectedProfile, `${definition.id}/${cell.id} has the wrong fixture profile`);
+      assert.deepEqual(
+        [...plan.sourceIds].sort(),
+        expectedLightingSourceIds.filter((sourceId) => lighting.fixtures.some((fixture) =>
+          fixture.spatialCellId === cell.id && fixture.sourceIds.includes(sourceId))).sort(),
+        `${definition.id}/${cell.id} room coverage is inconsistent`,
+      );
+      if (plan.profile === 'linear') {
+        assert(plan.trackIds.length >= 1 && plan.trackIds.length <= 2, `${definition.id}/${cell.id} has an excessive rail count`);
+      } else {
+        assert.equal(plan.trackIds.length, 0, `${definition.id}/${cell.id} crowds a small room with rails`);
+      }
+    }
+    for (const fixture of lighting.fixtures) {
+      const cell = definition.layout.spatialCells.find(({id}) => id === fixture.spatialCellId);
+      assert(cell, `${definition.id}/${fixture.id} references a missing room`);
+      assert(fixture.mountPosition.x >= cell.bounds.minX && fixture.mountPosition.x <= cell.bounds.maxX);
+      assert(fixture.mountPosition.z >= cell.bounds.minZ && fixture.mountPosition.z <= cell.bounds.maxZ);
+      assert(fixture.mountPosition.y >= cell.ceilingHeight - .32 && fixture.mountPosition.y <= cell.ceilingHeight - .08);
+      if (fixture.kind === 'track-head') {
+        assert(fixture.trackId, `${definition.id}/${fixture.id} has no rail`);
+        const track = lighting.tracks.find(({id}) => id === fixture.trackId);
+        assert(track, `${definition.id}/${fixture.id} references a missing rail`);
+        const dx = fixture.mountPosition.x - track.center.x;
+        const dz = fixture.mountPosition.z - track.center.z;
+        const rotation = track.rotationY ?? 0;
+        const along = dx * Math.cos(rotation) - dz * Math.sin(rotation);
+        const across = dx * Math.sin(rotation) + dz * Math.cos(rotation);
+        assert(Math.abs(along) <= track.size.width / 2 - .27, `${definition.id}/${fixture.id} hangs beyond its rail`);
+        assert(Math.abs(across) <= .001, `${definition.id}/${fixture.id} is detached from its rail`);
+      } else {
+        assert.equal(fixture.trackId, undefined, `${definition.id}/${fixture.id} has an unnecessary rail`);
+      }
+      if (fixture.kind === 'wall-washer') {
+        assert(
+          fixture.sourceIds.some((sourceId) => sourceId.startsWith('supplemental:')),
+          `${definition.id}/${fixture.id} washer has no eligible supplemental display`,
+        );
+      }
+    }
     const comparativeLensCount = hall.zones.reduce((sum, zone) => sum + (zone.comparativeLenses?.length ?? 0), 0);
     const removedPhysicalRoomSigns = [
       MEDITERRANEAN_GALLERY_ID,
@@ -5325,8 +5405,14 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
     assert.deepEqual(definition.resolvedTemplate.canonicalFootprint, {width: expectedWidth, depth: expectedDepth});
     assert.deepEqual(definition.resolvedTemplate.resolvedRoomCeilingRange, [definition.resolvedTemplate.canonicalCeilingHeight, definition.resolvedTemplate.canonicalCeilingHeight]);
     assert.deepEqual(definition.resolvedTemplate.lightingInterface.roles, ['ambient', 'threshold', 'perimeter-track', 'anchor-track', 'accessible-label-light']);
-    assert.equal(definition.resolvedTemplate.lightingInterface.perimeterTrackIds.length, expectedPhysicalRoomCount);
-    assert.equal(definition.resolvedTemplate.lightingInterface.anchorTrackIds.length > 0, true);
+    assert.deepEqual(
+      definition.resolvedTemplate.lightingInterface.fixtureIds,
+      definition.layout.lighting.fixtures.map(({id}) => id),
+    );
+    assert.deepEqual(
+      definition.resolvedTemplate.lightingInterface.trackIds,
+      definition.layout.lighting.tracks.map(({id}) => id),
+    );
     assert.equal(
       definition.resolvedTemplate.lightingInterface.accessibleLabelAnchorIds.length,
       definition.layout.signs.length + hall.exhibits.length,
