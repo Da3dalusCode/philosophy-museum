@@ -657,12 +657,25 @@ export type MuseumCirculationPath = {
   clearanceRadius: number;
 };
 
-export type MuseumTrackDefinition = {
+export type MuseumTrackSegmentDefinition = {
   id: string;
   center: MuseumPoint3;
   size: MuseumSize3;
   /** Optional hall-local yaw for short rails that follow an exhibit wall. */
   rotationY?: number;
+};
+
+export type MuseumTrackDefinition = MuseumTrackSegmentDefinition & {
+  /** Physical segments owned by one logical service track. */
+  segments?: readonly MuseumTrackSegmentDefinition[];
+};
+
+export type MuseumAmbientDiffuserDefinition = {
+  id: string;
+  spatialCellId: string;
+  center: MuseumPoint3;
+  size: MuseumSize3;
+  colorTemperatureK: number;
 };
 
 export type MuseumExhibitLightDefinition = {
@@ -696,6 +709,10 @@ export type MuseumLightingFixtureDefinition = {
   target: MuseumPoint3;
   coverageRadius: number;
   width: number;
+  /** Hall-local prototype geometry; absent from the museum-wide fixture system. */
+  prototypeRole?: 'gallery-01-track-head' | 'gallery-02-recessed-gimbal';
+  /** Visible-emission ratio only; no per-fixture WebGL light is created. */
+  contrastScale?: number;
 };
 
 export type MuseumRoomLightingPlan = {
@@ -711,6 +728,8 @@ export type MuseumLightingDefinition = {
   hemisphereIntensity: number;
   directionalIntensity: number;
   tracks: readonly MuseumTrackDefinition[];
+  prototypeId?: 'gallery-01-option-a' | 'gallery-02-option-a';
+  ambientDiffusers?: readonly MuseumAmbientDiffuserDefinition[];
   /** Canonical grouped fixture geometry; absent on legacy authored halls. */
   fixtures?: readonly MuseumLightingFixtureDefinition[];
   roomPlans?: readonly MuseumRoomLightingPlan[];

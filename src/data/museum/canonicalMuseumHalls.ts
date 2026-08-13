@@ -10,6 +10,7 @@ import {
 } from './museumCanonicalProgram';
 import {getMuseumHallTemplate} from './museumHallTemplates';
 import {createMuseumExhibitLightingPlan} from './museumExhibitLightingPlan';
+import {createGalleryLightingPrototype} from './galleryLightingPrototypes';
 import {getMuseumManifestHallNode, MUSEUM_BUILDING_MANIFEST} from './museumBuildingManifest';
 import {MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY} from './museumArchitectureMaterials';
 import {
@@ -1355,7 +1356,12 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         exhibitIds: room.exhibits.map(({id}) => id as MuseumExhibitId),
         lightingGroupId: `lighting:${room.id}`,
       }));
-  const lightingPlan = createMuseumExhibitLightingPlan({
+  const lightingPlan = createGalleryLightingPrototype({
+    hallId: hall.id,
+    cells,
+    exhibits,
+    supplementalExhibits,
+  }) ?? createMuseumExhibitLightingPlan({
     cells,
     exhibits,
     supplementalExhibits,
@@ -2380,6 +2386,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         tracks: lightingPlan.tracks,
         fixtures: lightingPlan.fixtures,
         roomPlans: lightingPlan.roomPlans,
+        ...('prototypeId' in lightingPlan ? {
+          prototypeId: lightingPlan.prototypeId,
+          ambientDiffusers: lightingPlan.ambientDiffusers,
+        } : {}),
         // Canonical halls use grouped visible fixtures plus shared world and
         // architectural illumination, never one WebGL spotlight per exhibit.
         exhibitLights: [],

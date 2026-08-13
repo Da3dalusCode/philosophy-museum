@@ -5299,10 +5299,13 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
         cell.bounds.maxX - cell.bounds.minX,
         cell.bounds.maxZ - cell.bounds.minZ,
       );
-      assert(
-        track.size.width >= 3.2 - .001 && track.size.width <= longDimension - 3.2 + .001,
-        `${definition.id}/${track.id} is not a restrained large-room rail`,
-      );
+      for (const segment of track.segments ?? [track]) {
+        const segmentLength = Math.max(segment.size.width, segment.size.depth);
+        assert(
+          segmentLength >= 3.2 - .001 && segmentLength <= longDimension - 3.2 + .001,
+          `${definition.id}/${segment.id} is not a restrained large-room rail segment`,
+        );
+      }
     }
     for (const plan of lighting.roomPlans) {
       const cell = definition.layout.spatialCells.find(({id}) => id === plan.spatialCellId);
@@ -5331,18 +5334,29 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
       assert(cell, `${definition.id}/${fixture.id} references a missing room`);
       assert(fixture.mountPosition.x >= cell.bounds.minX && fixture.mountPosition.x <= cell.bounds.maxX);
       assert(fixture.mountPosition.z >= cell.bounds.minZ && fixture.mountPosition.z <= cell.bounds.maxZ);
-      assert(fixture.mountPosition.y >= cell.ceilingHeight - .32 && fixture.mountPosition.y <= cell.ceilingHeight - .08);
+      if (fixture.prototypeRole === 'gallery-02-recessed-gimbal') {
+        assert(fixture.mountPosition.y >= cell.ceilingHeight - .08 && fixture.mountPosition.y <= cell.ceilingHeight);
+      } else {
+        assert(fixture.mountPosition.y >= cell.ceilingHeight - .32 && fixture.mountPosition.y <= cell.ceilingHeight - .08);
+      }
       if (fixture.kind === 'track-head') {
         assert(fixture.trackId, `${definition.id}/${fixture.id} has no rail`);
         const track = lighting.tracks.find(({id}) => id === fixture.trackId);
         assert(track, `${definition.id}/${fixture.id} references a missing rail`);
-        const dx = fixture.mountPosition.x - track.center.x;
-        const dz = fixture.mountPosition.z - track.center.z;
-        const rotation = track.rotationY ?? 0;
-        const along = dx * Math.cos(rotation) - dz * Math.sin(rotation);
-        const across = dx * Math.sin(rotation) + dz * Math.cos(rotation);
-        assert(Math.abs(along) <= track.size.width / 2 - .27, `${definition.id}/${fixture.id} hangs beyond its rail`);
-        assert(Math.abs(across) <= .001, `${definition.id}/${fixture.id} is detached from its rail`);
+        const supported = (track.segments ?? [track]).some((segment) => {
+          const dx = fixture.mountPosition.x - segment.center.x;
+          const dz = fixture.mountPosition.z - segment.center.z;
+          const rotation = segment.rotationY ?? 0;
+          const localX = dx * Math.cos(rotation) - dz * Math.sin(rotation);
+          const localZ = dx * Math.sin(rotation) + dz * Math.cos(rotation);
+          const horizontal = segment.size.width >= segment.size.depth;
+          const along = horizontal ? localX : localZ;
+          const across = horizontal ? localZ : localX;
+          const length = horizontal ? segment.size.width : segment.size.depth;
+          const endClearance = track.segments ? -.001 : .27;
+          return Math.abs(along) <= length / 2 - endClearance && Math.abs(across) <= .001;
+        });
+        assert(supported, `${definition.id}/${fixture.id} is detached from its rail segments`);
       } else {
         assert.equal(fixture.trackId, undefined, `${definition.id}/${fixture.id} has an unnecessary rail`);
       }
