@@ -8,6 +8,7 @@ import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
 } from './museumWorldTypes';
+import {reviewEastAsianSupplementalExhibit} from './eastAsianSupplementalReview';
 
 export const EAST_ASIAN_GALLERY_ID = 'east-asian-continuities' as const;
 
@@ -68,7 +69,7 @@ const daoism = academic(
 const record = (input: Omit<SupplementalExhibitAuthoring, 'panelKicker'>): MuseumSupplementalExhibit =>
   authorSupplementalExhibit({...input, panelKicker: 'Gallery 11 work and context exhibit'});
 
-export const EAST_ASIAN_SUPPLEMENTAL_EXHIBITS = [
+const eastAsianSupplementalExhibits = [
   record({
     id: 'eac-zhu-four-books',
     assetId: 'zhu-xi-four-books-edition',
@@ -567,6 +568,10 @@ export const EAST_ASIAN_SUPPLEMENTAL_EXHIBITS = [
   }),
 ] as const satisfies readonly MuseumSupplementalExhibit[];
 
+export const EAST_ASIAN_SUPPLEMENTAL_EXHIBITS = eastAsianSupplementalExhibits.map(
+  reviewEastAsianSupplementalExhibit,
+) as readonly MuseumSupplementalExhibit[];
+
 /**
  * Three rooms × six wall faces = eighteen physical installations.
  * Zhu Xi and Wang Yangming occupy two equal outer primaries in Room 01.
@@ -575,26 +580,26 @@ export const EAST_ASIAN_SUPPLEMENTAL_EXHIBITS = [
  */
 export const EAST_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   // Room 01: two canonical primaries and four return-wall works.
-  authorSupplementalLayout({id: 'eac-zhu-four-books', parentExhibitId: 'zhu-xi', zoneId: 'east-song-ming-confucian', position: {x: -5.55, z: -26.88}, rotationY: 0, assetId: 'zhu-xi-four-books-edition', mediaWidth: 3.25, mediaHeight: 2.75, installationKind: 'east-asian-work', accent: EAST_ASIAN_PALETTE.gold}),
-  authorSupplementalLayout({id: 'eac-wang-letters', parentExhibitId: 'wang-yangming', zoneId: 'east-song-ming-confucian', position: {x: 5.55, z: -26.88}, rotationY: 0, assetId: 'wang-yangming-letters-zheng', mediaWidth: 3.3, mediaHeight: 2.55, installationKind: 'east-asian-work', accent: EAST_ASIAN_PALETTE.cinnabar}),
-  authorSupplementalLayout({id: 'eac-zhu-white-deer', parentExhibitId: 'zhu-xi', zoneId: 'east-song-ming-confucian', position: {x: -5.55, z: -10.4533}, rotationY: Math.PI, assetId: 'white-deer-grotto-academy', mediaWidth: 3.3, mediaHeight: 2.55, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.jade}),
-  authorSupplementalLayout({id: 'eac-taijitu-heartmind', parentExhibitId: 'wang-yangming', zoneId: 'east-song-ming-confucian', position: {x: 5.55, z: -10.4533}, rotationY: Math.PI, assetId: 'zhou-dunyi-taijitu-reconstruction', mediaWidth: 2.65, mediaHeight: 3.25, installationKind: 'east-asian-concept', accent: EAST_ASIAN_PALETTE.indigo}),
+  authorSupplementalLayout({id: 'eac-zhu-four-books', parentExhibitId: 'zhu-xi', zoneId: 'east-song-ming-confucian', position: {x: -5.55, z: -26.88}, rotationY: 0, assetId: 'zhu-xi-four-books-edition', mediaWidth: 3.25, mediaHeight: 2.980859375, installationKind: 'east-asian-work', accent: EAST_ASIAN_PALETTE.gold}),
+  authorSupplementalLayout({id: 'eac-wang-letters', parentExhibitId: 'wang-yangming', zoneId: 'east-song-ming-confucian', position: {x: 5.55, z: -26.88}, rotationY: 0, assetId: 'wang-yangming-letters-zheng', mediaWidth: 3.3, mediaHeight: 2.19140625, installationKind: 'east-asian-work', accent: EAST_ASIAN_PALETTE.cinnabar}),
+  authorSupplementalLayout({id: 'eac-zhu-white-deer', parentExhibitId: 'zhu-xi', zoneId: 'east-song-ming-confucian', position: {x: -5.55, z: -10.4533}, rotationY: Math.PI, assetId: 'white-deer-grotto-academy', mediaWidth: 3.3, mediaHeight: 2.475, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.jade}),
+  authorSupplementalLayout({id: 'eac-taijitu-heartmind', parentExhibitId: 'wang-yangming', zoneId: 'east-song-ming-confucian', position: {x: 5.55, z: -10.4533}, rotationY: Math.PI, assetId: 'zhou-dunyi-taijitu-reconstruction', mediaWidth: 1.193359375, mediaHeight: 3.25, installationKind: 'east-asian-concept', accent: EAST_ASIAN_PALETTE.indigo}),
 
   // Room 02: two full-scale contextual outer anchors and four return installations.
-  authorSupplementalLayout({id: 'eac-xuanzang-translation', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: -10.85, z: 0}, rotationY: Math.PI / 2, assetId: 'east-xuanzang-japanese-reception', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.indigo}),
-  authorSupplementalLayout({id: 'eac-daoist-institutions', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: 10.85, z: 0}, rotationY: -Math.PI / 2, assetId: 'east-daoist-ritual-robe', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.jade}),
-  authorSupplementalLayout({id: 'eac-hwaeom-avatamsaka', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: -5.55, z: -8.2133}, rotationY: 0, assetId: 'east-hwaeom-avatamsaka-cover', mediaWidth: 3.3, mediaHeight: 2.55, installationKind: 'east-asian-work', accent: EAST_ASIAN_PALETTE.gold}),
-  authorSupplementalLayout({id: 'eac-three-teachings', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: 5.55, z: -8.2133}, rotationY: 0, assetId: 'east-three-teachings-painting', mediaWidth: 2.7, mediaHeight: 3.2, installationKind: 'east-asian-concept', accent: EAST_ASIAN_PALETTE.cinnabar}),
-  authorSupplementalLayout({id: 'eac-huineng-zen-reception', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: -5.55, z: 8.2133}, rotationY: Math.PI, assetId: 'east-huineng-japanese-reception', mediaWidth: 3.3, mediaHeight: 2.55, installationKind: 'east-asian-work', accent: EAST_ASIAN_PALETTE.indigo}),
-  authorSupplementalLayout({id: 'eac-water-land-stars', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: 5.55, z: 8.2133}, rotationY: Math.PI, assetId: 'east-water-land-star-deities', mediaWidth: 2.6, mediaHeight: 3.2, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.gold}),
+  authorSupplementalLayout({id: 'eac-xuanzang-translation', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: -10.85, z: 0}, rotationY: Math.PI / 2, assetId: 'east-xuanzang-japanese-reception', mediaWidth: 2.005859375, mediaHeight: 3.25, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.indigo}),
+  authorSupplementalLayout({id: 'eac-daoist-institutions', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: 10.85, z: 0}, rotationY: -Math.PI / 2, assetId: 'east-daoist-ritual-robe', mediaWidth: 4.24, mediaHeight: 3.186625, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.jade}),
+  authorSupplementalLayout({id: 'eac-hwaeom-avatamsaka', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: -5.55, z: -8.2133}, rotationY: 0, assetId: 'east-hwaeom-avatamsaka-cover', mediaWidth: 1.76109375, mediaHeight: 2.55, installationKind: 'east-asian-work', accent: EAST_ASIAN_PALETTE.gold}),
+  authorSupplementalLayout({id: 'eac-three-teachings', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: 5.55, z: -8.2133}, rotationY: 0, assetId: 'east-three-teachings-painting', mediaWidth: 1.85, mediaHeight: 3.2, installationKind: 'east-asian-concept', accent: EAST_ASIAN_PALETTE.cinnabar}),
+  authorSupplementalLayout({id: 'eac-huineng-zen-reception', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: -5.55, z: 8.2133}, rotationY: Math.PI, assetId: 'east-huineng-japanese-reception', mediaWidth: 3.3, mediaHeight: 2.09859375, installationKind: 'east-asian-work', accent: EAST_ASIAN_PALETTE.indigo}),
+  authorSupplementalLayout({id: 'eac-water-land-stars', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-buddhist-daoist-transmissions', position: {x: 5.55, z: 8.2133}, rotationY: Math.PI, assetId: 'east-water-land-star-deities', mediaWidth: 2.11, mediaHeight: 3.2, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.gold}),
 
   // Room 03: specific Korean, Japanese, Vietnamese, and modern continuities.
-  authorSupplementalLayout({id: 'eac-korea-four-seven', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: -10.85, z: 18.6667}, rotationY: Math.PI / 2, assetId: 'dosan-seowon-academy', mediaWidth: 3.3, mediaHeight: 2.55, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.jade}),
-  authorSupplementalLayout({id: 'eac-japan-hayashi', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: 10.85, z: 18.6667}, rotationY: -Math.PI / 2, assetId: 'hayashi-yushima-seido', mediaWidth: 3.3, mediaHeight: 2.55, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.indigo}),
-  authorSupplementalLayout({id: 'eac-yi-i-ojukheon', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: -5.55, z: 10.4533}, rotationY: 0, assetId: 'yi-i-ojukheon', mediaWidth: 3.3, mediaHeight: 2.55, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.gold}),
-  authorSupplementalLayout({id: 'eac-japan-ancient-learning', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: 5.55, z: 10.4533}, rotationY: 0, assetId: 'ito-jinsai-portrait', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.cinnabar}),
-  authorSupplementalLayout({id: 'eac-vietnam-le-quy-don', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: -5.55, z: 26.88}, rotationY: Math.PI, assetId: 'le-quy-don-van-dai', mediaWidth: 2.6, mediaHeight: 3.2, installationKind: 'east-asian-work', accent: EAST_ASIAN_PALETTE.jade}),
-  authorSupplementalLayout({id: 'eac-modern-confucianism', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: 5.55, z: 26.88}, rotationY: Math.PI, assetId: 'kang-youwei-1905', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.gold}),
+  authorSupplementalLayout({id: 'eac-korea-four-seven', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: -10.85, z: 18.6667}, rotationY: Math.PI / 2, assetId: 'dosan-seowon-academy', mediaWidth: 3.4, mediaHeight: 2.55, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.jade}),
+  authorSupplementalLayout({id: 'eac-japan-hayashi', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: 10.85, z: 18.6667}, rotationY: -Math.PI / 2, assetId: 'hayashi-yushima-seido', mediaWidth: 3.84, mediaHeight: 2.55, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.indigo}),
+  authorSupplementalLayout({id: 'eac-yi-i-ojukheon', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: -5.55, z: 10.4533}, rotationY: 0, assetId: 'yi-i-ojukheon', mediaWidth: 4.24, mediaHeight: 2.391625, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.gold}),
+  authorSupplementalLayout({id: 'eac-japan-ancient-learning', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: 5.55, z: 10.4533}, rotationY: 0, assetId: 'ito-jinsai-portrait', mediaWidth: 2.89453125, mediaHeight: 3.25, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.cinnabar}),
+  authorSupplementalLayout({id: 'eac-vietnam-le-quy-don', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: -5.55, z: 26.88}, rotationY: Math.PI, assetId: 'le-quy-don-van-dai', mediaWidth: 3.842401500938086, mediaHeight: 3.2, installationKind: 'east-asian-work', accent: EAST_ASIAN_PALETTE.jade}),
+  authorSupplementalLayout({id: 'eac-modern-confucianism', parentExhibitId: 'zhu-xi', guidedAfterExhibitId: 'wang-yangming', zoneId: 'east-regional-continuities-reserve', position: {x: 5.55, z: 26.88}, rotationY: Math.PI, assetId: 'kang-youwei-1905', mediaWidth: 2.178515625, mediaHeight: 3.25, installationKind: 'east-asian-context', accent: EAST_ASIAN_PALETTE.gold}),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getEastAsianSupplementalExhibit = (
