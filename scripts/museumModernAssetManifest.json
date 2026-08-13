@@ -4553,20 +4553,20 @@
     },
     "china-guodian-daoist-bamboo-slips": {
       "hallFolder": "classical-chinese-traditions",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Warring_States_or_Han_Bamboo_Slips_of_Daoist_Text_(9974128735).jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Warring_States_or_Han_Bamboo_Slips_of_Daoist_Text_(9974128735).jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Warring_States_or_Han_Bamboo_Slips_of_Daoist_Text_(9974128735).jpg?width=1280",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E9%83%AD%E5%BA%97%E6%A5%9A%E7%AE%80%E3%80%8A%E8%80%81%E5%AD%90%E7%94%B2%E3%80%8B.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E9%83%AD%E5%BA%97%E6%A5%9A%E7%AE%80%E3%80%8A%E8%80%81%E5%AD%90%E7%94%B2%E3%80%8B.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E9%83%AD%E5%BA%97%E6%A5%9A%E7%AE%80%E3%80%8A%E8%80%81%E5%AD%90%E7%94%B2%E3%80%8B.jpg?width=1280",
       "scene": {
-        "width": 427,
-        "height": 640,
-        "bytes": 16368,
-        "sha256": "2d3d19735206ab87194ca2a7fbb1efb5bf5c8a025d3ef5bd44df432d315d43fa"
+        "width": 640,
+        "height": 458,
+        "bytes": 68044,
+        "sha256": "fb171859953acd6c1330ea75c0bb4a30cc57070a9e6ae3fec554327d291de749"
       },
       "panel": {
-        "width": 853,
-        "height": 1280,
-        "bytes": 81932,
-        "sha256": "d4be6d10485a9b062247e18b7ccf4a3e21f8781f80e9c89e696fc443f00bcc37"
+        "width": 1280,
+        "height": 915,
+        "bytes": 333234,
+        "sha256": "a8265f419b6144d1828056be86c3326633b010f333dbecd281180eafe9387485"
       }
     },
     "china-zhuangzi-butterfly-dream": {

@@ -41,7 +41,7 @@ const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => ({
   ],
   articleRoute: input.articleRoute,
   presentation: {
-    panelKicker: 'Gallery 09 contextual exhibit',
+    panelKicker: 'Gallery 06 supplemental exhibit',
     proximityKicker: input.workLabel,
     factRows: [
       {label: 'Focus', value: input.shortTitle},
@@ -71,7 +71,7 @@ const mohismReference = {
 };
 
 /**
- * Six secondary installations that complete otherwise usable Gallery 09 wall
+ * Six secondary installations that complete otherwise usable Gallery 06 wall
  * faces. Each remains a substantial, interactive exhibit rather than décor.
  */
 export const CLASSICAL_CHINESE_WALL_FILL_EXHIBITS = [
