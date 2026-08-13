@@ -1,5 +1,7 @@
 import type {
   MuseumAmbientDiffuserDefinition,
+  MuseumCirculationDownlightDefinition,
+  MuseumCirculationLightPoolDefinition,
   MuseumExhibitLayout,
   MuseumLightingFixtureDefinition,
   MuseumRoomLightingPlan,
@@ -10,6 +12,19 @@ import type {
 
 export const GALLERY_01_LIGHTING_PROTOTYPE_ID = 'gallery-01-option-a' as const;
 export const GALLERY_02_LIGHTING_PROTOTYPE_ID = 'gallery-02-option-a' as const;
+
+export const GALLERY_02_RECESS_PROFILE = Object.freeze({
+  mountInset: .035,
+  trimInset: .001,
+  cutoutRadius: .148,
+  baffleDepth: .34,
+  opticCenterInset: .16,
+  opticOuterRadius: .151,
+  minimumConcealment: .01,
+  maximumAimDegrees: 50,
+});
+
+export const GALLERY_02_CIRCULATION_ARM_OFFSET = 5.4;
 
 const GALLERY_01_ID = 'mediterranean-beginnings-classical';
 const GALLERY_02_ID = 'hellenistic-roman-ways';
@@ -309,10 +324,41 @@ export const resolveGallery02PrototypeMount = (
   const doorwayMount = GALLERY_02_DOORWAY_MOUNTS.get(spec.sourceId);
   return {
     x: doorwayMount?.x ?? spec.x + normal.x * 2.35,
-    y: cell.ceilingHeight - .035,
+    y: cell.ceilingHeight - GALLERY_02_RECESS_PROFILE.mountInset,
     z: doorwayMount?.z ?? spec.z + normal.z * 2.35,
   };
 };
+
+export const createGallery02CirculationDownlights = (
+  cells: readonly Pick<MuseumSpatialCell, 'ceilingHeight'>[],
+): readonly MuseumCirculationDownlightDefinition[] => {
+  const ceilingHeight = cells[0]?.ceilingHeight;
+  if (ceilingHeight === undefined || cells.some((cell) => cell.ceilingHeight !== ceilingHeight)) {
+    throw new Error('Gallery 02 circulation downlights require one shared ceiling plane.');
+  }
+  const arm = GALLERY_02_CIRCULATION_ARM_OFFSET;
+  return [
+    {id: 'prototype:g02:circulation:center', x: 0, z: 0},
+    {id: 'prototype:g02:circulation:north', x: 0, z: -arm},
+    {id: 'prototype:g02:circulation:east', x: arm, z: 0},
+    {id: 'prototype:g02:circulation:south', x: 0, z: arm},
+    {id: 'prototype:g02:circulation:west', x: -arm, z: 0},
+  ].map(({id, x, z}) => ({
+    id,
+    position: {x, y: ceilingHeight, z},
+    colorTemperatureK: 3000,
+  }));
+};
+
+const createGallery02CirculationLightPool = (
+  cells: readonly Pick<MuseumSpatialCell, 'ceilingHeight'>[],
+): MuseumCirculationLightPoolDefinition => ({
+  position: {x: 0, y: (cells[0]?.ceilingHeight ?? 6.2) - .72, z: 0},
+  color: '#ffd6a0',
+  intensity: .95,
+  width: 7.2,
+  height: 7.2,
+});
 
 const roomPlans = (
   cells: readonly MuseumSpatialCell[],
@@ -367,6 +413,10 @@ export const createGalleryLightingPrototype = ({
     tracks,
     fixtures,
     ambientDiffusers,
+    ...(hallId === GALLERY_02_ID ? {
+      circulationDownlights: createGallery02CirculationDownlights(cells),
+      circulationLightPool: createGallery02CirculationLightPool(cells),
+    } : {}),
     roomPlans: roomPlans(cells, fixtures, tracks),
   } as const;
 };

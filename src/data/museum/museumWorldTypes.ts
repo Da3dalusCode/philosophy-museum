@@ -715,6 +715,20 @@ export type MuseumLightingFixtureDefinition = {
   contrastScale?: number;
 };
 
+export type MuseumCirculationDownlightDefinition = {
+  id: string;
+  position: MuseumPoint3;
+  colorTemperatureK: number;
+};
+
+export type MuseumCirculationLightPoolDefinition = {
+  position: MuseumPoint3;
+  color: string;
+  intensity: number;
+  width: number;
+  height: number;
+};
+
 export type MuseumRoomLightingPlan = {
   spatialCellId: string;
   profile: MuseumRoomLightingProfile;
@@ -730,6 +744,8 @@ export type MuseumLightingDefinition = {
   tracks: readonly MuseumTrackDefinition[];
   prototypeId?: 'gallery-01-option-a' | 'gallery-02-option-a';
   ambientDiffusers?: readonly MuseumAmbientDiffuserDefinition[];
+  circulationDownlights?: readonly MuseumCirculationDownlightDefinition[];
+  circulationLightPool?: MuseumCirculationLightPoolDefinition;
   /** Canonical grouped fixture geometry; absent on legacy authored halls. */
   fixtures?: readonly MuseumLightingFixtureDefinition[];
   roomPlans?: readonly MuseumRoomLightingPlan[];

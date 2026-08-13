@@ -2389,6 +2389,10 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
         ...('prototypeId' in lightingPlan ? {
           prototypeId: lightingPlan.prototypeId,
           ambientDiffusers: lightingPlan.ambientDiffusers,
+          ...('circulationDownlights' in lightingPlan ? {
+            circulationDownlights: lightingPlan.circulationDownlights,
+            circulationLightPool: lightingPlan.circulationLightPool,
+          } : {}),
         } : {}),
         // Canonical halls use grouped visible fixtures plus shared world and
         // architectural illumination, never one WebGL spotlight per exhibit.

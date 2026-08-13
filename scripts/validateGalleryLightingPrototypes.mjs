@@ -1,12 +1,16 @@
 import {
+  GALLERY_02_CIRCULATION_ARM_OFFSET,
   GALLERY_01_LIGHTING_TARGETS,
   GALLERY_02_LIGHTING_TARGETS,
+  GALLERY_02_RECESS_PROFILE,
   createGallery01PrototypeDiffusers,
   createGallery01PrototypeTracks,
+  createGallery02CirculationDownlights,
   createGallery02PrototypeDiffusers,
   resolveGallery01PrototypeMount,
   resolveGallery02PrototypeMount,
 } from '../src/data/museum/galleryLightingPrototypes.ts';
+import {readFileSync} from 'node:fs';
 
 const gallery01Cells = [
   {id: 'med-plato-aristotle', bounds: {minX: -12, maxX: 12, minZ: -28, maxZ: -14}, ceilingHeight: 5.8},
@@ -117,16 +121,22 @@ const g02CellById = cellMap(gallery02Cells);
 const g01Tracks = createGallery01PrototypeTracks(gallery01Cells);
 const g01Diffusers = createGallery01PrototypeDiffusers(gallery01Cells);
 const g02Diffusers = createGallery02PrototypeDiffusers(gallery02Cells);
+const g02CirculationDownlights = createGallery02CirculationDownlights(gallery02Cells);
 const diffuserRects = (diffusers) => diffusers.map(({id, center, size}) => rect(id, center.x, center.z, size.width, size.depth));
 const physicalTrackSegments = g01Tracks.flatMap((track) => track.segments ?? [track]);
 const trackRects = physicalTrackSegments.map(({id, center, size}) => rect(id, center.x, center.z, size.width, size.depth));
 const g01DiffuserRects = diffuserRects(g01Diffusers);
 const g02DiffuserRects = diffuserRects(g02Diffusers);
+const g02GimbalMounts = GALLERY_02_LIGHTING_TARGETS.map((spec) => ({
+  id: spec.sourceId,
+  ...resolveGallery02PrototypeMount(spec, g02CellById.get(spec.spatialCellId)),
+}));
 
 assert(GALLERY_01_LIGHTING_TARGETS.length === 27, 'Gallery 01 must have 27 target specifications.');
 assert(GALLERY_02_LIGHTING_TARGETS.length === 25, 'Gallery 02 must have 25 target specifications.');
 assert(new Set(GALLERY_01_LIGHTING_TARGETS.map(({sourceId}) => sourceId)).size === 27, 'Gallery 01 source IDs must be unique.');
 assert(new Set(GALLERY_02_LIGHTING_TARGETS.map(({sourceId}) => sourceId)).size === 25, 'Gallery 02 source IDs must be unique.');
+assert(g02CirculationDownlights.length === 5, 'Gallery 02 must have five circulation downlights.');
 
 const empedocles = GALLERY_01_LIGHTING_TARGETS.find(({sourceId}) => sourceId === 'primary:empedocles');
 const anaxagoras = GALLERY_01_LIGHTING_TARGETS.find(({sourceId}) => sourceId === 'primary:anaxagoras');
@@ -187,12 +197,67 @@ for (const spec of GALLERY_02_LIGHTING_TARGETS) {
   assert(!gallery02Doorways.some((door) => circleOverlapsRect(mount, .22, door)), `${spec.sourceId} intersects a Gallery 02 passage.`);
   assert(!g02DiffuserRects.some((diffuser) => circleOverlapsRect(mount, .22, diffuser)), `${spec.sourceId} intersects a Gallery 02 diffuser.`);
   assert(!gallery02Walls.some((wall) => segmentIntersectsRect(mount, spec, wall)), `${spec.sourceId} aim crosses an intervening Gallery 02 wall or baffle.`);
+  assert(Math.abs(mount.y + GALLERY_02_RECESS_PROFILE.mountInset - cell.ceilingHeight) < .0001, `${spec.sourceId} mount datum does not resolve to the Gallery 02 ceiling plane.`);
 }
+
+const expectedCirculationPositions = new Set([
+  '0,0',
+  `0,${-GALLERY_02_CIRCULATION_ARM_OFFSET}`,
+  `${GALLERY_02_CIRCULATION_ARM_OFFSET},0`,
+  `0,${GALLERY_02_CIRCULATION_ARM_OFFSET}`,
+  `${-GALLERY_02_CIRCULATION_ARM_OFFSET},0`,
+]);
+assert(new Set(g02CirculationDownlights.map(({position}) => `${position.x},${position.z}`)).size === 5, 'Gallery 02 circulation positions must be unique.');
+for (const downlight of g02CirculationDownlights) {
+  const {position} = downlight;
+  assert(expectedCirculationPositions.delete(`${position.x},${position.z}`), `${downlight.id} is not on the symmetric Gallery 02 plus.`);
+  assert(position.y === gallery02Cells[0].ceilingHeight, `${downlight.id} trim datum is not coplanar with the Gallery 02 ceiling.`);
+  assert(downlight.colorTemperatureK === 3000, `${downlight.id} is not specified at 3000 K.`);
+  assert(!gallery02Walls.some((wall) => circleOverlapsRect(position, .22, wall)), `${downlight.id} intersects a Gallery 02 wall or baffle.`);
+  assert(!gallery02Doorways.some((door) => circleOverlapsRect(position, .22, door)), `${downlight.id} intersects a Gallery 02 passage.`);
+  assert(!g02DiffuserRects.some((diffuser) => circleOverlapsRect(position, .22, diffuser)), `${downlight.id} intersects a Gallery 02 diffuser.`);
+  assert(!g02GimbalMounts.some((mount) => Math.hypot(position.x - mount.x, position.z - mount.z) < .44), `${downlight.id} intersects an exhibit gimbal.`);
+}
+assert(expectedCirculationPositions.size === 0, 'Gallery 02 circulation plus is incomplete.');
+for (let first = 0; first < g02CirculationDownlights.length; first += 1) {
+  for (let second = first + 1; second < g02CirculationDownlights.length; second += 1) {
+    const a = g02CirculationDownlights[first].position;
+    const b = g02CirculationDownlights[second].position;
+    assert(Math.hypot(a.x - b.x, a.z - b.z) >= .44, `${g02CirculationDownlights[first].id} intersects ${g02CirculationDownlights[second].id}.`);
+  }
+}
+
+const maximumOpticRise = GALLERY_02_RECESS_PROFILE.opticOuterRadius
+  * Math.sin(GALLERY_02_RECESS_PROFILE.maximumAimDegrees * Math.PI / 180);
+assert(GALLERY_02_RECESS_PROFILE.trimInset <= .001, 'Gallery 02 trim is not coplanar with the ceiling plane.');
+assert(GALLERY_02_RECESS_PROFILE.cutoutRadius > .14, 'Gallery 02 ceiling cutout is too small for the recessed aperture.');
+assert(
+  GALLERY_02_RECESS_PROFILE.opticCenterInset - maximumOpticRise >= GALLERY_02_RECESS_PROFILE.minimumConcealment,
+  'Gallery 02 aimed optic can project through the ceiling plane at the validated maximum aim.',
+);
+assert(
+  GALLERY_02_RECESS_PROFILE.opticCenterInset + maximumOpticRise < GALLERY_02_RECESS_PROFILE.baffleDepth,
+  'Gallery 02 aimed optic does not fit within the concealed baffle depth.',
+);
+
+const architectureSource = readFileSync(new URL('../src/components/MuseumGallery/ContemporaryHallArchitecture.tsx', import.meta.url), 'utf8');
+assert(architectureSource.includes('function Gallery02RecessedCeiling'), 'Gallery 02 renderer has no perforated ceiling treatment.');
+assert(architectureSource.includes('new ShapeGeometry(shape, 16)'), 'Gallery 02 ceiling cutouts are not generated as circular holes.');
+assert(architectureSource.includes('recessedOpticRootMatrix'), 'Gallery 02 renderer does not inset aimed optics independently of the ceiling recess.');
+assert(!architectureSource.includes('PROTOTYPE_HINGE_GEOMETRY'), 'Gallery 02 still exposes the upper hinge mechanism.');
 
 console.log(JSON.stringify({
   galleries: {
     gallery01: {targets: 27, individualHeads: 27, serviceTracks: g01Tracks.length, trackSegments: physicalTrackSegments.length, diffusers: g01Diffusers.length},
-    gallery02: {targets: 25, individualGimbals: 25, diffusers: g02Diffusers.length, doorwayDiagonalAims: 4},
+    gallery02: {
+      targets: 25,
+      individualGimbals: 25,
+      recessedCeilingCutouts: 30,
+      circulationDownlights: g02CirculationDownlights.length,
+      pooledCirculationSources: 1,
+      diffusers: g02Diffusers.length,
+      doorwayDiagonalAims: 4,
+    },
   },
   intersections: 0,
   result: 'Gallery 01/02 lighting prototype geometry is clear.',

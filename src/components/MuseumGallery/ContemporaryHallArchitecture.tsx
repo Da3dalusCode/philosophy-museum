@@ -1,15 +1,18 @@
 import type {ThreeEvent} from '@react-three/fiber';
 import {useLayoutEffect, useMemo, useRef} from 'react';
 import {
+  BackSide,
   BoxGeometry,
   CircleGeometry,
   CylinderGeometry,
   Matrix4,
   MeshStandardMaterial,
+  Path,
   PlaneGeometry,
   Quaternion,
   RingGeometry,
-  SphereGeometry,
+  Shape,
+  ShapeGeometry,
   TorusGeometry,
   Vector3,
   type BufferGeometry,
@@ -19,6 +22,7 @@ import {
 import type {
   MuseumExhibitLightDefinition,
   MuseumAmbientDiffuserDefinition,
+  MuseumCirculationDownlightDefinition,
   MuseumFurnishingDefinition,
   MuseumHallDefinition,
   MuseumLightingDefinition,
@@ -29,6 +33,7 @@ import type {
   MuseumTrackDefinition,
   MuseumWallDefinition,
 } from '../../data/museum/museumWorldTypes';
+import {GALLERY_02_RECESS_PROFILE} from '../../data/museum/galleryLightingPrototypes';
 import {
   MUSEUM_CANONICAL_CEILING_MATERIAL,
   MUSEUM_CANONICAL_WALL_EDGE_MATERIAL,
@@ -67,10 +72,16 @@ const PROTOTYPE_TRACK_HEAD_SNOOT_GEOMETRY = new CylinderGeometry(.09, .105, .16,
 const PROTOTYPE_TRACK_HEAD_LENS_GEOMETRY = new CircleGeometry(.076, 64);
 const PROTOTYPE_TRACK_HEAD_YOKE_GEOMETRY = new TorusGeometry(.14, .022, 12, 48);
 const PROTOTYPE_RECESSED_TRIM_GEOMETRY = new RingGeometry(.145, .215, 96);
-const PROTOTYPE_RECESSED_BAFFLE_GEOMETRY = new CylinderGeometry(.132, .112, .12, 64, 1, true);
+const PROTOTYPE_RECESSED_BAFFLE_GEOMETRY = new CylinderGeometry(
+  .14,
+  .112,
+  GALLERY_02_RECESS_PROFILE.baffleDepth,
+  64,
+  1,
+  true,
+);
 const PROTOTYPE_RECESSED_GIMBAL_GEOMETRY = new TorusGeometry(.13, .021, 16, 64);
 const PROTOTYPE_RECESSED_LENS_GEOMETRY = new CircleGeometry(.104, 64);
-const PROTOTYPE_HINGE_GEOMETRY = new SphereGeometry(.026, 16, 10);
 const FIXTURE_DARK_MATERIAL = new MeshStandardMaterial({
   color: '#252729',
   metalness: .3,
@@ -87,6 +98,12 @@ const PROTOTYPE_BLACK_MATERIAL = new MeshStandardMaterial({
   metalness: .22,
   roughness: .46,
 });
+const PROTOTYPE_RECESS_BAFFLE_MATERIAL = new MeshStandardMaterial({
+  color: '#050606',
+  metalness: .14,
+  roughness: .58,
+  side: BackSide,
+});
 const PROTOTYPE_TRIM_MATERIAL = new MeshStandardMaterial({
   ...MUSEUM_CANONICAL_CEILING_MATERIAL,
 });
@@ -102,6 +119,12 @@ const PROTOTYPE_3000K_ANCHOR_MATERIAL = new MeshStandardMaterial({
   emissiveIntensity: 1.152,
   roughness: .62,
 });
+const PROTOTYPE_3000K_CIRCULATION_MATERIAL = new MeshStandardMaterial({
+  color: '#ffd6a0',
+  emissive: '#ffd6a0',
+  emissiveIntensity: .82,
+  roughness: .68,
+});
 const PROTOTYPE_DIFFUSER_MATERIAL = new MeshStandardMaterial({
   color: '#f4d1a0',
   emissive: '#ffd6a0',
@@ -114,11 +137,12 @@ const prototypeLightingEnabled = (): boolean => !(
   && new URLSearchParams(window.location.search).get('museumLightingPrototype') === '0'
 );
 
-function CellShell({cell, renaissance, forum, customAmbient}: {
+function CellShell({cell, renaissance, forum, customAmbient, recessedCeiling}: {
   cell: MuseumSpatialCell;
   renaissance: boolean;
   forum: boolean;
   customAmbient: boolean;
+  recessedCeiling: boolean;
 }) {
   const bounds = cell.renderBounds ?? cell.bounds;
   const width = bounds.maxX - bounds.minX;
@@ -144,10 +168,10 @@ function CellShell({cell, renaissance, forum, customAmbient}: {
         metalness={.012}
       />
     </mesh>
-    <mesh position={[x, cell.ceilingHeight + .09, z]}>
+    {!recessedCeiling && <mesh position={[x, cell.ceilingHeight + .09, z]}>
       <boxGeometry args={[width, .18, depth]}/>
       <meshStandardMaterial {...MUSEUM_CANONICAL_CEILING_MATERIAL}/>
-    </mesh>
+    </mesh>}
     {!customAmbient && <CeilingLightStrips cell={renderCell}/>}
   </group>;
 }
@@ -234,6 +258,58 @@ function InstanceBatch({
   />;
 }
 
+function Gallery02RecessedCeiling({cells, lighting}: {
+  cells: readonly MuseumSpatialCell[];
+  lighting: MuseumLightingDefinition;
+}) {
+  const cutouts = useMemo(() => [
+    ...(lighting.fixtures ?? []).filter(({prototypeRole}) => prototypeRole === 'gallery-02-recessed-gimbal')
+      .map(({mountPosition}) => mountPosition),
+    ...(lighting.circulationDownlights ?? []).map(({position}) => position),
+  ], [lighting]);
+  const geometry = useMemo(() => {
+    const minX = Math.min(...cells.map((cell) => (cell.renderBounds ?? cell.bounds).minX));
+    const maxX = Math.max(...cells.map((cell) => (cell.renderBounds ?? cell.bounds).maxX));
+    const minZ = Math.min(...cells.map((cell) => (cell.renderBounds ?? cell.bounds).minZ));
+    const maxZ = Math.max(...cells.map((cell) => (cell.renderBounds ?? cell.bounds).maxZ));
+    const shape = new Shape();
+    shape.moveTo(minX, minZ);
+    shape.lineTo(maxX, minZ);
+    shape.lineTo(maxX, maxZ);
+    shape.lineTo(minX, maxZ);
+    shape.closePath();
+    for (const cutout of cutouts) {
+      const hole = new Path();
+      hole.absarc(cutout.x, cutout.z, GALLERY_02_RECESS_PROFILE.cutoutRadius, 0, Math.PI * 2, true);
+      shape.holes.push(hole);
+    }
+    const ceilingGeometry = new ShapeGeometry(shape, 16);
+    ceilingGeometry.rotateX(Math.PI / 2);
+    return ceilingGeometry;
+  }, [cells, cutouts]);
+  const ceilingHeight = cells[0]?.ceilingHeight ?? 6.2;
+  const bounds = cells.reduce((extent, cell) => ({
+    minX: Math.min(extent.minX, (cell.renderBounds ?? cell.bounds).minX),
+    maxX: Math.max(extent.maxX, (cell.renderBounds ?? cell.bounds).maxX),
+    minZ: Math.min(extent.minZ, (cell.renderBounds ?? cell.bounds).minZ),
+    maxZ: Math.max(extent.maxZ, (cell.renderBounds ?? cell.bounds).maxZ),
+  }), {minX: Infinity, maxX: -Infinity, minZ: Infinity, maxZ: -Infinity});
+  const width = bounds.maxX - bounds.minX;
+  const depth = bounds.maxZ - bounds.minZ;
+  const x = (bounds.minX + bounds.maxX) / 2;
+  const z = (bounds.minZ + bounds.maxZ) / 2;
+  const backingGap = GALLERY_02_RECESS_PROFILE.baffleDepth + .02;
+  return <group userData={{museumStructuralId: 'gallery-02-perforated-recess-ceiling', ceilingCutoutCount: cutouts.length}}>
+    <mesh geometry={geometry} position={[0, ceilingHeight, 0]}>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_CEILING_MATERIAL}/>
+    </mesh>
+    <mesh position={[x, ceilingHeight + backingGap + .09, z]}>
+      <boxGeometry args={[width, .18, depth]}/>
+      <meshStandardMaterial {...MUSEUM_CANONICAL_CEILING_MATERIAL}/>
+    </mesh>
+  </group>;
+}
+
 const scaledBoxMatrix = (
   center: {x: number; y: number; z: number},
   size: {width: number; height: number; depth: number},
@@ -289,6 +365,47 @@ const fixtureRootMatrix = (definition: FixtureDefinition): Matrix4 => {
     quaternion,
     new Vector3(1, 1, 1),
   );
+};
+
+const horizontalRoundMatrix = ({x, y, z}: {x: number; y: number; z: number}) => new Matrix4()
+  .makeTranslation(x, y, z)
+  .multiply(new Matrix4().makeRotationX(Math.PI / 2));
+
+const recessedOpticRootMatrix = (definition: MuseumLightingFixtureDefinition): Matrix4 => {
+  const direction = new Vector3(
+    definition.target.x - definition.mountPosition.x,
+    definition.target.y - definition.mountPosition.y,
+    definition.target.z - definition.mountPosition.z,
+  ).normalize();
+  const ceilingPlaneY = definition.mountPosition.y + GALLERY_02_RECESS_PROFILE.mountInset;
+  return new Matrix4().compose(
+    new Vector3(
+      definition.mountPosition.x,
+      ceilingPlaneY + GALLERY_02_RECESS_PROFILE.opticCenterInset,
+      definition.mountPosition.z,
+    ),
+    new Quaternion().setFromUnitVectors(new Vector3(0, -1, 0), direction),
+    new Vector3(1, 1, 1),
+  );
+};
+
+const pushCirculationRecess = (
+  downlight: MuseumCirculationDownlightDefinition,
+  trims: Matrix4[],
+  baffles: Matrix4[],
+  lenses: Matrix4[],
+) => {
+  const {position} = downlight;
+  trims.push(horizontalRoundMatrix({...position, y: position.y - GALLERY_02_RECESS_PROFILE.trimInset}));
+  baffles.push(new Matrix4().makeTranslation(
+    position.x,
+    position.y + GALLERY_02_RECESS_PROFILE.baffleDepth / 2,
+    position.z,
+  ));
+  lenses.push(horizontalRoundMatrix({
+    ...position,
+    y: position.y + GALLERY_02_RECESS_PROFILE.opticCenterInset,
+  }));
 };
 
 function MuseumLightingInstallationDefault({hallId, lighting}: {
@@ -386,9 +503,9 @@ function MuseumPrototypeLightingInstallation({hallId, lighting}: {
     const recessedTrims: Matrix4[] = [];
     const recessedBaffles: Matrix4[] = [];
     const recessedGimbals: Matrix4[] = [];
-    const recessedHinges: Matrix4[] = [];
     const recessedStandardLenses: Matrix4[] = [];
     const recessedAnchorLenses: Matrix4[] = [];
+    const circulationLenses: Matrix4[] = [];
 
     for (const fixture of fixtures) {
       const root = fixtureRootMatrix(fixture);
@@ -403,21 +520,30 @@ function MuseumPrototypeLightingInstallation({hallId, lighting}: {
           .multiply(new Matrix4().makeTranslation(0, -.255, 0))
           .multiply(new Matrix4().makeRotationX(Math.PI / 2)));
       } else if (fixture.prototypeRole === 'gallery-02-recessed-gimbal') {
-        recessedTrims.push(new Matrix4()
-          .makeTranslation(fixture.mountPosition.x, fixture.mountPosition.y + .017, fixture.mountPosition.z)
-          .multiply(new Matrix4().makeRotationX(Math.PI / 2)));
-        recessedBaffles.push(root.clone().multiply(new Matrix4().makeTranslation(0, -.035, 0)));
-        recessedGimbals.push(root.clone()
-          .multiply(new Matrix4().makeTranslation(0, -.07, 0))
-          .multiply(new Matrix4().makeRotationX(Math.PI / 2)));
-        [-.15, .15].forEach((x) => recessedHinges.push(root.clone()
-          .multiply(new Matrix4().makeTranslation(x, -.065, 0))));
-        (anchor ? recessedAnchorLenses : recessedStandardLenses).push(root.clone()
+        const ceilingPlaneY = fixture.mountPosition.y + GALLERY_02_RECESS_PROFILE.mountInset;
+        const opticRoot = recessedOpticRootMatrix(fixture);
+        recessedTrims.push(horizontalRoundMatrix({
+          x: fixture.mountPosition.x,
+          y: ceilingPlaneY - GALLERY_02_RECESS_PROFILE.trimInset,
+          z: fixture.mountPosition.z,
+        }));
+        recessedBaffles.push(new Matrix4().makeTranslation(
+          fixture.mountPosition.x,
+          ceilingPlaneY + GALLERY_02_RECESS_PROFILE.baffleDepth / 2,
+          fixture.mountPosition.z,
+        ));
+        recessedGimbals.push(opticRoot.clone().multiply(new Matrix4().makeRotationX(Math.PI / 2)));
+        (anchor ? recessedAnchorLenses : recessedStandardLenses).push(opticRoot.clone()
           .multiply(new Matrix4().makeTranslation(0, .012, 0))
           .multiply(new Matrix4().makeRotationX(Math.PI / 2)));
       }
-
     }
+    for (const downlight of lighting.circulationDownlights ?? []) pushCirculationRecess(
+      downlight,
+      recessedTrims,
+      recessedBaffles,
+      circulationLenses,
+    );
     return {
       fixtures,
       tracks,
@@ -429,9 +555,9 @@ function MuseumPrototypeLightingInstallation({hallId, lighting}: {
       recessedTrims,
       recessedBaffles,
       recessedGimbals,
-      recessedHinges,
       recessedStandardLenses,
       recessedAnchorLenses,
+      circulationLenses,
     };
   }, [lighting]);
   const fixtureMetadata = batches.fixtures.map((fixture) => ({
@@ -450,11 +576,24 @@ function MuseumPrototypeLightingInstallation({hallId, lighting}: {
     <InstanceBatch geometry={PROTOTYPE_TRACK_HEAD_LENS_GEOMETRY} material={PROTOTYPE_3000K_STANDARD_MATERIAL} matrices={batches.trackStandardLenses} userData={{...userData, museumStructuralId: `lighting-prototype-track-standard-lenses:${hallId}`}}/>
     <InstanceBatch geometry={PROTOTYPE_TRACK_HEAD_LENS_GEOMETRY} material={PROTOTYPE_3000K_ANCHOR_MATERIAL} matrices={batches.trackAnchorLenses} userData={{...userData, museumStructuralId: `lighting-prototype-track-anchor-lenses:${hallId}`}}/>
     <InstanceBatch geometry={PROTOTYPE_RECESSED_TRIM_GEOMETRY} material={PROTOTYPE_TRIM_MATERIAL} matrices={batches.recessedTrims} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-trims:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_RECESSED_BAFFLE_GEOMETRY} material={PROTOTYPE_BLACK_MATERIAL} matrices={batches.recessedBaffles} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-baffles:${hallId}`}}/>
+    <InstanceBatch geometry={PROTOTYPE_RECESSED_BAFFLE_GEOMETRY} material={PROTOTYPE_RECESS_BAFFLE_MATERIAL} matrices={batches.recessedBaffles} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-baffles:${hallId}`}}/>
     <InstanceBatch geometry={PROTOTYPE_RECESSED_GIMBAL_GEOMETRY} material={FIXTURE_DARK_MATERIAL} matrices={batches.recessedGimbals} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-gimbals:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_HINGE_GEOMETRY} material={FIXTURE_DARK_MATERIAL} matrices={batches.recessedHinges} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-hinges:${hallId}`}}/>
     <InstanceBatch geometry={PROTOTYPE_RECESSED_LENS_GEOMETRY} material={PROTOTYPE_3000K_STANDARD_MATERIAL} matrices={batches.recessedStandardLenses} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-standard-lenses:${hallId}`}}/>
     <InstanceBatch geometry={PROTOTYPE_RECESSED_LENS_GEOMETRY} material={PROTOTYPE_3000K_ANCHOR_MATERIAL} matrices={batches.recessedAnchorLenses} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-anchor-lenses:${hallId}`}}/>
+    <InstanceBatch geometry={PROTOTYPE_RECESSED_LENS_GEOMETRY} material={PROTOTYPE_3000K_CIRCULATION_MATERIAL} matrices={batches.circulationLenses} userData={{...userData, museumStructuralId: `lighting-prototype-circulation-lenses:${hallId}`}}/>
+    {lighting.circulationLightPool && <rectAreaLight
+      position={[
+        lighting.circulationLightPool.position.x,
+        lighting.circulationLightPool.position.y,
+        lighting.circulationLightPool.position.z,
+      ]}
+      color={lighting.circulationLightPool.color}
+      intensity={lighting.circulationLightPool.intensity}
+      width={lighting.circulationLightPool.width}
+      height={lighting.circulationLightPool.height}
+      rotation={[-Math.PI / 2, 0, 0]}
+      userData={{museumLightingPool: 'gallery-02-circulation', museumLightingHallId: hallId}}
+    />}
   </group>;
 }
 
@@ -631,6 +770,7 @@ export function ContemporaryHallArchitecture({
   const renaissance = definition.id === RENAISSANCE_GALLERY_ID;
   const forum = definition.id === 'core-questions-forum';
   const prototypeEnabled = Boolean(layout.lighting.prototypeId) && prototypeLightingEnabled();
+  const gallery02RecessedCeiling = prototypeEnabled && layout.lighting.prototypeId === 'gallery-02-option-a';
   const wallMaterial = resolveMuseumWallMaterial(definition.id);
   const activate = (event: ThreeEvent<MouseEvent>) => {
     if (event.delta > 7) return;
@@ -638,7 +778,18 @@ export function ContemporaryHallArchitecture({
     onSceneGesture();
   };
   return <group onClick={activate}>
-    {layout.spatialCells.map((cell) => <CellShell key={cell.id} cell={cell} renaissance={renaissance} forum={forum} customAmbient={prototypeEnabled}/>)}
+    {layout.spatialCells.map((cell) => <CellShell
+      key={cell.id}
+      cell={cell}
+      renaissance={renaissance}
+      forum={forum}
+      customAmbient={prototypeEnabled}
+      recessedCeiling={gallery02RecessedCeiling}
+    />)}
+    {gallery02RecessedCeiling && <Gallery02RecessedCeiling
+      cells={layout.spatialCells}
+      lighting={layout.lighting}
+    />}
     {prototypeEnabled && layout.lighting.ambientDiffusers && <MuseumPrototypeAmbientDiffusers hallId={definition.id} diffusers={layout.lighting.ambientDiffusers}/>}
     {forum && <group userData={{forumCirculationCross: true}}>
       <mesh position={[0, .012, 0]}><boxGeometry args={[27.2, .014, .055]}/><meshStandardMaterial color={BRONZE} roughness={.5} metalness={.38}/></mesh>
