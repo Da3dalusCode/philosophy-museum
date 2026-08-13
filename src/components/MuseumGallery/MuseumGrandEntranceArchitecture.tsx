@@ -396,25 +396,25 @@ export function MuseumGrandEntranceArchitecture({node, shadowsEnabled}: {
     {shadowsEnabled && <>
       <primitive object={shadowTarget}/>
       <directionalLight
-        position={[17, 15, -12]}
+        position={[0, 24, 4]}
         target={shadowTarget}
         color="#fff0d4"
-        intensity={.78}
+        intensity={.68}
         castShadow
         shadow-mapSize-width={512}
         shadow-mapSize-height={512}
         shadow-camera-near={1}
-        shadow-camera-far={62}
-        shadow-camera-left={-24}
-        shadow-camera-right={24}
-        shadow-camera-top={24}
-        shadow-camera-bottom={-24}
+        shadow-camera-far={64}
+        shadow-camera-left={-36}
+        shadow-camera-right={36}
+        shadow-camera-top={36}
+        shadow-camera-bottom={-36}
         shadow-bias={-.00012}
         shadow-normalBias={.04}
         shadow-radius={2.5}
         userData={{
-          museumLightId: 'entrance:depth-key',
-          museumLightRole: 'active-architecture-shadow-key',
+          museumLightId: 'entrance:coffer-field-key',
+          museumLightRole: 'architectural-overhead-shadow-key',
         }}
       />
     </>}

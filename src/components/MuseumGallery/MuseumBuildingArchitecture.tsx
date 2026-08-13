@@ -264,6 +264,7 @@ export function MuseumBuildingArchitecture({
     />)}
     <MuseumPermanentHallStructure
       activeHallId={activeHallId}
+      shadowKeyReserved={activeNodeId === MUSEUM_BUILDING_MANIFEST.mainEntrance.nodeId}
       shadowsEnabled={shadowsEnabled}
       onSceneGesture={onSceneGesture}
     />

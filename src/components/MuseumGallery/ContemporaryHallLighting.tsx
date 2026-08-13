@@ -33,20 +33,29 @@ function ExhibitSpotlight({definition}: {definition: MuseumExhibitLightDefinitio
 }
 
 /** Stable, low-cost architectural light for a hall whose structure is permanent. */
-export function ContemporaryHallBaseLighting({lighting, shadowsEnabled = false}: {
+export function ContemporaryHallBaseLighting({
+  lighting,
+  shadowsEnabled = false,
+  shadowExtent = 18,
+}: {
   lighting: MuseumLightingDefinition;
   shadowsEnabled?: boolean;
+  shadowExtent?: number;
 }) {
-  const directionalTarget = useMemo(() => new Object3D(), []);
+  const directionalTarget = useMemo(() => {
+    const target = new Object3D();
+    target.position.set(0, 1, 0);
+    return target;
+  }, []);
 
   return <>
     <primitive object={directionalTarget}/>
     <directionalLight
-      position={[-8, 12, 8]}
+      position={[0, 24, 4]}
       target={directionalTarget}
       userData={{
         museumLightId: 'architectural-base',
-        museumLightRole: 'architectural-base',
+        museumLightRole: 'architectural-overhead',
       }}
       intensity={lighting.directionalIntensity}
       color="#fff4e2"
@@ -54,11 +63,11 @@ export function ContemporaryHallBaseLighting({lighting, shadowsEnabled = false}:
       shadow-mapSize-width={512}
       shadow-mapSize-height={512}
       shadow-camera-near={1}
-      shadow-camera-far={42}
-      shadow-camera-left={-16}
-      shadow-camera-right={16}
-      shadow-camera-top={16}
-      shadow-camera-bottom={-16}
+      shadow-camera-far={64}
+      shadow-camera-left={-shadowExtent}
+      shadow-camera-right={shadowExtent}
+      shadow-camera-top={shadowExtent}
+      shadow-camera-bottom={-shadowExtent}
       shadow-bias={-.00012}
       shadow-normalBias={.035}
     />

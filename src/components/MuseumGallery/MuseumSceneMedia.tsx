@@ -141,7 +141,7 @@ export function MuseumSceneMedia({mount, nearby, accent}: {
   return <group position={mount.position} userData={{mountId: mount.id, mountKind: mount.kind, anchorId: mount.anchorId}}>
     <MountSupport mount={mount} bronze={bronze}/>
     <group rotation={mount.rotation}>
-      <mesh position={[0, 0, -mount.frameDepth / 2]} castShadow>
+      <mesh position={[0, 0, -mount.frameDepth / 2]}>
         <boxGeometry args={[mount.width + .18, mount.height + .18, mount.frameDepth]}/>
         <meshStandardMaterial color="#171b1d" roughness={.8} metalness={.12}/>
       </mesh>
