@@ -1,5 +1,9 @@
-import {readFile, writeFile} from 'node:fs/promises';
+import {readFile} from 'node:fs/promises';
 import {loadAppData} from './loadAppData.mjs';
+import {
+  generatedArtifactMatches,
+  writeGeneratedArtifactIfChanged,
+} from './generatedArtifactIntegrity.mjs';
 
 const LEDGER_JSON_URL = new URL('../docs/editorial/exhibit-review-ledger.json', import.meta.url);
 const LEDGER_MARKDOWN_URL = new URL('../docs/editorial/exhibit-review-ledger.md', import.meta.url);
@@ -242,20 +246,29 @@ ${reviewedEntries.map((entry) => `| ${escapeCell(entry.canonicalTitle ?? entry.e
 ${entries.map((entry) => `| ${escapeCell(entry.hallId)} | ${escapeCell(entry.roomId)} | ${escapeCell(entry.exhibitId)} | ${escapeCell(`${entry.entityKind}:${entry.entityId}`)} | ${entry.articleRelationship.status} | ${entry.articleReviewStatus ?? '—'} | ${entry.exhibitStatus} |`).join('\n')}
 `;
 
+const ledgerArtifacts = [
+  [LEDGER_JSON_URL, serialized, 'JSON'],
+  [LEDGER_MARKDOWN_URL, markdown, 'Markdown'],
+];
+
 if (write) {
-  await Promise.all([
-    writeFile(LEDGER_JSON_URL, serialized, 'utf8'),
-    writeFile(LEDGER_MARKDOWN_URL, markdown, 'utf8'),
-  ]);
-  console.log(`Wrote exhibit-review ledger for ${entries.length} canonical exhibits and ${articleStatusEntries.length} canonical articles.`);
+  const changed = await Promise.all(ledgerArtifacts.map(([url, generated]) =>
+    writeGeneratedArtifactIfChanged(url, generated)));
+  console.log(
+    `${changed.some(Boolean) ? 'Wrote changed' : 'Verified unchanged'} exhibit-review ledgers for `
+    + `${entries.length} canonical exhibits and ${articleStatusEntries.length} canonical articles.`,
+  );
 } else {
-  let existing;
-  try {
-    existing = await readFile(LEDGER_JSON_URL, 'utf8');
-  } catch {
-    errors.push('generated exhibit-review ledger is missing; run npm run report:exhibits');
+  for (const [url, generated, label] of ledgerArtifacts) {
+    try {
+      const existing = await readFile(url, 'utf8');
+      if (!generatedArtifactMatches(existing, generated)) {
+        errors.push(`generated exhibit-review ${label} ledger is stale; run npm run report:exhibits`);
+      }
+    } catch {
+      errors.push(`generated exhibit-review ${label} ledger is missing; run npm run report:exhibits`);
+    }
   }
-  if (existing !== undefined && existing !== serialized) errors.push('generated exhibit-review ledger is stale; run npm run report:exhibits');
 }
 
 console.log(

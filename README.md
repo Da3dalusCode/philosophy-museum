@@ -27,21 +27,19 @@ The Museum is the default public entrance; every other Atlas tool remains direct
 
 Every one of the 192 canonical full articles meets the universal minimum of 2,000 substantive words. The release gate enforces that floor for all 147 philosopher articles and all 45 philosophy, branch, school, tradition, movement, method, and framework articles. The [generated depth inventory](docs/editorial/article-depth-inventory.md) records the method and per-article results.
 
-Depth is not the same as evidence or completed editorial review. The current [generated editorial coverage report](docs/editorial/editorial-coverage-report.md) records:
+Depth is not the same as evidence or completed editorial review. The [generated editorial coverage report](docs/editorial/editorial-coverage-report.md), [primary exhibit-review ledger](docs/editorial/exhibit-review-ledger.md), and [supplemental exhibit-review ledger](docs/editorial/supplemental-exhibit-review-ledger.md) record the current states.
 
-- **123** current claim-reviewed articles;
-- **65** bibliography-only articles;
-- **4** unreviewed articles;
-- **0** source-mapped records awaiting claim review; and
-- **0** stale review locks.
+<!-- public-collection-counts:start -->
+The current generated reports record **192 of 192 canonical articles as currently claim-reviewed**—147 philosopher profiles and 45 articles on philosophies, branches, schools, traditions, movements, methods, and frameworks—and **192 of 192 primary Museum exhibits as standard-compliant**. Article depth, claim review, and primary exhibit review remain separate milestones; completing one does not confer another.
 
-Museum exhibit review is a separate milestone. Of 192 canonical exhibits, **121 are standard-compliant** and **71 remain unreviewed** under the exhibit standard. A long article is not necessarily claim-reviewed, and a claim-reviewed article does not by itself make its Museum exhibit standard-compliant.
+The Museum also contains **411 supplemental/context exhibits**: **93 reviewed supplementals** and **318 explicit backlog supplementals**. Together, the 192 primary and 411 supplemental exhibits make **603 interpreted Museum stops**.
+<!-- public-collection-counts:end -->
 
-Bibliography-only and unreviewed articles have not completed claim review, and the corpus should not be described as fully claim-reviewed, fully sourced, independently fact-checked, or peer reviewed. The in-app [About & editorial method](https://da3daluscode.github.io/philosophy-museum/#/methodology), repository [editorial model](docs/editorial/editorial-model.md), and [exhibit-review ledger](docs/editorial/exhibit-review-ledger.md) explain these states and their limits.
+These are internal, AI-assisted editorial review states; they are not independent fact-checking or independent academic or peer review. The in-app [About & editorial method](https://da3daluscode.github.io/philosophy-museum/#/methodology) and repository [editorial model](docs/editorial/editorial-model.md) explain these states and their limits.
 
 ## Walkable Museum
 
-The Museum turns the Atlas into a physical journey through 26 curated/open galleries and 105 named rooms or zones. Its collection contains **192 primary exhibits** and **411 supplemental/context exhibits**, for **603 interpreted stops** in total.
+The Museum turns the Atlas into a physical journey through 26 curated/open galleries and 105 named rooms or zones. Its 192 primary and 411 supplemental/context exhibits form the 603 interpreted stops inventoried above.
 
 ![The Core Questions Forum, where visitors encounter exhibits on knowledge, reality, ontology, and metaphysics.](public/assets/share/philosophy-atlas-core-questions-forum.png)
 
@@ -90,9 +88,11 @@ The current release gate includes:
 ```bash
 npm run check:museum-building
 npm run check:route-manifest
+npm run test:release-gates
 npm run validate:museum-masterplan
 npm run validate:museum-building-plan
 npm run audit:routing
+npm run audit:learning-experiences
 node scripts/auditMuseum.mjs
 npm run audit:museum-plaques
 npm run audit:exhibits
@@ -102,6 +102,7 @@ npm run audit:articles
 npm run audit:articles:reviewed
 npm run audit:editorial
 npm run test:editorial
+npm run check:public-counts
 npm run audit:accuracy
 npm run audit:integrity
 npm run build
@@ -114,7 +115,7 @@ The universal article-depth audit is a blocking release gate. It currently passe
 
 **Philosophy Atlas v1.0.2 is the current published release.** The long-form Atlas, timelines, maps, comparisons, learning paths, search, and complete 26-gallery Museum are published and usable without an account.
 
-The editorial program remains active: 123 of 192 articles have current claim review, and 121 of 192 canonical Museum exhibits have completed the separate standard-compliant exhibit review. Ongoing work includes the remaining article and exhibit reviews, relationship enrichment, maintenance, and targeted accessibility and visual refinement. The Philosophy Map remains intentionally selective for readability, and the static local-first application does not provide accounts or durable cross-device progress.
+The editorial program remains active even though the current canonical article and primary exhibit review passes are complete. Ongoing work includes the supplemental-exhibit backlog, stale-lock maintenance, corrections, relationship enrichment, and targeted accessibility and visual refinement. The Philosophy Map remains intentionally selective for readability, and the static local-first application does not provide accounts or durable cross-device progress.
 
 ## License and media rights
 

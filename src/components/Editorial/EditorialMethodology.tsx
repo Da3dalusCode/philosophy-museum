@@ -1,4 +1,5 @@
 import {BookOpen, CheckCircle2, RefreshCw, Scale, SearchCheck} from 'lucide-react';
+import {PUBLIC_COLLECTION_COUNTS} from '../../data/generated/publicCollectionCounts';
 
 const statuses = [
   ['Editorial review not started', 'No claim-level source review is recorded. The page may still be useful as an atlas draft.'],
@@ -9,6 +10,7 @@ const statuses = [
 ] as const;
 
 export function EditorialMethodology() {
+  const {canonicalArticles, primaryExhibits, supplementalExhibits, museumStops} = PUBLIC_COLLECTION_COUNTS;
   return <div className="page methodology-page">
     <header className="methodology-hero">
       <div className="eyebrow"><SearchCheck size={16}/> About & editorial credibility</div>
@@ -18,8 +20,8 @@ export function EditorialMethodology() {
 
     <section className="methodology-section prose-stack">
       <h2>The collection today</h2>
-      <p>The Atlas contains 192 canonical full articles: 147 philosopher profiles and 45 articles on philosophies, branches, schools, traditions, movements, methods, and frameworks. All meet the project’s 2,000-word depth floor. The walkable Museum presents 192 canonical exhibits and 411 supplemental exhibits across 26 galleries, for 603 interpreted stops.</p>
-      <p>Depth, claim review, and Museum exhibit review are separate milestones. At this release, 123 articles have current claim review. Separately, 121 canonical Museum exhibits have completed the standard-compliant exhibit review, while 71 remain unreviewed. These counts describe documented work, not independent fact-checking or peer review.</p>
+      <p>The Atlas contains {canonicalArticles.total} canonical full articles: {canonicalArticles.philosophers} philosopher profiles and {canonicalArticles.philosophies} articles on philosophies, branches, schools, traditions, movements, methods, and frameworks. All meet the project’s 2,000-word depth floor. The walkable Museum presents {primaryExhibits.total} primary exhibits and {supplementalExhibits.total} supplemental exhibits across 26 galleries, for {museumStops} interpreted stops.</p>
+      <p>Depth, claim review, and Museum exhibit review are separate milestones. Currently, {canonicalArticles.currentClaimReviewed} of {canonicalArticles.total} canonical articles have claim review, and {primaryExhibits.standardCompliant} of {primaryExhibits.total} primary Museum exhibits have completed the separate standard-compliant exhibit review. Of the supplementals, {supplementalExhibits.reviewed} are reviewed and {supplementalExhibits.backlog} remain explicit backlog. These are internal, AI-assisted editorial review states, not independent fact-checking or independent academic or peer review.</p>
     </section>
 
     <section className="methodology-grid" aria-label="Editorial method overview">
@@ -45,7 +47,7 @@ export function EditorialMethodology() {
 
     <section className="methodology-section">
       <h2>Phased review</h2>
-      <p>The atlas contains a large local corpus. The universal depth migration is complete, but depth is not formal claim review: many pages remain unreviewed or bibliography-only. Review proceeds in globally diverse batches, with high-risk biography, quotation, chronology, influence, origin, and cross-cultural claims prioritized. The public status on each page—not the presence of polished or lengthy prose—indicates how far claim review has progressed.</p>
+      <p>The atlas contains a large local corpus. The universal depth migration and the current canonical claim-review pass are complete, but neither is a claim of permanent correctness or external academic validation. Review continues through stale-lock maintenance, corrections, and the {supplementalExhibits.backlog}-exhibit supplemental backlog, with high-risk biography, quotation, chronology, influence, origin, and cross-cultural claims prioritized. The public status on each page—not the presence of polished or lengthy prose—indicates the recorded review state.</p>
     </section>
   </div>;
 }

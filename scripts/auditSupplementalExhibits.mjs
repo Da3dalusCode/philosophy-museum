@@ -1,6 +1,10 @@
 import {createHash} from 'node:crypto';
-import {readdir, readFile, writeFile} from 'node:fs/promises';
+import {readdir, readFile} from 'node:fs/promises';
 import {ARTICLE_PROSE_WORD_MINIMUM, articleWordTokens, countArticleProseWords} from './articleDepthPolicy.mjs';
+import {
+  generatedArtifactMatches,
+  writeGeneratedArtifactIfChanged,
+} from './generatedArtifactIntegrity.mjs';
 import {loadAppData} from './loadAppData.mjs';
 
 const LEDGER_JSON_URL = new URL('../docs/editorial/supplemental-exhibit-review-ledger.json', import.meta.url);
@@ -610,19 +614,25 @@ ${reviewedEntries.map((entry) => `| ${entry.gallery.label} · ${entry.gallery.wa
 ${entries.map((entry) => `| ${entry.gallery.label} | ${escapeCell(entry.gallery.roomTitle)} | ${entry.gallery.walkingOrder.galleryStop ?? '—'} | ${escapeCell(entry.exhibit.title)} | ${escapeCell(entry.canonicalArticle.title ?? entry.canonicalArticle.id)} | ${entry.canonicalArticle.effectiveReviewStatus ?? '—'} / ${entry.canonicalArticle.depth.status} | ${entry.exhibitReview.authoredStatus} → ${entry.exhibitReview.effectiveStatus} | ${entry.interpretation.mainWordCount} / ${entry.interpretation.sidebarSectionCount}:${entry.interpretation.sidebarItemCount} | ${escapeCell(entry.assets.principal.id)} / ${escapeCell(entry.assets.physical.id)} | ${escapeCell(entry.exhibit.directRoute)} |`).join('\n')}
 `;
 
+const ledgerArtifacts = [
+  [LEDGER_JSON_URL, serialized, 'JSON'],
+  [LEDGER_MARKDOWN_URL, markdown, 'Markdown'],
+];
+
 if (write) {
-  await Promise.all([
-    writeFile(LEDGER_JSON_URL, serialized, 'utf8'),
-    writeFile(LEDGER_MARKDOWN_URL, markdown, 'utf8'),
-  ]);
-  console.log(`Wrote the program supplemental ledger for ${entries.length} authoritative registry records.`);
+  const changed = await Promise.all(ledgerArtifacts.map(([url, generated]) =>
+    writeGeneratedArtifactIfChanged(url, generated)));
+  console.log(
+    `${changed.some(Boolean) ? 'Wrote changed' : 'Verified unchanged'} supplemental exhibit-review ledgers `
+    + `for ${entries.length} authoritative registry records.`,
+  );
 } else {
-  for (const [url, expected, label] of [
-    [LEDGER_JSON_URL, serialized, 'JSON'],
-    [LEDGER_MARKDOWN_URL, markdown, 'Markdown'],
-  ]) {
+  for (const [url, generated, label] of ledgerArtifacts) {
     try {
-      if (await readFile(url, 'utf8') !== expected) errors.push(`generated supplemental ${label} ledger is stale; run npm run report:supplementals`);
+      const existing = await readFile(url, 'utf8');
+      if (!generatedArtifactMatches(existing, generated)) {
+        errors.push(`generated supplemental ${label} ledger is stale; run npm run report:supplementals`);
+      }
     } catch {
       errors.push(`generated supplemental ${label} ledger is missing; run npm run report:supplementals`);
     }
