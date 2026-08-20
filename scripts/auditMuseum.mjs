@@ -5334,7 +5334,10 @@ check('all twenty-six runtime halls are canonical, data-driven, and internally a
       assert(cell, `${definition.id}/${fixture.id} references a missing room`);
       assert(fixture.mountPosition.x >= cell.bounds.minX && fixture.mountPosition.x <= cell.bounds.maxX);
       assert(fixture.mountPosition.z >= cell.bounds.minZ && fixture.mountPosition.z <= cell.bounds.maxZ);
-      if (fixture.prototypeRole === 'gallery-02-recessed-gimbal') {
+      if (
+        fixture.prototypeRole === 'gallery-02-recessed-gimbal'
+        || fixture.lightingRole === 'recessed-gimbal'
+      ) {
         assert(fixture.mountPosition.y >= cell.ceilingHeight - .08 && fixture.mountPosition.y <= cell.ceilingHeight);
       } else {
         assert(fixture.mountPosition.y >= cell.ceilingHeight - .32 && fixture.mountPosition.y <= cell.ceilingHeight - .08);

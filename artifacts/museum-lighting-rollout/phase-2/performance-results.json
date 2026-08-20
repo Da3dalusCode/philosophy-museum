@@ -1,0 +1,93 @@
+{
+  "status": "passed",
+  "sourceBaselineSha": "be7765691a30383b012208a40cf9ed93a9be519a",
+  "protocol": {
+    "sample": "Identical deterministic direct-gallery pose, DPR 1, 60 warm-up plus 600 forced rendered frames.",
+    "desktop": "1280x720 browser; 1280x642 scene.",
+    "lowPower": "Fresh 390x844 mount; 375.2x732 scene; max-width 760px matched.",
+    "settling": "Gallery 20 desktop post uses the settled second sample because the first overlapped deferred-content settling."
+  },
+  "caps": {
+    "activeGalleryDrawCallDeltaMaximum": 10,
+    "longSightlineDrawCallDeltaMaximum": 24,
+    "activeGalleryTriangleDeltaMaximum": 150000,
+    "longSightlineTriangleDeltaMaximum": 400000,
+    "sharedGeometrySourceDeltaMaximum": 12,
+    "sharedMaterialSourceDeltaMaximum": 8,
+    "desktopP95": "max(16.7 ms, baseline + 2.0 ms)",
+    "lowPowerP95": "max(33.3 ms, baseline + 4.0 ms)",
+    "contextLosses": 0
+  },
+  "desktop": {
+    "gallery11": {
+      "baseline": {"calls": 783, "triangles": 13340, "geometries": 1237, "textures": 18, "p95Milliseconds": 18.6, "lights": 9},
+      "post": {"calls": 791, "triangles": 116594, "geometries": 1118, "textures": 18, "p95Milliseconds": 17.5, "lights": 9},
+      "delta": {"calls": 8, "triangles": 103254, "geometries": -119, "textures": 0, "p95Milliseconds": -1.1},
+      "passed": true
+    },
+    "gallery20": {
+      "baseline": {"calls": 357, "triangles": 6268, "geometries": 1847, "textures": 23, "p95Milliseconds": 18.3, "lights": 9},
+      "post": {"calls": 367, "triangles": 48575, "geometries": 1672, "textures": 23, "p95Milliseconds": 17.1, "lights": 9},
+      "delta": {"calls": 10, "triangles": 42307, "geometries": -175, "textures": 0, "p95Milliseconds": -1.2},
+      "passed": true
+    },
+    "gallery21": {
+      "baseline": {"calls": 1143, "triangles": 59772, "geometries": 1821, "textures": 27, "p95Milliseconds": 18.7, "lights": 9},
+      "post": {"calls": 1138, "triangles": 147885, "geometries": 1678, "textures": 27, "p95Milliseconds": 20.2, "lights": 9},
+      "delta": {"calls": -5, "triangles": 88113, "geometries": -143, "textures": 0, "p95Milliseconds": 1.5},
+      "passed": true
+    },
+    "gallery26": {
+      "baseline": {"calls": 58, "triangles": 1226, "geometries": 1904, "textures": 27, "p95Milliseconds": 17.1, "lights": 9},
+      "post": {"calls": 68, "triangles": 18187, "geometries": 1731, "textures": 27, "p95Milliseconds": 16.9, "lights": 9},
+      "delta": {"calls": 10, "triangles": 16961, "geometries": -173, "textures": 0, "p95Milliseconds": -0.2},
+      "passed": true
+    }
+  },
+  "lowPower": {
+    "gallery11": {
+      "baseline": {"calls": 559, "triangles": 10792, "geometries": 897, "textures": 21, "p95Milliseconds": 18.7, "lights": 9, "shadowMapEnabled": false, "shadowCasterCount": 0},
+      "post": {"calls": 372, "triangles": 68690, "geometries": 659, "textures": 10, "p95Milliseconds": 18.2, "lights": 9, "shadowMapEnabled": false, "shadowCasterCount": 0},
+      "delta": {"calls": -187, "triangles": 57898, "geometries": -238, "textures": -11, "p95Milliseconds": -0.5},
+      "passed": true
+    },
+    "gallery20": {
+      "baseline": {"calls": 1134, "triangles": 17176, "geometries": 1672, "textures": 49, "p95Milliseconds": 18.2, "lights": 9, "shadowMapEnabled": false, "shadowCasterCount": 0},
+      "post": {"calls": 173, "triangles": 28817, "geometries": 776, "textures": 7, "p95Milliseconds": 18.1, "lights": 9, "shadowMapEnabled": false, "shadowCasterCount": 0},
+      "delta": {"calls": -961, "triangles": 11641, "geometries": -896, "textures": -42, "p95Milliseconds": -0.1},
+      "passed": true
+    },
+    "gallery21": {
+      "baseline": {"calls": 753, "triangles": 11186, "geometries": 1202, "textures": 56, "p95Milliseconds": 18.7, "lights": 9, "shadowMapEnabled": false, "shadowCasterCount": 0},
+      "post": {"calls": 400, "triangles": 58243, "geometries": 791, "textures": 13, "p95Milliseconds": 18.3, "lights": 9, "shadowMapEnabled": false, "shadowCasterCount": 0},
+      "delta": {"calls": -353, "triangles": 47057, "geometries": -411, "textures": -43, "p95Milliseconds": -0.4},
+      "passed": true
+    },
+    "gallery26": {
+      "baseline": {"calls": 350, "triangles": 5010, "geometries": 1069, "textures": 33, "p95Milliseconds": 18.4, "lights": 9, "shadowMapEnabled": false, "shadowCasterCount": 0},
+      "post": {"calls": 35, "triangles": 16328, "geometries": 739, "textures": 8, "p95Milliseconds": 16.9, "lights": 9, "shadowMapEnabled": false, "shadowCasterCount": 0},
+      "delta": {"calls": -315, "triangles": 11318, "geometries": -330, "textures": -25, "p95Milliseconds": -1.5},
+      "passed": true
+    }
+  },
+  "staticBudget": {
+    "rolloutGeometryAdditions": 8,
+    "allowedGeometryAdditions": 12,
+    "rolloutMaterialAdditions": 0,
+    "allowedMaterialAdditions": 8,
+    "textureReferencesAdded": 0,
+    "desktopTextureCountsExact": true,
+    "lowPowerTextureCountsNeverIncrease": true,
+    "realLightsPerView": 9,
+    "perExhibitRealLights": 0
+  },
+  "stability": {
+    "durationMilliseconds": 919355,
+    "routeStops": 26,
+    "stressReentries": 12,
+    "stressGalleries": [11, 20, 21],
+    "singleCanvasAtEveryStop": true,
+    "contextLossFallbacks": 0,
+    "passed": true
+  }
+}

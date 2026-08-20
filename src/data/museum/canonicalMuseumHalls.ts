@@ -11,6 +11,7 @@ import {
 import {getMuseumHallTemplate} from './museumHallTemplates';
 import {createMuseumExhibitLightingPlan} from './museumExhibitLightingPlan';
 import {createGalleryLightingPrototype} from './galleryLightingPrototypes';
+import {createMuseumLightingRolloutPlan} from './museumLightingRollout';
 import {getMuseumManifestHallNode, MUSEUM_BUILDING_MANIFEST} from './museumBuildingManifest';
 import {MUSEUM_CANONICAL_EXHIBIT_PLINTH_GEOMETRY} from './museumArchitectureMaterials';
 import {
@@ -1221,6 +1222,8 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     // remain full-height exhibit walls.
     .filter(({id}) => liveEndpointKeys.has(`${node.id}/${id}`))
     .map(({landingBounds}) => landingBounds);
+  const activeDoorwaySlots = node.doorwaySlots
+    .filter(({id}) => liveEndpointKeys.has(`${node.id}/${id}`));
   const furnishings: readonly MuseumFurnishingDefinition[] = [];
   const furnishingExclusions = furnishings.map((item) => colliderBounds(
     item.center,
@@ -1361,6 +1364,13 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
     cells,
     exhibits,
     supplementalExhibits,
+  }) ?? createMuseumLightingRolloutPlan({
+    hallId: hall.id,
+    cells,
+    spatialConnections,
+    exhibits,
+    supplementalExhibits,
+    activeDoorwaySlots,
   }) ?? createMuseumExhibitLightingPlan({
     cells,
     exhibits,
@@ -2393,6 +2403,12 @@ const createCanonicalHall = (hall: MuseumCanonicalHall): MuseumCanonicalHallCont
             circulationDownlights: lightingPlan.circulationDownlights,
             circulationLightPool: lightingPlan.circulationLightPool,
           } : {}),
+        } : {}),
+        ...('lightingStandard' in lightingPlan ? {
+          lightingStandard: lightingPlan.lightingStandard,
+          ambientDiffusers: lightingPlan.ambientDiffusers,
+          circulationDownlights: lightingPlan.circulationDownlights,
+          passageIlluminators: lightingPlan.passageIlluminators,
         } : {}),
         // Canonical halls use grouped visible fixtures plus shared world and
         // architectural illumination, never one WebGL spotlight per exhibit.

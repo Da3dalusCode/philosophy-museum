@@ -14,6 +14,7 @@
     "check:museum-building": "node scripts/compileContinuousEnfiladeManifest.mjs --check",
     "validate:museum-masterplan": "node scripts/validateMuseumMasterplan.mjs",
     "validate:museum-building-plan": "node scripts/validateSingleLevelBuildingPlan.mjs",
+    "validate:museum-lighting": "node scripts/validateMuseumLightingRollout.mjs",
     "audit:routing": "node scripts/auditRouting.mjs",
     "audit:learning-experiences": "node scripts/auditLearningExperiences.mjs",
     "audit:museum": "node scripts/auditMuseum.mjs && node scripts/auditMuseumPlaques.mjs && npm run audit:exhibits",

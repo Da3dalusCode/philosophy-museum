@@ -63,8 +63,10 @@ import {MuseumBuildingArchitecture} from './MuseumBuildingArchitecture';
 import {usePlaqueTexture} from './plaqueTextures';
 import {
   museumPilotDebugEnabled,
+  registerMuseumPilotPerformanceSampler,
   registerMuseumPilotSceneReader,
   type MuseumPilotMaterialTelemetry,
+  type MuseumPilotPerformanceSample,
 } from './museumPilotDebug';
 
 function DoorReadinessGate({title, entrance, status}: {
@@ -473,10 +475,36 @@ const materialTelemetry = (material: Material): MuseumPilotMaterialTelemetry => 
 
 function MuseumPilotSceneBridge() {
   const {camera, gl, scene, size, invalidate} = useThree();
+  const activePerformanceSampleRef = useRef<{
+    deltas: number[];
+    resolve: (result: MuseumPilotPerformanceSample) => void;
+  } | undefined>(undefined);
+  const lastPerformanceSampleRef = useRef<MuseumPilotPerformanceSample | undefined>(undefined);
+
+  useFrame((_state, delta) => {
+    const sample = activePerformanceSampleRef.current;
+    if (!sample) return;
+    sample.deltas.push(delta * 1000);
+    if (sample.deltas.length < 660) {
+      invalidate();
+      return;
+    }
+    const measured = sample.deltas.slice(60).sort((left, right) => left - right);
+    const result: MuseumPilotPerformanceSample = {
+      frameCount: 600,
+      p50Milliseconds: measured[Math.floor(measured.length * .5)],
+      p95Milliseconds: measured[Math.floor(measured.length * .95)],
+      p99Milliseconds: measured[Math.floor(measured.length * .99)],
+      maximumMilliseconds: measured.at(-1)!,
+    };
+    lastPerformanceSampleRef.current = result;
+    activePerformanceSampleRef.current = undefined;
+    sample.resolve(result);
+  });
 
   useEffect(() => {
     if (!museumPilotDebugEnabled()) return;
-    return registerMuseumPilotSceneReader(() => {
+    const unregisterReader = registerMuseumPilotSceneReader(() => {
       scene.updateMatrixWorld(true);
       camera.updateMatrixWorld(true);
       let shadowCasterCount = 0;
@@ -614,8 +642,23 @@ function MuseumPilotSceneBridge() {
         },
         structuralMeshes,
         lights,
+        ...(lastPerformanceSampleRef.current ? {
+          performanceSample: lastPerformanceSampleRef.current,
+        } : {}),
       };
     }, invalidate);
+    const unregisterSampler = registerMuseumPilotPerformanceSampler(() => new Promise((resolve, reject) => {
+      if (activePerformanceSampleRef.current) {
+        reject(new Error('A Museum performance sample is already running.'));
+        return;
+      }
+      activePerformanceSampleRef.current = {deltas: [], resolve};
+      invalidate();
+    }));
+    return () => {
+      unregisterReader();
+      unregisterSampler();
+    };
   }, [camera, gl, invalidate, scene, size.height, size.width]);
 
   return null;

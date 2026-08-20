@@ -693,6 +693,23 @@ export type MuseumExhibitLightDefinition = {
 
 export type MuseumFixtureKind = 'track-head' | 'recessed-spot' | 'wall-washer';
 export type MuseumRoomLightingProfile = 'compact' | 'linear' | 'hub';
+export type MuseumLightingStandardSystem = 'track' | 'recessed';
+
+export type MuseumLightingBeamDefinition = {
+  category: 'narrow' | 'medium' | 'wide-flood' | 'extra-wide-flood' | 'very-wide-framing-or-wallwash';
+  requiredFullFieldAngleDegrees: number;
+  selectedMinimumFullFieldAngleDegrees: number;
+  installationToleranceReserveDegrees: number;
+  expandedMediaBounds: {
+    minX: number;
+    maxX: number;
+    minY: number;
+    maxY: number;
+    minZ: number;
+    maxZ: number;
+  };
+  mediaMountIds: readonly string[];
+};
 
 /**
  * A visible, non-WebGL fixture. One fixture may credibly serve a deliberately
@@ -711,6 +728,14 @@ export type MuseumLightingFixtureDefinition = {
   width: number;
   /** Hall-local prototype geometry; absent from the museum-wide fixture system. */
   prototypeRole?: 'gallery-01-track-head' | 'gallery-02-recessed-gimbal';
+  /** Production detailed-geometry role, independent of prototype query state. */
+  lightingRole?: 'track-head' | 'recessed-gimbal';
+  /** Exact physical segment carrying a production track head. */
+  trackSegmentId?: string;
+  /** Coverage-derived optic contract for the resolved installation. */
+  beam?: MuseumLightingBeamDefinition;
+  /** Narrow declarative source relocation, when the normal mount enters a live portal. */
+  sourceOverrideId?: string;
   /** Visible-emission ratio only; no per-fixture WebGL light is created. */
   contrastScale?: number;
 };
@@ -729,6 +754,14 @@ export type MuseumCirculationLightPoolDefinition = {
   height: number;
 };
 
+export type MuseumPassageIlluminatorDefinition = {
+  id: string;
+  position: MuseumPoint3;
+  kind: 'slot' | 'recess';
+  size?: MuseumSize3;
+  colorTemperatureK: number;
+};
+
 export type MuseumRoomLightingPlan = {
   spatialCellId: string;
   profile: MuseumRoomLightingProfile;
@@ -743,8 +776,11 @@ export type MuseumLightingDefinition = {
   directionalIntensity: number;
   tracks: readonly MuseumTrackDefinition[];
   prototypeId?: 'gallery-01-option-a' | 'gallery-02-option-a';
+  /** Production rollout dispatch. Never depends on prototypeId or its dev query. */
+  lightingStandard?: {system: MuseumLightingStandardSystem; revision: 'rollout-v1'};
   ambientDiffusers?: readonly MuseumAmbientDiffuserDefinition[];
   circulationDownlights?: readonly MuseumCirculationDownlightDefinition[];
+  passageIlluminators?: readonly MuseumPassageIlluminatorDefinition[];
   circulationLightPool?: MuseumCirculationLightPoolDefinition;
   /** Canonical grouped fixture geometry; absent on legacy authored halls. */
   fixtures?: readonly MuseumLightingFixtureDefinition[];

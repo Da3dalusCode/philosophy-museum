@@ -30,6 +30,14 @@ export type MuseumPilotStructuralTelemetry = {
   materials: readonly MuseumPilotMaterialTelemetry[];
 };
 
+export type MuseumPilotPerformanceSample = {
+  frameCount: 600;
+  p50Milliseconds: number;
+  p95Milliseconds: number;
+  p99Milliseconds: number;
+  maximumMilliseconds: number;
+};
+
 export type MuseumPilotSceneTelemetry = {
   camera: {
     position: readonly [number, number, number];
@@ -69,6 +77,7 @@ export type MuseumPilotSceneTelemetry = {
     color: string;
     position: readonly [number, number, number];
   }[];
+  performanceSample?: MuseumPilotPerformanceSample;
 };
 
 export type MuseumPilotPageTelemetry = {
@@ -111,6 +120,7 @@ type MuseumPilotDebugWindow = Window & {
 
 let sceneReader: (() => MuseumPilotSceneTelemetry) | undefined;
 let sceneInvalidator: (() => void) | undefined;
+let performanceSampler: (() => Promise<MuseumPilotPerformanceSample>) | undefined;
 
 export const museumPilotDebugEnabled = (): boolean =>
   import.meta.env.DEV
@@ -135,6 +145,21 @@ export const readMuseumPilotSceneTelemetry = (): MuseumPilotSceneTelemetry | und
 
 export const requestMuseumPilotSceneRender = (): void => {
   sceneInvalidator?.();
+};
+
+export const registerMuseumPilotPerformanceSampler = (
+  sampler: () => Promise<MuseumPilotPerformanceSample>,
+): (() => void) => {
+  if (!museumPilotDebugEnabled()) return () => undefined;
+  performanceSampler = sampler;
+  return () => {
+    if (performanceSampler === sampler) performanceSampler = undefined;
+  };
+};
+
+export const requestMuseumPilotPerformanceSample = (): Promise<MuseumPilotPerformanceSample> => {
+  if (!performanceSampler) return Promise.reject(new Error('Museum performance sampler is unavailable.'));
+  return performanceSampler();
 };
 
 export const installMuseumPilotDebugApi = (

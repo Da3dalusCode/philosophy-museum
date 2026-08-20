@@ -27,6 +27,7 @@ import type {
   MuseumHallDefinition,
   MuseumLightingDefinition,
   MuseumLightingFixtureDefinition,
+  MuseumPassageIlluminatorDefinition,
   MuseumSignDefinition,
   MuseumSpatialCell,
   MuseumSpatialConnection,
@@ -82,6 +83,24 @@ const PROTOTYPE_RECESSED_BAFFLE_GEOMETRY = new CylinderGeometry(
 );
 const PROTOTYPE_RECESSED_GIMBAL_GEOMETRY = new TorusGeometry(.13, .021, 16, 64);
 const PROTOTYPE_RECESSED_LENS_GEOMETRY = new CircleGeometry(.104, 64);
+// Production rollout fixtures stay circular at their rendered size while
+// avoiding the prototype-study tessellation cost across 24 permanent halls.
+// The locked Gallery 01/02 references continue to use the geometries above.
+const ROLLOUT_TRACK_HEAD_BODY_GEOMETRY = new CylinderGeometry(.105, .13, .28, 16);
+const ROLLOUT_TRACK_HEAD_SNOOT_GEOMETRY = new CylinderGeometry(.09, .105, .16, 16, 1, true);
+const ROLLOUT_TRACK_HEAD_LENS_GEOMETRY = new CircleGeometry(.076, 16);
+const ROLLOUT_TRACK_HEAD_YOKE_GEOMETRY = new TorusGeometry(.14, .022, 6, 16);
+const ROLLOUT_RECESSED_TRIM_GEOMETRY = new RingGeometry(.145, .215, 24);
+const ROLLOUT_RECESSED_BAFFLE_GEOMETRY = new CylinderGeometry(
+  .14,
+  .112,
+  GALLERY_02_RECESS_PROFILE.baffleDepth,
+  24,
+  1,
+  true,
+);
+const ROLLOUT_RECESSED_GIMBAL_GEOMETRY = new TorusGeometry(.13, .021, 6, 16);
+const ROLLOUT_RECESSED_LENS_GEOMETRY = new CircleGeometry(.104, 16);
 const FIXTURE_DARK_MATERIAL = new MeshStandardMaterial({
   color: '#252729',
   metalness: .3,
@@ -104,7 +123,7 @@ const PROTOTYPE_RECESS_BAFFLE_MATERIAL = new MeshStandardMaterial({
   roughness: .58,
   side: BackSide,
 });
-const PROTOTYPE_TRIM_MATERIAL = new MeshStandardMaterial({
+const CEILING_TRIM_MATERIAL = new MeshStandardMaterial({
   ...MUSEUM_CANONICAL_CEILING_MATERIAL,
 });
 const PROTOTYPE_3000K_STANDARD_MATERIAL = new MeshStandardMaterial({
@@ -168,9 +187,8 @@ function CellShell({cell, renaissance, forum, customAmbient, recessedCeiling}: {
         metalness={.012}
       />
     </mesh>
-    {!recessedCeiling && <mesh position={[x, cell.ceilingHeight + .09, z]}>
+    {!recessedCeiling && <mesh position={[x, cell.ceilingHeight + .09, z]} material={CEILING_TRIM_MATERIAL}>
       <boxGeometry args={[width, .18, depth]}/>
-      <meshStandardMaterial {...MUSEUM_CANONICAL_CEILING_MATERIAL}/>
     </mesh>}
     {!customAmbient && <CeilingLightStrips cell={renderCell}/>}
   </group>;
@@ -263,9 +281,14 @@ function Gallery02RecessedCeiling({cells, lighting}: {
   lighting: MuseumLightingDefinition;
 }) {
   const cutouts = useMemo(() => [
-    ...(lighting.fixtures ?? []).filter(({prototypeRole}) => prototypeRole === 'gallery-02-recessed-gimbal')
+    ...(lighting.fixtures ?? []).filter(({prototypeRole, lightingRole}) => (
+      prototypeRole === 'gallery-02-recessed-gimbal' || lightingRole === 'recessed-gimbal'
+    ))
       .map(({mountPosition}) => mountPosition),
     ...(lighting.circulationDownlights ?? []).map(({position}) => position),
+    ...(lighting.passageIlluminators ?? [])
+      .filter(({kind}) => kind === 'recess')
+      .map(({position}) => position),
   ], [lighting]);
   const geometry = useMemo(() => {
     const minX = Math.min(...cells.map((cell) => (cell.renderBounds ?? cell.bounds).minX));
@@ -300,12 +323,9 @@ function Gallery02RecessedCeiling({cells, lighting}: {
   const z = (bounds.minZ + bounds.maxZ) / 2;
   const backingGap = GALLERY_02_RECESS_PROFILE.baffleDepth + .02;
   return <group userData={{museumStructuralId: 'gallery-02-perforated-recess-ceiling', ceilingCutoutCount: cutouts.length}}>
-    <mesh geometry={geometry} position={[0, ceilingHeight, 0]}>
-      <meshStandardMaterial {...MUSEUM_CANONICAL_CEILING_MATERIAL}/>
-    </mesh>
-    <mesh position={[x, ceilingHeight + backingGap + .09, z]}>
+    <mesh geometry={geometry} material={CEILING_TRIM_MATERIAL} position={[0, ceilingHeight, 0]}/>
+    <mesh position={[x, ceilingHeight + backingGap + .09, z]} material={CEILING_TRIM_MATERIAL}>
       <boxGeometry args={[width, .18, depth]}/>
-      <meshStandardMaterial {...MUSEUM_CANONICAL_CEILING_MATERIAL}/>
     </mesh>
   </group>;
 }
@@ -327,29 +347,38 @@ const trackMatrices = (tracks: readonly MuseumTrackDefinition[]): readonly Matri
   )),
 );
 
-function MuseumPrototypeAmbientDiffusers({hallId, diffusers}: {
+function MuseumDetailedAmbientDiffusers({hallId, diffusers, passages}: {
   hallId: string;
   diffusers: readonly MuseumAmbientDiffuserDefinition[];
+  passages: readonly MuseumPassageIlluminatorDefinition[];
 }) {
+  const ceilingElements = useMemo(() => [
+    ...diffusers.map(({id, center, size}) => ({id, center, size})),
+    ...passages.filter(({kind}) => kind === 'slot').map(({id, position, size}) => ({
+      id,
+      center: position,
+      size: size!,
+    })),
+  ], [diffusers, passages]);
   const batches = useMemo(() => ({
-    trims: diffusers.map(({center, size}) => scaledBoxMatrix(
+    trims: ceilingElements.map(({center, size}) => scaledBoxMatrix(
       {...center, y: center.y + .006},
       {width: size.width + .18, height: .02, depth: size.depth + .18},
     )),
-    apertures: diffusers.map(({center, size}) => scaledBoxMatrix(
+    apertures: ceilingElements.map(({center, size}) => scaledBoxMatrix(
       {...center, y: center.y - .008},
       {width: size.width + .08, height: .025, depth: size.depth + .08},
     )),
-    lenses: diffusers.map(({center, size}) => scaledBoxMatrix(
+    lenses: ceilingElements.map(({center, size}) => scaledBoxMatrix(
       {...center, y: center.y - .022},
       size,
     )),
-  }), [diffusers]);
-  const userData = {museumLightingHallId: hallId, museumLightingPrototypeAmbient: true};
-  return <group userData={{museumLightingPrototypeAmbientFor: hallId}}>
-    <InstanceBatch geometry={TRACK_GEOMETRY} material={PROTOTYPE_TRIM_MATERIAL} matrices={batches.trims} userData={{...userData, museumStructuralId: `lighting-prototype-diffuser-trims:${hallId}`}}/>
-    <InstanceBatch geometry={TRACK_GEOMETRY} material={PROTOTYPE_BLACK_MATERIAL} matrices={batches.apertures} userData={{...userData, museumStructuralId: `lighting-prototype-diffuser-apertures:${hallId}`}}/>
-    <InstanceBatch geometry={TRACK_GEOMETRY} material={PROTOTYPE_DIFFUSER_MATERIAL} matrices={batches.lenses} userData={{...userData, museumStructuralId: `lighting-prototype-diffuser-lenses:${hallId}`}}/>
+  }), [ceilingElements]);
+  const userData = {museumLightingHallId: hallId, museumDetailedAmbient: true};
+  return <group userData={{museumDetailedAmbientFor: hallId}}>
+    <InstanceBatch geometry={TRACK_GEOMETRY} material={CEILING_TRIM_MATERIAL} matrices={batches.trims} userData={{...userData, museumStructuralId: `lighting-detailed-diffuser-trims:${hallId}`}}/>
+    <InstanceBatch geometry={TRACK_GEOMETRY} material={PROTOTYPE_BLACK_MATERIAL} matrices={batches.apertures} userData={{...userData, museumStructuralId: `lighting-detailed-diffuser-apertures:${hallId}`}}/>
+    <InstanceBatch geometry={TRACK_GEOMETRY} material={PROTOTYPE_DIFFUSER_MATERIAL} matrices={batches.lenses} userData={{...userData, museumStructuralId: `lighting-detailed-diffuser-lenses:${hallId}`}}/>
   </group>;
 }
 
@@ -388,6 +417,15 @@ const recessedOpticRootMatrix = (definition: MuseumLightingFixtureDefinition): M
     new Vector3(1, 1, 1),
   );
 };
+
+const detailedFixtureRole = (
+  fixture: MuseumLightingFixtureDefinition,
+): 'track-head' | 'recessed-gimbal' | undefined => fixture.lightingRole
+  ?? (fixture.prototypeRole === 'gallery-01-track-head'
+    ? 'track-head'
+    : fixture.prototypeRole === 'gallery-02-recessed-gimbal'
+      ? 'recessed-gimbal'
+      : undefined);
 
 const pushCirculationRecess = (
   downlight: MuseumCirculationDownlightDefinition,
@@ -488,10 +526,11 @@ function MuseumLightingInstallationDefault({hallId, lighting}: {
   </group>;
 }
 
-function MuseumPrototypeLightingInstallation({hallId, lighting}: {
+function MuseumDetailedLightingInstallation({hallId, lighting}: {
   hallId: string;
   lighting: MuseumLightingDefinition;
 }) {
+  const productionRollout = Boolean(lighting.lightingStandard);
   const batches = useMemo(() => {
     const fixtures = lighting.fixtures ?? [];
     const tracks = trackMatrices(lighting.tracks);
@@ -506,11 +545,13 @@ function MuseumPrototypeLightingInstallation({hallId, lighting}: {
     const recessedStandardLenses: Matrix4[] = [];
     const recessedAnchorLenses: Matrix4[] = [];
     const circulationLenses: Matrix4[] = [];
+    const surfaceCirculationLenses: Matrix4[] = [];
 
     for (const fixture of fixtures) {
       const root = fixtureRootMatrix(fixture);
       const anchor = (fixture.contrastScale ?? 1) > 1;
-      if (fixture.prototypeRole === 'gallery-01-track-head') {
+      const role = detailedFixtureRole(fixture);
+      if (role === 'track-head') {
         trackBodies.push(root.clone().multiply(new Matrix4().makeTranslation(0, -.15, 0)));
         trackSnoots.push(root.clone().multiply(new Matrix4().makeTranslation(0, -.3, 0)));
         trackYokes.push(root.clone()
@@ -519,7 +560,7 @@ function MuseumPrototypeLightingInstallation({hallId, lighting}: {
         (anchor ? trackAnchorLenses : trackStandardLenses).push(root.clone()
           .multiply(new Matrix4().makeTranslation(0, -.255, 0))
           .multiply(new Matrix4().makeRotationX(Math.PI / 2)));
-      } else if (fixture.prototypeRole === 'gallery-02-recessed-gimbal') {
+      } else if (role === 'recessed-gimbal') {
         const ceilingPlaneY = fixture.mountPosition.y + GALLERY_02_RECESS_PROFILE.mountInset;
         const opticRoot = recessedOpticRootMatrix(fixture);
         recessedTrims.push(horizontalRoundMatrix({
@@ -538,12 +579,25 @@ function MuseumPrototypeLightingInstallation({hallId, lighting}: {
           .multiply(new Matrix4().makeRotationX(Math.PI / 2)));
       }
     }
-    for (const downlight of lighting.circulationDownlights ?? []) pushCirculationRecess(
-      downlight,
-      recessedTrims,
-      recessedBaffles,
-      circulationLenses,
-    );
+    for (const downlight of lighting.circulationDownlights ?? []) {
+      if (lighting.lightingStandard?.system === 'track') {
+        surfaceCirculationLenses.push(horizontalRoundMatrix({
+          ...downlight.position,
+          y: downlight.position.y - .022,
+        }));
+      } else {
+        pushCirculationRecess(downlight, recessedTrims, recessedBaffles, circulationLenses);
+      }
+    }
+    for (const passage of lighting.passageIlluminators ?? []) {
+      if (passage.kind !== 'recess') continue;
+      pushCirculationRecess(
+        {id: passage.id, position: passage.position, colorTemperatureK: passage.colorTemperatureK},
+        recessedTrims,
+        recessedBaffles,
+        circulationLenses,
+      );
+    }
     return {
       fixtures,
       tracks,
@@ -558,29 +612,53 @@ function MuseumPrototypeLightingInstallation({hallId, lighting}: {
       recessedStandardLenses,
       recessedAnchorLenses,
       circulationLenses,
+      surfaceCirculationLenses,
     };
   }, [lighting]);
   const fixtureMetadata = batches.fixtures.map((fixture) => ({
     id: fixture.id,
     prototypeRole: fixture.prototypeRole,
+    lightingRole: fixture.lightingRole,
+    trackSegmentId: fixture.trackSegmentId,
+    sourceOverrideId: fixture.sourceOverrideId,
     contrastScale: fixture.contrastScale,
     sourceIds: fixture.sourceIds,
     spatialCellId: fixture.spatialCellId,
   }));
   const userData = {museumLightingHallId: hallId, museumFixtureInstances: fixtureMetadata};
-  return <group userData={{museumLightingPrototypeFor: hallId}}>
-    <InstanceBatch geometry={TRACK_GEOMETRY} material={FIXTURE_DARK_MATERIAL} matrices={batches.tracks} userData={{...userData, museumStructuralId: `lighting-prototype-tracks:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_TRACK_HEAD_BODY_GEOMETRY} material={FIXTURE_DARK_MATERIAL} matrices={batches.trackBodies} userData={{...userData, museumStructuralId: `lighting-prototype-track-bodies:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_TRACK_HEAD_SNOOT_GEOMETRY} material={PROTOTYPE_BLACK_MATERIAL} matrices={batches.trackSnoots} userData={{...userData, museumStructuralId: `lighting-prototype-track-snoots:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_TRACK_HEAD_YOKE_GEOMETRY} material={FIXTURE_DARK_MATERIAL} matrices={batches.trackYokes} userData={{...userData, museumStructuralId: `lighting-prototype-track-yokes:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_TRACK_HEAD_LENS_GEOMETRY} material={PROTOTYPE_3000K_STANDARD_MATERIAL} matrices={batches.trackStandardLenses} userData={{...userData, museumStructuralId: `lighting-prototype-track-standard-lenses:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_TRACK_HEAD_LENS_GEOMETRY} material={PROTOTYPE_3000K_ANCHOR_MATERIAL} matrices={batches.trackAnchorLenses} userData={{...userData, museumStructuralId: `lighting-prototype-track-anchor-lenses:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_RECESSED_TRIM_GEOMETRY} material={PROTOTYPE_TRIM_MATERIAL} matrices={batches.recessedTrims} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-trims:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_RECESSED_BAFFLE_GEOMETRY} material={PROTOTYPE_RECESS_BAFFLE_MATERIAL} matrices={batches.recessedBaffles} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-baffles:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_RECESSED_GIMBAL_GEOMETRY} material={FIXTURE_DARK_MATERIAL} matrices={batches.recessedGimbals} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-gimbals:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_RECESSED_LENS_GEOMETRY} material={PROTOTYPE_3000K_STANDARD_MATERIAL} matrices={batches.recessedStandardLenses} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-standard-lenses:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_RECESSED_LENS_GEOMETRY} material={PROTOTYPE_3000K_ANCHOR_MATERIAL} matrices={batches.recessedAnchorLenses} userData={{...userData, museumStructuralId: `lighting-prototype-recessed-anchor-lenses:${hallId}`}}/>
-    <InstanceBatch geometry={PROTOTYPE_RECESSED_LENS_GEOMETRY} material={PROTOTYPE_3000K_CIRCULATION_MATERIAL} matrices={batches.circulationLenses} userData={{...userData, museumStructuralId: `lighting-prototype-circulation-lenses:${hallId}`}}/>
+  const detailedGeometry = productionRollout ? {
+    trackBody: ROLLOUT_TRACK_HEAD_BODY_GEOMETRY,
+    trackSnoot: ROLLOUT_TRACK_HEAD_SNOOT_GEOMETRY,
+    trackYoke: ROLLOUT_TRACK_HEAD_YOKE_GEOMETRY,
+    trackLens: ROLLOUT_TRACK_HEAD_LENS_GEOMETRY,
+    recessedTrim: ROLLOUT_RECESSED_TRIM_GEOMETRY,
+    recessedBaffle: ROLLOUT_RECESSED_BAFFLE_GEOMETRY,
+    recessedGimbal: ROLLOUT_RECESSED_GIMBAL_GEOMETRY,
+    recessedLens: ROLLOUT_RECESSED_LENS_GEOMETRY,
+  } : {
+    trackBody: PROTOTYPE_TRACK_HEAD_BODY_GEOMETRY,
+    trackSnoot: PROTOTYPE_TRACK_HEAD_SNOOT_GEOMETRY,
+    trackYoke: PROTOTYPE_TRACK_HEAD_YOKE_GEOMETRY,
+    trackLens: PROTOTYPE_TRACK_HEAD_LENS_GEOMETRY,
+    recessedTrim: PROTOTYPE_RECESSED_TRIM_GEOMETRY,
+    recessedBaffle: PROTOTYPE_RECESSED_BAFFLE_GEOMETRY,
+    recessedGimbal: PROTOTYPE_RECESSED_GIMBAL_GEOMETRY,
+    recessedLens: PROTOTYPE_RECESSED_LENS_GEOMETRY,
+  };
+  return <group userData={{museumDetailedLightingFor: hallId}}>
+    <InstanceBatch geometry={TRACK_GEOMETRY} material={FIXTURE_DARK_MATERIAL} matrices={batches.tracks} userData={{...userData, museumStructuralId: `lighting-detailed-tracks:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.trackBody} material={FIXTURE_DARK_MATERIAL} matrices={batches.trackBodies} userData={{...userData, museumStructuralId: `lighting-detailed-track-bodies:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.trackSnoot} material={PROTOTYPE_BLACK_MATERIAL} matrices={batches.trackSnoots} userData={{...userData, museumStructuralId: `lighting-detailed-track-snoots:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.trackYoke} material={FIXTURE_DARK_MATERIAL} matrices={batches.trackYokes} userData={{...userData, museumStructuralId: `lighting-detailed-track-yokes:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.trackLens} material={PROTOTYPE_3000K_STANDARD_MATERIAL} matrices={batches.trackStandardLenses} userData={{...userData, museumStructuralId: `lighting-detailed-track-standard-lenses:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.trackLens} material={PROTOTYPE_3000K_ANCHOR_MATERIAL} matrices={batches.trackAnchorLenses} userData={{...userData, museumStructuralId: `lighting-detailed-track-anchor-lenses:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.recessedTrim} material={CEILING_TRIM_MATERIAL} matrices={batches.recessedTrims} userData={{...userData, museumStructuralId: `lighting-detailed-recessed-trims:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.recessedBaffle} material={PROTOTYPE_RECESS_BAFFLE_MATERIAL} matrices={batches.recessedBaffles} userData={{...userData, museumStructuralId: `lighting-detailed-recessed-baffles:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.recessedGimbal} material={FIXTURE_DARK_MATERIAL} matrices={batches.recessedGimbals} userData={{...userData, museumStructuralId: `lighting-detailed-recessed-gimbals:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.recessedLens} material={PROTOTYPE_3000K_STANDARD_MATERIAL} matrices={batches.recessedStandardLenses} userData={{...userData, museumStructuralId: `lighting-detailed-recessed-standard-lenses:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.recessedLens} material={PROTOTYPE_3000K_ANCHOR_MATERIAL} matrices={batches.recessedAnchorLenses} userData={{...userData, museumStructuralId: `lighting-detailed-recessed-anchor-lenses:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.recessedLens} material={PROTOTYPE_3000K_CIRCULATION_MATERIAL} matrices={batches.circulationLenses} userData={{...userData, museumStructuralId: `lighting-detailed-recessed-circulation-lenses:${hallId}`}}/>
+    <InstanceBatch geometry={detailedGeometry.recessedLens} material={PROTOTYPE_3000K_CIRCULATION_MATERIAL} matrices={batches.surfaceCirculationLenses} userData={{...userData, museumStructuralId: `lighting-detailed-surface-circulation-lenses:${hallId}`}}/>
     {lighting.circulationLightPool && <rectAreaLight
       position={[
         lighting.circulationLightPool.position.x,
@@ -597,13 +675,13 @@ function MuseumPrototypeLightingInstallation({hallId, lighting}: {
   </group>;
 }
 
-function MuseumLightingInstallation({hallId, lighting, prototypeEnabled}: {
+function MuseumLightingInstallation({hallId, lighting, detailedEnabled}: {
   hallId: string;
   lighting: MuseumLightingDefinition;
-  prototypeEnabled: boolean;
+  detailedEnabled: boolean;
 }) {
-  return lighting.prototypeId && prototypeEnabled
-    ? <MuseumPrototypeLightingInstallation hallId={hallId} lighting={lighting}/>
+  return detailedEnabled
+    ? <MuseumDetailedLightingInstallation hallId={hallId} lighting={lighting}/>
     : <MuseumLightingInstallationDefault hallId={hallId} lighting={lighting}/>;
 }
 
@@ -770,7 +848,10 @@ export function ContemporaryHallArchitecture({
   const renaissance = definition.id === RENAISSANCE_GALLERY_ID;
   const forum = definition.id === 'core-questions-forum';
   const prototypeEnabled = Boolean(layout.lighting.prototypeId) && prototypeLightingEnabled();
-  const gallery02RecessedCeiling = prototypeEnabled && layout.lighting.prototypeId === 'gallery-02-option-a';
+  const productionDetailed = Boolean(layout.lighting.lightingStandard);
+  const detailedEnabled = productionDetailed || prototypeEnabled;
+  const recessedCeiling = layout.lighting.lightingStandard?.system === 'recessed'
+    || (prototypeEnabled && layout.lighting.prototypeId === 'gallery-02-option-a');
   const wallMaterial = resolveMuseumWallMaterial(definition.id);
   const activate = (event: ThreeEvent<MouseEvent>) => {
     if (event.delta > 7) return;
@@ -783,14 +864,18 @@ export function ContemporaryHallArchitecture({
       cell={cell}
       renaissance={renaissance}
       forum={forum}
-      customAmbient={prototypeEnabled}
-      recessedCeiling={gallery02RecessedCeiling}
+      customAmbient={detailedEnabled}
+      recessedCeiling={recessedCeiling}
     />)}
-    {gallery02RecessedCeiling && <Gallery02RecessedCeiling
+    {recessedCeiling && <Gallery02RecessedCeiling
       cells={layout.spatialCells}
       lighting={layout.lighting}
     />}
-    {prototypeEnabled && layout.lighting.ambientDiffusers && <MuseumPrototypeAmbientDiffusers hallId={definition.id} diffusers={layout.lighting.ambientDiffusers}/>}
+    {detailedEnabled && layout.lighting.ambientDiffusers && <MuseumDetailedAmbientDiffusers
+      hallId={definition.id}
+      diffusers={layout.lighting.ambientDiffusers}
+      passages={layout.lighting.passageIlluminators ?? []}
+    />}
     {forum && <group userData={{forumCirculationCross: true}}>
       <mesh position={[0, .012, 0]}><boxGeometry args={[27.2, .014, .055]}/><meshStandardMaterial color={BRONZE} roughness={.5} metalness={.38}/></mesh>
       <mesh position={[0, .013, 0]}><boxGeometry args={[.055, .015, 27.2]}/><meshStandardMaterial color={BRONZE} roughness={.5} metalness={.38}/></mesh>
@@ -800,7 +885,7 @@ export function ContemporaryHallArchitecture({
     {architectureWalls.map((wall) => <GalleryWall key={wall.id} wall={wall} wallMaterial={wallMaterial}/>)}
     <MuseumTemplateInterfaces definition={definition} ownedPortalIds={ownedPortalIds}/>
     {layout.furnishings.filter(({kind}) => kind === 'bench').map((item) => <Bench key={item.id} definition={item} mediterranean={mediterranean}/>)}
-    <MuseumLightingInstallation hallId={definition.id} lighting={layout.lighting} prototypeEnabled={prototypeEnabled}/>
+    <MuseumLightingInstallation hallId={definition.id} lighting={layout.lighting} detailedEnabled={detailedEnabled}/>
     {layout.signs?.map((sign) => <PhysicalSign
       key={sign.id}
       definition={sign}

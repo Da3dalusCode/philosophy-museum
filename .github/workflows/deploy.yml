@@ -51,6 +51,9 @@ jobs:
       - name: Audit Museum geometry and runtime
         run: node scripts/auditMuseum.mjs
 
+      - name: Validate Museum lighting rollout
+        run: npm run validate:museum-lighting
+
       - name: Audit Museum plaques
         run: npm run audit:museum-plaques
 

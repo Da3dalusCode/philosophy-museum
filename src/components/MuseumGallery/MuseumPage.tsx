@@ -112,6 +112,7 @@ import {
   installMuseumPilotDebugApi,
   museumPilotDebugEnabled,
   readMuseumPilotSceneTelemetry,
+  requestMuseumPilotPerformanceSample,
   requestMuseumPilotSceneRender,
   type MuseumPilotCameraRequest,
   type MuseumPilotPageTelemetry,
@@ -2055,6 +2056,11 @@ export function MuseumPage({route, href, push, replace}: {
       if (event.key.toLowerCase() === 'p') {
         event.preventDefault();
         publishTelemetry(true);
+        return;
+      }
+      if (event.key.toLowerCase() === 't') {
+        event.preventDefault();
+        void requestMuseumPilotPerformanceSample().then(() => publishTelemetry(true));
         return;
       }
       const request = MUSEUM_PILOT_CAMERA_KEYS[event.key];
