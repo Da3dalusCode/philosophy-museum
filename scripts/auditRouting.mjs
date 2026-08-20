@@ -608,7 +608,7 @@ check('document titles are exhaustive and section-aware', () => {
   );
   assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'renaissance-humanism-new-method', exhibitId: 'galileo-moon'}),
-    'Galileo’s Moon — Renaissance, Political Order, and New Science | Philosophy Atlas',
+    'Lunar Illustrations from Sidereus Nuncius — Renaissance, Political Order, and New Science | Philosophy Atlas',
   );
   assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'enlightenment-revolution-kant', exhibitId: 'kant'}),

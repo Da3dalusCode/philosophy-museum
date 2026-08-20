@@ -10,6 +10,7 @@ import type {
   MuseumSupplementalInstallationKind,
 } from './museumWorldTypes';
 import type {MuseumZoneId} from '../museumCatalog';
+import {reviewRenaissanceSupplementalExhibit} from './renaissanceSupplementalReview';
 
 const volume = (
   id: string,
@@ -100,7 +101,7 @@ const presentation = (
   entityKind: 'philosopher' | 'branch' = 'philosopher',
 ) => ({panelKicker, proximityKicker, factRows, articleActionLabel, entityKind}) as const;
 
-export const RENAISSANCE_SUPPLEMENTAL_EXHIBITS = [
+export const RENAISSANCE_SUPPLEMENTAL_EXHIBITS = ([
   {
     id: 'renaissance-texts-in-transit',
     displayName: 'Texts in Transit',
@@ -617,22 +618,22 @@ export const RENAISSANCE_SUPPLEMENTAL_EXHIBITS = [
       {label: 'Atlas route', value: 'Thomas Hobbes’s full profile'},
     ], 'Open Thomas Hobbes’s full Atlas article'),
   },
-] as const satisfies readonly MuseumSupplementalExhibit[];
+] satisfies MuseumSupplementalExhibit[]).map(reviewRenaissanceSupplementalExhibit);
 
 export const RENAISSANCE_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  layout({id: 'renaissance-texts-in-transit', parentExhibitId: 'ficino', zoneId: 'early-statecraft-republic', position: {x: 5.55, z: -26.88}, rotationY: 0, assetId: 'renaissance-texts-in-transit-ptolemy-1482', mediaWidth: 3.38, mediaHeight: 2.46, installationKind: 'renaissance-context', accent: RENAISSANCE_PALETTE.terracotta, width: 4.35}),
-  layout({id: 'machiavelli-discourses', parentExhibitId: 'machiavelli', zoneId: 'early-statecraft-republic', position: {x: -5.55, z: -10.4533}, rotationY: Math.PI, assetId: 'machiavelli-discourses-1540', mediaWidth: 2.05, mediaHeight: 3.34, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.agedBrass}),
-  layout({id: 'machiavelli-prince', parentExhibitId: 'machiavelli', zoneId: 'early-statecraft-republic', position: {x: -5.55, z: -26.88}, rotationY: 0, assetId: 'machiavelli-prince-1532', mediaWidth: 2.25, mediaHeight: 3.18, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.oxblood}),
-  layout({id: 'ficino-enneads', parentExhibitId: 'ficino', zoneId: 'early-statecraft-republic', position: {x: 5.55, z: -10.4533}, rotationY: Math.PI, assetId: 'neoplatonism-ficino-enneads', mediaWidth: 2.38, mediaHeight: 3.16, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.agedBrass}),
-  layout({id: 'bacon-great-instauration', parentExhibitId: 'bacon', zoneId: 'early-experiment-method', position: {x: -5.55, z: -8.2133}, rotationY: 0, assetId: 'bacon-great-instauration-1620', mediaWidth: 2.22, mediaHeight: 3.36, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.inkBlue}),
-  layout({id: 'galileo-moon', parentExhibitId: 'galileo', zoneId: 'early-experiment-method', position: {x: 5.55, z: -8.2133}, rotationY: 0, assetId: 'galileo-moon-sketches-1610', mediaWidth: 2.38, mediaHeight: 3.3, installationKind: 'renaissance-observation', accent: RENAISSANCE_PALETTE.agedBrass}),
-  layout({id: 'bacon-novum-organum', parentExhibitId: 'bacon', zoneId: 'early-experiment-method', position: {x: -5.55, z: 8.2133}, rotationY: Math.PI, assetId: 'bacon-novum-organum-1645', mediaWidth: 2.03, mediaHeight: 3.38, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.oxblood}),
-  layout({id: 'galileo-telescopes', parentExhibitId: 'galileo', zoneId: 'early-experiment-method', position: {x: 5.575, z: 8.2133}, rotationY: Math.PI, assetId: 'galileo-telescopes-museo', mediaWidth: 3.78, mediaHeight: 2.52, installationKind: 'renaissance-observation', accent: RENAISSANCE_PALETTE.inkBlue, width: 4.4}),
-  layout({id: 'hobbes-leviathan', parentExhibitId: 'hobbes', zoneId: 'early-sovereignty-materialism', position: {x: 10.85, z: 18.6667}, rotationY: -Math.PI / 2, assetId: 'hobbes-leviathan-1651', mediaWidth: 2.3, mediaHeight: 3.2, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.agedBrass}),
-  layout({id: 'putney-debates', parentExhibitId: 'hobbes', zoneId: 'early-sovereignty-materialism', position: {x: 5.55, z: 10.4533}, rotationY: 0, assetId: 'putney-agreement-people-1648', mediaWidth: 2.46, mediaHeight: 3.28, installationKind: 'renaissance-context', accent: RENAISSANCE_PALETTE.terracotta}),
-  layout({id: 'english-civil-war', parentExhibitId: 'hobbes', zoneId: 'early-sovereignty-materialism', position: {x: -5.55, z: 10.4533}, rotationY: 0, assetId: 'english-civil-war-pamphlet-1642', mediaWidth: 2.22, mediaHeight: 3.34, installationKind: 'renaissance-context', accent: RENAISSANCE_PALETTE.terracotta}),
-  layout({id: 'hobbes-de-cive', parentExhibitId: 'hobbes', zoneId: 'early-sovereignty-materialism', position: {x: -5.55, z: 26.88}, rotationY: Math.PI, assetId: 'hobbes-de-cive-1642', mediaWidth: 2.55, mediaHeight: 3.18, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.oxblood}),
-  layout({id: 'hobbes-materialism-motion', parentExhibitId: 'hobbes', zoneId: 'early-sovereignty-materialism', position: {x: 5.8, z: 26.88}, rotationY: Math.PI, assetId: 'hobbes-notes-motion-chatsworth', mediaWidth: 3.74, mediaHeight: 1.88, installationKind: 'renaissance-observation', accent: RENAISSANCE_PALETTE.inkBlue, width: 4.85}),
+  layout({id: 'renaissance-texts-in-transit', parentExhibitId: 'ficino', zoneId: 'early-statecraft-republic', position: {x: 5.55, z: -26.88}, rotationY: 0, assetId: 'renaissance-texts-in-transit-ptolemy-1482', mediaWidth: 3.38, mediaHeight: 3.38 * 465 / 640, installationKind: 'renaissance-context', accent: RENAISSANCE_PALETTE.terracotta, width: 4.35}),
+  layout({id: 'machiavelli-discourses', parentExhibitId: 'machiavelli', zoneId: 'early-statecraft-republic', position: {x: -5.55, z: -10.4533}, rotationY: Math.PI, assetId: 'machiavelli-discourses-1540', mediaWidth: 3.78, mediaHeight: 3.78 * 489 / 640, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.agedBrass}),
+  layout({id: 'machiavelli-prince', parentExhibitId: 'machiavelli', zoneId: 'early-statecraft-republic', position: {x: -5.55, z: -26.88}, rotationY: 0, assetId: 'machiavelli-prince-1532', mediaWidth: 3.18 * 525 / 640, mediaHeight: 3.18, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.oxblood}),
+  layout({id: 'ficino-enneads', parentExhibitId: 'ficino', zoneId: 'early-statecraft-republic', position: {x: 5.55, z: -10.4533}, rotationY: Math.PI, assetId: 'neoplatonism-ficino-enneads', mediaWidth: 3.16 * 463 / 640, mediaHeight: 3.16, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.agedBrass}),
+  layout({id: 'bacon-great-instauration', parentExhibitId: 'bacon', zoneId: 'early-experiment-method', position: {x: -5.55, z: -8.2133}, rotationY: 0, assetId: 'bacon-great-instauration-1620', mediaWidth: 3.36 * 422 / 640, mediaHeight: 3.36, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.inkBlue}),
+  layout({id: 'galileo-moon', parentExhibitId: 'galileo', zoneId: 'early-experiment-method', position: {x: 5.55, z: -8.2133}, rotationY: 0, assetId: 'galileo-moon-sketches-1610', mediaWidth: 3.3 * 462 / 640, mediaHeight: 3.3, installationKind: 'renaissance-observation', accent: RENAISSANCE_PALETTE.agedBrass}),
+  layout({id: 'bacon-novum-organum', parentExhibitId: 'bacon', zoneId: 'early-experiment-method', position: {x: -5.55, z: 8.2133}, rotationY: Math.PI, assetId: 'bacon-novum-organum-1645', mediaWidth: 3.38 * 371 / 640, mediaHeight: 3.38, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.oxblood}),
+  layout({id: 'galileo-telescopes', parentExhibitId: 'galileo', zoneId: 'early-experiment-method', position: {x: 5.575, z: 8.2133}, rotationY: Math.PI, assetId: 'galileo-telescopes-museo', mediaWidth: 3.78, mediaHeight: 3.78 * 426 / 640, installationKind: 'renaissance-observation', accent: RENAISSANCE_PALETTE.inkBlue, width: 4.4}),
+  layout({id: 'hobbes-leviathan', parentExhibitId: 'hobbes', zoneId: 'early-sovereignty-materialism', position: {x: 10.85, z: 18.6667}, rotationY: -Math.PI / 2, assetId: 'hobbes-leviathan-1651', mediaWidth: 3.2 * 401 / 640, mediaHeight: 3.2, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.agedBrass}),
+  layout({id: 'putney-debates', parentExhibitId: 'hobbes', zoneId: 'early-sovereignty-materialism', position: {x: 5.55, z: 10.4533}, rotationY: 0, assetId: 'putney-agreement-people-1648', mediaWidth: 3.28 * 483 / 640, mediaHeight: 3.28, installationKind: 'renaissance-context', accent: RENAISSANCE_PALETTE.terracotta}),
+  layout({id: 'english-civil-war', parentExhibitId: 'hobbes', zoneId: 'early-sovereignty-materialism', position: {x: -5.55, z: 10.4533}, rotationY: 0, assetId: 'english-civil-war-pamphlet-1642', mediaWidth: 3.34 * 426 / 640, mediaHeight: 3.34, installationKind: 'renaissance-context', accent: RENAISSANCE_PALETTE.terracotta}),
+  layout({id: 'hobbes-de-cive', parentExhibitId: 'hobbes', zoneId: 'early-sovereignty-materialism', position: {x: -5.55, z: 26.88}, rotationY: Math.PI, assetId: 'hobbes-de-cive-1642', mediaWidth: 3.18 * 512 / 640, mediaHeight: 3.18, installationKind: 'renaissance-work', accent: RENAISSANCE_PALETTE.oxblood}),
+  layout({id: 'hobbes-materialism-motion', parentExhibitId: 'hobbes', zoneId: 'early-sovereignty-materialism', position: {x: 5.8, z: 26.88}, rotationY: Math.PI, assetId: 'hobbes-notes-motion-chatsworth', mediaWidth: 3.74, mediaHeight: 3.74 * 321 / 639, installationKind: 'renaissance-observation', accent: RENAISSANCE_PALETTE.inkBlue, width: 4.85}),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 const supplementalById = new Map<MuseumSupplementalExhibitId, MuseumSupplementalExhibit>(
@@ -647,6 +648,6 @@ export const getRenaissanceSupplementalExhibit = (
   id: MuseumSupplementalExhibitId,
 ): MuseumSupplementalExhibit => {
   const record = findRenaissanceSupplementalExhibit(id);
-  if (!record) throw new Error(`Gallery 02 supplemental exhibit ${id} is missing.`);
+  if (!record) throw new Error(`Gallery 12 supplemental exhibit ${id} is missing.`);
   return record;
 };

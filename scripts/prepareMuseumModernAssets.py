@@ -227,7 +227,13 @@ def main() -> None:
                 if rotation_degrees not in {90, 180, 270}:
                     raise RuntimeError(f"{slug}.rotationDegrees must be 90, 180, or 270.")
                 image = image.rotate(-int(rotation_degrees), expand=True)
-            scene_lock = save_variant(image, candidate_scene, 640, 82, MIN_MUSEUM_SHORT_EDGE)
+            scene_lock = save_variant(
+                image,
+                candidate_scene,
+                int(record.get("sceneMaximum", 640)),
+                82,
+                MIN_MUSEUM_SHORT_EDGE,
+            )
             panel_lock = save_variant(image, candidate_panel, 1280, 88)
 
             if args.refresh_locks:

@@ -1713,14 +1713,15 @@
     },
     "hobbes-notes-motion-chatsworth": {
       "hallFolder": "renaissance-humanism-new-method",
+      "sceneMaximum": 639,
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Notes_on_Galileo%27s_theory_of_motion,_by_Thomas_Hobbes,_1600s_-_Oak_Room,_Chatsworth_House_-_Derbyshire,_England_-_DSC03056.jpg",
       "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Notes_on_Galileo%27s_theory_of_motion%2C_by_Thomas_Hobbes%2C_1600s_-_Oak_Room%2C_Chatsworth_House_-_Derbyshire%2C_England_-_DSC03056.jpg",
       "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Notes_on_Galileo%27s_theory_of_motion%2C_by_Thomas_Hobbes%2C_1600s_-_Oak_Room%2C_Chatsworth_House_-_Derbyshire%2C_England_-_DSC03056.jpg/1280px-Notes_on_Galileo%27s_theory_of_motion%2C_by_Thomas_Hobbes%2C_1600s_-_Oak_Room%2C_Chatsworth_House_-_Derbyshire%2C_England_-_DSC03056.jpg",
       "scene": {
-        "width": 640,
-        "height": 322,
-        "bytes": 54092,
-        "sha256": "5eb8945d6db8a25f8baa8c77fda9d68fc7b0b9ab482204ae2ae9037ec9c72735"
+        "width": 639,
+        "height": 321,
+        "bytes": 53632,
+        "sha256": "81ef7e9adbc1251c432d752d5e9f9601467ba2d3104e8b3b9130e3df0a899bec"
       },
       "panel": {
         "width": 1280,

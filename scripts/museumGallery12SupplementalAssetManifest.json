@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "assets": {
+    "neoplatonism-ficino-enneads": {
+      "hallFolder": "ancient-greek",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Plotinus,_Enneads,_Paris,_B.N.,_Gr._1816.jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Plotinus%2C_Enneads%2C_Paris%2C_B.N.%2C_Gr._1816.jpg",
+      "selectedThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Plotinus%2C_Enneads%2C_Paris%2C_B.N.%2C_Gr._1816.jpg/1920px-Plotinus%2C_Enneads%2C_Paris%2C_B.N.%2C_Gr._1816.jpg",
+      "scene": {
+        "width": 463,
+        "height": 640,
+        "bytes": 46480,
+        "sha256": "03735ffffa67eb8550600f631b60d086c3b60d594d89d0ad2c0432c13a73a4eb"
+      },
+      "panel": {
+        "width": 927,
+        "height": 1280,
+        "bytes": 275950,
+        "sha256": "7fc15a0555bb48a0bbee86dfa30455f0dac208f5e82892a8882ff12a4b446c8d"
+      }
+    }
+  }
+}

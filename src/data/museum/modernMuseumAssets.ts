@@ -46,7 +46,7 @@ export const EARLY_MODERN_MUSEUM_ASSETS = [
     historicalNote: 'Painted decades after Machiavelli’s death, this is an influential reception portrait rather than a likeness made from life.', likenessStatus: 'posthumous-portrait', focalPoint: {x: .5, y: .4},
   }),
   modernAsset({
-    id: 'machiavelli-prince-1532', hallFolder: 'renaissance-reason-revolution', entityId: 'machiavelli', role: 'primary-source', mediaKind: 'book-page',
+    id: 'machiavelli-prince-1532', hallFolder: 'renaissance-reason-revolution', entityId: 'machiavelli', role: 'context', mediaKind: 'book-page',
     title: 'Il principe, title page', creator: 'Niccolò Machiavelli; Antonio Blado, printer', objectDate: '1532', institution: 'Bavarian State Library digital collection',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Machiavelli_Il_principe_1532_title_page.jpg', objectPageUrl: 'https://mdz-nbn-resolving.de/urn:nbn:de:bvb:12-bsb10201716-7', ...publicDomain,
     attribution: 'Niccolò Machiavelli, Il principe, Antonio Blado, 1532. Bavarian State Library. Public domain.', derivativeNotice,

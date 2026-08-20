@@ -252,13 +252,13 @@ const ANCIENT_MUSEUM_ASSETS = [
   },
   {
     id: 'neoplatonism-ficino-enneads', entityKind: 'branch', entityId: 'neoplatonism', role: 'material-history', mediaKind: 'manuscript',
-    title: 'Ficino-annotated manuscript of Plotinus’s Enneads', creator: 'Copied by Ioannes Scoutariotes; annotated by Marsilio Ficino', objectDate: 'c. 1460', institution: 'Bibliothèque nationale de France, Grec 1816',
+    title: 'Ficino-annotated manuscript of Plotinus’s Enneads', creator: 'Copied by Ioannes Scoutariotes; annotated by Marsilio Ficino', objectDate: 'c. 1460 (a BnF-associated study gives 1469)', institution: 'Bibliothèque nationale de France, Grec 1816',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Plotinus,_Enneads,_Paris,_B.N.,_Gr._1816.jpg',
-    license: 'Public Domain Mark 1.0', licenseUrl: 'https://creativecommons.org/publicdomain/mark/1.0/', rightsKind: 'rights-status', attribution: 'Bibliothèque nationale de France, Grec 1816. Public domain.',
+    license: 'Public Domain Mark 1.0', licenseUrl: 'https://creativecommons.org/publicdomain/mark/1.0/', rightsKind: 'rights-status', derivativeNotice: 'Resized and converted to WebP by Philosophy Atlas Museum; no interpretive elements were added.', attribution: 'Bibliothèque nationale de France, Grec 1816. Public domain.',
     variants: {scene: assetPath('neoplatonism-ficino-enneads', 'scene', 463, 640), panel: assetPath('neoplatonism-ficino-enneads', 'panel', 927, 1280)},
     alt: 'Greek manuscript page of Plotinus’s Enneads surrounded by Marsilio Ficino’s dense marginal notes.',
-    caption: 'Plotinus, Enneads, copied c. 1460 and annotated by Marsilio Ficino. BnF Grec 1816.',
-    historicalNote: 'This is Ficino’s Renaissance working copy, not an ancient manuscript; it documents Neoplatonism’s later transmission.', likenessStatus: 'not-applicable',
+    caption: 'Plotinus, Enneads, copied in the 1460s and annotated by Marsilio Ficino. BnF Grec 1816.',
+    historicalNote: 'This is Ficino’s Renaissance working manuscript, not an ancient copy or proof of a formal Platonic Academy. Catalog and scholarly sources vary between c. 1460 and 1469 for the copy date, so the Atlas retains the broader decade.', likenessStatus: 'not-applicable',
   },
   {
     id: 'ancient-greek-colonization-map', entityKind: 'branch', entityId: 'ancient-greek', role: 'context', mediaKind: 'drawing',

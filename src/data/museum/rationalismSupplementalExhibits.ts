@@ -12,6 +12,7 @@ import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
 } from './museumWorldTypes';
+import {reviewRationalismSupplementalExhibit} from './rationalismSupplementalReview';
 
 export {RATIONALISM_GALLERY_ID, RATIONALISM_ROOM_SIGN_COPY};
 
@@ -554,7 +555,7 @@ export const RATIONALISM_SUPPLEMENTAL_EXHIBITS = [
     articleRoute: {kind: 'philosopher', philosopherId: 'leibniz'},
     entityKind: 'philosopher',
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+].map(reviewRationalismSupplementalExhibit) as readonly MuseumSupplementalExhibit[];
 
 const supplementalLayout = (
   id: MuseumSupplementalExhibitId,
@@ -586,25 +587,25 @@ const supplementalLayout = (
 });
 
 export const RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  supplementalLayout('descartes-discourse-method', 'descartes', 'rationalism', 'rationalism-cartesian-foundations', {x: -5.55, z: -26.88}, 0, 'rationalism-discourse-first-edition', 1.91, 2.7, 'rationalism-work', RATIONALISM_PALETTE.blue),
-  supplementalLayout('descartes-meditations-foundation', 'descartes', 'descartes', 'rationalism-cartesian-foundations', {x: -5.55, z: -10.45}, Math.PI, 'rationalism-meditations-1641', 1.88, 2.7, 'rationalism-work', RATIONALISM_PALETTE.indigo),
-  supplementalLayout('elisabeth-descartes-union', 'descartes', 'descartes', 'rationalism-cartesian-foundations', {x: 5.55, z: -26.88}, 0, 'rationalism-elisabeth-portrait', 1.82, 2.7, 'rationalism-context', RATIONALISM_PALETTE.gold),
-  supplementalLayout('descartes-treatise-man-embodiment', 'descartes', 'descartes', 'rationalism-cartesian-foundations', {x: 5.55, z: -10.45}, Math.PI, 'rationalism-descartes-pineal', 2.95, 2.3, 'rationalism-concept', RATIONALISM_PALETTE.red),
-  supplementalLayout('spinoza-ethics-geometrical-order', 'spinoza', 'spinoza', 'rationalism-spinoza-conway', {x: -5.55, z: -8.22}, 0, 'rationalism-ethics-propositions', 1.91, 2.7, 'rationalism-work', RATIONALISM_PALETTE.red),
-  supplementalLayout('spinoza-scripture-freedom', 'spinoza', 'spinoza', 'rationalism-spinoza-conway', {x: -5.55, z: 8.22}, Math.PI, 'rationalism-tractatus-manuscript-note', 1.91, 2.7, 'rationalism-work', RATIONALISM_PALETTE.green),
-  supplementalLayout('conway-principles-vital-creation', 'anne-conway', 'anne-conway', 'rationalism-spinoza-conway', {x: 5.55, z: -8.22}, 0, 'rationalism-conway-principia', 1.89, 2.7, 'rationalism-work', RATIONALISM_PALETTE.indigo),
-  supplementalLayout('conway-intellectual-network', 'anne-conway', 'anne-conway', 'rationalism-spinoza-conway', {x: 5.55, z: 8.22}, Math.PI, 'rationalism-henry-more-portrait', 1.78, 2.7, 'rationalism-context', RATIONALISM_PALETTE.gold),
-  supplementalLayout('leibniz-monadology-perception', 'leibniz', 'leibniz', 'rationalism-leibniz-system', {x: -5.55, z: 10.45}, 0, 'rationalism-leibniz-monadology', 1.96, 2.7, 'rationalism-work', RATIONALISM_PALETTE.indigo),
-  supplementalLayout('leibniz-preestablished-harmony', 'leibniz', 'leibniz', 'rationalism-leibniz-system', {x: -5.55, z: 26.88}, Math.PI, 'rationalism-leibniz-correspondence', 3.02, 2.12, 'rationalism-concept', RATIONALISM_PALETTE.blue),
-  supplementalLayout('leibniz-new-essays-innateness', 'leibniz', 'leibniz', 'rationalism-leibniz-system', {x: 5.55, z: 10.45}, 0, 'rationalism-leibniz-new-essays', 1.91, 2.7, 'rationalism-work', RATIONALISM_PALETTE.green),
-  supplementalLayout('leibniz-clarke-space-time', 'leibniz', 'leibniz', 'rationalism-leibniz-system', {x: 10.85, z: 18.6667}, -Math.PI / 2, 'rationalism-leibniz-clarke', 1.89, 2.7, 'rationalism-context', RATIONALISM_PALETTE.red),
-  supplementalLayout('leibniz-binary-symbolic-reason', 'leibniz', 'leibniz', 'rationalism-leibniz-system', {x: 5.55, z: 26.88}, Math.PI, 'rationalism-leibniz-binary', 2.65, 2.7, 'rationalism-concept', RATIONALISM_PALETTE.gold),
+  supplementalLayout('descartes-discourse-method', 'descartes', 'rationalism', 'rationalism-cartesian-foundations', {x: -5.55, z: -26.88}, 0, 'rationalism-discourse-first-edition', 2.7 * 640 / 564, 2.7, 'rationalism-work', RATIONALISM_PALETTE.blue),
+  supplementalLayout('descartes-meditations-foundation', 'descartes', 'descartes', 'rationalism-cartesian-foundations', {x: -5.55, z: -10.45}, Math.PI, 'rationalism-meditations-1641', 2.7 * 395 / 640, 2.7, 'rationalism-work', RATIONALISM_PALETTE.indigo),
+  supplementalLayout('elisabeth-descartes-union', 'descartes', 'descartes', 'rationalism-cartesian-foundations', {x: 5.55, z: -26.88}, 0, 'rationalism-elisabeth-portrait', 2.7 * 459 / 640, 2.7, 'rationalism-context', RATIONALISM_PALETTE.gold),
+  supplementalLayout('descartes-treatise-man-embodiment', 'descartes', 'descartes', 'rationalism-cartesian-foundations', {x: 5.55, z: -10.45}, Math.PI, 'rationalism-descartes-pineal', 2.7 * 520 / 640, 2.7, 'rationalism-concept', RATIONALISM_PALETTE.red),
+  supplementalLayout('spinoza-ethics-geometrical-order', 'spinoza', 'spinoza', 'rationalism-spinoza-conway', {x: -5.55, z: -8.22}, 0, 'rationalism-ethics-propositions', 3.6, 3.6 * 479 / 640, 'rationalism-work', RATIONALISM_PALETTE.red),
+  supplementalLayout('spinoza-scripture-freedom', 'spinoza', 'spinoza', 'rationalism-spinoza-conway', {x: -5.55, z: 8.22}, Math.PI, 'rationalism-tractatus-manuscript-note', 2.7 * 568 / 640, 2.7, 'rationalism-work', RATIONALISM_PALETTE.green),
+  supplementalLayout('conway-principles-vital-creation', 'anne-conway', 'anne-conway', 'rationalism-spinoza-conway', {x: 5.55, z: -8.22}, 0, 'rationalism-conway-principia', 2.7 * 513 / 640, 2.7, 'rationalism-work', RATIONALISM_PALETTE.indigo),
+  supplementalLayout('conway-intellectual-network', 'anne-conway', 'anne-conway', 'rationalism-spinoza-conway', {x: 5.55, z: 8.22}, Math.PI, 'rationalism-henry-more-portrait', 2.7 * 422 / 640, 2.7, 'rationalism-context', RATIONALISM_PALETTE.gold),
+  supplementalLayout('leibniz-monadology-perception', 'leibniz', 'leibniz', 'rationalism-leibniz-system', {x: -5.55, z: 10.45}, 0, 'rationalism-leibniz-monadology', 2.7 * 420 / 594, 2.7, 'rationalism-work', RATIONALISM_PALETTE.indigo),
+  supplementalLayout('leibniz-preestablished-harmony', 'leibniz', 'leibniz', 'rationalism-leibniz-system', {x: -5.55, z: 26.88}, Math.PI, 'rationalism-leibniz-correspondence', 2.7 * 418 / 640, 2.7, 'rationalism-concept', RATIONALISM_PALETTE.blue),
+  supplementalLayout('leibniz-new-essays-innateness', 'leibniz', 'leibniz', 'rationalism-leibniz-system', {x: 5.55, z: 10.45}, 0, 'rationalism-leibniz-new-essays', 2.7 * 494 / 640, 2.7, 'rationalism-work', RATIONALISM_PALETTE.green),
+  supplementalLayout('leibniz-clarke-space-time', 'leibniz', 'leibniz', 'rationalism-leibniz-system', {x: 10.85, z: 18.6667}, -Math.PI / 2, 'rationalism-leibniz-clarke', 2.7 * 391 / 640, 2.7, 'rationalism-context', RATIONALISM_PALETTE.red),
+  supplementalLayout('leibniz-binary-symbolic-reason', 'leibniz', 'leibniz', 'rationalism-leibniz-system', {x: 5.55, z: 26.88}, Math.PI, 'rationalism-leibniz-binary', 2.7 * 475 / 640, 2.7, 'rationalism-concept', RATIONALISM_PALETTE.gold),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getRationalismSupplementalExhibit = (
   id: MuseumSupplementalExhibitId,
 ): MuseumSupplementalExhibit => {
   const recordValue = RATIONALISM_SUPPLEMENTAL_EXHIBITS.find((item) => item.id === id);
-  if (!recordValue) throw new Error(`Gallery 16 supplemental exhibit ${id} is missing.`);
+  if (!recordValue) throw new Error(`Gallery 13 supplemental exhibit ${id} is missing.`);
   return recordValue;
 };
