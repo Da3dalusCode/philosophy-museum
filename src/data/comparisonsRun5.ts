@@ -17,7 +17,7 @@ const philosopherCase = (participantIds: readonly [string, string], content: Omi
   kind: 'philosopher', participantIds, ...content,
 });
 
-/** Content-expansion run 5 closes the five-run authored comparison program. */
+/** Content-expansion run 5 casefile retained as part of the authored corpus. */
 export const expansionRun5ComparisonCasefiles: readonly ComparisonCasefile[] = [
   philosopherCase(['hegel', 'marx'], {
     sharedQuestion: philosopherStatement('How can historically produced forms of social life become intelligible, free, and collectively transformable when labor, institutions, and conflict shape the people who act within them?', 'hegel', 'marx'),

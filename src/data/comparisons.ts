@@ -4,6 +4,7 @@ import {expansionRun2ComparisonCasefiles} from './comparisonsRun2';
 import {expansionRun3ComparisonCasefiles} from './comparisonsRun3';
 import {expansionRun4ComparisonCasefiles} from './comparisonsRun4';
 import {expansionRun5ComparisonCasefiles} from './comparisonsRun5';
+import {accuracyOverhaulComparisonCasefiles} from './comparisonsRun6';
 import type {
   ComparisonCasefile,
   ComparisonEntityKind,
@@ -93,7 +94,7 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
   }),
   branchCase(['stoicism', 'buddhist-philosophy'], {
     sharedQuestion: branchStatement('How can disciplined practice loosen the judgments, cravings, and attachments through which suffering gains control over a life?', 'stoicism', 'buddhist-philosophy'),
-    historicalRelationship: branchStatement('This is a retrospective philosophical comparison, not evidence of a direct ancient exchange: Stoicism formed in the Hellenistic Mediterranean, while Buddhist traditions developed from South Asian teachings and institutions with distinct textual histories.', 'stoicism', 'buddhist-philosophy'),
+    historicalRelationship: branchStatement('This is a retrospective comparison, not one that presupposes a direct historical exchange: Stoicism developed in the Hellenistic Mediterranean and Buddhist traditions in South Asian textual and institutional settings. Similar practices therefore require argument, not an assumed line of influence.', 'stoicism', 'buddhist-philosophy'),
     sharedAssumptions: [branchStatement('Both treat ethical transformation as trained practice rather than assent to a slogan, and both connect destructive distress to how a person understands and responds to experience.', 'stoicism', 'buddhist-philosophy')],
     axes: [
       {label: 'Self and agency', question: branchStatement('What kind of agent undertakes the work of liberation or ethical freedom?', 'stoicism', 'buddhist-philosophy'), positions: [
@@ -155,9 +156,9 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     sharedAssumptions: [branchStatement('Both distrust rule by inherited prestige alone and seek publicly usable standards, offices, incentives, or tests that do not depend on a ruler simply recognizing private virtue.', 'mohism', 'legalism')],
     axes: [
       {label: 'The end of government', question: branchStatement('Whose good determines whether an institution succeeds?', 'mohism', 'legalism'), positions: [
-        {entityId: 'mohism', claim: branchStatement('Mohist texts judge policies by inclusive benefit, material sufficiency, population, order, and opposition to aggressive war, under an impartial Heaven.', 'mohism')},
+        {entityId: 'mohism', claim: branchStatement('Mohist texts assess policies through benefit, sufficiency, population, order, and opposition to aggressive war, while grounding those standards in the will of Heaven and arguments about human welfare.', 'mohism')},
         {entityId: 'legalism', claim: branchStatement('Fa thinkers prioritize a strong, orderly state and ruler, using agriculture, warfare, law, office, and administrative control to channel self-interest.', 'legalism')},
-      ], contrast: branchStatement('Mohist standards claim a moral end in benefit to all under Heaven; fa statecraft makes institutional capacity and the security of rule central.', 'mohism', 'legalism')},
+      ], contrast: branchStatement('Mohist standards combine welfare claims with a morally authoritative Heaven; fa-oriented statecraft prioritizes administrative capacity, predictable officeholding, and security of rule.', 'mohism', 'legalism')},
       {label: 'How standards work', question: branchStatement('Should order depend on moral emulation or on impersonal administration?', 'mohism', 'legalism'), positions: [
         {entityId: 'mohism', claim: branchStatement('Mohists combine models, argument, merit, upward conformity, rewards, and the intention of Heaven in a program meant to reform conduct and judgment.', 'mohism')},
         {entityId: 'legalism', claim: branchStatement('Han Fei and related fa thinkers emphasize public laws, matching claims to performance, administrative technique, and the ruler’s control of reward and punishment.', 'legalism')},
@@ -223,7 +224,7 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     ],
     terminology: [{topic: 'Following the Way', positions: [
       {entityId: 'confucianism', term: 'li and ren', explanation: branchStatement('Ritual propriety and humaneness concern formed relationships and responsive conduct, not etiquette mechanically obeyed.', 'confucianism')},
-      {entityId: 'daoism', term: 'wuwei and ziran', explanation: branchStatement('Non-forcing and spontaneity name modes of action less dominated by contrivance; they do not prescribe literal inactivity.', 'daoism')},
+      {entityId: 'daoism', term: 'wuwei and ziran', explanation: branchStatement('Wuwei names non-forcing action; ziran names what is “so of itself” or non-contrived. Together they criticize action dominated by coercive design, not action as such.', 'daoism')},
     ], warning: branchStatement('“Harmony” and “the Way” are insufficient comparisons unless the text, practice, and disputed standard are named.', 'confucianism', 'daoism')}],
     arguments: [
       {entityId: 'confucianism', title: 'Good judgment is socially cultivated', summary: branchStatement('Confucian reasoning presses the fact that people learn attention, feeling, and responsibility through relationships and practices rather than inventing themselves alone.', 'confucianism'), pressure: branchStatement('Inherited rites and roles can also entrench hierarchy, exclusion, or deference unless their authority remains criticizable.', 'confucianism')},
@@ -521,7 +522,7 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     ],
     readings: [
       {entityId: 'analytic-philosophy', title: 'On Sense and Reference', author: 'Gottlob Frege', kind: 'primary', stage: 'Read a founding problem closely', whyHere: branchStatement('The essay shows how a precise distinction about meaning becomes a wider philosophical method.', 'analytic-philosophy')},
-      {entityId: 'continental-philosophy', title: 'Phenomenology of Spirit, guided selections on recognition', author: 'G. W. F. Hegel', kind: 'primary', stage: 'Read historical experience and recognition', whyHere: branchStatement('Guided selections show why conceptual development and social relation matter to a major continental inheritance.', 'continental-philosophy')},
+      {entityId: 'continental-philosophy', title: 'Phenomenology of Spirit, guided selections on recognition', author: 'G. W. F. Hegel', kind: 'primary', stage: 'Trace a source later traditions contested', whyHere: branchStatement('Hegel predates the analytic–continental divide, but later phenomenological, critical-theoretical, and continental receptions made recognition and historical development central reference points.', 'continental-philosophy')},
     ],
     interpretiveLimits: [branchStatement('The divide omits pragmatist, feminist, Africana, Asian, Indigenous, Latin American, and other formations when it is mistaken for a complete map of modern philosophy.', 'analytic-philosophy', 'continental-philosophy')],
     followOns: [{kind: 'branch', participantIds: ['phenomenology', 'existentialism'], label: 'Phenomenology and Existentialism', reason: branchStatement('Replace umbrella labels with a documented methodological and historical relationship inside one part of the continental family.', 'phenomenology', 'existentialism')}],
@@ -672,9 +673,9 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
     followOns: [{kind: 'branch', participantIds: ['rationalism', 'empiricism'], label: 'Rationalism and Empiricism', reason: branchStatement('Compare how moral theories also rely on rival views about reason, evidence, sentiment, and the authority of experience.', 'deontology', 'utilitarianism')}],
   }),
   philosopherCase(['kant', 'hume'], {
-    sharedQuestion: philosopherStatement('How can human beings justify knowledge, causal inference, and moral judgment without claiming access to a standpoint outside experience?', 'kant', 'hume'),
+    sharedQuestion: philosopherStatement('How can causal inference, objective knowledge, and moral judgment be justified when human cognition has determinate sources and limits?', 'kant', 'hume'),
     historicalRelationship: philosopherStatement('Kant read Hume and treats skeptical pressure as decisive for critical philosophy, but the famous story that Hume simply “awakened” Kant should not replace attention to Kant’s wider sources and development.', 'kant', 'hume'),
-    sharedAssumptions: [philosopherStatement('Both reject easy metaphysical dogmatism and make the limits and conditions of human cognition central philosophical questions.', 'kant', 'hume')],
+    sharedAssumptions: [philosopherStatement('Both reject unexamined metaphysical assertion and make the sources, scope, and limits of human cognition central, though Hume’s empiricist analysis and Kant’s transcendental project answer that problem differently.', 'kant', 'hume')],
     axes: [
       {label: 'Causation and necessity', question: philosopherStatement('What justifies our expectation that events will occur in regular causal patterns?', 'kant', 'hume'), positions: [
         {entityId: 'hume', claim: philosopherStatement('Hume analyzes causal belief through experience, custom, and the mind’s transition from observed regularities rather than an impression of necessary connection.', 'hume')},
@@ -733,6 +734,7 @@ export const comparisonCasefiles: readonly ComparisonCasefile[] = [
   ...expansionRun3ComparisonCasefiles,
   ...expansionRun4ComparisonCasefiles,
   ...expansionRun5ComparisonCasefiles,
+  ...accuracyOverhaulComparisonCasefiles,
 ];
 
 export const comparisonCasefileKey = (kind: ComparisonKind, firstId: string, secondId: string): string =>

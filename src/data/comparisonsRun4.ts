@@ -52,8 +52,8 @@ export const expansionRun4ComparisonCasefiles: readonly ComparisonCasefile[] = [
       ], contrast: branchStatement('Formal validity asks whether a conclusion follows under a system; pramāṇa theory asks how cognition succeeds, so neither question simply translates into the other.', 'logic', 'buddhist-epistemology')},
       {label: 'Inference and communication', question: branchStatement('How is an inferential connection established for oneself and presented to another?', 'logic', 'buddhist-epistemology'), positions: [
         {entityId: 'logic', claim: branchStatement('Proof-theoretic and model-theoretic approaches articulate inferential relations through rules, derivations, structures, and truth across interpretations.', 'logic')},
-        {entityId: 'buddhist-epistemology', claim: branchStatement('Dignāga–Dharmakīrti traditions distinguish inference for oneself from proof for others and analyze signs, pervasion, and exclusion in public argument.', 'buddhist-epistemology')},
-      ], contrast: branchStatement('Both seek accountable transitions, but their languages, epistemic aims, and institutions of reasoning remain historically distinct.', 'logic', 'buddhist-epistemology')},
+        {entityId: 'buddhist-epistemology', claim: branchStatement('Dignāga distinguishes inference for oneself from inference presented to another; later Dignāga–Dharmakīrti debates refine the three characteristics of a reason, apoha or exclusion, and the relation between proof and cognition.', 'buddhist-epistemology')},
+      ], contrast: branchStatement('Both analyze accountable transitions, but classical logical consequence and Indian Buddhist pramāṇa inquiry ask differently organized questions about proof, cognition, language, and liberation.', 'logic', 'buddhist-epistemology')},
     ],
     terminology: [{topic: 'A warranted transition', positions: [
       {entityId: 'logic', term: 'logical consequence', explanation: branchStatement('A conclusion is a logical consequence when the relevant system allows no interpretation in which the premises are true and the conclusion false.', 'logic')},
@@ -168,7 +168,7 @@ export const expansionRun4ComparisonCasefiles: readonly ComparisonCasefile[] = [
     axes: [
       {label: 'Explanatory project', question: branchStatement('Is the goal to explain minded states or to diagnose and transform the conditions of suffering?', 'philosophy-of-mind', 'buddhist-philosophy'), positions: [
         {entityId: 'philosophy-of-mind', claim: branchStatement('Philosophy of mind compares theories of consciousness, intentionality, representation, embodiment, causation, self, and other minds.', 'philosophy-of-mind')},
-        {entityId: 'buddhist-philosophy', claim: branchStatement('Buddhist traditions analyze aggregates, consciousness, perception, craving, karma, and dependent conditions within paths of ethical and liberating transformation.', 'buddhist-philosophy')},
+        {entityId: 'buddhist-philosophy', claim: branchStatement('Several Indian Buddhist traditions analyze aggregates, consciousness, perception, craving, karma, and dependent conditions within paths of ethical and liberating transformation; this comparison does not make those debates speak for all Buddhist traditions.', 'buddhist-philosophy')},
       ], contrast: branchStatement('A Buddhist analysis can illuminate cognition while remaining soteriological, and a theory of consciousness can explain a state without prescribing liberation.', 'philosophy-of-mind', 'buddhist-philosophy')},
       {label: 'Self and continuity', question: branchStatement('What persists through changing experiences, and what kind of subject owns them?', 'philosophy-of-mind', 'buddhist-philosophy'), positions: [
         {entityId: 'philosophy-of-mind', claim: branchStatement('Accounts of self range across substance, psychological continuity, embodiment, narrative, minimal subjectivity, and eliminative proposals.', 'philosophy-of-mind')},
@@ -373,7 +373,7 @@ export const expansionRun4ComparisonCasefiles: readonly ComparisonCasefile[] = [
 
   philosopherCase(['marx', 'fanon'], {
     sharedQuestion: philosopherStatement('How do alienation, racialization, colonial domination, violence, and liberation reorganize social critique?', 'marx', 'fanon'),
-    historicalRelationship: philosopherStatement('Fanon transforms Marxist, phenomenological, existential, psychiatric, and Black Atlantic resources under colonial conditions; he neither simply applies Marx to colonies nor merely adds race to a completed class analysis.', 'marx', 'fanon'),
+    historicalRelationship: philosopherStatement('Fanon transforms Marxist, phenomenological, existential, psychiatric, anticolonial, and Black intellectual traditions under colonial conditions; he neither simply applies Marx to colonies nor merely adds race to a completed class analysis.', 'marx', 'fanon'),
     sharedAssumptions: [philosopherStatement('Both analyze domination as historically produced through social relations and practical institutions rather than as a permanent defect of human nature.', 'marx', 'fanon')],
     axes: [
       {label: 'Structure of domination', question: philosopherStatement('Which relations organize alienated life and make domination appear normal?', 'marx', 'fanon'), positions: [

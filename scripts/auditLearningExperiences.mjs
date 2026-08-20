@@ -139,7 +139,7 @@ for (const casefile of comparisonCasefiles) {
     assert(casefileKeys.has(followOnKey), `Comparison ${key} follow-on must resolve to authored casefile “${followOnKey}”.`);
   }
 }
-assert.equal(comparisonCasefiles.length, 60, 'Compare must expose the 60 authored casefiles completed through content-expansion run 5.');
+assert.equal(comparisonCasefiles.length, 63, 'Compare must expose the 63 source-backed authored casefiles in the current curriculum.');
 
 const coveredBranchIds = new Set();
 const coveredPhilosopherIds = new Set();
@@ -155,6 +155,10 @@ for (const path of learningPaths) {
   assert(path.objectives.length >= 2 && path.outcomes.length >= 2, `Learning path ${path.id} needs explicit objectives and outcomes.`);
   assert(Number.isInteger(path.estimatedMinutes) && path.estimatedMinutes >= 40, `Learning path ${path.id} needs a realistic duration.`);
   assert(path.steps.length >= 4, `Learning path ${path.id} needs at least four sequenced steps.`);
+  for (const connectedId of [...(path.recommendedBeforePathIds ?? []), ...(path.nextPathIds ?? [])]) {
+    assert.notEqual(connectedId, path.id, `Learning path ${path.id} cannot recommend itself.`);
+    assert(pathsById.has(connectedId), `Learning path ${path.id} references unknown connected route “${connectedId}”.`);
+  }
   path.branchIds.forEach((id) => { requireReviewedEntity('branch', id, `Learning path ${path.id}`); coveredBranchIds.add(id); });
   path.philosopherIds.forEach((id) => { requireReviewedEntity('philosopher', id, `Learning path ${path.id}`); coveredPhilosopherIds.add(id); });
   const readingKinds = new Set();
@@ -198,10 +202,10 @@ for (const path of learningPaths) {
 }
 
 assert.equal(learningPaths.length, 26, 'Learning Paths must expose the 26-route curriculum.');
-assert.equal(stepCount, 104, 'Learning Paths must expose 104 developed steps.');
-assert.equal(articleLinkCount, 208, 'Learning Paths must expose 208 canonical article links.');
-assert.equal(museumLinkCount, 104, 'Learning Paths must expose 104 primary-exhibit links.');
-assert.equal(readingCount, 208, 'Learning Paths must expose 208 annotated readings.');
+assert.equal(stepCount, 105, 'Learning Paths must expose 105 developed steps.');
+assert.equal(articleLinkCount, 210, 'Learning Paths must expose 210 canonical article links.');
+assert.equal(museumLinkCount, 108, 'Learning Paths must expose 108 primary-exhibit links.');
+assert.equal(readingCount, 214, 'Learning Paths must expose 214 annotated readings.');
 assert.equal(new Set(learningPaths.map(({id}) => id)).size, learningPaths.length, 'Learning path IDs must be unique.');
 assert.deepEqual(new Set(learningPaths.map(({level}) => level)), new Set(['foundation', 'intermediate', 'advanced']), 'Learning Paths must offer foundation, intermediate, and advanced routes.');
 

@@ -133,6 +133,21 @@ export function LearningPaths({route, href}: {route: LearningPathRoute; href: Ro
           <div><small>Think alongside</small>{step.philosopherIds.map((id) => {const thinker = philosopherById(id); return thinker ? <a className="connection-button btn btn-secondary" href={href({kind: 'philosopher', philosopherId: id})} key={id}>{thinker.name}<ArrowRight size={12}/></a> : null;})}</div>
         </div>}
 
+        {(!!path.recommendedBeforePathIds?.length || !!path.nextPathIds?.length) && <section className="path-route-links path-destinations" aria-label="Connected learning routes">
+          {!!path.recommendedBeforePathIds?.length && <div><h2>Helpful before this route</h2>{path.recommendedBeforePathIds.map((pathId) => {
+            const linkedPath = learningPaths.find(({id}) => id === pathId);
+            return linkedPath ? <a className="path-destination" href={href({kind: 'learning-path', pathId, step: 1})} key={pathId}>
+              <span><b>{linkedPath.title}</b><small>{levelLabel(linkedPath.level)} · {linkedPath.steps.length} steps</small></span><ArrowRight size={14}/>
+            </a> : null;
+          })}</div>}
+          {!!path.nextPathIds?.length && <div><h2>Continue with</h2>{path.nextPathIds.map((pathId) => {
+            const linkedPath = learningPaths.find(({id}) => id === pathId);
+            return linkedPath ? <a className="path-destination" href={href({kind: 'learning-path', pathId, step: 1})} key={pathId}>
+              <span><b>{linkedPath.title}</b><small>{levelLabel(linkedPath.level)} · {linkedPath.steps.length} steps</small></span><ArrowRight size={14}/>
+            </a> : null;
+          })}</div>}
+        </section>}
+
         <nav className="step-actions" aria-label="Learning path steps">
           {route.step > 1 ? <a className="btn btn-secondary" href={href({...route, step: route.step - 1})}><ArrowLeft/> Previous</a> : <button className="btn btn-secondary" disabled><ArrowLeft/> Previous</button>}
           {route.step < path.steps.length ? <a className="btn btn-primary" href={href({...route, step: route.step + 1})}>Next step <ArrowRight/></a> : <button className="btn btn-primary" disabled>Next step <ArrowRight/></button>}

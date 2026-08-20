@@ -286,6 +286,8 @@ export type LearningPath = {
   worldTags: string[];
   estimatedMinutes: number;
   prerequisites: string;
+  recommendedBeforePathIds?: string[];
+  nextPathIds?: string[];
   objectives: string[];
   outcomes: string[];
   branchIds: string[];

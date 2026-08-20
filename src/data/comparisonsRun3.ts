@@ -247,7 +247,7 @@ export const expansionRun3ComparisonCasefiles: readonly ComparisonCasefile[] = [
 
   branchCase(['buddhist-epistemology', 'epistemology'], {
     sharedQuestion: branchStatement('Which cognitive episodes count as reliable or knowledge-producing, and how should perception and inference be distinguished?', 'buddhist-epistemology', 'epistemology'),
-    historicalRelationship: branchStatement('Buddhist epistemology names historically situated pramāṇa traditions within the wider comparative field of epistemology, not an equal-sized rival doctrine.', 'buddhist-epistemology', 'epistemology'),
+    historicalRelationship: branchStatement('Buddhist epistemology names historically situated Indian Buddhist pramāṇa projects; “epistemology” names a modern cross-tradition field. The comparison is asymmetric in scope, not in philosophical standing or sophistication.', 'buddhist-epistemology', 'epistemology'),
     sharedAssumptions: [branchStatement('Both distinguish successful cognition from error and examine the sources, structure, and assessment of belief or awareness.', 'buddhist-epistemology', 'epistemology')],
     axes: [
       {label: 'Epistemic success', question: branchStatement('Should inquiry begin from pramāṇa, knowledge, justification, understanding, or another success concept?', 'buddhist-epistemology', 'epistemology'), positions: [
@@ -260,7 +260,7 @@ export const expansionRun3ComparisonCasefiles: readonly ComparisonCasefile[] = [
       ], contrast: branchStatement('A shared word such as perception does not erase disputes over objects, conceptuality, reflexive awareness, language, and epistemic aims.', 'buddhist-epistemology', 'epistemology')},
     ],
     terminology: [{topic: 'A cognition that succeeds', positions: [
-      {entityId: 'buddhist-epistemology', term: 'pramāṇa', explanation: branchStatement('Pramāṇa can name a reliable cognition or its knowledge-producing source within Indian debates whose translations and criteria are contested.', 'buddhist-epistemology')},
+      {entityId: 'buddhist-epistemology', term: 'pramāṇa', explanation: branchStatement('In Dignāga’s framework, pramāṇa is context-sensitive: it can name a means, process, episode, or reliable cognition. It should not be equated either with a source alone or with the modern formula “justified true belief.”', 'buddhist-epistemology')},
       {entityId: 'epistemology', term: 'epistemic justification', explanation: branchStatement('Justification identifies support or responsibility for belief, while internalist, externalist, virtue, and social accounts disagree about its basis.', 'epistemology')},
     ], warning: branchStatement('Translation is part of the philosophy: mapping pramāṇa directly onto justification can hide differences in subject, object, and success.', 'buddhist-epistemology', 'epistemology')}],
     arguments: [
