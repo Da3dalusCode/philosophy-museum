@@ -32,7 +32,7 @@ Depth is not the same as evidence or completed editorial review. The [generated 
 <!-- public-collection-counts:start -->
 The current generated reports record **192 of 192 canonical articles as currently claim-reviewed**—147 philosopher profiles and 45 articles on philosophies, branches, schools, traditions, movements, methods, and frameworks—and **192 of 192 primary Museum exhibits as standard-compliant**. Article depth, claim review, and primary exhibit review remain separate milestones; completing one does not confer another.
 
-The Museum also contains **411 supplemental/context exhibits**: **173 reviewed supplementals** and **238 explicit backlog supplementals**. Together, the 192 primary and 411 supplemental exhibits make **603 interpreted Museum stops**.
+The Museum also contains **411 supplemental/context exhibits**: **207 reviewed supplementals** and **204 explicit backlog supplementals**. Together, the 192 primary and 411 supplemental exhibits make **603 interpreted Museum stops**.
 <!-- public-collection-counts:end -->
 
 These are internal, AI-assisted editorial review states; they are not independent fact-checking or independent academic or peer review. The in-app [About & editorial method](https://da3daluscode.github.io/philosophy-museum/#/methodology) and repository [editorial model](docs/editorial/editorial-model.md) explain these states and their limits.

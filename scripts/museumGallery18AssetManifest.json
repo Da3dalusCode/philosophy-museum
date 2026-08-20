@@ -266,9 +266,9 @@
       },
       "panel": {
         "width": 1280,
-        "height": 549,
-        "bytes": 267128,
-        "sha256": "20b094d7a83e3456cd49b7f12a3c10540e2576c9f5d92d32ced3bf77ae8344c0"
+        "height": 548,
+        "bytes": 296834,
+        "sha256": "d11a1e5b492aa902b9d889c83e4b61b27ac9dfd7ba315b12bd26ae0103cada76"
       }
     },
     "enlightenment-fragonard-swing": {
@@ -420,9 +420,9 @@
       },
       "panel": {
         "width": 1280,
-        "height": 797,
-        "bytes": 220408,
-        "sha256": "17ace6ef8b80724665d61d65d192b81908c1f96334c2b566c7f1090394dca311"
+        "height": 796,
+        "bytes": 249608,
+        "sha256": "dfc832a5a3e8b52a7e754fe3a1fe4c5fcc995dfa336a3db8a3a3c3b4c34bc9fd"
       }
     },
     "enlightenment-luny-hindostan": {

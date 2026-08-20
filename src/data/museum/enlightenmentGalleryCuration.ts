@@ -161,31 +161,31 @@ export const ENLIGHTENMENT_INSTALLATION_SLOTS = [
   // Northeast · law and institutions · 6
   slot('enlightenment-law-institutions:north-outer', 'enlightenment-law-institutions', 9, -12.8, 0, outerWallId('north')),
   slot('enlightenment-law-institutions:east-outer', 'enlightenment-law-institutions', 12.8, -9, -Math.PI / 2, outerWallId('east')),
-  slot('enlightenment-law-institutions:west-room-face', 'enlightenment-law-institutions', 5.2, -11, Math.PI / 2, baffleId('ne', 'vertical')),
-  slot('enlightenment-law-institutions:west-cross-face', 'enlightenment-law-institutions', 3, -11, -Math.PI / 2, baffleId('ne', 'vertical'), 2.5),
-  slot('enlightenment-law-institutions:south-room-face', 'enlightenment-law-institutions', 11, -5.2, Math.PI, baffleId('ne', 'horizontal')),
+  slot('enlightenment-law-institutions:west-room-face', 'enlightenment-law-institutions', 5.2, -11, Math.PI / 2, baffleId('ne', 'vertical'), 2.25),
+  slot('enlightenment-law-institutions:west-cross-face', 'enlightenment-law-institutions', 3, -11, -Math.PI / 2, baffleId('ne', 'vertical'), 2),
+  slot('enlightenment-law-institutions:south-room-face', 'enlightenment-law-institutions', 11, -5.2, Math.PI, baffleId('ne', 'horizontal'), 2.25),
   slot('enlightenment-law-institutions:south-cross-face', 'enlightenment-law-institutions', 11, -3, 0, baffleId('ne', 'horizontal'), 2.5),
 
   // Southeast · society and freedom · 6
   slot('enlightenment-society-freedom:east-outer', 'enlightenment-society-freedom', 12.8, 9, -Math.PI / 2, outerWallId('east')),
   slot('enlightenment-society-freedom:south-outer', 'enlightenment-society-freedom', 9, 12.8, Math.PI, outerWallId('south')),
-  slot('enlightenment-society-freedom:west-room-face', 'enlightenment-society-freedom', 5.2, 11, Math.PI / 2, baffleId('se', 'vertical')),
+  slot('enlightenment-society-freedom:west-room-face', 'enlightenment-society-freedom', 5.2, 11, Math.PI / 2, baffleId('se', 'vertical'), 2.25),
   slot('enlightenment-society-freedom:west-cross-face', 'enlightenment-society-freedom', 3, 11, -Math.PI / 2, baffleId('se', 'vertical'), 2.5),
-  slot('enlightenment-society-freedom:north-room-face', 'enlightenment-society-freedom', 11, 5.2, 0, baffleId('se', 'horizontal')),
+  slot('enlightenment-society-freedom:north-room-face', 'enlightenment-society-freedom', 11, 5.2, 0, baffleId('se', 'horizontal'), 2.25),
   slot('enlightenment-society-freedom:north-cross-face', 'enlightenment-society-freedom', 11, 3, Math.PI, baffleId('se', 'horizontal'), 2.5),
 
   // Southwest · sentiment and commerce · 6
   slot('enlightenment-sentiment-commerce:west-outer', 'enlightenment-sentiment-commerce', -12.8, 9, Math.PI / 2, outerWallId('west')),
   slot('enlightenment-sentiment-commerce:south-outer', 'enlightenment-sentiment-commerce', -9, 12.8, Math.PI, outerWallId('south')),
-  slot('enlightenment-sentiment-commerce:east-room-face', 'enlightenment-sentiment-commerce', -5.2, 11, -Math.PI / 2, baffleId('sw', 'vertical')),
+  slot('enlightenment-sentiment-commerce:east-room-face', 'enlightenment-sentiment-commerce', -5.2, 11, -Math.PI / 2, baffleId('sw', 'vertical'), 2.25),
   slot('enlightenment-sentiment-commerce:east-cross-face', 'enlightenment-sentiment-commerce', -3, 11, Math.PI / 2, baffleId('sw', 'vertical'), 2.5),
-  slot('enlightenment-sentiment-commerce:north-room-face', 'enlightenment-sentiment-commerce', -11, 5.2, 0, baffleId('sw', 'horizontal')),
+  slot('enlightenment-sentiment-commerce:north-room-face', 'enlightenment-sentiment-commerce', -11, 5.2, 0, baffleId('sw', 'horizontal'), 2.25),
   slot('enlightenment-sentiment-commerce:north-cross-face', 'enlightenment-sentiment-commerce', -11, 3, Math.PI, baffleId('sw', 'horizontal'), 2.5),
 
   // Northwest · equality/education plus Kant's final threshold · 8
   slot('enlightenment-equality-education:west-outer-north', 'enlightenment-equality-education', -12.8, -11.55, Math.PI / 2, outerWallId('west')),
   slot('enlightenment-equality-education:north-outer', 'enlightenment-equality-education', -9.4, -12.8, 0, outerWallId('north')),
-  slot('enlightenment-equality-education:east-room-face', 'enlightenment-equality-education', -5.2, -11, -Math.PI / 2, baffleId('nw', 'vertical')),
+  slot('enlightenment-equality-education:east-room-face', 'enlightenment-equality-education', -5.2, -11, -Math.PI / 2, baffleId('nw', 'vertical'), 2.4),
   slot('enlightenment-equality-education:east-cross-face', 'enlightenment-equality-education', -3, -10.1, Math.PI / 2, baffleId('nw', 'vertical'), 2.5),
   slot('enlightenment-equality-education:south-room-face', 'enlightenment-equality-education', -9.9, -5.2, Math.PI, baffleId('nw', 'horizontal')),
   slot('enlightenment-equality-education:south-cross-face', 'enlightenment-equality-education', -11, -3, 0, baffleId('nw', 'horizontal'), 2.5),

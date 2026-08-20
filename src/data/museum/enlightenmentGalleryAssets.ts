@@ -283,22 +283,24 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     visualCharacter: 'portrait-or-figure',
     title: 'Mohammad Reza Beg, Persian ambassador to France',
     creator: 'Antoine Coypel',
-    objectDate: '18th century',
-    institution: 'Private collection; Commons source cites a Sotheby’s catalog record',
+    objectDate: 'c. 1715; identification based on an old verso inscription',
+    institution: 'Private collection at the 2007 sale; present owner unverified',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:Mohammed_Reza_Bey,_Persian_Ambassador_to_France,_during_the_reign_of_Louis_XIV_by_Antoine_Coypel.jpg',
+    objectPageUrl:
+      'https://www.sothebys.com/en/auctions/ecatalogue/2007/important-old-master-paintings-and-european-works-of-art-including-property-of-the-albright-knox-art-gallery-n08321/lot.256.html',
     ...publicDomain,
     derivativeNotice,
     attribution:
-      'Antoine Coypel, Mohammad Reza Beg, Persian ambassador to France, 18th century. Public Domain Mark 1.0.',
+      'Antoine Coypel, portrait study identified as Mohammad Reza Beg, c. 1715. Public Domain Mark 1.0 reproduction via Wikimedia Commons.',
     scene: [521, 640],
     panel: [1042, 1280],
-    alt: 'The Safavid envoy Mohammad Reza Beg stands in a richly patterned robe and turban.',
+    alt: 'An oval head-and-shoulders oil study shows a bearded man in pale patterned headwear turning slightly toward the viewer.',
     caption:
-      'Antoine Coypel’s portrait of the real Safavid envoy Mohammad Reza Beg—not a character from Persian Letters.',
+      'Coypel’s c. 1715 study is identified by an old inscription as the Safavid envoy Mohammad Reza Beg, not a character from Persian Letters.',
     historicalNote:
-      'Mohammad Reza Beg was a historical diplomat received in France. He must not be identified with Usbek or Rica, the fictional Persian correspondents created by Montesquieu.',
-    likenessStatus: 'lifetime-portrait',
+      'The identification and association with the 1715 embassy derive from a verso inscription reported in the 2007 sale catalog; a complete earlier provenance and the present owner are unverified. Mohammad Reza Beg must not be identified with Montesquieu’s fictional Usbek or Rica.',
+    likenessStatus: 'attributed',
     focalPoint: {x: .5, y: .35},
   }),
   asset({
@@ -312,7 +314,7 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     title: 'Mappemonde à l’usage du Roy',
     creator: 'Guillaume Delisle',
     objectDate: '1720',
-    institution: 'Public-domain cartographic print',
+    institution: 'Published cartographic print; holding institution and particular exemplar unverified',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:1720_map_of_the_world_-_Mappemonde_a_l%27usage_du_Roy.jpg',
     ...publicDomain,
@@ -337,21 +339,23 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     mediaKind: 'painting',
     visualCharacter: 'artwork-or-social-scene',
     title: 'The House of Commons during Sir Robert Walpole’s administration',
-    creator: 'Unknown artist, after William Hogarth',
-    objectDate: 'Depicted administration, 1722–1742; painting date not stated on Commons record',
+    creator: 'Unknown artist, after originals by William Hogarth and James Thornhill',
+    objectDate: '1800; depicts Sir Robert Walpole’s administration, 1722–1742',
     institution: 'UK Parliamentary Art Collection, WOA 3067',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:William_Hogarth_(1697-1764)_(after)_-_The_House_of_Commons,_Sir_Robert_Walpole%27s_Administration_(1722%E2%80%931742)_-_WOA_3067_-_Parliamentary_Art_Collection.jpg',
+    objectPageUrl:
+      'https://heritagecollections.parliament.uk/collections/getrecord/HOP_WOA_3067',
     ...publicDomain,
     derivativeNotice,
     attribution:
-      'Unknown artist after William Hogarth, The House of Commons during Sir Robert Walpole’s administration, UK Parliamentary Art Collection. Public Domain Mark 1.0.',
+      'Unknown artist after originals by William Hogarth and James Thornhill, The House of Commons under Sir Robert Walpole, 1800, Parliamentary Art Collection, WOA 3067. Public Domain Mark 1.0.',
     scene: [501, 640],
     panel: [939, 1200],
     alt: 'Members crowd the chamber of the old House of Commons around the central table and Speaker’s chair.',
-    caption: 'An image of the Commons during Walpole’s administration, catalogued as after Hogarth.',
+    caption: 'The Parliamentary Art Collection dates this retrospective House of Commons painting to 1800 and attributes it to an unknown artist after Hogarth and Thornhill.',
     historicalNote:
-      'The Parliamentary Art Collection catalogs the work as “after” Hogarth. The depicted period is not asserted as the canvas’s exact execution date, and the scene should not be mistaken for a neutral transcript of parliamentary practice.',
+      'The scene was painted decades after the 1722–1742 administration it represents. It is institutional and later-reception evidence, not an eyewitness transcript of parliamentary practice or proof of Montesquieu’s influence.',
     likenessStatus: 'not-applicable',
   }),
   asset({
@@ -365,13 +369,14 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     title: 'The Bench',
     creator: 'William Hogarth',
     objectDate: '1758',
-    institution: 'National Gallery of Art, Washington, 30450',
+    institution: 'National Gallery of Art, Washington, 1944.5.104',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:William_Hogarth,_The_Bench,_1758,_NGA_30450.jpg',
-    ...cc0,
+    objectPageUrl: 'https://www.nga.gov/artworks/30450-bench',
+    ...publicDomain,
     derivativeNotice,
     attribution:
-      'William Hogarth, The Bench, 1758, National Gallery of Art, Washington, CC0 1.0.',
+      'William Hogarth, The Bench, 1758, etching and engraving, National Gallery of Art, Rosenwald Collection, 1944.5.104. Public domain.',
     scene: [431, 640],
     panel: [862, 1280],
     alt: 'Four judges in wigs sit compressed along a bench in Hogarth’s satirical study.',
@@ -389,22 +394,23 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     mediaKind: 'sculpture-photograph',
     visualCharacter: 'material-object',
     title: '“Am I Not a Man and a Brother?” abolition medallion',
-    creator: 'Modeled by William Hackwood; manufactured by Wedgwood',
-    objectDate: 'c. 1786; modern photograph',
+    creator: 'Designed by Henry Webber; modeled by William Hackwood; manufactured by Wedgwood',
+    objectDate: 'After 1786; model made 1787; modern photograph',
     imageCreator: 'Daderot',
-    institution: 'Brooklyn Museum',
+    institution: 'Brooklyn Museum, 55.9.25v',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:Am_I_not_a_Man_and_a_Brother,_medallion_modelled_by_William_H._Hackwood,_Wedgwood,_Etruria,_England,_c._1786,_tinted_stoneware_-_Brooklyn_Museum_-_DSC09289_(cropped).JPG',
+    objectPageUrl: 'https://www.brooklynmuseum.org/objects/2586',
     ...cc0,
     derivativeNotice,
     attribution:
-      'William Hackwood and Wedgwood, “Am I Not a Man and a Brother?” medallion, c. 1786, Brooklyn Museum; photograph by Daderot, CC0 1.0.',
+      'Henry Webber, designer; William Hackwood, modeler; Wedgwood, manufacturer, “Am I Not a Man and a Brother?” medallion, after 1786, Brooklyn Museum 55.9.25v; photograph by Daderot, CC0 1.0.',
     scene: [589, 640],
     panel: [612, 665],
     alt: 'An oval ceramic medallion shows a chained Black man kneeling beneath an abolitionist question.',
     caption: 'A portable abolition emblem whose humanitarian appeal also encodes supplication.',
     historicalNote:
-      'The medallion opposed Atlantic slavery and circulated widely. Interpretation must hold its political force together with the unequal viewer–subject relation created by the kneeling figure.',
+      'The Brooklyn Museum records it as a gift of the Heirs of George and Amy Putnam, 1955. The medallion belongs to later abolitionist reception rather than Montesquieu’s own material world; interpretation must hold its political force together with the unequal viewer–subject relation created by the kneeling figure.',
     likenessStatus: 'not-applicable',
     focalPoint: {x: .5, y: .5},
   }),
@@ -416,10 +422,10 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     role: 'context',
     mediaKind: 'engraving',
     visualCharacter: 'place-or-architecture',
-    title: 'View of Geneva from the west',
+    title: 'Vue de Genève du côté du Couchant',
     creator: 'Robert Gardelle',
     objectDate: 'c. 1720–1750',
-    institution: 'Zentralbibliothek Zürich',
+    institution: 'Zentralbibliothek Zürich, Graphische Sammlung, STF XX,85',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:Zentralbibliothek_Z%C3%BCrich_-_Vue_de_Geneve_du_cot%C3%A9_du_Couchant_-_991081642359705501.jpg',
     ...publicDomain,
@@ -427,9 +433,9 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     attribution:
       'Robert Gardelle, Vue de Genève du côté du Couchant, c. 1720–1750, Zentralbibliothek Zürich. Public Domain Mark 1.0.',
     scene: [640, 274],
-    panel: [1280, 549],
+    panel: [1280, 548],
     alt: 'A wide engraved prospect shows Geneva behind its walls with roads and figures in the foreground.',
-    caption: 'The bounded city of Geneva gives Rousseau’s language of citizenship a material horizon.',
+    caption: 'Gardelle’s etched View of Geneva from the West supplies material context for the bounded republic in which Rousseau was born.',
     historicalNote:
       'The view is a composed urban prospect. It can show walls, setting, and civic self-presentation but cannot reveal the different legal statuses of everyone living within and around the city.',
     likenessStatus: 'not-applicable',
@@ -445,8 +451,9 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     title: 'The Swing',
     creator: 'Jean-Honoré Fragonard',
     objectDate: 'c. 1767–1768',
-    institution: 'Wallace Collection, London',
+    institution: 'Wallace Collection, London, P430',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Fragonard,_The_Swing.jpg',
+    objectPageUrl: 'https://wallacelive.wallacecollection.org/eMP/eMuseumPlus?module=collection&objectId=65364&service=ExternalInterface',
     ...publicDomain,
     derivativeNotice,
     attribution:
@@ -469,20 +476,21 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     visualCharacter: 'artwork-or-social-scene',
     title: 'The Young Schoolmistress',
     creator: 'Jean Siméon Chardin',
-    objectDate: 'c. 1736',
-    institution: 'National Gallery, London',
+    objectDate: 'About 1737',
+    institution: 'National Gallery, London, NG4077',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:Jean_Sim%C3%A9on_Chardin_-_The_Young_Schoolmistress_-_WGA04750FXD.jpg',
+    objectPageUrl: 'https://www.nationalgallery.org.uk/paintings/jean-simeon-chardin-the-young-schoolmistress',
     ...publicDomain,
     derivativeNotice,
     attribution:
-      'Jean Siméon Chardin, The Young Schoolmistress, c. 1736, National Gallery, London. Public Domain Mark 1.0.',
+      'Jean-Siméon Chardin, The Young Schoolmistress, about 1737, National Gallery, London, NG4077. Public Domain Mark 1.0.',
     scene: [640, 592],
     panel: [1280, 1184],
-    alt: 'A young woman bends toward a child during a quiet domestic lesson.',
-    caption: 'A domestic lesson offers period context for education without pretending to depict Émile or Sophie.',
+    alt: 'An adolescent girl points to an open page while a younger child leans over the small table during a quiet private lesson.',
+    caption: 'Chardin’s about-1737 private lesson probably shows an older sister or cousin teaching a younger child at home.',
     historicalNote:
-      'The figures are unidentified and unrelated to Rousseau’s fictional pupils. The painting is used to situate education socially, not to document his pedagogical practice.',
+      'The figures are unidentified; the teacher is probably a sister or cousin and the younger child is probably a boy, although the museum preserves uncertainty. They are unrelated to Rousseau’s fictional pupils.',
     likenessStatus: 'not-applicable',
   }),
   asset({
@@ -525,16 +533,17 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     institution: 'Musée Carnavalet, Paris',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:Jean-Jacques_Rousseau_herborisant_%C3%A0_Ermenonville_en_juin_1778,_G.21034(2).jpg',
+    objectPageUrl: 'https://www.parismuseescollections.paris.fr/en/node/99741',
     ...cc0,
     derivativeNotice,
     attribution:
       'Jean-Michel Moreau le Jeune after Mayer, Rousseau botanizing at Ermenonville, c. 1778, Musée Carnavalet, CC0 1.0.',
     scene: [483, 640],
     panel: [966, 1280],
-    alt: 'Rousseau bends toward plants beside a path while carrying materials for collecting specimens.',
+    alt: 'Rousseau walks in profile beside low plants, holding a botanical specimen in one hand and a long walking stick in the other.',
     caption: 'A commemorative image of Rousseau’s late botanical practice at Ermenonville.',
     historicalNote:
-      'The print represents Rousseau near the end of his life but remains an authored commemorative scene, not mechanically recorded evidence of a particular excursion.',
+      'Paris Musées records the acquisition as unknown. The print represents Rousseau near the end of his life but remains an authored commemorative scene, not mechanically recorded evidence of a particular excursion.',
     likenessStatus: 'attributed',
     focalPoint: {x: .5, y: .5},
   }),
@@ -549,9 +558,10 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     title: 'The Punished Son',
     creator: 'Jean-Baptiste Greuze',
     objectDate: '1778',
-    institution: 'Musée du Louvre, Paris',
+    institution: 'Musée du Louvre, Paris, INV 5039',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:Jean-Baptiste_Greuze_-_The_Punished_Son.jpg',
+    objectPageUrl: 'https://collections.louvre.fr/ark:/53355/cl010066513',
     ...publicDomain,
     derivativeNotice,
     attribution:
@@ -561,7 +571,7 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     alt: 'A family crowds around a dying father as the returning son collapses in remorse.',
     caption: 'Greuze’s moral drama makes the spectator work through grief, blame, gesture, and circumstance.',
     historicalNote:
-      'The painting postdates the first Theory of Moral Sentiments and was not commissioned to illustrate Smith. It functions as a contemporary culture of moral spectatorship, not direct philosophical evidence.',
+      'The Louvre records acquisition in 1820 after earlier ownership. The painting postdates the first Theory of Moral Sentiments and was not commissioned to illustrate Smith; it provides later contemporary culture of moral spectatorship, not direct philosophical evidence.',
     likenessStatus: 'not-applicable',
   }),
   asset({
@@ -575,7 +585,7 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     title: 'Épinglier, plate II: pinmaking operations',
     creator: 'Encyclopédie workshop; individual engraver not identified on the Commons file page',
     objectDate: '1763',
-    institution: 'Encyclopédie, volume of plates',
+    institution: 'Encyclopédie plate; particular exemplar, holding institution, and individual engraver unverified',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_3-057.jpg',
     ...publicDomain,
@@ -598,17 +608,17 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     role: 'context',
     mediaKind: 'painting',
     visualCharacter: 'artwork-or-social-scene',
-    title: 'View of the Port of Bordeaux',
+    title: 'Bordeaux Harbor from the Salinières',
     creator: 'Claude-Joseph Vernet',
     objectDate: '1758',
-    institution: 'Musée national de la Marine, Paris',
+    institution: 'Musée du Louvre, INV 8301; deposited at the Musée national de la Marine',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Vernet-port-Bordeaux.jpg',
     ...publicDomain,
     derivativeNotice,
     attribution:
-      'Claude-Joseph Vernet, View of the Port of Bordeaux, 1758, Musée national de la Marine. Public Domain Mark 1.0.',
+      'Claude-Joseph Vernet, Bordeaux Harbor from the Salinières, 1758, Musée du Louvre, INV 8301, deposited at the Musée national de la Marine. Public Domain Mark 1.0.',
     scene: [640, 398],
-    panel: [1280, 797],
+    panel: [1280, 796],
     alt: 'Workers, merchants, carts, small boats, and oceangoing ships animate the broad Bordeaux waterfront.',
     caption: 'Vernet’s harbor joins exchange to labor, infrastructure, law, and distant routes.',
     historicalNote:
@@ -629,6 +639,7 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     institution: 'National Maritime Museum, Royal Museums Greenwich, BHC3403',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:Thomas_Luny_(1759-1837)_-_The_East_Indiaman_%27Hindostan%27_(%27Hindustan%27)_and_Other_Vessels_-_BHC3403_-_Royal_Museums_Greenwich.jpg',
+    objectPageUrl: 'https://www.rmg.co.uk/collections/objects/rmgc-object-14876',
     ...publicDomain,
     derivativeNotice,
     attribution:
@@ -638,7 +649,7 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     alt: 'The large East Indiaman Hindostan sails among smaller vessels under a luminous sky.',
     caption: 'An East India Company ship makes visible the junction of trade, chartered privilege, and empire.',
     historicalNote:
-      'Luny painted the work in 1792, two years after Smith died. It provides later visual context for the system Smith criticized and must not be presented as an image from his own viewing history.',
+      'Luny painted the work in 1792, two years after Smith died, for the Hindostan’s Macartney-embassy voyage. It provides later visual context for the chartered system Smith criticized and is not an image from his viewing history.',
     likenessStatus: 'not-applicable',
   }),
   asset({
@@ -647,7 +658,7 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     entityKind: 'philosopher',
     entityId: 'adam-smith',
     role: 'context',
-    mediaKind: 'painting',
+    mediaKind: 'drawing',
     visualCharacter: 'place-or-architecture',
     title: 'Iron Forge on the River Kent, Westmorland',
     creator: 'Paul Sandby',
@@ -661,10 +672,10 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
       'Paul Sandby, Iron Forge on the River Kent, Westmorland, Yale Center for British Art. Public Domain Mark 1.0.',
     scene: [640, 503],
     panel: [1280, 1007],
-    alt: 'Workers and animals occupy the dark interior and riverside yard of an iron forge.',
-    caption: 'Sandby’s forge situates productive improvement inside a landscape of labor and machinery.',
+    alt: 'An exterior river landscape places a forge beside rushing water and a rocky fall, with small workers, animals, trees, and buildings along the bank.',
+    caption: 'Sandby’s riverside forge situates productive activity within a water-powered landscape rather than a dark factory interior.',
     historicalNote:
-      'The work is undated on the Commons record and is not tied to a workplace Smith visited. It is contextual evidence for industrial labor, not a documentary case study.',
+      'The accessible source does not securely establish date, medium, accession, complete provenance, or the rights terms for Yale’s current image. It is not tied to a workplace Smith visited and remains contextual rather than documentary evidence.',
     likenessStatus: 'not-applicable',
   }),
   asset({
@@ -675,22 +686,23 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     role: 'context',
     mediaKind: 'painting',
     visualCharacter: 'artwork-or-social-scene',
-    title: 'Marriage A-la-Mode: The Marriage Settlement',
+    title: 'Marriage A-la-Mode: 1, The Marriage Settlement',
     creator: 'William Hogarth',
     objectDate: 'c. 1743',
-    institution: 'National Gallery, London',
+    institution: 'National Gallery, London, NG113',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:William_Hogarth_-_Marriage_A-la-Mode_1_The_Marriage_Settlement.jpg',
+    objectPageUrl: 'https://www.nationalgallery.org.uk/paintings/william-hogarth-marriage-a-la-mode-1-the-marriage-settlement',
     ...publicDomain,
     derivativeNotice,
     attribution:
-      'William Hogarth, Marriage A-la-Mode: The Marriage Settlement, c. 1743, National Gallery, London. Public Domain Mark 1.0.',
+      'William Hogarth, Marriage A-la-Mode: 1, The Marriage Settlement, c. 1743, National Gallery, London, NG113. Public Domain Mark 1.0.',
     scene: [640, 487],
     panel: [1280, 973],
     alt: 'Two elite families negotiate a marriage contract while the prospective spouses sit disengaged beside them.',
     caption: 'Hogarth’s elite marriage contract exposes domestic union as legal, economic, and dynastic government.',
     historicalNote:
-      'The satire concerns an aristocratic arranged marriage and cannot represent every household or woman. Its specificity is part of the interpretation, not a defect to conceal.',
+      'The National Gallery records purchase in 1824. The satire concerns an aristocratic arranged marriage and cannot represent every household or woman; it is later context for Astell’s critique, not an illustration she knew.',
     likenessStatus: 'not-applicable',
   }),
   asset({
@@ -704,20 +716,21 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     title: 'Portraits in the Characters of the Muses in the Temple of Apollo',
     creator: 'Richard Samuel',
     objectDate: '1778',
-    institution: 'National Portrait Gallery, London',
+    institution: 'National Portrait Gallery, London, NPG 4905',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:Portraits_in_the_Characters_of_the_Muses_in_the_Temple_of_Apollo_by_Richard_Samuel.jpg',
+    objectPageUrl: 'https://www.npg.org.uk/collections/search/portrait/mw00328/Portraits-in-the-Characters-of-the-Muses-in-the-Temple-of-Apollo',
     ...publicDomain,
     derivativeNotice,
     attribution:
       'Richard Samuel, Portraits in the Characters of the Muses in the Temple of Apollo, 1778, National Portrait Gallery, London. Public Domain Mark 1.0.',
     scene: [640, 538],
     panel: [1280, 1076],
-    alt: 'Nine contemporary learned women pose together in classical dress as the Muses.',
-    caption: 'A collective portrait celebrates nine learned women while framing achievement through elite allegory.',
+    alt: 'Nine allegorical female figures in classical costume assemble as the Muses in an idealized temple setting.',
+    caption: 'Samuel’s 1778 allegory conventionally associates nine learned women with the Muses, although only three likenesses are considered plausible.',
     historicalNote:
-      'The sitters are Barbauld, Carter, Griffith, Kauffman, Lennox, Macaulay, Montagu, More, and Sheridan. Mary Astell and Mary Wollstonecraft are not depicted.',
-    likenessStatus: 'lifetime-portrait',
+      'The National Portrait Gallery treats the nine identities as intended or conventional while judging only three likenesses plausible and several faces invented. Mary Astell and Mary Wollstonecraft are not depicted; the painting was made decades after Astell’s death.',
+    likenessStatus: 'attributed',
   }),
   asset({
     id: 'enlightenment-duchesse-du-maine-astronomy-lesson',
@@ -759,19 +772,19 @@ export const ENLIGHTENMENT_GALLERY_ASSETS = [
     title: 'À Versailles, à Versailles, 5 octobre 1789',
     creator: 'Anonymous French printmaker',
     objectDate: '1789; restored digital reproduction',
-    institution: 'Bibliothèque nationale de France, Gallica',
+    institution: 'Wikimedia Commons reproduction; holding institution and shelfmark not supplied by the source record',
     sourcePageUrl:
       'https://commons.wikimedia.org/wiki/File:A_Versailles,_%C3%A0_Versailles_5_octobre_1789_-_Restoration.jpg',
     ...publicDomain,
     derivativeNotice,
     attribution:
-      'Anonymous, À Versailles, à Versailles, 5 octobre 1789, Bibliothèque nationale de France, Gallica. Public Domain Mark 1.0.',
+      'Anonymous, À Versailles, à Versailles, 5 octobre 1789, 1789; restored reproduction via Wikimedia Commons. Public Domain Mark 1.0.',
     scene: [640, 449],
     panel: [1280, 897],
     alt: 'A large group of women and other marchers moves toward Versailles carrying staffs, tools, and banners.',
     caption: 'A contemporary print frames the Women’s March to Versailles as a mass political procession.',
     historicalNote:
-      'The image is a designed contemporary print and later digital restoration, not a transparent eyewitness record. Its marchers must not be treated as portraits of Wollstonecraft or as one uniform political subject.',
+      'The source does not provide a durable BnF permalink, shelfmark, or restoration provenance, so those details remain unresolved. The image is a designed contemporary print and later digital restoration, not a transparent eyewitness record or a portrait of Wollstonecraft.',
     likenessStatus: 'not-applicable',
   }),
   asset({

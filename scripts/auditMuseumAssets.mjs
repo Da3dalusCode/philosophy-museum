@@ -2216,7 +2216,7 @@ check('the 44-source Galleries 17 and 18 locks reproduce every curated derivativ
   assert.doesNotMatch(JSON.stringify(molyneuxAsset), /surgery|operation/iu, 'Molyneux still carries surgical imagery metadata');
   const genevaLock = gallery18ManifestAssets['enlightenment-geneva-gardelle-view'];
   assert.deepEqual(genevaLock.crop, {left: 0, top: 0, right: 1920, bottom: 823}, 'Geneva calibration-strip crop drifted');
-  assert.equal(genevaLock.panel.height, 549, 'Geneva panel no longer excludes the calibration strip');
+  assert.equal(genevaLock.panel.height, 548, 'Geneva panel no longer preserves the reviewed 2× scene ratio after excluding the calibration strip');
   assert.match(gallery18PreparationSource, /image = image\.crop\(box\)/u, 'Gallery 18 preparation does not reproduce the reviewed crop');
 });
 

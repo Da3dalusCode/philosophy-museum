@@ -15,6 +15,7 @@ import type {
   MuseumSupplementalExhibitLayout,
   MuseumSupplementalInstallationKind,
 } from './museumWorldTypes';
+import {reviewEmpiricismSupplementalExhibit} from './empiricismSupplementalReview';
 
 export {EMPIRICISM_GALLERY_ID, EMPIRICISM_ROOM_SIGN_COPY};
 
@@ -514,7 +515,7 @@ export const EMPIRICISM_SUPPLEMENTAL_EXHIBITS = [
     articleRoute: {kind: 'philosopher', philosopherId: 'hume'},
     entityKind: 'philosopher',
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+].map(reviewEmpiricismSupplementalExhibit) as readonly MuseumSupplementalExhibit[];
 
 type EmpiricismInstallationKind =
   | 'empiricism-work'
@@ -555,20 +556,20 @@ const supplementalLayout = (
  * Locke room's outer-east wall. These fourteen layouts fill every other face.
  */
 export const EMPIRICISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  supplementalLayout('empiricism-micrographia-enlarged-sight', 'empiricism', 'empiricism', 'empiricism-locke-ideas-rights', {x: -5.55, z: -26.88}, 0, 'empiricism-hooke-micrographia-flea', 3.16, 1.89, 'empiricism-context', EMPIRICISM_PALETTE.blue),
-  supplementalLayout('locke-molyneux-crossmodal-vision', 'locke', 'empiricism', 'empiricism-locke-ideas-rights', {x: -5.55, z: -10.45}, Math.PI, 'locke-molyneux-ribera-touch', 2.4, 3.2, 'empiricism-concept', EMPIRICISM_PALETTE.indigo),
-  supplementalLayout('locke-consciousness-prince-cobbler', 'locke', 'locke', 'empiricism-locke-ideas-rights', {x: 5.55, z: -26.88}, 0, 'locke-cobbler-workshop-1671', 1.94, 2.7, 'empiricism-concept', EMPIRICISM_PALETTE.gold),
-  supplementalLayout('locke-rights-property-carolina', 'locke', 'locke', 'empiricism-locke-ideas-rights', {x: 5.55, z: -10.45}, Math.PI, 'empiricism-locke-carolina-map', 3.08, 2.36, 'empiricism-context', EMPIRICISM_PALETTE.red),
-  supplementalLayout('berkeley-vision-learned-distance', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: -5.55, z: -8.22}, 0, 'berkeley-perspective-instrument-1604', 2.96, 2.22, 'empiricism-concept', EMPIRICISM_PALETTE.blue),
-  supplementalLayout('berkeley-perception-and-object', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: -5.55, z: 8.22}, Math.PI, 'empiricism-berkeley-optical-illusion', 3.08, 2.37, 'empiricism-concept', EMPIRICISM_PALETTE.indigo),
-  supplementalLayout('berkeley-bermuda-college-project', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: 5.55, z: -8.22}, 0, 'empiricism-berkeley-bermuda-scheme', 3.14, 2.34, 'empiricism-context', EMPIRICISM_PALETTE.red),
-  supplementalLayout('berkeley-camera-obscura-signs', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: 10.85, z: 0}, -Math.PI / 2, 'empiricism-camera-obscura', 2.55, 2.56, 'empiricism-concept', EMPIRICISM_PALETTE.gold),
-  supplementalLayout('berkeley-siris-tar-water-chain', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: 5.55, z: 8.22}, Math.PI, 'berkeley-scots-pine-botanical-plate', 1.67, 2.7, 'empiricism-work', EMPIRICISM_PALETTE.green),
-  supplementalLayout('hume-causation-billiard-table', 'hume', 'hume', 'empiricism-hume-skepticism', {x: -5.55, z: 10.45}, 0, 'empiricism-hume-billiards', 3.2, 2.12, 'empiricism-concept', EMPIRICISM_PALETTE.blue),
-  supplementalLayout('hume-self-theatre-without-spectator', 'hume', 'hume', 'empiricism-hume-skepticism', {x: -5.55, z: 26.88}, Math.PI, 'hume-theatre-interior-c1740', 3.2, 2.17, 'empiricism-concept', EMPIRICISM_PALETTE.indigo),
-  supplementalLayout('hume-sentiment-and-social-judgment', 'hume', 'hume', 'empiricism-hume-skepticism', {x: 5.55, z: 10.45}, 0, 'hume-greuze-village-bride-1761', 3.05, 2.37, 'empiricism-concept', EMPIRICISM_PALETTE.red),
-  supplementalLayout('hume-skepticism-backgammon-return', 'hume', 'hume', 'empiricism-hume-skepticism', {x: 10.85, z: 18.6667}, -Math.PI / 2, 'empiricism-hume-backgammon', 3.14, 2.34, 'empiricism-context', EMPIRICISM_PALETTE.gold),
-  supplementalLayout('hume-edinburgh-public-world', 'hume', 'hume', 'empiricism-hume-skepticism', {x: 5.55, z: 26.88}, Math.PI, 'empiricism-hume-edinburgh', 3.14, 2.26, 'empiricism-context', EMPIRICISM_PALETTE.green),
+  supplementalLayout('empiricism-micrographia-enlarged-sight', 'empiricism', 'empiricism', 'empiricism-locke-ideas-rights', {x: -5.55, z: -26.88}, 0, 'empiricism-hooke-micrographia-flea', 3.16, 3.16 * 383 / 640, 'empiricism-context', EMPIRICISM_PALETTE.blue),
+  supplementalLayout('locke-molyneux-crossmodal-vision', 'locke', 'empiricism', 'empiricism-locke-ideas-rights', {x: -5.55, z: -10.45}, Math.PI, 'locke-molyneux-ribera-touch', 2.4, 2.4 * 640 / 480, 'empiricism-concept', EMPIRICISM_PALETTE.indigo),
+  supplementalLayout('locke-consciousness-prince-cobbler', 'locke', 'locke', 'empiricism-locke-ideas-rights', {x: 5.55, z: -26.88}, 0, 'locke-cobbler-workshop-1671', 2.7 * 460 / 640, 2.7, 'empiricism-concept', EMPIRICISM_PALETTE.gold),
+  supplementalLayout('locke-rights-property-carolina', 'locke', 'locke', 'empiricism-locke-ideas-rights', {x: 5.55, z: -10.45}, Math.PI, 'empiricism-locke-carolina-map', 3.08, 3.08 * 490 / 640, 'empiricism-context', EMPIRICISM_PALETTE.red),
+  supplementalLayout('berkeley-vision-learned-distance', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: -5.55, z: -8.22}, 0, 'berkeley-perspective-instrument-1604', 2.96, 2.96 * 480 / 640, 'empiricism-concept', EMPIRICISM_PALETTE.blue),
+  supplementalLayout('berkeley-perception-and-object', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: -5.55, z: 8.22}, Math.PI, 'empiricism-berkeley-optical-illusion', 3.08, 3.08 * 493 / 640, 'empiricism-concept', EMPIRICISM_PALETTE.indigo),
+  supplementalLayout('berkeley-bermuda-college-project', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: 5.55, z: -8.22}, 0, 'empiricism-berkeley-bermuda-scheme', 3.14, 3.14 * 478 / 640, 'empiricism-context', EMPIRICISM_PALETTE.red),
+  supplementalLayout('berkeley-camera-obscura-signs', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: 10.85, z: 0}, -Math.PI / 2, 'empiricism-camera-obscura', 2.56 * 638 / 640, 2.56, 'empiricism-concept', EMPIRICISM_PALETTE.gold),
+  supplementalLayout('berkeley-siris-tar-water-chain', 'berkeley', 'berkeley', 'empiricism-berkeley-perception', {x: 5.55, z: 8.22}, Math.PI, 'berkeley-scots-pine-botanical-plate', 2.7 * 396 / 640, 2.7, 'empiricism-work', EMPIRICISM_PALETTE.green),
+  supplementalLayout('hume-causation-billiard-table', 'hume', 'hume', 'empiricism-hume-skepticism', {x: -5.55, z: 10.45}, 0, 'empiricism-hume-billiards', 3.2, 3.2 * 423 / 640, 'empiricism-concept', EMPIRICISM_PALETTE.blue),
+  supplementalLayout('hume-self-theatre-without-spectator', 'hume', 'hume', 'empiricism-hume-skepticism', {x: -5.55, z: 26.88}, Math.PI, 'hume-theatre-interior-c1740', 3.2, 3.2 * 434 / 640, 'empiricism-concept', EMPIRICISM_PALETTE.indigo),
+  supplementalLayout('hume-sentiment-and-social-judgment', 'hume', 'hume', 'empiricism-hume-skepticism', {x: 5.55, z: 10.45}, 0, 'hume-greuze-village-bride-1761', 3.05, 3.05 * 497 / 640, 'empiricism-concept', EMPIRICISM_PALETTE.red),
+  supplementalLayout('hume-skepticism-backgammon-return', 'hume', 'hume', 'empiricism-hume-skepticism', {x: 10.85, z: 18.6667}, -Math.PI / 2, 'empiricism-hume-backgammon', 3.14, 3.14 * 477 / 640, 'empiricism-context', EMPIRICISM_PALETTE.gold),
+  supplementalLayout('hume-edinburgh-public-world', 'hume', 'hume', 'empiricism-hume-skepticism', {x: 5.55, z: 26.88}, Math.PI, 'empiricism-hume-edinburgh', 3.14, 3.14 * 461 / 640, 'empiricism-context', EMPIRICISM_PALETTE.green),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getEmpiricismSupplementalExhibit = (
