@@ -13,9 +13,9 @@ export const PUBLIC_COLLECTION_COUNTS = {
   },
   "supplementalExhibits": {
     "total": 411,
-    "reviewed": 123,
-    "standardCompliant": 123,
-    "backlog": 288
+    "reviewed": 147,
+    "standardCompliant": 147,
+    "backlog": 264
   },
   "museumStops": 603
 } as const;

@@ -12,6 +12,7 @@ import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
 } from './museumWorldTypes';
+import {reviewLatinScholasticSupplementalExhibit} from './latinChristianScholasticSupplementalReview';
 
 export {LATIN_SCHOLASTIC_GALLERY_ID, LATIN_SCHOLASTIC_ROOM_SIGN_COPY};
 
@@ -621,7 +622,7 @@ export const LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBITS = [
     entityKind: 'philosopher',
     articleActionLabel: 'Open Eckhart and the late-scholastic conflicts',
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+].map(reviewLatinScholasticSupplementalExhibit) as readonly MuseumSupplementalExhibit[];
 
 type LatinScholasticPrimaryExhibitId =
   | 'boethius'
@@ -668,23 +669,23 @@ const supplementalLayout = (
 });
 
 export const LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  supplementalLayout('latin-boethian-logic-curriculum', 'boethius', 'boethius', 'latin-transmission-carolingian', {x: -5.55, z: -26.88}, 0, 'scholastic-boethius-topics', 2.9, 2.4, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.blue),
-  supplementalLayout('latin-consolation-fortune-providence', 'boethius', 'boethius', 'latin-transmission-carolingian', {x: 5.55, z: -26.88}, 0, 'scholastic-consolation-wheel', 2.7, 2.7, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.oxblood),
-  supplementalLayout('latin-carolingian-copying-script', 'eriugena', 'boethius', 'latin-transmission-carolingian', {x: -5.55, z: -15.12}, Math.PI, 'scholastic-caroline-minuscule', 2.9, 2.3, 'scholastic-context', LATIN_SCHOLASTIC_PALETTE.gold),
-  supplementalLayout('latin-eriugena-greek-christian-sources', 'eriugena', 'eriugena', 'latin-transmission-carolingian', {x: 5.55, z: -15.12}, Math.PI, 'scholastic-eriugena-periphyseon', 2.15, 2.7, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.violet),
+  supplementalLayout('latin-boethian-logic-curriculum', 'boethius', 'boethius', 'latin-transmission-carolingian', {x: -5.55, z: -26.88}, 0, 'scholastic-boethius-topics', 3, 3 * 257 / 640, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.blue),
+  supplementalLayout('latin-consolation-fortune-providence', 'boethius', 'boethius', 'latin-transmission-carolingian', {x: 5.55, z: -26.88}, 0, 'scholastic-consolation-wheel', 2.7 * 429 / 640, 2.7, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.oxblood),
+  supplementalLayout('latin-carolingian-copying-script', 'eriugena', 'boethius', 'latin-transmission-carolingian', {x: -5.55, z: -15.12}, Math.PI, 'scholastic-caroline-minuscule', 2.9, 2.9 * 462 / 524, 'scholastic-context', LATIN_SCHOLASTIC_PALETTE.gold),
+  supplementalLayout('latin-eriugena-greek-christian-sources', 'eriugena', 'eriugena', 'latin-transmission-carolingian', {x: 5.55, z: -15.12}, Math.PI, 'scholastic-eriugena-periphyseon', 2.7 * 481 / 640, 2.7, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.violet),
 
-  supplementalLayout('latin-sic-et-non-dialectic', 'abelard', 'abelard', 'latin-dialectic-early-scholastic', {x: 5.55, z: -12.88}, 0, 'scholastic-abelard-apologia-manuscript', 2.15, 2.7, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.oxblood),
-  supplementalLayout('latin-heloise-love-intention-rule', 'abelard', 'abelard', 'latin-dialectic-early-scholastic', {x: -5.55, z: -1.12}, Math.PI, 'scholastic-heloise-letters', 2.12, 2.7, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.violet),
-  supplementalLayout('latin-lectio-quaestio-disputatio', 'medieval-scholasticism', 'medieval-scholasticism', 'latin-dialectic-early-scholastic', {x: 5.55, z: -1.12}, Math.PI, 'scholastic-sorbonne-theology', 2.72, 2.55, 'scholastic-concept', LATIN_SCHOLASTIC_PALETTE.blue),
+  supplementalLayout('latin-sic-et-non-dialectic', 'abelard', 'abelard', 'latin-dialectic-early-scholastic', {x: 5.55, z: -12.88}, 0, 'scholastic-abelard-apologia-manuscript', 2.7 * 509 / 640, 2.7, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.oxblood),
+  supplementalLayout('latin-heloise-love-intention-rule', 'abelard', 'abelard', 'latin-dialectic-early-scholastic', {x: -5.55, z: -1.12}, Math.PI, 'scholastic-heloise-letters', 3, 3 * 507 / 640, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.violet),
+  supplementalLayout('latin-lectio-quaestio-disputatio', 'medieval-scholasticism', 'medieval-scholasticism', 'latin-dialectic-early-scholastic', {x: 5.55, z: -1.12}, Math.PI, 'scholastic-sorbonne-theology', 3, 3 * 417 / 640, 'scholastic-concept', LATIN_SCHOLASTIC_PALETTE.blue),
 
-  supplementalLayout('latin-arabic-latin-crosscurrents', 'aquinas', 'aquinas', 'latin-high-scholastic', {x: 10.85, z: 7}, -Math.PI / 2, 'scholastic-aristotle-latin-physics', 1.84, 2.7, 'scholastic-context', LATIN_SCHOLASTIC_PALETTE.green),
-  supplementalLayout('latin-summa-question-architecture', 'aquinas', 'aquinas', 'latin-high-scholastic', {x: -5.55, z: 1.12}, 0, 'scholastic-aquinas-summa-basel', 2.2, 2.7, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.blue),
-  supplementalLayout('latin-essence-existence-analogy', 'aquinas', 'aquinas', 'latin-high-scholastic', {x: 5.55, z: 1.12}, 0, 'scholastic-aquinas-summa-1482', 2.0, 2.7, 'scholastic-concept', LATIN_SCHOLASTIC_PALETTE.gold),
-  supplementalLayout('latin-natural-law-virtue', 'aquinas', 'aquinas', 'latin-high-scholastic', {x: -5.55, z: 12.88}, Math.PI, 'scholastic-aquinas-summa-1477', 3.0, 2.1, 'scholastic-concept', LATIN_SCHOLASTIC_PALETTE.green),
-  supplementalLayout('latin-paris-1277-contestation', 'aquinas', 'aquinas', 'latin-high-scholastic', {x: 5.55, z: 12.88}, Math.PI, 'scholastic-condemnation-1277', 1.95, 2.7, 'scholastic-context', LATIN_SCHOLASTIC_PALETTE.oxblood),
+  supplementalLayout('latin-arabic-latin-crosscurrents', 'aquinas', 'aquinas', 'latin-high-scholastic', {x: 10.85, z: 7}, -Math.PI / 2, 'scholastic-aristotle-latin-physics', 2.7 * 317 / 640, 2.7, 'scholastic-context', LATIN_SCHOLASTIC_PALETTE.green),
+  supplementalLayout('latin-summa-question-architecture', 'aquinas', 'aquinas', 'latin-high-scholastic', {x: -5.55, z: 1.12}, 0, 'scholastic-aquinas-summa-basel', 2.7 * 513 / 640, 2.7, 'scholastic-work', LATIN_SCHOLASTIC_PALETTE.blue),
+  supplementalLayout('latin-essence-existence-analogy', 'aquinas', 'aquinas', 'latin-high-scholastic', {x: 5.55, z: 1.12}, 0, 'scholastic-aquinas-summa-1482', 2.7 * 464 / 640, 2.7, 'scholastic-concept', LATIN_SCHOLASTIC_PALETTE.gold),
+  supplementalLayout('latin-natural-law-virtue', 'aquinas', 'aquinas', 'latin-high-scholastic', {x: -5.55, z: 12.88}, Math.PI, 'scholastic-aquinas-summa-1477', 3, 3 * 194 / 640, 'scholastic-concept', LATIN_SCHOLASTIC_PALETTE.green),
+  supplementalLayout('latin-paris-1277-contestation', 'aquinas', 'aquinas', 'latin-high-scholastic', {x: 5.55, z: 12.88}, Math.PI, 'scholastic-condemnation-1277', 3, 3 * 442 / 640, 'scholastic-context', LATIN_SCHOLASTIC_PALETTE.oxblood),
 
-  supplementalLayout('latin-universals-signs-individuals', 'duns-scotus', 'ockham', 'latin-late-debates', {x: -5.55, z: 26.88}, Math.PI, 'scholastic-porphyrian-tree-fresco', 2.55, 2.7, 'scholastic-concept', LATIN_SCHOLASTIC_PALETTE.violet),
-  supplementalLayout('latin-poverty-censure-political-authority', 'meister-eckhart', 'marsilius-padua', 'latin-late-debates', {x: 5.55, z: 26.88}, Math.PI, 'scholastic-eckhart-recantation', 2.0, 2.7, 'scholastic-context', LATIN_SCHOLASTIC_PALETTE.oxblood),
+  supplementalLayout('latin-universals-signs-individuals', 'duns-scotus', 'ockham', 'latin-late-debates', {x: -5.55, z: 26.88}, Math.PI, 'scholastic-porphyrian-tree-fresco', 2.7 * 384 / 640, 2.7, 'scholastic-concept', LATIN_SCHOLASTIC_PALETTE.violet),
+  supplementalLayout('latin-poverty-censure-political-authority', 'meister-eckhart', 'marsilius-padua', 'latin-late-debates', {x: 5.55, z: 26.88}, Math.PI, 'scholastic-eckhart-recantation', 2.7 * 485 / 640, 2.7, 'scholastic-context', LATIN_SCHOLASTIC_PALETTE.oxblood),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getLatinScholasticSupplementalExhibit = (

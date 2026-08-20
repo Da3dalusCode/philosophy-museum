@@ -9,6 +9,7 @@ import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
 } from './museumWorldTypes';
+import {reviewCoreQuestionsForumSupplementalExhibit} from './coreQuestionsForumSupplementalReview';
 
 export const CORE_QUESTIONS_FORUM_GALLERY_ID = 'core-questions-forum' as const;
 
@@ -157,7 +158,7 @@ const presentation = (
   cautionsLabel: 'Keep the route honest',
 });
 
-export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS = [
+export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS = ([
   {
     id: 'forum-mulla-sadra-existence',
     displayName: 'Mulla Sadra: Existence and Substantial Motion',
@@ -568,7 +569,7 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_EXHIBITS = [
       {label: 'Route', value: 'Reason, revelation, critique'},
     ], 'Open Al-Ghazali in the Atlas'),
   },
-] as const satisfies readonly MuseumSupplementalExhibit[];
+] satisfies readonly MuseumSupplementalExhibit[]).map(reviewCoreQuestionsForumSupplementalExhibit);
 
 export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
   layout({
@@ -577,8 +578,8 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     parentExhibitId: 'metaphysics',
     zoneId: 'core-reality-being',
     assetId: 'forum-mulla-sadra-miscellany',
-    mediaWidth: 1.71,
-    mediaHeight: 2.88,
+    mediaWidth: 2.62 * 380 / 640,
+    mediaHeight: 2.62,
     accent: FORUM_PALETTE.saffron,
   }),
   layout({
@@ -587,8 +588,8 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     parentExhibitId: 'epistemology',
     zoneId: 'core-knowledge',
     assetId: 'forum-dignaga-commemorative-portrait',
-    mediaWidth: 2.16,
-    mediaHeight: 2.88,
+    mediaWidth: 2.62 * 480 / 640,
+    mediaHeight: 2.62,
     accent: FORUM_PALETTE.indigo,
   }),
   layout({
@@ -597,8 +598,8 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     parentExhibitId: 'logic',
     zoneId: 'core-logic-language',
     assetId: 'forum-mozi-conventional-portrait',
-    mediaWidth: 2.88,
-    mediaHeight: 2.88,
+    mediaWidth: 2.28,
+    mediaHeight: 2.28,
     accent: FORUM_PALETTE.jade,
   }),
   layout({
@@ -607,8 +608,8 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     parentExhibitId: 'philosophy-of-science',
     zoneId: 'core-science',
     assetId: 'forum-avicenna-canon-1597',
-    mediaWidth: 2.03,
-    mediaHeight: 2.88,
+    mediaWidth: 2.62 * 451 / 640,
+    mediaHeight: 2.62,
     accent: FORUM_PALETTE.saffron,
   }),
   layout({
@@ -618,8 +619,8 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     guidedAfterExhibitId: 'kuhn',
     zoneId: 'core-ethics-portal',
     assetId: 'forum-confucius-tilting-vessel',
-    mediaWidth: 1.7,
-    mediaHeight: 2.88,
+    mediaWidth: 2.62 * 378 / 640,
+    mediaHeight: 2.62,
     accent: FORUM_PALETTE.cinnabar,
   }),
   layout({
@@ -629,8 +630,8 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     guidedAfterExhibitId: 'kuhn',
     zoneId: 'core-ethics-portal',
     assetId: 'forum-mencius-three-moves',
-    mediaWidth: 1.82,
-    mediaHeight: 2.88,
+    mediaWidth: 2.62 * 405 / 640,
+    mediaHeight: 2.62,
     accent: FORUM_PALETTE.cinnabar,
   }),
   layout({
@@ -640,8 +641,8 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     guidedAfterExhibitId: 'kuhn',
     zoneId: 'core-political-portal',
     assetId: 'forum-al-farabi-round-city',
-    mediaWidth: 3.18,
-    mediaHeight: 2.17,
+    mediaWidth: 2.28,
+    mediaHeight: 2.28 * 437 / 640,
     accent: FORUM_PALETTE.bronze,
   }),
   layout({
@@ -651,8 +652,8 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     guidedAfterExhibitId: 'kuhn',
     zoneId: 'core-political-portal',
     assetId: 'forum-maimonides-mishneh-torah',
-    mediaWidth: 3.18,
-    mediaHeight: 1.95,
+    mediaWidth: 2.28,
+    mediaHeight: 2.28 * 393 / 640,
     accent: FORUM_PALETTE.indigo,
   }),
   layout({
@@ -661,8 +662,8 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     parentExhibitId: 'aesthetics',
     zoneId: 'core-aesthetics',
     assetId: 'forum-confucian-marquis-yi-bells',
-    mediaWidth: 3.18,
-    mediaHeight: 2.12,
+    mediaWidth: 2.28,
+    mediaHeight: 2.28 * 427 / 640,
     accent: FORUM_PALETTE.jade,
   }),
   layout({
@@ -671,8 +672,8 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     parentExhibitId: 'philosophy-of-religion',
     zoneId: 'core-religion',
     assetId: 'forum-al-ghazali-faysal-manuscript',
-    mediaWidth: 3.18,
-    mediaHeight: 2.2,
+    mediaWidth: 2.28,
+    mediaHeight: 2.28 * 442 / 640,
     accent: FORUM_PALETTE.saffron,
   }),
 ] as const satisfies readonly CoreQuestionsForumSupplementalLayout[];
