@@ -3267,7 +3267,11 @@ check('Gallery 12 fills exactly twelve wall faces with three philosopher primari
   assert(!program.rooms.flatMap(({exhibits}) => exhibits).some(({entityKind}) => entityKind === 'branch'), 'Gallery 12 invented a canonical Jewish Philosophy branch');
   assert(!JEWISH_SUPPLEMENTAL_EXHIBITS.some(({articleRoute}) => articleRoute?.kind === 'branch'), 'Gallery 12 invented a branch route for balance');
   const laterContinuity = JEWISH_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'jewish-philosophy-after-maimonides');
-  assert(laterContinuity && !laterContinuity.articleRoute, 'The contextual continuation anchor fabricated an Atlas route');
+  assert.deepEqual(
+    laterContinuity?.articleRoute,
+    {kind: 'philosopher', philosopherId: 'maimonides'},
+    'The contextual continuation anchor must use the explicit Maimonides reception route rather than fabricate an umbrella branch',
+  );
   assert.match(`${laterContinuity.lead} ${laterContinuity.sections.flatMap(({paragraphs}) => paragraphs).join(' ')}`, /Gersonides[\s\S]*Crescas[\s\S]*Mendelssohn[\s\S]*Rosenzweig[\s\S]*Levinas/u, 'Gallery 12 incorrectly ends Jewish philosophy with Maimonides');
   const spinozaThreshold = JEWISH_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'spinoza-formation-rupture-threshold');
   assert.deepEqual(spinozaThreshold?.articleRoute, {kind: 'philosopher', philosopherId: 'spinoza'});

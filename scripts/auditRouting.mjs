@@ -657,7 +657,7 @@ check('document titles are exhaustive and section-aware', () => {
   );
   assert.equal(
     getRouteTitle({kind: 'museum', hallId: 'jewish-philosophy', exhibitId: 'spinoza-formation-rupture-threshold'}),
-    'Spinoza’s Theological-Political Treatise: Formation and Rupture — Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds | Philosophy Atlas',
+    'Hirszenberg’s Excommunicated Spinoza: Formation and Rupture — Jewish Philosophy in Arabic-Speaking & Mediterranean Worlds | Philosophy Atlas',
   );
   assert.equal(
     getRouteTitle({kind: 'branch', branchId: 'stoicism', section: 'overview'}),

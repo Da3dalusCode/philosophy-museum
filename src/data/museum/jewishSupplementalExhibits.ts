@@ -8,6 +8,7 @@ import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
 } from './museumWorldTypes';
+import {reviewJewishSupplementalExhibit} from './jewishSupplementalReview';
 
 export const JEWISH_GALLERY_ID = 'jewish-philosophy' as const;
 
@@ -335,7 +336,7 @@ export const JEWISH_SUPPLEMENTAL_EXHIBITS = [
     articleRoute: {kind: 'philosopher', philosopherId: 'spinoza'},
     entityKind: 'philosopher',
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+].map(reviewJewishSupplementalExhibit) as readonly MuseumSupplementalExhibit[];
 
 /**
  * Two rooms × six wall faces = twelve physical installations. The three
@@ -345,17 +346,17 @@ export const JEWISH_SUPPLEMENTAL_EXHIBITS = [
  */
 export const JEWISH_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   // Room 01: Saadia and Halevi primaries plus four work/context installations.
-  authorSupplementalLayout({id: 'saadia-beliefs-opinions', parentExhibitId: 'saadia-gaon', zoneId: 'jewish-reason-revelation', position: {x: -4.55, z: -10.88}, rotationY: 0, assetId: 'saadia-beliefs-landauer', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'jewish-work', accent: JEWISH_PALETTE.gold}),
-  authorSupplementalLayout({id: 'judah-halevi-kuzari', parentExhibitId: 'judah-halevi', zoneId: 'jewish-reason-revelation', position: {x: 4.55, z: -10.88}, rotationY: 0, assetId: 'judah-halevi-kuzari-1796', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'jewish-work', accent: JEWISH_PALETTE.blue}),
-  authorSupplementalLayout({id: 'judeo-arabic-geniza-law', parentExhibitId: 'saadia-gaon', zoneId: 'jewish-reason-revelation', position: {x: -4.55, z: -1.12}, rotationY: Math.PI, assetId: 'cairo-geniza-legal-document', mediaWidth: 3.25, mediaHeight: 2.65, installationKind: 'jewish-context', accent: JEWISH_PALETTE.olive}),
-  authorSupplementalLayout({id: 'judah-halevi-divan', parentExhibitId: 'judah-halevi', zoneId: 'jewish-reason-revelation', position: {x: 4.55, z: -1.12}, rotationY: Math.PI, assetId: 'judah-halevi-divan-geniza', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'jewish-work', accent: JEWISH_PALETTE.pomegranate}),
+  authorSupplementalLayout({id: 'saadia-beliefs-opinions', parentExhibitId: 'saadia-gaon', zoneId: 'jewish-reason-revelation', position: {x: -4.55, z: -10.88}, rotationY: 0, assetId: 'saadia-beliefs-landauer', mediaWidth: 2.676171875, mediaHeight: 3.25, installationKind: 'jewish-work', accent: JEWISH_PALETTE.gold}),
+  authorSupplementalLayout({id: 'judah-halevi-kuzari', parentExhibitId: 'judah-halevi', zoneId: 'jewish-reason-revelation', position: {x: 4.55, z: -10.88}, rotationY: 0, assetId: 'judah-halevi-kuzari-1796', mediaWidth: 3.25, mediaHeight: 2.473046875, installationKind: 'jewish-work', accent: JEWISH_PALETTE.blue}),
+  authorSupplementalLayout({id: 'judeo-arabic-geniza-law', parentExhibitId: 'saadia-gaon', zoneId: 'jewish-reason-revelation', position: {x: -4.55, z: -1.12}, rotationY: Math.PI, assetId: 'cairo-geniza-legal-document', mediaWidth: 3.25, mediaHeight: 2.869140625, installationKind: 'jewish-context', accent: JEWISH_PALETTE.olive}),
+  authorSupplementalLayout({id: 'judah-halevi-divan', parentExhibitId: 'judah-halevi', zoneId: 'jewish-reason-revelation', position: {x: 4.55, z: -1.12}, rotationY: Math.PI, assetId: 'judah-halevi-divan-geniza', mediaWidth: 1.508203125, mediaHeight: 3.25, installationKind: 'jewish-work', accent: JEWISH_PALETTE.pomegranate}),
 
   // Room 02: Maimonides anchor, one full contextual continuation, and four returns.
-  authorSupplementalLayout({id: 'maimonides-mishneh-torah', parentExhibitId: 'maimonides', zoneId: 'jewish-maimonidean-crossroads', position: {x: -4.55, z: 1.12}, rotationY: 0, assetId: 'maimonides-mishneh-torah', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'jewish-work', accent: JEWISH_PALETTE.gold}),
-  authorSupplementalLayout({id: 'maimonides-guide-translation-reception', parentExhibitId: 'maimonides', zoneId: 'jewish-maimonidean-crossroads', position: {x: 4.55, z: 1.12}, rotationY: 0, assetId: 'maimonides-guide-arabic', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'jewish-context', accent: JEWISH_PALETTE.blue}),
-  authorSupplementalLayout({id: 'maimonides-guide-negative-theology', parentExhibitId: 'maimonides', zoneId: 'jewish-maimonidean-crossroads', position: {x: -4.55, z: 10.88}, rotationY: Math.PI, assetId: 'maimonides-guide-negative-theology', mediaWidth: 3.25, mediaHeight: 2.65, installationKind: 'jewish-concept', accent: JEWISH_PALETTE.pomegranate}),
-  authorSupplementalLayout({id: 'spinoza-formation-rupture-threshold', parentExhibitId: 'maimonides', zoneId: 'jewish-maimonidean-crossroads', position: {x: 4.55, z: 10.88}, rotationY: Math.PI, assetId: 'spinoza-tractatus-1670', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'jewish-context', accent: JEWISH_PALETTE.olive}),
-  authorSupplementalLayout({id: 'jewish-philosophy-after-maimonides', parentExhibitId: 'maimonides', zoneId: 'jewish-maimonidean-crossroads', position: {x: 8.85, z: 6}, rotationY: -Math.PI / 2, assetId: 'moses-mendelssohn-rijksmuseum', mediaWidth: 2.55, mediaHeight: 3.25, installationKind: 'jewish-context', accent: JEWISH_PALETTE.gold}),
+  authorSupplementalLayout({id: 'maimonides-mishneh-torah', parentExhibitId: 'maimonides', zoneId: 'jewish-maimonidean-crossroads', position: {x: -4.55, z: 1.12}, rotationY: 0, assetId: 'maimonides-mishneh-torah', mediaWidth: 3.25, mediaHeight: 2.5390625, installationKind: 'jewish-work', accent: JEWISH_PALETTE.gold}),
+  authorSupplementalLayout({id: 'maimonides-guide-translation-reception', parentExhibitId: 'maimonides', zoneId: 'jewish-maimonidean-crossroads', position: {x: 4.55, z: 1.12}, rotationY: 0, assetId: 'maimonides-guide-arabic', mediaWidth: 2.2275, mediaHeight: 3.3, installationKind: 'jewish-context', accent: JEWISH_PALETTE.blue}),
+  authorSupplementalLayout({id: 'maimonides-guide-negative-theology', parentExhibitId: 'maimonides', zoneId: 'jewish-maimonidean-crossroads', position: {x: -4.55, z: 10.88}, rotationY: Math.PI, assetId: 'maimonides-guide-negative-theology', mediaWidth: 2.34609375, mediaHeight: 3.3, installationKind: 'jewish-concept', accent: JEWISH_PALETTE.pomegranate}),
+  authorSupplementalLayout({id: 'spinoza-formation-rupture-threshold', parentExhibitId: 'maimonides', zoneId: 'jewish-maimonidean-crossroads', position: {x: 4.55, z: 10.88}, rotationY: Math.PI, assetId: 'spinoza-tractatus-1670', mediaWidth: 3.48, mediaHeight: 2.664375, installationKind: 'jewish-context', accent: JEWISH_PALETTE.olive}),
+  authorSupplementalLayout({id: 'jewish-philosophy-after-maimonides', parentExhibitId: 'maimonides', zoneId: 'jewish-maimonidean-crossroads', position: {x: 8.85, z: 6}, rotationY: -Math.PI / 2, assetId: 'moses-mendelssohn-rijksmuseum', mediaWidth: 2.371875, mediaHeight: 3.3, installationKind: 'jewish-context', accent: JEWISH_PALETTE.gold}),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getJewishSupplementalExhibit = (

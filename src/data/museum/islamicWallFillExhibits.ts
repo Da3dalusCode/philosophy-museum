@@ -61,6 +61,49 @@ const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => ({
   },
 });
 
+const reviewSafavidChaharBagh = (input: MuseumSupplementalExhibit): MuseumSupplementalExhibit => {
+  const presentation = input.presentation;
+  if (!presentation) throw new Error('Missing presentation for safavid-chahar-bagh-continuity.');
+  const sources = [
+    {id: 'chahar-bagh-commons', label: 'Wikimedia Commons — Chahar Bagh School courtyard photograph', url: 'https://commons.wikimedia.org/wiki/File:Chahar_Bagh_School_%D9%85%D8%AF%D8%B1%D8%B3%D9%87_%D8%B9%D9%84%D9%88%D9%85_%D8%AF%DB%8C%D9%86%DB%8C_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%D8%A7%D8%B5%D9%81%D9%87%D8%A7%D9%86_03.jpg', kind: 'collection-record' as const},
+    {id: 'isfahan-iranica', label: 'Encyclopaedia Iranica — Isfahan, Safavid Period', url: 'https://www.iranicaonline.org/articles/isfahan-vii-safavid-period/', kind: 'academic-reference' as const},
+    {id: 'mulla-sadra-sep', label: 'Stanford Encyclopedia of Philosophy — Mulla Sadra', url: 'https://plato.stanford.edu/entries/mulla-sadra/', kind: 'academic-reference' as const},
+  ];
+  return {
+    ...input,
+    sections: [
+      {heading: '', paragraphs: ['The installed photograph looks upward through the open courtyard of the Chahar Bagh School in Isfahan, framed by tiled facades, latticework, and sky. Mostafameraji made the photograph on 31 July 2010 and released it under CC BY-SA 4.0. It shows an architectural setting, not a classroom interior or a lesson in progress. Encyclopaedia Iranica dates the madrasa’s construction under Shah Soltan-Hosayn from 1704–05 to 1706–07; the image therefore cannot be used as evidence for a seventeenth-century philosophical event.'], sourceIds: ['chahar-bagh-commons', 'isfahan-iranica']},
+      {heading: '', paragraphs: ['The chronology matters. Mulla Sadra was born around 1571–72 and likely died in 1635–36, decades before this madrasa was completed. His Safavid intellectual world included study in Isfahan, later teaching in Shiraz, and a legacy that became influential in Shi\u2018i seminaries. The Chahar Bagh School is a later Safavid theological institution in the same city, not a documented personal school, workplace, or direct proof of a Sadrian curriculum.'], sourceIds: ['mulla-sadra-sep', 'isfahan-iranica']},
+      {heading: '', paragraphs: ['That distance makes the photograph philosophically useful when its limits remain visible. Islamic Philosophy did not stop with Averroes: post-Avicennian inquiry was reworked through philosophical theology, commentary, teaching, and institutional networks. A building can invite questions about the conditions that sustain learning, but it cannot settle who taught which text, how a doctrine was interpreted, or whether one lineage dominated its rooms. The linked Islamic Philosophy article supplies the arguments and contested continuities that the courtyard alone cannot establish. It also prevents two opposite simplifications: a story in which philosophical activity ends with medieval Iberia, and a story in which one later institution makes every Safavid scholar an identical successor. Continuity is an argument about texts, teachers, practices, and changing audiences, not an architectural style in this setting. The viewer must keep those different evidential roles separate.'], sourceIds: ['isfahan-iranica', 'mulla-sadra-sep']},
+    ],
+    sources,
+    objectInterpretation: 'Mostafameraji\u2019s 2010 CC BY-SA photograph looks upward through the Chahar Bagh madrasa courtyard in Isfahan. Iranica dates the school to 1704\u201307, after Mulla Sadra\u2019s lifetime. It is retained as a later Safavid institutional setting, not as his classroom or evidence for a specific curriculum.',
+    visitorGuide: [
+      {heading: 'Dating the setting', items: [
+        {label: 'Later madrasa', description: 'Chahar Bagh was begun in 1704\u201305 and completed in 1706\u201307 under Shah Soltan-Hosayn.', sourceIds: ['isfahan-iranica']},
+        {label: 'Photographic witness', description: 'The image records a 2010 view by Mostafameraji, not an early-modern scene.', sourceIds: ['chahar-bagh-commons']},
+      ]},
+      {heading: 'Institution and inheritance', items: [
+        {label: 'No personal classroom', description: 'The school postdates Mulla Sadra and does not document his teaching or a particular course.', sourceIds: ['mulla-sadra-sep', 'isfahan-iranica']},
+        {label: 'Conditions are not conclusions', description: 'Architecture can frame questions about learning but cannot establish doctrine, curriculum, or reception alone.', sourceIds: ['isfahan-iranica', 'mulla-sadra-sep']},
+      ]},
+    ],
+    presentation: {...presentation, panelKicker: 'Gallery 08 institutional context', articleActionLabel: 'Read the full sourced Islamic Philosophy article', exhibitLayout: 'object-led'},
+    wallPlaque: {
+      type: 'historical-event-or-institutional-context',
+      title: 'Chahar Bagh School',
+      invitation: 'This later Safavid madrasa sets post-Avicennian inquiry in an institutional world after Mulla Sadra, while Islamic Philosophy explains the arguments and contested continuities that its architecture alone cannot prove.',
+      canonicalContexts: [{kind: 'branch', id: 'islamic-philosophy'}],
+    },
+    review: {
+      status: 'standard-compliant', reviewedOn: '2026-08-19',
+      method: 'Gallery 08 supplemental review: installed object identity, dating, rights, claim-level sources, interpretation, article relationship, CTA, review lock, and aspect-safe presentation reconciled.',
+      resolution: 'Resolved: corrected the image from an interior to a courtyard view and the construction range to Iranica’s 1704–07 dating; separated the later madrasa from Mulla Sadra’s lifetime and curriculum; mapped institutional and philosophical claims; preserved CC BY-SA provenance and natural ratio; and linked Islamic Philosophy.',
+      lock: 'fnv1a64:8980c537e74b2fc9',
+    },
+  };
+};
+
 const islamicReference = {
   label: 'Stanford Encyclopedia of Philosophy — Greek Sources in Arabic and Islamic Philosophy',
   url: 'https://plato.stanford.edu/entries/arabic-islamic-greek/',
@@ -373,7 +416,7 @@ export const ISLAMIC_WALL_FILL_EXHIBITS = [
     articleRoute: {kind: 'philosopher', philosopherId: 'mulla-sadra'},
     entityKind: 'philosopher',
   }),
-  wallFill({
+  reviewSafavidChaharBagh(wallFill({
     id: 'safavid-chahar-bagh-continuity',
     assetId: 'safavid-chahar-bagh-school',
     displayName: 'After Mulla Sadra: Safavid Learning and the Chahar Bagh School',
@@ -401,5 +444,5 @@ export const ISLAMIC_WALL_FILL_EXHIBITS = [
     reference: islamicReference,
     articleRoute: {kind: 'branch', branchId: 'islamic-philosophy'},
     entityKind: 'branch',
-  }),
+  })),
 ] as const satisfies readonly MuseumSupplementalExhibit[];
