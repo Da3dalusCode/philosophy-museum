@@ -175,6 +175,7 @@ def save_variant(
     destination: Path,
     maximum: int,
     quality: int,
+    exact_ratio_reference: tuple[int, int] | None = None,
 ) -> dict[str, int | str]:
     derivative = image.copy()
     if min(derivative.size) < MIN_DERIVATIVE_EDGE:
@@ -183,7 +184,19 @@ def save_variant(
             (round(derivative.width * scale), round(derivative.height * scale)),
             Image.Resampling.LANCZOS,
         )
-    derivative.thumbnail((maximum, maximum), Image.Resampling.LANCZOS)
+    if exact_ratio_reference:
+        reference_width, reference_height = exact_ratio_reference
+        scale = min(maximum // reference_width, maximum // reference_height)
+        if scale < 1:
+            raise RuntimeError(
+                f"{destination.name} cannot preserve the exact reference ratio within {maximum}px."
+            )
+        derivative = derivative.resize(
+            (reference_width * scale, reference_height * scale),
+            Image.Resampling.LANCZOS,
+        )
+    else:
+        derivative.thumbnail((maximum, maximum), Image.Resampling.LANCZOS)
     for candidate_quality in range(quality, 59, -4):
         derivative.save(destination, "WEBP", quality=candidate_quality, method=6)
         if destination.stat().st_size <= MAX_DERIVATIVE_BYTES:
@@ -300,6 +313,11 @@ def main() -> None:
                 candidate_panel,
                 int(record.get("panelMaximum", 1280)),
                 88,
+                (
+                    (int(scene_lock["width"]), int(scene_lock["height"]))
+                    if record.get("panelMatchesSceneRatio") is True
+                    else None
+                ),
             )
 
             if args.refresh_locks:

@@ -9,17 +9,17 @@ Philosophy Atlas currently contains:
 <!-- public-collection-counts:start -->
 - **192 canonical full articles:** 147 philosopher profiles and 45 articles on philosophies, branches, schools, traditions, movements, methods, and frameworks; 192 of 192 are currently claim-reviewed.
 - **192 primary Museum exhibits:** 192 of 192 are standard-compliant under the separate primary exhibit-review standard.
-- **411 supplemental Museum exhibits:** 326 reviewed and 85 explicit backlog.
+- **411 supplemental Museum exhibits:** 362 reviewed and 49 explicit backlog.
 - **26 curated/open galleries and 105 rooms:** 603 interpreted stops on one connected public level.
 <!-- public-collection-counts:end -->
 
-The supplemental accuracy-and-depth program is complete through Galleries 01–21.
+The supplemental accuracy-and-depth program is complete through Galleries 01–23.
 
 All 192 canonical full articles meet the 2,000-word substantive-prose floor. This closes the universal depth migration; it does not complete sourcing or review.
 
 ## Editorial state
 
-The current generated reports record no stale canonical article or primary exhibit review locks and no unmatched or ambiguous primary exhibit-to-article relationships. The 85 unreviewed supplemental exhibits remain explicit backlog rather than being treated as reviewed or compliant.
+The current generated reports record no stale canonical article or primary exhibit review locks and no unmatched or ambiguous primary exhibit-to-article relationships. The 49 unreviewed supplemental exhibits remain explicit backlog rather than being treated as reviewed or compliant.
 
 Article depth, bibliography presence, claim review, and exhibit review are independent milestones. A long article is not necessarily claim-reviewed, and a claim-reviewed article does not by itself make the related Museum exhibit standard-compliant. These are internal, AI-assisted editorial review states; Philosophy Atlas has not received independent academic or peer review.
 

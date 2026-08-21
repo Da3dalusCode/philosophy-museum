@@ -5,6 +5,7 @@ import {
   getCritiquePowerDeconstructionInstallationSlot,
 } from './critiquePowerDeconstructionGalleryCuration';
 import type {CritiquePowerDeconstructionGalleryAssetId} from './critiquePowerDeconstructionGalleryAssets';
+import {reviewCritiquePowerDeconstructionSupplementalExhibit} from './gallery22And23SupplementalReview';
 import {authorSupplementalExhibit} from './museumSupplementalAuthoring';
 import type {
   MuseumSupplementalExhibit,
@@ -149,7 +150,7 @@ const curated = (input: CuratedInput): MuseumSupplementalExhibit =>
     panelKicker: 'Gallery 23 work and context exhibit',
   });
 
-export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBITS = [
+export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBITS = ([
   curated({
     id: 'continental-saussure-sign-system',
     assetId: 'critique-saussure-jullien-portrait',
@@ -601,7 +602,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBITS = [
       'https://plato.stanford.edu/entries/critical-theory/',
     ),
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+] as const satisfies readonly MuseumSupplementalExhibit[]).map(reviewCritiquePowerDeconstructionSupplementalExhibit);
 
 const volume = (
   id: string,
@@ -663,6 +664,7 @@ const layout = ({
   mediaHeight,
   installationKind,
   accent,
+  viewpointDistance,
 }: {
   id: CritiquePowerDeconstructionSupplementalExhibitId;
   parentExhibitId: Parent;
@@ -672,6 +674,7 @@ const layout = ({
   mediaHeight: number;
   installationKind: InstallationKind;
   accent: string;
+  viewpointDistance?: number;
 }): MuseumSupplementalExhibitLayout => {
   const authoredSlot =
     getCritiquePowerDeconstructionInstallationSlot(slotId);
@@ -702,7 +705,7 @@ const layout = ({
       ...cameraFor(
         position,
         authoredSlot.rotationY,
-        authoredSlot.supplementalViewpointDistance,
+        viewpointDistance ?? authoredSlot.supplementalViewpointDistance,
       ),
       yaw: authoredSlot.rotationY,
       pitch: -.055,
@@ -729,7 +732,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     parentExhibitId: 'continental-philosophy',
     slotId: 'continental-orientation:west-outer',
     assetId: 'critique-saussure-jullien-portrait',
-    mediaWidth: 1.8,
+    mediaWidth: 2.7 * 424 / 640,
     mediaHeight: 2.7,
     installationKind: 'critique-concept',
     accent: P.archiveBlue,
@@ -740,9 +743,10 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'continental-orientation:east-room-face',
     assetId: 'critique-freud-couch-london-2019',
     mediaWidth: 3.18,
-    mediaHeight: 2.62,
+    mediaHeight: 3.18 * 528 / 640,
     installationKind: 'critique-concept',
     accent: P.violet,
+    viewpointDistance: 2.2,
   }),
   layout({
     id: 'continental-college-institutions',
@@ -750,7 +754,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'continental-orientation:east-cross-face',
     assetId: 'critique-college-de-france-courtyard',
     mediaWidth: 3.18,
-    mediaHeight: 1.41,
+    mediaHeight: 3.18 * 284 / 640,
     installationKind: 'critique-context',
     accent: P.brass,
   }),
@@ -759,10 +763,11 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     parentExhibitId: 'continental-philosophy',
     slotId: 'continental-orientation:south-room-face',
     assetId: 'critique-berlin-wall-brandenburg-1989',
-    mediaWidth: 1.82,
+    mediaWidth: 2.7 * 431 / 640,
     mediaHeight: 2.7,
     installationKind: 'critique-context',
     accent: P.signalRed,
+    viewpointDistance: 2.2,
   }),
   layout({
     id: 'continental-freiburg-phenomenological-line',
@@ -770,7 +775,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'continental-orientation:south-cross-face',
     assetId: 'critique-freiburg-university-building',
     mediaWidth: 3.18,
-    mediaHeight: 2.39,
+    mediaHeight: 3.18 * 480 / 640,
     installationKind: 'critique-context',
     accent: P.civicGreen,
   }),
@@ -780,8 +785,8 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     parentExhibitId: 'foucault',
     slotId: 'critique-genealogy-power:east-outer',
     assetId: 'critique-panopticon-outram-proposal-1880s',
-    mediaWidth: 2.45,
-    mediaHeight: 2.7,
+    mediaWidth: 3.18,
+    mediaHeight: 3.18 * 480 / 640,
     installationKind: 'critique-concept',
     accent: P.brass,
   }),
@@ -791,9 +796,10 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-genealogy-power:west-room-face',
     assetId: 'critique-salpetriere-clinical-lesson',
     mediaWidth: 3.18,
-    mediaHeight: 2.01,
+    mediaHeight: 3.18 * 404 / 640,
     installationKind: 'critique-work',
     accent: P.signalRed,
+    viewpointDistance: 2.2,
   }),
   layout({
     id: 'foucault-bertillon-examination',
@@ -801,7 +807,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-genealogy-power:west-cross-face',
     assetId: 'critique-bertillon-evidence-display',
     mediaWidth: 3.18,
-    mediaHeight: 1.85,
+    mediaHeight: 3.18 * 373 / 640,
     installationKind: 'critique-context',
     accent: P.archiveBlue,
   }),
@@ -811,9 +817,10 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-genealogy-power:south-room-face',
     assetId: 'critique-mettray-shoemakers-c1910',
     mediaWidth: 3.18,
-    mediaHeight: 2.06,
+    mediaHeight: 3.18 * 414 / 640,
     installationKind: 'critique-context',
     accent: P.charcoal,
+    viewpointDistance: 2.2,
   }),
   layout({
     id: 'foucault-archive-practice',
@@ -821,7 +828,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-genealogy-power:south-cross-face',
     assetId: 'critique-bnf-labrouste-reading-room',
     mediaWidth: 3.18,
-    mediaHeight: 2.12,
+    mediaHeight: 3.18 * 426 / 640,
     installationKind: 'critique-concept',
     accent: P.civicGreen,
   }),
@@ -832,7 +839,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-deconstruction:east-outer',
     assetId: 'critique-french-algeria-1934-map',
     mediaWidth: 2.7,
-    mediaHeight: 2.68,
+    mediaHeight: 2.7 * 636 / 640,
     installationKind: 'critique-context',
     accent: P.signalRed,
   }),
@@ -841,10 +848,11 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     parentExhibitId: 'derrida',
     slotId: 'critique-deconstruction:west-room-face',
     assetId: 'critique-rosetta-stone-babelstone',
-    mediaWidth: 1.61,
+    mediaWidth: 2.7 * 382 / 640,
     mediaHeight: 2.7,
     installationKind: 'critique-concept',
     accent: P.brass,
+    viewpointDistance: 2.2,
   }),
   layout({
     id: 'derrida-babel-difference',
@@ -852,7 +860,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-deconstruction:west-cross-face',
     assetId: 'critique-bruegel-tower-babel',
     mediaWidth: 3.18,
-    mediaHeight: 2.33,
+    mediaHeight: 3.18 * 468 / 640,
     installationKind: 'critique-work',
     accent: P.violet,
   }),
@@ -862,9 +870,10 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-deconstruction:north-room-face',
     assetId: 'critique-ens-rue-ulm-c1900',
     mediaWidth: 3.18,
-    mediaHeight: 2.03,
+    mediaHeight: 3.18 * 408 / 640,
     installationKind: 'critique-context',
     accent: P.archiveBlue,
+    viewpointDistance: 2.2,
   }),
   layout({
     id: 'derrida-writing-material-trace',
@@ -872,7 +881,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-deconstruction:north-cross-face',
     assetId: 'critique-writing-tablet-stylus-london',
     mediaWidth: 3.18,
-    mediaHeight: 1.94,
+    mediaHeight: 3.18 * 390 / 640,
     installationKind: 'critique-concept',
     accent: P.civicGreen,
   }),
@@ -883,7 +892,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-critical-theory:west-outer',
     assetId: 'critique-frankfurt-institute-building',
     mediaWidth: 3.18,
-    mediaHeight: 2.45,
+    mediaHeight: 3.18 * 492 / 640,
     installationKind: 'critique-context',
     accent: P.archiveBlue,
   }),
@@ -892,10 +901,11 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     parentExhibitId: 'habermas',
     slotId: 'critique-critical-theory:east-room-face',
     assetId: 'critique-coffee-house-bunbury-dickinson-1781',
-    mediaWidth: 3.18,
-    mediaHeight: 2.26,
+    mediaWidth: 2.7 * 640 / 571,
+    mediaHeight: 2.7,
     installationKind: 'critique-work',
     accent: P.brass,
+    viewpointDistance: 2.2,
   }),
   layout({
     id: 'habermas-parliament-deliberation',
@@ -903,7 +913,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-critical-theory:east-cross-face',
     assetId: 'critique-bundestag-plenary-dome-view',
     mediaWidth: 3.18,
-    mediaHeight: 2.12,
+    mediaHeight: 3.18 * 426 / 640,
     installationKind: 'critique-concept',
     accent: P.civicGreen,
   }),
@@ -913,9 +923,10 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-critical-theory:north-room-face',
     assetId: 'critique-frankfurt-radio-1930s',
     mediaWidth: 3.18,
-    mediaHeight: 1.98,
+    mediaHeight: 3.18 * 398 / 640,
     installationKind: 'critique-work',
     accent: P.signalRed,
+    viewpointDistance: 2.2,
   }),
   layout({
     id: 'critical-theory-adorno-memorial',
@@ -923,7 +934,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     slotId: 'critique-critical-theory:north-cross-face',
     assetId: 'critique-adorno-memorial-desk',
     mediaWidth: 3.18,
-    mediaHeight: 2.39,
+    mediaHeight: 3.18 * 480 / 640,
     installationKind: 'critique-context',
     accent: P.charcoal,
   }),
@@ -937,7 +948,7 @@ export const getCritiquePowerDeconstructionSupplementalExhibit = (
       (item) => item.id === id,
     );
   if (!record) {
-    throw new Error(`Gallery 23 supplemental exhibit ${id} is missing.`);
+    throw new Error(`Gallery 22 supplemental exhibit ${id} is missing.`);
   }
   return record;
 };

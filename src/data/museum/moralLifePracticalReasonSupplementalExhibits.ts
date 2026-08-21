@@ -5,6 +5,7 @@ import {
   MORAL_LIFE_PRACTICAL_REASON_ROOM_SIGN_COPY,
 } from './moralLifePracticalReasonGalleryCuration';
 import type {MoralLifePracticalReasonGalleryAssetId} from './moralLifePracticalReasonGalleryAssets';
+import {reviewMoralLifePracticalReasonSupplementalExhibit} from './gallery22And23SupplementalReview';
 import {
   authorSupplementalExhibit,
   authorSupplementalLayout,
@@ -118,7 +119,7 @@ const curated = (input: CuratedInput): MuseumSupplementalExhibit =>
     panelKicker: 'Gallery 24 work and context exhibit',
   });
 
-export const MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS = [
+export const MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS = ([
   curated({
     id: 'ethics-confucian-ritual-practice',
     assetId: 'moral-ethics-confucian-apricot-platform',
@@ -503,7 +504,7 @@ export const MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS = [
     academicLabel: 'Stanford Encyclopedia of Philosophy — Intergenerational Justice',
     academicUrl: 'https://plato.stanford.edu/entries/justice-intergenerational/',
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+] as const satisfies readonly MuseumSupplementalExhibit[]).map(reviewMoralLifePracticalReasonSupplementalExhibit);
 
 type MoralInstallationKind = 'moral-work' | 'moral-context' | 'moral-concept';
 
@@ -516,6 +517,7 @@ const layout = ({
   mediaHeight,
   installationKind,
   accent,
+  viewpointDistance,
 }: {
   id: MoralLifePracticalReasonSupplementalExhibitId;
   parentExhibitId: MoralParent;
@@ -525,6 +527,7 @@ const layout = ({
   mediaHeight: number;
   installationKind: MoralInstallationKind;
   accent: string;
+  viewpointDistance?: number;
 }): MuseumSupplementalExhibitLayout => {
   const authoredSlot = getMoralLifePracticalReasonInstallationSlot(slotId);
   const position = {x: authoredSlot.x, z: authoredSlot.z};
@@ -546,8 +549,8 @@ const layout = ({
     ...authored,
     interactionRadius: 3.3,
     viewpoint: {
-      x: position.x + Math.sin(authoredSlot.rotationY) * authoredSlot.supplementalViewpointDistance,
-      z: position.z + Math.cos(authoredSlot.rotationY) * authoredSlot.supplementalViewpointDistance,
+      x: position.x + Math.sin(authoredSlot.rotationY) * (viewpointDistance ?? authoredSlot.supplementalViewpointDistance),
+      z: position.z + Math.cos(authoredSlot.rotationY) * (viewpointDistance ?? authoredSlot.supplementalViewpointDistance),
       yaw: authoredSlot.rotationY,
       pitch: -.055,
     },
@@ -555,25 +558,25 @@ const layout = ({
 };
 
 export const MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  layout({id: 'ethics-confucian-ritual-practice', parentExhibitId: 'ethics', slotId: 'moral-ethics-orientation:west-outer', assetId: 'moral-ethics-confucian-apricot-platform', mediaWidth: 2.02, mediaHeight: 2.7, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.practice}),
-  layout({id: 'ethics-jain-nonviolence-practice', parentExhibitId: 'ethics', slotId: 'moral-ethics-orientation:east-room-face', assetId: 'moral-ethics-jain-bird-hospital', mediaWidth: 2.02, mediaHeight: 2.7, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.virtue}),
-  layout({id: 'ethics-buddhist-discipline-compassion', parentExhibitId: 'ethics', slotId: 'moral-ethics-orientation:east-cross-face', assetId: 'moral-ethics-sanchi-dharmachakra', mediaWidth: 1.31, mediaHeight: 2.7, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.future}),
-  layout({id: 'ethics-care-attention-practice', parentExhibitId: 'ethics', slotId: 'moral-ethics-orientation:south-room-face', assetId: 'moral-ethics-cassatt-child-bath', mediaWidth: 1.77, mediaHeight: 2.7, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.rights}),
-  layout({id: 'ethics-labor-social-position', parentExhibitId: 'ethics', slotId: 'moral-ethics-orientation:south-cross-face', assetId: 'moral-ethics-millet-gleaners', mediaWidth: 3.18, mediaHeight: 2.38, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.utility}),
+  layout({id: 'ethics-confucian-ritual-practice', parentExhibitId: 'ethics', slotId: 'moral-ethics-orientation:west-outer', assetId: 'moral-ethics-confucian-apricot-platform', mediaWidth: 2.7 * 480 / 640, mediaHeight: 2.7, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.practice}),
+  layout({id: 'ethics-jain-nonviolence-practice', parentExhibitId: 'ethics', slotId: 'moral-ethics-orientation:east-room-face', assetId: 'moral-ethics-jain-bird-hospital', mediaWidth: 2.7 * 480 / 640, mediaHeight: 2.7, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.virtue, viewpointDistance: 2.2}),
+  layout({id: 'ethics-buddhist-discipline-compassion', parentExhibitId: 'ethics', slotId: 'moral-ethics-orientation:east-cross-face', assetId: 'moral-ethics-sanchi-dharmachakra', mediaWidth: 2.7 * 309 / 640, mediaHeight: 2.7, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.future}),
+  layout({id: 'ethics-care-attention-practice', parentExhibitId: 'ethics', slotId: 'moral-ethics-orientation:south-room-face', assetId: 'moral-ethics-cassatt-child-bath', mediaWidth: 2.7 * 419 / 640, mediaHeight: 2.7, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.rights, viewpointDistance: 2.2}),
+  layout({id: 'ethics-labor-social-position', parentExhibitId: 'ethics', slotId: 'moral-ethics-orientation:south-cross-face', assetId: 'moral-ethics-millet-gleaners', mediaWidth: 3.18, mediaHeight: 3.18 * 479 / 640, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.utility}),
 
-  layout({id: 'virtue-practice-habituation', parentExhibitId: 'virtue-ethics', slotId: 'moral-character-virtue:west-cross-face', assetId: 'moral-virtue-panathenaic-runners', mediaWidth: 1.79, mediaHeight: 2.7, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.virtue}),
-  layout({id: 'murdoch-kestrel-unselfing', parentExhibitId: 'iris-murdoch', slotId: 'moral-character-virtue:south-room-face', assetId: 'moral-murdoch-kestrel', mediaWidth: 3.18, mediaHeight: 2.12, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.future}),
-  layout({id: 'foot-natural-goodness', parentExhibitId: 'philippa-foot', slotId: 'moral-character-virtue:south-cross-face', assetId: 'moral-foot-oak-acorns', mediaWidth: 3.02, mediaHeight: 2.67, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.virtue}),
+  layout({id: 'virtue-practice-habituation', parentExhibitId: 'virtue-ethics', slotId: 'moral-character-virtue:west-cross-face', assetId: 'moral-virtue-panathenaic-runners', mediaWidth: 2.7 * 423 / 640, mediaHeight: 2.7, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.virtue}),
+  layout({id: 'murdoch-kestrel-unselfing', parentExhibitId: 'iris-murdoch', slotId: 'moral-character-virtue:south-room-face', assetId: 'moral-murdoch-kestrel', mediaWidth: 3.18, mediaHeight: 3.18 * 427 / 640, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.future, viewpointDistance: 2.2}),
+  layout({id: 'foot-natural-goodness', parentExhibitId: 'philippa-foot', slotId: 'moral-character-virtue:south-cross-face', assetId: 'moral-foot-oak-acorns', mediaWidth: 2.67 * 640 / 565, mediaHeight: 2.67, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.virtue}),
 
-  layout({id: 'duty-kant-autonomy', parentExhibitId: 'deontology', slotId: 'moral-duty-consequence:west-room-face', assetId: 'moral-duty-kant-monument', mediaWidth: 2.02, mediaHeight: 2.7, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.duty}),
-  layout({id: 'utility-bentham-reform', parentExhibitId: 'utilitarianism', slotId: 'moral-duty-consequence:west-cross-face', assetId: 'moral-utility-bentham-inspection-house', mediaWidth: 1.72, mediaHeight: 2.7, installationKind: 'moral-work', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.ink}),
-  layout({id: 'utility-equality-inclusion', parentExhibitId: 'utilitarianism', slotId: 'moral-duty-consequence:north-room-face', assetId: 'moral-utility-equal-pay-act', mediaWidth: 2.7, mediaHeight: 2.69, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.rights}),
-  layout({id: 'utility-public-health-welfare', parentExhibitId: 'utilitarianism', slotId: 'moral-duty-consequence:north-cross-face', assetId: 'moral-utility-jenner-vaccination', mediaWidth: 3.18, mediaHeight: 2.47, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.utility}),
+  layout({id: 'duty-kant-autonomy', parentExhibitId: 'deontology', slotId: 'moral-duty-consequence:west-room-face', assetId: 'moral-duty-kant-monument', mediaWidth: 2.7 * 480 / 640, mediaHeight: 2.7, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.duty, viewpointDistance: 2.2}),
+  layout({id: 'utility-bentham-reform', parentExhibitId: 'utilitarianism', slotId: 'moral-duty-consequence:west-cross-face', assetId: 'moral-utility-bentham-inspection-house', mediaWidth: 2.7 * 407 / 640, mediaHeight: 2.7, installationKind: 'moral-work', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.ink}),
+  layout({id: 'utility-equality-inclusion', parentExhibitId: 'utilitarianism', slotId: 'moral-duty-consequence:north-room-face', assetId: 'moral-utility-equal-pay-act', mediaWidth: 2.7, mediaHeight: 2.7 * 638 / 640, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.rights, viewpointDistance: 2.2}),
+  layout({id: 'utility-public-health-welfare', parentExhibitId: 'utilitarianism', slotId: 'moral-duty-consequence:north-cross-face', assetId: 'moral-utility-jenner-vaccination', mediaWidth: 3.18, mediaHeight: 3.18 * 498 / 640, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.utility}),
 
-  layout({id: 'thomson-violinist-bodily-rights', parentExhibitId: 'judith-thomson', slotId: 'moral-rights-persons-futures:east-room-face', assetId: 'moral-thomson-violinist', mediaWidth: 2.06, mediaHeight: 2.7, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.rights}),
-  layout({id: 'thomson-bodily-autonomy-context', parentExhibitId: 'judith-thomson', slotId: 'moral-rights-persons-futures:east-cross-face', assetId: 'moral-thomson-womens-strike-1970', mediaWidth: 3.18, mediaHeight: 2.11, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.rights}),
-  layout({id: 'parfit-psychological-continuity', parentExhibitId: 'derek-parfit', slotId: 'moral-rights-persons-futures:north-room-face', assetId: 'moral-parfit-marey-motion', mediaWidth: 3.18, mediaHeight: 1.28, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.future}),
-  layout({id: 'parfit-future-generations', parentExhibitId: 'derek-parfit', slotId: 'moral-rights-persons-futures:north-cross-face', assetId: 'moral-parfit-svalbard-seed-vault', mediaWidth: 3.18, mediaHeight: 2.13, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.future}),
+  layout({id: 'thomson-violinist-bodily-rights', parentExhibitId: 'judith-thomson', slotId: 'moral-rights-persons-futures:east-room-face', assetId: 'moral-thomson-violinist', mediaWidth: 2.7 * 488 / 640, mediaHeight: 2.7, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.rights, viewpointDistance: 2.2}),
+  layout({id: 'thomson-bodily-autonomy-context', parentExhibitId: 'judith-thomson', slotId: 'moral-rights-persons-futures:east-cross-face', assetId: 'moral-thomson-womens-strike-1970', mediaWidth: 3.18, mediaHeight: 3.18 * 425 / 640, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.rights}),
+  layout({id: 'parfit-psychological-continuity', parentExhibitId: 'derek-parfit', slotId: 'moral-rights-persons-futures:north-room-face', assetId: 'moral-parfit-marey-motion', mediaWidth: 3.18, mediaHeight: 3.18 * 257 / 640, installationKind: 'moral-concept', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.future, viewpointDistance: 2.2}),
+  layout({id: 'parfit-future-generations', parentExhibitId: 'derek-parfit', slotId: 'moral-rights-persons-futures:north-cross-face', assetId: 'moral-parfit-svalbard-seed-vault', mediaWidth: 3.18, mediaHeight: 3.18 * 429 / 640, installationKind: 'moral-context', accent: MORAL_LIFE_PRACTICAL_REASON_PALETTE.future}),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getMoralLifePracticalReasonSupplementalExhibit = (
@@ -582,6 +585,6 @@ export const getMoralLifePracticalReasonSupplementalExhibit = (
   const recordValue = MORAL_LIFE_PRACTICAL_REASON_SUPPLEMENTAL_EXHIBITS.find(
     (item) => item.id === id,
   );
-  if (!recordValue) throw new Error(`Gallery 24 supplemental exhibit ${id} is missing.`);
+  if (!recordValue) throw new Error(`Gallery 23 supplemental exhibit ${id} is missing.`);
   return recordValue;
 };

@@ -68,6 +68,7 @@
       }
     },
     "critique-college-de-france-courtyard": {
+      "panelMatchesSceneRatio": true,
       "hallFolder": "critique-power-deconstruction",
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:College_de_France.jpg",
       "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/College_de_France.jpg",
@@ -84,9 +85,9 @@
       },
       "panel": {
         "width": 1280,
-        "height": 567,
-        "bytes": 144072,
-        "sha256": "5b8ea341ead1f4cb5acf139654fa50ee1bea97d2ce664723cfbdcf3b7f6cd466"
+        "height": 568,
+        "bytes": 149262,
+        "sha256": "e670fa143ba50d2fa4d0901e6745d2f639d98147a076368d29cd04bab1a9d4cc"
       }
     },
     "critique-berlin-wall-brandenburg-1989": {
@@ -200,6 +201,7 @@
       }
     },
     "critique-bertillon-evidence-display": {
+      "panelMatchesSceneRatio": true,
       "hallFolder": "critique-power-deconstruction",
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Alphonse_Bertillon,_Scene_of_Crime_Evidence_Photography,_Mus%C3%A9e_de_la_Pr%C3%A9fecture_de_Police,_Paris.jpg",
       "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Alphonse_Bertillon,_Scene_of_Crime_Evidence_Photography,_Mus%C3%A9e_de_la_Pr%C3%A9fecture_de_Police,_Paris.jpg",
@@ -216,9 +218,9 @@
       },
       "panel": {
         "width": 1280,
-        "height": 747,
-        "bytes": 268430,
-        "sha256": "12756728986de2a54e054f83aaa27e2b5102f284ad8e9cee5e376d3a3b6b738e"
+        "height": 746,
+        "bytes": 267978,
+        "sha256": "88ed3f7fa99ffd7ab31224137feb55f0dc7af3cc15e6be6bc219d77f09f0e51c"
       }
     },
     "critique-mettray-shoemakers-c1910": {
@@ -376,6 +378,7 @@
       }
     },
     "critique-writing-tablet-stylus-london": {
+      "panelMatchesSceneRatio": true,
       "hallFolder": "critique-power-deconstruction",
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Writing_tablet_and_stylus_-_oldest_record_of_a_commercial_transaction_in_the_City_of_London.jpg",
       "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Writing_tablet_and_stylus_-_oldest_record_of_a_commercial_transaction_in_the_City_of_London.jpg",
@@ -392,9 +395,9 @@
       },
       "panel": {
         "width": 1280,
-        "height": 781,
-        "bytes": 247472,
-        "sha256": "376c2af082666dd3191e0ebfd555b9e56fcd98dbba635f701f8ba2c486bce65f"
+        "height": 780,
+        "bytes": 246772,
+        "sha256": "aec2dd7d8e32ebce67748d310eca02956f8588874d9b36b871855962ba4a1410"
       }
     },
     "critique-habermas-critical-theory-heidelberg-1964": {
