@@ -37,8 +37,9 @@ const licensed = (license: string, licenseUrl: string) => ({
 
 const derivativeNotice = 'Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.';
 const originalNotice = 'Original Philosophy Atlas Museum illustration retained uncropped, resized, and converted to WebP.';
+const generatedAssetCommit = 'd51e4a00acd0f2848614b9c4917b502f37602bc5';
 const generatedSource = (id: string) =>
-  `https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/justice-democratic-reason/${id}-panel.webp`;
+  `https://github.com/Da3dalusCode/philosophy-museum/blob/${generatedAssetCommit}/public/assets/museum/justice-democratic-reason/${id}-panel.webp`;
 
 export const JUSTICE_DEMOCRATIC_REASON_GALLERY_ASSETS = [
   galleryAsset({
