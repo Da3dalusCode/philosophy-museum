@@ -14,6 +14,7 @@ import type {
   MuseumSupplementalExhibitLayout,
   MuseumSupplementalInstallationKind,
 } from './museumWorldTypes';
+import {reviewGermanIdealismSupplementalExhibit} from './germanIdealismSupplementalReview';
 
 export {GERMAN_IDEALISM_GALLERY_ID, GERMAN_IDEALISM_ROOM_SIGN_COPY};
 
@@ -124,7 +125,7 @@ const curated = (input: CuratedInput): MuseumSupplementalExhibit => {
       ? {kind: 'branch', branchId: 'german-idealism'}
       : {kind: 'philosopher', philosopherId: input.parent},
     entityKind: isBranch ? 'branch' : 'philosopher',
-    panelKicker: 'Gallery 19 work and context exhibit',
+    panelKicker: 'Gallery 16 work and context exhibit',
   });
 };
 
@@ -398,7 +399,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS = [
     focus: 'HISTORY · REVOLUTION, STATE POWER, WAR, RECOGNITION, AND RETROSPECTION',
     dateLabel: 'Event in October 1806 · illustration published 1895',
     question: 'How can an event appear historically transformative without making conquest morally right or its outcome inevitable?',
-    lead: 'Kurtz’s later illustration imagines Hegel watching Napoleon ride through Jena as the Phenomenology neared completion. The charged anecdote opens Hegel’s philosophy of history while demanding distance from heroic legend.',
+    lead: 'A later, anonymously illustrated scene imagines Hegel watching Napoleon ride through Jena as the Phenomenology neared completion. The charged anecdote opens Hegel’s philosophy of history while demanding distance from heroic legend.',
     ideas: [
       'The vertical composition separates the observing philosopher from mounted military power while visually binding both to one narrated moment.',
       'Hegel’s letter described Napoleon as a world-soul because the emperor seemed to concentrate a vast historical transformation in individual action.',
@@ -669,7 +670,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS = [
       url: 'https://plato.stanford.edu/entries/ludwig-feuerbach/',
     },
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+].map(reviewGermanIdealismSupplementalExhibit) as readonly MuseumSupplementalExhibit[];
 
 type GermanIdealismRoomId =
   | 'german-idealism-orientation'
@@ -715,7 +716,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'german-idealism-collegium-jenense',
     3.2,
-    1.25,
+    3.2 * 250 / 640,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.critiqueBlue,
   ),
@@ -728,7 +729,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     Math.PI,
     'german-idealism-weimar-musenhof',
     3.1,
-    2.4,
+    3.1 * 495 / 640,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.romanticViolet,
   ),
@@ -741,7 +742,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'german-idealism-rhine-confederation-map',
     3.05,
-    2.46,
+    3.05 * 516 / 640,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.dialecticGold,
   ),
@@ -754,7 +755,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     Math.PI,
     'german-idealism-bastille-1789',
     3.1,
-    2.45,
+    3.1 * 505 / 640,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.activityRed,
   ),
@@ -768,7 +769,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: 10.85, z: -7},
     -Math.PI / 2,
     'german-idealism-caroline-schelling-tischbein',
-    2.2,
+    2.7 * 523 / 640,
     2.7,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.romanticViolet,
@@ -781,7 +782,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: -5.55, z: -12.88},
     0,
     'german-idealism-wanderer-friedrich',
-    2.1,
+    2.7 * 499 / 640,
     2.7,
     'idealism-concept',
     GERMAN_IDEALISM_PALETTE.natureGreen,
@@ -808,7 +809,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'german-idealism-galvani-frog-experiment',
     3.12,
-    2.24,
+    3.12 * 460 / 640,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.critiqueBlue,
   ),
@@ -820,7 +821,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: 5.55, z: -1.12},
     Math.PI,
     'german-idealism-voltaic-pile',
-    1.42,
+    2.7 * 336 / 640,
     2.7,
     'idealism-work',
     GERMAN_IDEALISM_PALETTE.activityRed,
@@ -836,7 +837,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'german-idealism-hegel-lecturing-kugler',
     3.2,
-    1.8,
+    3.2 * 360 / 640,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.critiqueBlue,
   ),
@@ -848,7 +849,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: -5.55, z: 12.88},
     Math.PI,
     'german-idealism-hegel-napoleon-jena',
-    1.63,
+    2.7 * 387 / 640,
     2.7,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.activityRed,
@@ -862,7 +863,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'german-idealism-hegelhaus-stuttgart',
     3,
-    2.25,
+    3 * 480 / 640,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.dialecticGold,
   ),
@@ -875,7 +876,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     -Math.PI / 2,
     'german-idealism-berlin-university-1855',
     3.2,
-    2.1,
+    3.2 * 421 / 640,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.archiveCharcoal,
   ),
@@ -888,7 +889,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     Math.PI,
     'german-idealism-haiti-crete-a-pierrot',
     3.15,
-    2.33,
+    3.15 * 473 / 640,
     'idealism-concept',
     GERMAN_IDEALISM_PALETTE.romanticViolet,
   ),
@@ -902,7 +903,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: -5.55, z: 15.12},
     0,
     'german-idealism-holderlin-hiemer-1792',
-    2.02,
+    2.7 * 479 / 640,
     2.7,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.romanticViolet,
@@ -915,7 +916,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: -10.85, z: 17.5},
     Math.PI / 2,
     'german-idealism-novalis-eichens-1845',
-    1.98,
+    2.7 * 471 / 640,
     2.7,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.critiqueBlue,
@@ -928,7 +929,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: -5.55, z: 26.88},
     Math.PI,
     'german-idealism-runge-morning-1808',
-    2.05,
+    2.7 * 486 / 640,
     2.7,
     'idealism-work',
     GERMAN_IDEALISM_PALETTE.natureGreen,
@@ -942,7 +943,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'german-idealism-young-hegelians-engels',
     3.1,
-    2.45,
+    3.1 * 480 / 608,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.activityRed,
   ),
@@ -954,7 +955,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: 10.85, z: 21},
     -Math.PI / 2,
     'german-idealism-feuerbach-c1840',
-    1.74,
+    2.7 * 413 / 640,
     2.7,
     'idealism-concept',
     GERMAN_IDEALISM_PALETTE.dialecticGold,
@@ -967,7 +968,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: 5.55, z: 26.88},
     Math.PI,
     'german-idealism-strauss-rijksmuseum',
-    1.72,
+    2.7 * 409 / 640,
     2.7,
     'idealism-concept',
     GERMAN_IDEALISM_PALETTE.archiveCharcoal,
@@ -978,6 +979,6 @@ export const getGermanIdealismSupplementalExhibit = (
   id: MuseumSupplementalExhibitId,
 ): MuseumSupplementalExhibit => {
   const record = GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS.find((item) => item.id === id);
-  if (!record) throw new Error(`Gallery 19 supplemental exhibit ${id} is missing.`);
+  if (!record) throw new Error(`Gallery 16 supplemental exhibit ${id} is missing.`);
   return record;
 };

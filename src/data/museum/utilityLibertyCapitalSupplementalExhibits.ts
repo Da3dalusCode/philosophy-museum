@@ -14,6 +14,7 @@ import type {
   MuseumSupplementalExhibitLayout,
   MuseumSupplementalInstallationKind,
 } from './museumWorldTypes';
+import {reviewUtilityLibertyCapitalSupplementalExhibit} from './utilityLibertyCapitalSupplementalReview';
 
 export {UTILITY_LIBERTY_CAPITAL_GALLERY_ID, UTILITY_LIBERTY_CAPITAL_ROOM_SIGN_COPY};
 
@@ -92,18 +93,18 @@ const curated = (input: CuratedInput): MuseumSupplementalExhibit => authorSupple
   sources: [image(input.imageSource), academicByParent[input.parent]],
   articleRoute: {kind: 'philosopher', philosopherId: input.parent},
   entityKind: 'philosopher',
-  panelKicker: 'Gallery 20 work and context exhibit',
+  panelKicker: 'Gallery 17 work and context exhibit',
 });
 
 export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS = [
   curated({
     id: 'utility-bentham-young-reformer', assetId: 'utility-bentham-frye-youth', parent: 'bentham',
-    displayName: 'Before the System: A Child Prodigy Becomes a Reformer', shortTitle: 'Bentham Before Utility', focus: 'BENTHAM · EDUCATION, LAW, AND REFORMING AMBITION', dateLabel: 'Portrait c. 1760–1762 · Bentham about age 12–14',
+    displayName: 'Before the System: A Child Prodigy Becomes a Reformer', shortTitle: 'Bentham Before Utility', focus: 'BENTHAM · EDUCATION, LAW, AND REFORMING AMBITION', dateLabel: 'Studio portrait, 1760 · Bentham aged thirteen',
     question: 'How did an unusually compressed education prepare Bentham to treat inherited law as something that could be analyzed and redesigned?',
     lead: 'Frye’s portrait shows Bentham before utilitarianism, legislation theory, or prison reform. Books and formal dress stage the child prodigy whose legal education later produced impatience with obscurity, custom, and unexamined authority.',
     ideas: ['The youthful portrait makes formation visible without pretending that mature doctrines were already present.', 'Bentham’s later reform program joins moral evaluation to classification, publicity, administration, and legislation.', 'A life devoted to system-building raises the question of when rational clarity serves people and when it makes them administratively legible.'],
     sectionDetails: [
-      'Thomas Frye presents an educated gentleman’s son through the conventions of elite portraiture: poised body, sober dress, and books offered as signs of disciplined promise. Those objects tell us how Bentham’s family wished learning to appear; they cannot reveal the content of a child’s convictions or guarantee his adult intellectual path.',
+      'The studio of Thomas Frye presents an educated gentleman’s son through the conventions of elite portraiture: poised body, sober dress, and books offered as signs of disciplined promise. Those objects tell us how Bentham’s family wished learning to appear; they cannot reveal the content of a child’s convictions or guarantee his adult intellectual path.',
       'Bentham entered Queen’s College, Oxford, at twelve and later trained for the law, but he rejected legal practice in favor of criticism and reconstruction. His encounter with William Blackstone’s defense of English law sharpened a lifelong objection to rules grounded in inherited authority rather than stated purposes, intelligible language, and publicly assessable effects.',
       'The reformer’s ambition was emancipatory when it exposed needless suffering, professional mystification, and arbitrary power. Yet the same appetite for classification could privilege what administrators can count over what affected people can describe. Bentham’s legacy therefore asks visitors to judge not only a system’s lucid design but also who defines its measures and can contest its decisions.',
     ],
@@ -168,12 +169,12 @@ export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS = [
   }),
   curated({
     id: 'liberty-harriet-collaboration', assetId: 'liberty-harriet-taylor-npg', parent: 'mill',
-    displayName: 'Harriet Taylor Mill: Collaboration Without Erasure', shortTitle: 'Harriet Taylor Mill', focus: 'AUTHORSHIP · COLLABORATION, EQUALITY, MARRIAGE, AND FREEDOM', dateLabel: 'Portrait date and artist unknown · collaboration from the 1830s',
+    displayName: 'Harriet Taylor Mill: Collaboration Without Erasure', shortTitle: 'Harriet Taylor Mill', focus: 'AUTHORSHIP · COLLABORATION, EQUALITY, MARRIAGE, AND FREEDOM', dateLabel: 'Unidentified artist, c. 1834 · collaboration from the 1830s',
     question: 'How should a philosophical collaboration be reconstructed when gendered conventions distort attribution and evidence remains incomplete?',
     lead: 'Harriet Taylor Mill was an essayist and sustained intellectual interlocutor in Mill’s work on liberty, women’s equality, marriage, and social character. Responsible interpretation neither erases her nor assigns every shared claim with false precision.',
     ideas: ['Correspondence and published texts show serious intellectual exchange across decades.', 'Gendered barriers shaped whose authorship appeared independent and whose labor was absorbed into another reputation.', 'Collaboration can be philosophically constitutive even when exact sentence-level attribution is impossible.'],
     sectionDetails: [
-      'The National Portrait Gallery image preserves a face while withholding the secure artist and date that normally organize a museum label. That evidentiary gap is instructive: portrait survival can make a historical person visible without disclosing her intellectual labor. Taylor Mill must be reconstructed through her own publications, correspondence, drafts, and the testimony of collaborators rather than through likeness alone.',
+      'The National Portrait Gallery image preserves a catalogued c. 1834 likeness while withholding a secure artist. That evidentiary gap is instructive: portrait survival can make a historical person visible without disclosing her intellectual labor. Taylor Mill must be reconstructed through her own publications, correspondence, drafts, and the testimony of collaborators rather than through likeness alone.',
       'Harriet Taylor and John Stuart Mill began an intense intellectual relationship in the early 1830s and married in 1851 after the death of her first husband. She published “The Enfranchisement of Women” in 1851, and Mill credited her with profound participation in his thinking. Scholars continue to debate the precise extent of collaboration on individual works, especially On Liberty.',
       'Attribution is not solved by choosing between solitary genius and undifferentiated joint authorship. Social conventions affected whose ideas could circulate under a recognized name, while surviving drafts may not register years of conversation. A responsible account identifies Taylor Mill’s demonstrable positions, takes Mill’s acknowledgments seriously, and marks uncertainty instead of filling archival silence with either erasure or certainty.',
     ],
@@ -182,7 +183,7 @@ export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS = [
   }),
   curated({
     id: 'liberty-cooperative-experiments', assetId: 'liberty-rochdale-pioneers-shop', parent: 'mill',
-    displayName: 'Experiments in Association: The Rochdale Pioneers', shortTitle: 'Cooperative Experiments', focus: 'ASSOCIATION · COOPERATION, WORK, PROPERTY, AND SELF-GOVERNMENT', dateLabel: 'Rochdale Society founded 1844 · historic shop photograph undated',
+    displayName: 'Experiments in Association: The Rochdale Pioneers', shortTitle: 'Cooperative Experiments', focus: 'ASSOCIATION · COOPERATION, WORK, PROPERTY, AND SELF-GOVERNMENT', dateLabel: 'Rochdale Society founded 1844 · 2015 reproduction of an undated shop image',
     question: 'Could cooperative ownership transform workers from instruments of capital into participants in shared self-government?',
     lead: 'The Toad Lane shop grounds cooperative association in shelves, accounts, members, and rules. Mill’s openness to producer cooperatives links individuality to institutions where people can practice responsibility rather than merely receive wages.',
     ideas: ['Cooperation is an institutional experiment, not only a moral attitude.', 'Shared governance can cultivate capacities while generating its own conflicts over scale, capital, and expertise.', 'Experiments in living include economic forms, not just private lifestyles.'],
@@ -191,7 +192,7 @@ export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS = [
       'In later editions of Principles of Political Economy, Mill considered forms of association in which workers could collectively own or govern production. He hoped cooperation might replace dependence on a master with shared responsibility and connect effort more directly to benefit. Rochdale began primarily as a consumer cooperative, so it supplies adjacent historical evidence rather than a direct realization of Mill’s producer model.',
       'Economic freedom concerns the authority exercised inside production, not merely a consumer’s freedom to choose between sellers. Cooperatives can distribute voice and develop practical judgment, yet they still face unequal capital, market competition, management expertise, internal dissent, and the problem of growth. Their importance lies in testing institutional alternatives while leaving their failures open to inspection and revision.',
     ],
-    cautions: ['Rochdale did not simply implement Mill’s philosophical program.', 'The historic photograph’s original date is unknown and should not be inferred from its modern upload.'],
+    cautions: ['Rochdale did not simply implement Mill’s philosophical program.', 'The installed 2015 derivative does not establish the historic source image’s maker, date, medium, or repository.'],
     imageSource: 'https://commons.wikimedia.org/wiki/File:Toad_Lane,_Rochdale,_Lancashire_(27380261546).jpg',
   }),
   curated({
@@ -252,16 +253,16 @@ export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS = [
   }),
   curated({
     id: 'capital-alienated-labor', assetId: 'utility-menzel-iron-rolling-mill', parent: 'marx',
-    displayName: 'Labor Under the Command of Machinery', shortTitle: 'Alienated Labor', focus: 'LABOR · MACHINERY, COOPERATION, COMMAND, SKILL, AND ALIENATION', dateLabel: 'Marx’s manuscripts 1844 and mature critique · painting 1875',
+    displayName: 'Labor Under the Command of Machinery', shortTitle: 'Alienated Labor', focus: 'LABOR · MACHINERY, COOPERATION, COMMAND, SKILL, AND ALIENATION', dateLabel: 'Marx’s manuscripts 1844 and mature critique · painting 1872–1875',
     question: 'How can collective productive power confront workers as an alien force owned and directed by capital?',
     lead: 'Menzel’s ironworks compresses furnace heat, coordinated bodies, machinery, danger, fatigue, and supervision. Marx distinguishes labor’s human capacity from wage labor organized so that product, process, and social power stand against the producer.',
     ideas: ['Alienation concerns social organization, not simply disliking difficult work.', 'Machinery embodies accumulated knowledge while ownership determines whose power it becomes.', 'Cooperation expands productive capacity and exposes production as irreducibly social.'],
     sectionDetails: [
-      'Menzel’s painting distributes attention across furnace glare, muscular exertion, coordinated timing, food, fatigue, and managerial observation. No single worker commands the whole process; the mill’s productivity belongs to their cooperation with machinery. Because the canvas is an ambitious studio painting completed in 1875, its extraordinary detail is still composed rather than mechanically recorded evidence.',
+      'Menzel’s painting distributes attention across furnace glare, muscular exertion, coordinated timing, food, fatigue, and managerial observation. No single worker commands the whole process; the mill’s productivity belongs to their cooperation with machinery. Because the canvas is an ambitious studio painting developed from 1872 to 1875, its extraordinary detail is still composed rather than mechanically recorded evidence.',
       'In the Economic and Philosophic Manuscripts of 1844, Marx describes alienation from the product, the activity of labor, human species-capacity, and other people. His mature critique more precisely analyzes wage labor, exploitation, cooperation, and machinery. The vocabularies overlap but are not interchangeable: later arguments do not simply repeat a youthful account of estranged consciousness.',
       'Difficult or technologically complex work need not be alienating when producers share control over purposes, pace, knowledge, safety, and surplus. Conversely, a productive system can mobilize collective intelligence while confronting each worker as an external command. The image asks who owns the mill, who sets its rhythm, who bears injury, and who can decide how increased productivity changes working life.',
     ],
-    cautions: ['The 1875 painting is a representation, not a documentary factory photograph.', 'Do not treat every use of technology as alienating in the same way.'],
+    cautions: ['The 1872–1875 painting is a representation, not a documentary factory photograph.', 'Do not treat every use of technology as alienating in the same way.'],
     imageSource: 'https://commons.wikimedia.org/wiki/File:Adolph_Menzel_-_Eisenwalzwerk_-_Google_Art_Project.jpg',
   }),
   curated({
@@ -390,7 +391,7 @@ export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS = [
     cautions: ['Minard’s bands are approximate aggregate trade data.', 'The map does not depict labor conditions or provide a complete account of slavery and emancipation.'],
     imageSource: 'https://commons.wikimedia.org/wiki/File:Carte_figurative_et_approximative_des_quantit%C3%A9s_de_coton_brut_import%C3%A9es_en_Europe_en_1858%2C_en_1864_et_en_1865_LOC_99463789.jpg',
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+].map(reviewUtilityLibertyCapitalSupplementalExhibit) as readonly MuseumSupplementalExhibit[];
 
 type InstallationKind = 'utility-work' | 'utility-context' | 'utility-concept';
 const layout = (
@@ -419,33 +420,33 @@ const layout = (
 });
 
 export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  layout('utility-bentham-young-reformer', 'bentham', 'nineteenth-utilitarian-reform', {x: -5.55, z: -26.88}, 0, 'utility-bentham-frye-youth', 1.8, 2.7, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
-  layout('utility-penitentiary-reform', 'bentham', 'nineteenth-utilitarian-reform', {x: -5.55, z: -15.12}, Math.PI, 'utility-millbank-penitentiary-1829', 3.2, 2.22, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.charcoal),
-  layout('utility-law-public-judgment', 'bentham', 'nineteenth-utilitarian-reform', {x: 5.55, z: -26.88}, 0, 'utility-old-bailey-1808', 3.12, 2.36, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.reformBlue),
-  layout('utility-suffering-moral-standing', 'bentham', 'nineteenth-utilitarian-reform', {x: 5.55, z: -15.12}, Math.PI, 'utility-hogarth-first-cruelty', 2.22, 2.7, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
-  layout('liberty-romantic-formation', 'mill', 'nineteenth-liberty-equality', {x: -5.55, z: -12.88}, 0, 'liberty-wordsworth-helvellyn', 2.2, 2.7, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.plum),
-  layout('liberty-harriet-collaboration', 'mill', 'nineteenth-liberty-equality', {x: -10.85, z: -7}, Math.PI / 2, 'liberty-harriet-taylor-npg', 2.2, 2.7, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
-  layout('liberty-cooperative-experiments', 'mill', 'nineteenth-liberty-equality', {x: -5.55, z: -1.12}, Math.PI, 'liberty-rochdale-pioneers-shop', 3.12, 2.15, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.laborGreen),
-  layout('liberty-public-assembly', 'mill', 'nineteenth-liberty-equality', {x: 5.55, z: -12.88}, 0, 'liberty-hyde-park-railings-1866', 3.1, 2.27, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.reformBlue),
-  layout('liberty-womens-suffrage', 'mill', 'nineteenth-liberty-equality', {x: 10.85, z: -7}, -Math.PI / 2, 'liberty-suffrage-petition-newcombe', 3.05, 2.73, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
-  layout('liberty-imperial-exception', 'mill', 'nineteenth-liberty-equality', {x: 5.55, z: -1.12}, Math.PI, 'liberty-east-india-company-coins', 3.05, 2.29, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
-  layout('capital-feuerbach-inversion', 'marx', 'nineteenth-labor-capital', {x: -5.55, z: 1.12}, 0, 'utility-feuerbach-weger-engraving', 2.08, 2.7, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.plum),
-  layout('capital-alienated-labor', 'marx', 'nineteenth-labor-capital', {x: -5.55, z: 12.88}, Math.PI, 'utility-menzel-iron-rolling-mill', 3.2, 1.98, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
-  layout('capital-machinery-knowledge', 'marx', 'nineteenth-labor-capital', {x: 5.55, z: 1.12}, 0, 'utility-jacquard-loom', 3.05, 2.29, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
-  layout('capital-commodity-spectacle', 'marx', 'nineteenth-labor-capital', {x: 10.85, z: 7}, -Math.PI / 2, 'utility-crystal-palace-interior', 3.2, 2.01, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.reformBlue),
-  layout('capital-class-revolution-1848', 'marx', 'nineteenth-labor-capital', {x: 5.55, z: 12.88}, Math.PI, 'utility-meissonier-barricade', 2, 2.7, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
-  layout('transformations-ricardo-political-economy', 'marx', 'nineteenth-social-transformations', {x: -5.55, z: 15.12}, 0, 'utility-ricardo-phillips-portrait', 2.09, 2.7, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
-  layout('transformations-industrial-city', 'marx', 'nineteenth-social-transformations', {x: -10.85, z: 17.5}, Math.PI / 2, 'utility-manchester-kersal-moor', 3.2, 2.05, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.charcoal),
-  layout('transformations-gendered-labor', 'marx', 'nineteenth-social-transformations', {x: -5.55, z: 26.88}, Math.PI, 'utility-redgrave-sempstress', 3.05, 2.55, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.plum),
-  layout('transformations-global-cotton', 'marx', 'nineteenth-social-transformations', {x: 5.55, z: 15.12}, 0, 'utility-degas-cotton-office', 3.12, 2.46, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
-  layout('transformations-chartist-politics', 'marx', 'nineteenth-social-transformations', {x: 10.85, z: 21}, -Math.PI / 2, 'utility-chartist-kennington-common', 3.2, 2.28, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
-  layout('transformations-cotton-flows', 'marx', 'nineteenth-social-transformations', {x: 5.55, z: 26.88}, Math.PI, 'utility-minard-cotton-flows-1866', 3.2, 2.04, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.reformBlue),
+  layout('utility-bentham-young-reformer', 'bentham', 'nineteenth-utilitarian-reform', {x: -5.55, z: -26.88}, 0, 'utility-bentham-frye-youth', 2.7 * 425 / 640, 2.7, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
+  layout('utility-penitentiary-reform', 'bentham', 'nineteenth-utilitarian-reform', {x: -5.55, z: -15.12}, Math.PI, 'utility-millbank-penitentiary-1829', 3.2, 3.2 * 444 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.charcoal),
+  layout('utility-law-public-judgment', 'bentham', 'nineteenth-utilitarian-reform', {x: 5.55, z: -26.88}, 0, 'utility-old-bailey-1808', 3.12, 3.12 * 484 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.reformBlue),
+  layout('utility-suffering-moral-standing', 'bentham', 'nineteenth-utilitarian-reform', {x: 5.55, z: -15.12}, Math.PI, 'utility-hogarth-first-cruelty', 2.7 * 525 / 640, 2.7, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
+  layout('liberty-romantic-formation', 'mill', 'nineteenth-liberty-equality', {x: -5.55, z: -12.88}, 0, 'liberty-wordsworth-helvellyn', 2.7 * 522 / 640, 2.7, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.plum),
+  layout('liberty-harriet-collaboration', 'mill', 'nineteenth-liberty-equality', {x: -10.85, z: -7}, Math.PI / 2, 'liberty-harriet-taylor-npg', 2.7 * 523 / 640, 2.7, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
+  layout('liberty-cooperative-experiments', 'mill', 'nineteenth-liberty-equality', {x: -5.55, z: -1.12}, Math.PI, 'liberty-rochdale-pioneers-shop', 3.12, 3.12 * 440 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.laborGreen),
+  layout('liberty-public-assembly', 'mill', 'nineteenth-liberty-equality', {x: 5.55, z: -12.88}, 0, 'liberty-hyde-park-railings-1866', 3.1, 3.1 * 468 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.reformBlue),
+  layout('liberty-womens-suffrage', 'mill', 'nineteenth-liberty-equality', {x: 10.85, z: -7}, -Math.PI / 2, 'liberty-suffrage-petition-newcombe', 3.05, 3.05 * 574 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
+  layout('liberty-imperial-exception', 'mill', 'nineteenth-liberty-equality', {x: 5.55, z: -1.12}, Math.PI, 'liberty-east-india-company-coins', 3.05, 3.05 * 480 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
+  layout('capital-feuerbach-inversion', 'marx', 'nineteenth-labor-capital', {x: -5.55, z: 1.12}, 0, 'utility-feuerbach-weger-engraving', 2.7 * 492 / 640, 2.7, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.plum),
+  layout('capital-alienated-labor', 'marx', 'nineteenth-labor-capital', {x: -5.55, z: 12.88}, Math.PI, 'utility-menzel-iron-rolling-mill', 3.2, 3.2 * 397 / 640, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
+  layout('capital-machinery-knowledge', 'marx', 'nineteenth-labor-capital', {x: 5.55, z: 1.12}, 0, 'utility-jacquard-loom', 3.05, 3.05 * 480 / 640, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
+  layout('capital-commodity-spectacle', 'marx', 'nineteenth-labor-capital', {x: 10.85, z: 7}, -Math.PI / 2, 'utility-crystal-palace-interior', 3.2, 3.2 * 402 / 640, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.reformBlue),
+  layout('capital-class-revolution-1848', 'marx', 'nineteenth-labor-capital', {x: 5.55, z: 12.88}, Math.PI, 'utility-meissonier-barricade', 2.7 * 473 / 640, 2.7, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
+  layout('transformations-ricardo-political-economy', 'marx', 'nineteenth-social-transformations', {x: -5.55, z: 15.12}, 0, 'utility-ricardo-phillips-portrait', 2.7 * 496 / 640, 2.7, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
+  layout('transformations-industrial-city', 'marx', 'nineteenth-social-transformations', {x: -10.85, z: 17.5}, Math.PI / 2, 'utility-manchester-kersal-moor', 3.2, 3.2 * 410 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.charcoal),
+  layout('transformations-gendered-labor', 'marx', 'nineteenth-social-transformations', {x: -5.55, z: 26.88}, Math.PI, 'utility-redgrave-sempstress', 3.05, 3.05 * 535 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.plum),
+  layout('transformations-global-cotton', 'marx', 'nineteenth-social-transformations', {x: 5.55, z: 15.12}, 0, 'utility-degas-cotton-office', 3.12, 3.12 * 505 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
+  layout('transformations-chartist-politics', 'marx', 'nineteenth-social-transformations', {x: 10.85, z: 21}, -Math.PI / 2, 'utility-chartist-kennington-common', 3.2, 3.2 * 455 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
+  layout('transformations-cotton-flows', 'marx', 'nineteenth-social-transformations', {x: 5.55, z: 26.88}, Math.PI, 'utility-minard-cotton-flows-1866', 3.2, 3.2 * 408 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.reformBlue),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getUtilityLibertyCapitalSupplementalExhibit = (
   id: MuseumSupplementalExhibitId,
 ): MuseumSupplementalExhibit => {
   const record = UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBITS.find((item) => item.id === id);
-  if (!record) throw new Error(`Gallery 20 supplemental exhibit ${id} is missing.`);
+  if (!record) throw new Error(`Gallery 17 supplemental exhibit ${id} is missing.`);
   return record;
 };
