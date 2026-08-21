@@ -549,6 +549,7 @@ const supplementalLayout = (
   mediaHeight,
   installationKind: installationKind as MuseumSupplementalInstallationKind,
   accent,
+  interactionRadius: 5.1,
 });
 
 /**

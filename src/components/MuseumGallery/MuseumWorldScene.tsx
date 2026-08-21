@@ -33,14 +33,12 @@ import {
   getMuseumNodeConnections,
   getMuseumRuntimeNode,
 } from '../../data/museum/museumBuildingRuntime';
-import {visitorMapInteractionAtPose} from '../../data/museum/museumVisitorMap';
 import {MUSEUM_TEXTURE_SPECS} from '../../data/museum/museumTexturePolicy';
 import {getMuseumHallCatalog, type MuseumPublicHallId} from '../../data/museumCatalog';
 import {
   advanceMuseumArcadeMotion,
   clampPitch,
   createMuseumArcadeMotionState,
-  nearestInteractableItem,
   normalizeYaw,
   resolveMuseumArcadeCameraOffset,
 } from './museumMovement';
@@ -58,6 +56,7 @@ import {
 } from './museumRuntime';
 import {loadMuseumHallContent, type MuseumHallRegistration} from './museumWorldRegistry';
 import {museumPoseToWorld} from './museumWorldTransform';
+import {resolveMuseumInteractionTargetAtPose} from './museumInteractionTarget';
 import {advanceMuseumPhysicalFrame, museumConnectionAtPose} from './museumHallTransitions';
 import {MuseumBuildingArchitecture} from './MuseumBuildingArchitecture';
 import {usePlaqueTexture} from './plaqueTextures';
@@ -236,22 +235,7 @@ function MuseumPlayerRig({
   }, [camera, definition, layout.eyeHeight, poseRef, reducedMotion]);
 
   const publishNearby = useCallback(() => {
-    const hallId = definition.publicHallId;
-    const visitorMap = visitorMapInteractionAtPose(definition.id, poseRef.current);
-    const primary = visitorMap ? undefined : nearestInteractableItem(poseRef.current, layout.exhibits);
-    const supplemental = visitorMap ? undefined : nearestInteractableItem(poseRef.current, layout.supplementalExhibits ?? []);
-    const primaryDistance = primary
-      ? Math.hypot(poseRef.current.x - primary.position.x, poseRef.current.z - primary.position.z)
-      : Number.POSITIVE_INFINITY;
-    const supplementalDistance = supplemental
-      ? Math.hypot(poseRef.current.x - supplemental.position.x, poseRef.current.z - supplemental.position.z)
-      : Number.POSITIVE_INFINITY;
-    const next: MuseumInteractionTarget | undefined = visitorMap
-      ?? (hallId && supplemental && supplementalDistance < primaryDistance
-        ? {kind: 'supplemental-exhibit', hallId, supplementalExhibitId: supplemental.id}
-        : hallId && primary
-          ? {kind: 'exhibit', hallId, exhibitId: primary.id}
-          : undefined);
+    const next = resolveMuseumInteractionTargetAtPose(definition, poseRef.current);
     const nextKey = interactionTargetKey(next);
     const previous = lastNearbyRef.current;
     const previousKey = interactionTargetKey(previous);
@@ -259,7 +243,7 @@ function MuseumPlayerRig({
     lastNearbyRef.current = next;
     onNearbyVisualChange(next);
     onNearbyInteractionChange(next);
-  }, [definition.id, definition.publicHallId, layout.exhibits, onNearbyInteractionChange, onNearbyVisualChange, poseRef]);
+  }, [definition, onNearbyInteractionChange, onNearbyVisualChange, poseRef]);
 
   useEffect(() => {
     void poseRevision;

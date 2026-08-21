@@ -419,6 +419,7 @@ const layout = (
   installationKind: installationKind as MuseumSupplementalInstallationKind,
   accent,
   viewpointDistance,
+  interactionRadius: Math.max(3.65, viewpointDistance ?? 5.1),
 });
 
 export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [

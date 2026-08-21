@@ -368,6 +368,7 @@ const layout = ({
   mediaHeight,
   installationKind,
   accent,
+  authoredViewpointTarget,
 }: {
   id: MuseumSupplementalExhibitId;
   parentExhibitId: 'cynicism' | 'diogenes' | 'epicureanism' | 'sextus-empiricus';
@@ -377,6 +378,7 @@ const layout = ({
   mediaHeight: number;
   installationKind: MuseumSupplementalInstallationKind;
   accent: string;
+  authoredViewpointTarget?: true;
 }): MuseumSupplementalExhibitLayout => {
   const authoredSlot = getHellenisticRomanInstallationSlot(slotId);
   const position = {x: authoredSlot.x, z: authoredSlot.z};
@@ -392,6 +394,7 @@ const layout = ({
     installationKind,
     accent,
     width: 3.58,
+    authoredViewpointTarget,
   });
   return {
     ...authored,
@@ -407,10 +410,10 @@ const layout = ({
 
 export const HELLENISTIC_ROMAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   layout({id: 'cynic-frank-speech-in-public', parentExhibitId: 'diogenes', slotId: 'hell-cynic-way:east-cross-face', assetId: 'cynic-diogenes-honest-man', mediaWidth: 3.02, mediaHeight: 2.3310625, installationKind: 'hellenistic-concept', accent: HELLENISTIC_ROMAN_PALETTE.cynic}),
-  layout({id: 'cynic-hipparchia-crates', parentExhibitId: 'cynicism', slotId: 'hell-cynic-way:south-room-face', assetId: 'cynic-hipparchia-crates-print', mediaWidth: 1.62, mediaHeight: 2.7, installationKind: 'hellenistic-context', accent: HELLENISTIC_ROMAN_PALETTE.bronze}),
+  layout({id: 'cynic-hipparchia-crates', parentExhibitId: 'cynicism', slotId: 'hell-cynic-way:south-room-face', assetId: 'cynic-hipparchia-crates-print', mediaWidth: 1.62, mediaHeight: 2.7, installationKind: 'hellenistic-context', accent: HELLENISTIC_ROMAN_PALETTE.bronze, authoredViewpointTarget: true}),
   layout({id: 'cynic-cosmopolitan-constellation', parentExhibitId: 'cynicism', slotId: 'hell-cynic-way:south-cross-face', assetId: 'cynic-philosophers-constellation', mediaWidth: 1.9575, mediaHeight: 2.7, installationKind: 'hellenistic-context', accent: HELLENISTIC_ROMAN_PALETTE.cynic}),
   layout({id: 'epicurean-fourfold-remedy', parentExhibitId: 'epicureanism', slotId: 'hell-epicurean-garden:west-cross-face', assetId: 'epicurean-tetrapharmakos', mediaWidth: 2.025, mediaHeight: 2.7, installationKind: 'hellenistic-concept', accent: HELLENISTIC_ROMAN_PALETTE.garden}),
-  layout({id: 'epicurean-philodemus-library', parentExhibitId: 'epicureanism', slotId: 'hell-epicurean-garden:south-room-face', assetId: 'epicurean-philodemus-subscription', mediaWidth: 1.78875, mediaHeight: 2.7, installationKind: 'hellenistic-work', accent: HELLENISTIC_ROMAN_PALETTE.bronze}),
+  layout({id: 'epicurean-philodemus-library', parentExhibitId: 'epicureanism', slotId: 'hell-epicurean-garden:south-room-face', assetId: 'epicurean-philodemus-subscription', mediaWidth: 1.78875, mediaHeight: 2.7, installationKind: 'hellenistic-work', accent: HELLENISTIC_ROMAN_PALETTE.bronze, authoredViewpointTarget: true}),
   layout({id: 'epicurean-herculaneum-afterlife', parentExhibitId: 'epicureanism', slotId: 'hell-epicurean-garden:south-cross-face', assetId: 'epicurean-herculaneum-papyrus', mediaWidth: 1.7465625, mediaHeight: 2.7, installationKind: 'hellenistic-context', accent: HELLENISTIC_ROMAN_PALETTE.garden}),
   layout({id: 'skeptical-arguments-preserved', parentExhibitId: 'sextus-empiricus', slotId: 'hell-skeptical-lineages:north-cross-face', assetId: 'skeptical-sextus-adversus-edition', mediaWidth: 3.05, mediaHeight: 2.2303125, installationKind: 'hellenistic-work', accent: HELLENISTIC_ROMAN_PALETTE.skeptic}),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];

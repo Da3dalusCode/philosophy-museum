@@ -163,6 +163,7 @@ const result = await build({
       export * from '/src/data/museum/coreQuestionsForumSupplementalExhibits.ts';
       export * from '/src/data/museum/museumSupplementalExhibits.ts';
       export * from '/src/components/MuseumGallery/museumMovement.ts';
+      export * from '/src/components/MuseumGallery/museumInteractionTarget.ts';
       export * from '/src/components/MuseumGallery/museumResidency.ts';
       export * from '/src/components/MuseumGallery/museumSession.ts';
       export * from '/src/components/MuseumGallery/museumRouteSync.ts';
@@ -512,6 +513,7 @@ const {
   parseMuseumSession,
   positionInsideSpatialUnion,
   resolveMuseumHallApproachAtPose,
+  resolveMuseumInteractionTargetAtPose,
   resolveMuseumHallRenderedReadinessKeys,
   resolveMuseumHallResidencyPlan,
   resolveMuseumHallResidency,
@@ -618,6 +620,26 @@ const unsafeNavigationPoses = [];
 const seamCrossingFailures = [];
 const residencyAdmissionFailures = [];
 const interpretationQualityFailures = [];
+
+const EXPECTED_AUTHORED_VIEWPOINT_TARGET_IDS = [
+  'china-excavated-bamboo-texts',
+  'china-gongsun-long-white-horse',
+  'china-zhuangzi-butterfly-dream',
+  'cynic-hipparchia-crates',
+  'epicurean-philodemus-library',
+  'forum-al-farabi-virtuous-city',
+  'forum-confucius-cultivation',
+  'forum-mencius-humane-rule',
+  'judeo-arabic-geniza-law',
+  'judah-halevi-divan',
+  'judah-halevi-kuzari',
+  'jewish-philosophy-after-maimonides',
+  'maimonides-guide-negative-theology',
+  'maimonides-guide-translation-reception',
+  'maimonides-mishneh-torah',
+  'saadia-beliefs-opinions',
+  'spinoza-formation-rupture-threshold',
+].sort();
 
 let checks = 0;
 let physicalMovementTrajectories = 0;
@@ -2280,6 +2302,48 @@ check('all 411 supplemental exhibits share route, directory, search, guided, and
   assert.match(interpretationPanelSource, escapeGestureClose, 'Primary Escape behavior cannot restore pointer lock from its trusted key gesture');
   assert.match(supplementalPanelSource, escapeGestureClose, 'Supplemental Escape behavior cannot restore pointer lock from its trusted key gesture');
   assert.match(supplementalPanelSource, /museum-guided-controls/u, 'Supplemental panels lack guided navigation');
+});
+
+check('all 411 supplemental authored viewpoints resolve through production precedence to their own target', () => {
+  const winnerCounts = {
+    self: 0,
+    nothing: 0,
+    primary: 0,
+    visitorMap: 0,
+    otherSupplemental: 0,
+  };
+  const failures = [];
+  const authoredViewpointTargetIds = [];
+
+  assert.equal(MUSEUM_SUPPLEMENTAL_EXHIBITS.length, 411);
+  for (const {hallId, exhibit, layout} of MUSEUM_SUPPLEMENTAL_EXHIBITS) {
+    const runtimeNode = MUSEUM_RUNTIME_NODES.find((node) => node.publicHallId === hallId);
+    assert(runtimeNode, `${hallId}/${exhibit.id} has no production runtime node`);
+    const target = resolveMuseumInteractionTargetAtPose(runtimeNode, layout.viewpoint);
+    const isSelf = target?.kind === 'supplemental-exhibit'
+      && target.hallId === hallId
+      && target.supplementalExhibitId === exhibit.id;
+
+    if (isSelf) winnerCounts.self += 1;
+    else if (!target) winnerCounts.nothing += 1;
+    else if (target.kind === 'exhibit') winnerCounts.primary += 1;
+    else if (target.kind === 'visitor-map') winnerCounts.visitorMap += 1;
+    else winnerCounts.otherSupplemental += 1;
+
+    if (!isSelf) failures.push({hallId, exhibitId: exhibit.id, target});
+    if (layout.authoredViewpointTarget) authoredViewpointTargetIds.push(exhibit.id);
+  }
+
+  assert.deepEqual(
+    winnerCounts,
+    {self: 411, nothing: 0, primary: 0, visitorMap: 0, otherSupplemental: 0},
+    `Authored supplemental winner counts diverged: ${JSON.stringify(winnerCounts)}; failures: ${JSON.stringify(failures)}`,
+  );
+  assert.deepEqual(
+    authoredViewpointTargetIds.sort(),
+    EXPECTED_AUTHORED_VIEWPOINT_TARGET_IDS,
+    'Exact authored-viewpoint precedence must remain scoped to the 17 collision-prone supplementals',
+  );
 });
 
 check('Gallery 03 gives every unobstructed half-room wall one substantial exhibit', () => {

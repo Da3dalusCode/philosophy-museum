@@ -119,6 +119,8 @@ export const authorSupplementalLayout = ({
   accent,
   width = 4.35,
   viewpointDistance,
+  interactionRadius,
+  authoredViewpointTarget,
 }: {
   id: MuseumSupplementalExhibitId;
   parentExhibitId: MuseumExhibitId;
@@ -133,6 +135,8 @@ export const authorSupplementalLayout = ({
   accent: string;
   width?: number;
   viewpointDistance?: number;
+  interactionRadius?: number;
+  authoredViewpointTarget?: true;
 }): MuseumSupplementalExhibitLayout => ({
   id,
   parentExhibitId,
@@ -141,7 +145,8 @@ export const authorSupplementalLayout = ({
   spatialCellId: zoneId,
   position,
   rotationY,
-  interactionRadius: 3.65,
+  interactionRadius: interactionRadius ?? 3.65,
+  ...(authoredViewpointTarget ? {authoredViewpointTarget: true} : {}),
   collider: {id: `supplemental:${id}`, center: position, size: {width, depth: 1.05}, rotation: rotationY},
   viewpoint: {...cameraFor(position, rotationY, viewpointDistance), yaw: rotationY, pitch: -.055},
   assetId,

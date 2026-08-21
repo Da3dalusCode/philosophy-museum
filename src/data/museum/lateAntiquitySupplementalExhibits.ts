@@ -425,6 +425,7 @@ const supplementalLayout = (
   mediaHeight,
   installationKind,
   accent,
+  interactionRadius: 5.1,
 });
 
 export const LATE_ANTIQUITY_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [

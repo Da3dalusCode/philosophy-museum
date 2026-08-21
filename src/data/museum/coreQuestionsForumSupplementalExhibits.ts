@@ -91,6 +91,7 @@ const layout = ({
   mediaWidth,
   mediaHeight,
   accent,
+  authoredViewpointTarget,
 }: {
   id: MuseumSupplementalExhibitId;
   slotId: string;
@@ -101,6 +102,7 @@ const layout = ({
   mediaWidth: number;
   mediaHeight: number;
   accent: string;
+  authoredViewpointTarget?: true;
 }): CoreQuestionsForumSupplementalLayout => {
   const authoredSlot = getCoreQuestionsForumInstallationSlot(slotId);
   const position = {x: authoredSlot.x, z: authoredSlot.z};
@@ -119,6 +121,7 @@ const layout = ({
     position,
     rotationY,
     interactionRadius: 3.25,
+    ...(authoredViewpointTarget ? {authoredViewpointTarget: true} : {}),
     collider: {
       id: `supplemental:${id}`,
       center: position,
@@ -622,6 +625,7 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     mediaWidth: 2.62 * 378 / 640,
     mediaHeight: 2.62,
     accent: FORUM_PALETTE.cinnabar,
+    authoredViewpointTarget: true,
   }),
   layout({
     id: 'forum-mencius-humane-rule',
@@ -633,6 +637,7 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     mediaWidth: 2.62 * 405 / 640,
     mediaHeight: 2.62,
     accent: FORUM_PALETTE.cinnabar,
+    authoredViewpointTarget: true,
   }),
   layout({
     id: 'forum-al-farabi-virtuous-city',
@@ -644,6 +649,7 @@ export const CORE_QUESTIONS_FORUM_SUPPLEMENTAL_LAYOUTS = [
     mediaWidth: 2.28,
     mediaHeight: 2.28 * 437 / 640,
     accent: FORUM_PALETTE.bronze,
+    authoredViewpointTarget: true,
   }),
   layout({
     id: 'forum-maimonides-law',

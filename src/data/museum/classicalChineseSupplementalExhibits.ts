@@ -73,6 +73,7 @@ const layout = ({
   mediaHeight,
   installationKind,
   accent,
+  authoredViewpointTarget,
 }: {
   id: string;
   parentExhibitId: 'chinese-philosophy' | 'confucius' | 'confucianism' | 'laozi' | 'zhuangzi' | 'mozi' | 'mohism';
@@ -82,6 +83,7 @@ const layout = ({
   mediaHeight: number;
   installationKind: MuseumSupplementalInstallationKind;
   accent: string;
+  authoredViewpointTarget?: true;
 }): MuseumSupplementalExhibitLayout => {
   const authoredSlot = getClassicalChineseInstallationSlot(slotId);
   const idValue = id as MuseumSupplementalExhibitId;
@@ -97,6 +99,7 @@ const layout = ({
     position,
     rotationY: authoredSlot.rotationY,
     interactionRadius: 3.3,
+    ...(authoredViewpointTarget ? {authoredViewpointTarget: true} : {}),
     collider: {
       id: `supplemental:${id}`,
       center: position,
@@ -756,14 +759,14 @@ export const CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBITS = [
  */
 export const CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   layout({id: 'china-warring-states-courts', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:west-outer', assetId: 'china-warring-states-map-260-bce', mediaWidth: 2.65, mediaHeight: 2.438828125, installationKind: classicalChineseKind('context'), accent: CLASSICAL_CHINESE_PALETTE.bronze}),
-  layout({id: 'china-excavated-bamboo-texts', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:east-room-face', assetId: 'china-warring-states-bamboo-slips', mediaWidth: 3.05, mediaHeight: 2.034921875, installationKind: classicalChineseKind('work'), accent: CLASSICAL_CHINESE_PALETTE.jade}),
+  layout({id: 'china-excavated-bamboo-texts', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:east-room-face', assetId: 'china-warring-states-bamboo-slips', mediaWidth: 3.05, mediaHeight: 2.034921875, installationKind: classicalChineseKind('work'), accent: CLASSICAL_CHINESE_PALETTE.jade, authoredViewpointTarget: true}),
   layout({id: 'china-writing-on-bamboo', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:east-cross-face', assetId: 'china-making-bamboo-slips', mediaWidth: 1.634609375, mediaHeight: 2.45, installationKind: classicalChineseKind('context'), accent: CLASSICAL_CHINESE_PALETTE.bamboo}),
-  layout({id: 'china-gongsun-long-white-horse', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:south-room-face', assetId: 'china-gongsun-long-yuan-portrait', mediaWidth: 1.741796875, mediaHeight: 2.45, installationKind: classicalChineseKind('concept'), accent: CLASSICAL_CHINESE_PALETTE.indigo}),
+  layout({id: 'china-gongsun-long-white-horse', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:south-room-face', assetId: 'china-gongsun-long-yuan-portrait', mediaWidth: 1.741796875, mediaHeight: 2.45, installationKind: classicalChineseKind('concept'), accent: CLASSICAL_CHINESE_PALETTE.indigo, authoredViewpointTarget: true}),
   layout({id: 'china-sunzi-strategic-reason', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:south-cross-face', assetId: 'china-sunzi-art-of-war-slips', mediaWidth: 3.05, mediaHeight: 2.034921875, installationKind: classicalChineseKind('work'), accent: CLASSICAL_CHINESE_PALETTE.lacquer}),
   layout({id: 'china-analects-layered-record', parentExhibitId: 'confucius', slotId: 'china-confucian-cultivation:west-cross-face', assetId: 'china-analects-stockholm', mediaWidth: 3.05, mediaHeight: 2.034921875, installationKind: classicalChineseKind('work'), accent: CLASSICAL_CHINESE_PALETTE.lacquer}),
   layout({id: 'china-confucian-ritual-music', parentExhibitId: 'confucianism', slotId: 'china-confucian-cultivation:south-cross-face', assetId: 'china-eastern-zhou-stone-chimes', mediaWidth: 3.05, mediaHeight: 2.034921875, installationKind: classicalChineseKind('context'), accent: CLASSICAL_CHINESE_PALETTE.bronze}),
   layout({id: 'china-guodian-laozi', parentExhibitId: 'laozi', slotId: 'china-daoist-way:east-cross-face', assetId: 'china-guodian-daoist-bamboo-slips', mediaWidth: 3.05, mediaHeight: 2.18265625, installationKind: classicalChineseKind('work'), accent: CLASSICAL_CHINESE_PALETTE.jade}),
-  layout({id: 'china-zhuangzi-butterfly-dream', parentExhibitId: 'zhuangzi', slotId: 'china-daoist-way:north-room-face', assetId: 'china-zhuangzi-butterfly-dream', mediaWidth: 2.415546875, mediaHeight: 2.45, installationKind: classicalChineseKind('concept'), accent: CLASSICAL_CHINESE_PALETTE.indigo}),
+  layout({id: 'china-zhuangzi-butterfly-dream', parentExhibitId: 'zhuangzi', slotId: 'china-daoist-way:north-room-face', assetId: 'china-zhuangzi-butterfly-dream', mediaWidth: 2.415546875, mediaHeight: 2.45, installationKind: classicalChineseKind('concept'), accent: CLASSICAL_CHINESE_PALETTE.indigo, authoredViewpointTarget: true}),
   layout({id: 'china-zhuangzi-cook-ding', parentExhibitId: 'zhuangzi', slotId: 'china-daoist-way:north-cross-face', assetId: 'china-zhuangzi-cook-ding', mediaWidth: 3, mediaHeight: 2.443396226415094, installationKind: classicalChineseKind('concept'), accent: CLASSICAL_CHINESE_PALETTE.bamboo}),
   layout({id: 'china-later-mohist-canons', parentExhibitId: 'mozi', slotId: 'china-mohist-fa:west-cross-face', assetId: 'china-mozi-volume-seven-page', mediaWidth: 1.55, mediaHeight: 2.053171641791045, installationKind: classicalChineseKind('work'), accent: CLASSICAL_CHINESE_PALETTE.jade}),
   layout({id: 'china-mohist-siege-defense', parentExhibitId: 'mohism', slotId: 'china-mohist-fa:north-cross-face', assetId: 'china-mozi-jiche-catapult', mediaWidth: 2.85, mediaHeight: 2.444765625, installationKind: classicalChineseKind('context'), accent: CLASSICAL_CHINESE_PALETTE.lacquer}),

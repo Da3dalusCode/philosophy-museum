@@ -1,7 +1,7 @@
 import type {MuseumSupplementalExhibit} from './platoSupplementalExhibits';
 import {
   authorSupplementalExhibit,
-  authorSupplementalLayout,
+  authorSupplementalLayout as authorSharedSupplementalLayout,
   type SupplementalExhibitAuthoring,
 } from './museumSupplementalAuthoring';
 import type {
@@ -11,6 +11,14 @@ import type {
 import {reviewJewishSupplementalExhibit} from './jewishSupplementalReview';
 
 export const JEWISH_GALLERY_ID = 'jewish-philosophy' as const;
+
+const authorSupplementalLayout = (
+  input: Parameters<typeof authorSharedSupplementalLayout>[0],
+) => authorSharedSupplementalLayout({
+  ...input,
+  interactionRadius: 5.1,
+  authoredViewpointTarget: true,
+});
 
 export const JEWISH_PALETTE = Object.freeze({
   ink: '#211f24',

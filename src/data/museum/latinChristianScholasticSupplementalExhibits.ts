@@ -666,6 +666,7 @@ const supplementalLayout = (
   mediaHeight,
   installationKind,
   accent,
+  interactionRadius: 5.1,
 });
 
 export const LATIN_SCHOLASTIC_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [

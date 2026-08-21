@@ -574,6 +574,8 @@ export type MuseumSupplementalExhibitLayout = {
   position: MuseumPoint;
   rotationY: number;
   interactionRadius: number;
+  /** Prefer this installation only at its exact authored reopening position. */
+  authoredViewpointTarget?: true;
   collider: MuseumCollider;
   viewpoint: MuseumPose;
   assetId: MuseumAssetId;

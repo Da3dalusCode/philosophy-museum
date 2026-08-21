@@ -1,7 +1,7 @@
 import type {MuseumSupplementalExhibit} from './platoSupplementalExhibits';
 import {
   authorSupplementalExhibit,
-  authorSupplementalLayout,
+  authorSupplementalLayout as authorSharedSupplementalLayout,
   type SupplementalExhibitAuthoring,
 } from './museumSupplementalAuthoring';
 import type {
@@ -11,6 +11,10 @@ import type {
 import {reviewEastAsianSupplementalExhibit} from './eastAsianSupplementalReview';
 
 export const EAST_ASIAN_GALLERY_ID = 'east-asian-continuities' as const;
+
+const authorSupplementalLayout = (
+  input: Parameters<typeof authorSharedSupplementalLayout>[0],
+) => authorSharedSupplementalLayout({...input, interactionRadius: 5.1});
 
 export const EAST_ASIAN_PALETTE = Object.freeze({
   ink: '#182321',

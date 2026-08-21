@@ -584,6 +584,7 @@ const supplementalLayout = (
   mediaHeight,
   installationKind,
   accent,
+  interactionRadius: 5.1,
 });
 
 export const RATIONALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
