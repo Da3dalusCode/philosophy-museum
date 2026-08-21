@@ -9,6 +9,7 @@ import {
   FEMINIST_PHILOSOPHIES_GALLERY_ASSETS,
   type FeministPhilosophiesGalleryAssetId,
 } from './feministPhilosophiesGalleryAssets';
+import {reviewFeministPhilosophiesSupplementalExhibit} from './gallery24To26SupplementalReview';
 import {
   authorSupplementalExhibit,
   authorSupplementalLayout,
@@ -151,7 +152,7 @@ const curated = (input: CuratedInput): MuseumSupplementalExhibit =>
     panelKicker: 'Gallery 25 work and context exhibit',
   });
 
-export const FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBITS = [
+export const FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBITS = ([
   curated({
     id: 'feminist-cooper-voice-education', assetId: 'feminist-cooper-m-street-school', parent: 'feminist-philosophy',
     displayName: 'Anna Julia Cooper: Voice, Education, and Black Women’s Authority', shortTitle: 'A Voice from the South',
@@ -237,7 +238,7 @@ export const FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBITS = [
     academicSource: WOLLSTONECRAFT_REFERENCE,
   }),
   curated({
-    id: 'feminist-de-gouges-citizenship', assetId: 'feminist-de-gouges-presumed-portrait', parent: 'feminist-philosophy',
+    id: 'feminist-de-gouges-citizenship', assetId: 'feminist-de-gouges-patriotic-tax-print', parent: 'feminist-philosophy',
     displayName: 'Olympe de Gouges: Revolution and the Woman Citizen', shortTitle: 'Woman and the Citizen',
     focus: 'FRENCH REVOLUTION · CITIZENSHIP, LAW, PUBLIC SPEECH, SLAVERY, AND PUNISHMENT', dateLabel: 'Declaration of the Rights of Woman and the Female Citizen published 1791',
     question: 'What does a universal declaration reveal when its subject is rewritten as explicitly female?',
@@ -404,7 +405,7 @@ export const FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBITS = [
     cautions: ['A crowd is not automatically democratic, feminist, or unified.', 'The Ithaca march did not arise from Butler’s theory and should be interpreted through its own local participants and demands.'],
     academicSource: GENDER_REFERENCE,
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+] as const satisfies readonly MuseumSupplementalExhibit[]).map(reviewFeministPhilosophiesSupplementalExhibit);
 
 type InstallationKind = 'feminist-work' | 'feminist-context' | 'feminist-concept';
 
@@ -451,30 +452,30 @@ const layout = ({
 };
 
 export const FEMINIST_PHILOSOPHIES_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  layout({id: 'feminist-cooper-voice-education', parentExhibitId: 'feminist-philosophy', slotId: 'feminist-orientation-genealogies:west-outer', assetId: 'feminist-cooper-m-street-school', mediaWidth: 3.18, mediaHeight: 1.62, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.abolitionGold}),
-  layout({id: 'feminist-truth-abolition-rights', parentExhibitId: 'feminist-philosophy', slotId: 'feminist-orientation-genealogies:east-room-face', assetId: 'feminist-truth-self-representation', mediaWidth: 1.62, mediaHeight: 2.7, installationKind: 'feminist-work', accent: FEMINIST_PHILOSOPHIES_PALETTE.abolitionGold}),
-  layout({id: 'feminist-crenshaw-intersectionality', parentExhibitId: 'feminist-philosophy', slotId: 'feminist-orientation-genealogies:east-cross-face', assetId: 'feminist-crenshaw-intersectionality', mediaWidth: 3.18, mediaHeight: 2.08, installationKind: 'feminist-concept', accent: FEMINIST_PHILOSOPHIES_PALETTE.coalitionRed}),
-  layout({id: 'feminist-standpoint-situated-objectivity', parentExhibitId: 'feminist-philosophy', slotId: 'feminist-orientation-genealogies:south-room-face', assetId: 'feminist-situated-knowledge-computers', mediaWidth: 3.18, mediaHeight: 2.49, installationKind: 'feminist-concept', accent: FEMINIST_PHILOSOPHIES_PALETTE.situatedBlue}),
-  layout({id: 'feminist-care-dependency-labor', parentExhibitId: 'feminist-philosophy', slotId: 'feminist-orientation-genealogies:south-cross-face', assetId: 'feminist-care-laundry-child', mediaWidth: 3.18, mediaHeight: 2.43, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.careGreen}),
+  layout({id: 'feminist-cooper-voice-education', parentExhibitId: 'feminist-philosophy', slotId: 'feminist-orientation-genealogies:west-outer', assetId: 'feminist-cooper-m-street-school', mediaWidth: 3.18, mediaHeight: 1.6223474178403756, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.abolitionGold}),
+  layout({id: 'feminist-truth-abolition-rights', parentExhibitId: 'feminist-philosophy', slotId: 'feminist-orientation-genealogies:east-room-face', assetId: 'feminist-truth-self-representation', mediaWidth: 1.61578125, mediaHeight: 2.7, installationKind: 'feminist-work', accent: FEMINIST_PHILOSOPHIES_PALETTE.abolitionGold}),
+  layout({id: 'feminist-crenshaw-intersectionality', parentExhibitId: 'feminist-philosophy', slotId: 'feminist-orientation-genealogies:east-cross-face', assetId: 'feminist-crenshaw-intersectionality', mediaWidth: 3.18, mediaHeight: 2.0769375, installationKind: 'feminist-concept', accent: FEMINIST_PHILOSOPHIES_PALETTE.coalitionRed}),
+  layout({id: 'feminist-standpoint-situated-objectivity', parentExhibitId: 'feminist-philosophy', slotId: 'feminist-orientation-genealogies:south-room-face', assetId: 'feminist-situated-knowledge-computers', mediaWidth: 3.18, mediaHeight: 2.48934375, installationKind: 'feminist-concept', accent: FEMINIST_PHILOSOPHIES_PALETTE.situatedBlue}),
+  layout({id: 'feminist-care-dependency-labor', parentExhibitId: 'feminist-philosophy', slotId: 'feminist-orientation-genealogies:south-cross-face', assetId: 'feminist-care-laundry-child', mediaWidth: 3.18, mediaHeight: 2.42971875, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.careGreen}),
 
-  layout({id: 'feminist-astell-reason-education', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:north-outer', assetId: 'feminist-astell-learned-woman', mediaWidth: 1.63, mediaHeight: 2.7, installationKind: 'feminist-work', accent: FEMINIST_PHILOSOPHIES_PALETTE.suffrageViolet}),
-  layout({id: 'feminist-wollstonecraft-manufactured-inequality', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:east-outer', assetId: 'feminist-wollstonecraft-portrait', mediaWidth: 2.24, mediaHeight: 2.7, installationKind: 'feminist-work', accent: FEMINIST_PHILOSOPHIES_PALETTE.suffrageViolet}),
-  layout({id: 'feminist-de-gouges-citizenship', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:west-room-face', assetId: 'feminist-de-gouges-presumed-portrait', mediaWidth: 2.4, mediaHeight: 2.7, installationKind: 'feminist-work', accent: FEMINIST_PHILOSOPHIES_PALETTE.coalitionRed}),
-  layout({id: 'feminist-bluestocking-intellectual-publics', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:west-cross-face', assetId: 'feminist-bluestocking-muses', mediaWidth: 3.18, mediaHeight: 2.48, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.abolitionGold}),
-  layout({id: 'feminist-education-domesticity', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:south-room-face', assetId: 'feminist-education-domestic-science', mediaWidth: 3.18, mediaHeight: 2.56, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.careGreen}),
-  layout({id: 'feminist-abolition-convention-exclusion', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:south-cross-face', assetId: 'feminist-abolition-convention', mediaWidth: 3.18, mediaHeight: 2.47, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.abolitionGold}),
+  layout({id: 'feminist-astell-reason-education', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:north-outer', assetId: 'feminist-astell-learned-woman', mediaWidth: 1.63265625, mediaHeight: 2.7, installationKind: 'feminist-work', accent: FEMINIST_PHILOSOPHIES_PALETTE.suffrageViolet}),
+  layout({id: 'feminist-wollstonecraft-manufactured-inequality', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:east-outer', assetId: 'feminist-wollstonecraft-portrait', mediaWidth: 2.2359375, mediaHeight: 2.7, installationKind: 'feminist-work', accent: FEMINIST_PHILOSOPHIES_PALETTE.suffrageViolet}),
+  layout({id: 'feminist-de-gouges-citizenship', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:west-room-face', assetId: 'feminist-de-gouges-patriotic-tax-print', mediaWidth: 1.5778125, mediaHeight: 2.7, installationKind: 'feminist-work', accent: FEMINIST_PHILOSOPHIES_PALETTE.coalitionRed}),
+  layout({id: 'feminist-bluestocking-intellectual-publics', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:west-cross-face', assetId: 'feminist-bluestocking-muses', mediaWidth: 3.18, mediaHeight: 2.47940625, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.abolitionGold}),
+  layout({id: 'feminist-education-domesticity', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:south-room-face', assetId: 'feminist-education-domestic-science', mediaWidth: 3.18, mediaHeight: 2.55890625, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.careGreen}),
+  layout({id: 'feminist-abolition-convention-exclusion', parentExhibitId: 'feminist-philosophy', guidedAfterExhibitId: 'feminist-philosophy', slotId: 'feminist-early-genealogies:south-cross-face', assetId: 'feminist-abolition-convention', mediaWidth: 3.18, mediaHeight: 2.46946875, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.abolitionGold}),
 
-  layout({id: 'beauvoir-labor-and-immanence', parentExhibitId: 'beauvoir', slotId: 'feminist-situated-freedom:south-outer', assetId: 'feminist-labor-washerwoman', mediaWidth: 1.99, mediaHeight: 2.7, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.careGreen}),
-  layout({id: 'beauvoir-situation-and-place', parentExhibitId: 'beauvoir', slotId: 'feminist-situated-freedom:west-room-face', assetId: 'feminist-situation-paris-street', mediaWidth: 3.18, mediaHeight: 2.36, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.situatedBlue}),
-  layout({id: 'beauvoir-second-sex-movement', parentExhibitId: 'beauvoir', slotId: 'feminist-situated-freedom:west-cross-face', assetId: 'feminist-womens-day-petrograd', mediaWidth: 3.18, mediaHeight: 2.45, installationKind: 'feminist-concept', accent: FEMINIST_PHILOSOPHIES_PALETTE.coalitionRed}),
-  layout({id: 'beauvoir-aging-and-otherness', parentExhibitId: 'beauvoir', slotId: 'feminist-situated-freedom:north-room-face', assetId: 'feminist-aging-portrait', mediaWidth: 2.1, mediaHeight: 2.7, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.embodiedRose}),
-  layout({id: 'beauvoir-boupacha-colonial-violence', parentExhibitId: 'beauvoir', slotId: 'feminist-situated-freedom:north-cross-face', assetId: 'feminist-boupacha-solidarity', mediaWidth: 2.66, mediaHeight: 2.7, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.coalitionRed}),
+  layout({id: 'beauvoir-labor-and-immanence', parentExhibitId: 'beauvoir', slotId: 'feminist-situated-freedom:south-outer', assetId: 'feminist-labor-washerwoman', mediaWidth: 1.99125, mediaHeight: 2.7, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.careGreen}),
+  layout({id: 'beauvoir-situation-and-place', parentExhibitId: 'beauvoir', slotId: 'feminist-situated-freedom:west-room-face', assetId: 'feminist-situation-paris-street', mediaWidth: 3.18, mediaHeight: 2.36015625, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.situatedBlue}),
+  layout({id: 'beauvoir-second-sex-movement', parentExhibitId: 'beauvoir', slotId: 'feminist-situated-freedom:west-cross-face', assetId: 'feminist-womens-day-petrograd', mediaWidth: 3.18, mediaHeight: 2.44959375, installationKind: 'feminist-concept', accent: FEMINIST_PHILOSOPHIES_PALETTE.coalitionRed}),
+  layout({id: 'beauvoir-aging-and-otherness', parentExhibitId: 'beauvoir', slotId: 'feminist-situated-freedom:north-room-face', assetId: 'feminist-aging-portrait', mediaWidth: 2.1009375, mediaHeight: 2.7, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.embodiedRose}),
+  layout({id: 'beauvoir-boupacha-colonial-violence', parentExhibitId: 'beauvoir', slotId: 'feminist-situated-freedom:north-cross-face', assetId: 'feminist-boupacha-solidarity', mediaWidth: 2.45109375, mediaHeight: 2.7, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.coalitionRed}),
 
-  layout({id: 'butler-performativity-and-action', parentExhibitId: 'judith-butler', slotId: 'feminist-gender-norms:south-outer', assetId: 'feminist-act-up-assembly', mediaWidth: 3.18, mediaHeight: 2.22, installationKind: 'feminist-concept', accent: FEMINIST_PHILOSOPHIES_PALETTE.coalitionRed}),
-  layout({id: 'butler-trans-livability', parentExhibitId: 'judith-butler', slotId: 'feminist-gender-norms:east-room-face', assetId: 'feminist-trans-visibility-march', mediaWidth: 3.18, mediaHeight: 2.12, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.suffrageViolet}),
-  layout({id: 'butler-disability-dependency', parentExhibitId: 'judith-butler', slotId: 'feminist-gender-norms:east-cross-face', assetId: 'feminist-disability-access-protest', mediaWidth: 1.9, mediaHeight: 2.7, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.careGreen}),
-  layout({id: 'butler-coalition-and-contestation', parentExhibitId: 'judith-butler', slotId: 'feminist-gender-norms:north-room-face', assetId: 'feminist-queer-coalition-krakow', mediaWidth: 2.02, mediaHeight: 2.7, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.suffrageViolet}),
-  layout({id: 'butler-assembly-precarity', parentExhibitId: 'judith-butler', slotId: 'feminist-gender-norms:north-cross-face', assetId: 'feminist-public-assembly-ithaca', mediaWidth: 3.18, mediaHeight: 1.14, installationKind: 'feminist-concept', accent: FEMINIST_PHILOSOPHIES_PALETTE.situatedBlue}),
+  layout({id: 'butler-performativity-and-action', parentExhibitId: 'judith-butler', slotId: 'feminist-gender-norms:south-outer', assetId: 'feminist-act-up-assembly', mediaWidth: 3.18, mediaHeight: 2.22103125, installationKind: 'feminist-concept', accent: FEMINIST_PHILOSOPHIES_PALETTE.coalitionRed}),
+  layout({id: 'butler-trans-livability', parentExhibitId: 'judith-butler', slotId: 'feminist-gender-norms:east-room-face', assetId: 'feminist-trans-visibility-march', mediaWidth: 3.18, mediaHeight: 2.12165625, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.suffrageViolet}),
+  layout({id: 'butler-disability-dependency', parentExhibitId: 'judith-butler', slotId: 'feminist-gender-norms:east-cross-face', assetId: 'feminist-disability-access-protest', mediaWidth: 1.8984375, mediaHeight: 2.7, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.careGreen}),
+  layout({id: 'butler-coalition-and-contestation', parentExhibitId: 'judith-butler', slotId: 'feminist-gender-norms:north-room-face', assetId: 'feminist-queer-coalition-krakow', mediaWidth: 2.02078125, mediaHeight: 2.7, installationKind: 'feminist-context', accent: FEMINIST_PHILOSOPHIES_PALETTE.suffrageViolet}),
+  layout({id: 'butler-assembly-precarity', parentExhibitId: 'judith-butler', slotId: 'feminist-gender-norms:north-cross-face', assetId: 'feminist-public-assembly-ithaca', mediaWidth: 3.18, mediaHeight: 1.1364263322884014, installationKind: 'feminist-concept', accent: FEMINIST_PHILOSOPHIES_PALETTE.situatedBlue}),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getFeministPhilosophiesSupplementalExhibit = (

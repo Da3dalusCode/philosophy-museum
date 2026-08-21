@@ -1,5 +1,6 @@
 import type {MuseumZoneId} from '../museumCatalog';
 import type {MuseumAssetId} from './museumAssetTypes';
+import {reviewJusticeDemocraticReasonSupplementalExhibit} from './gallery24To26SupplementalReview';
 import type {MuseumSupplementalExhibit} from './platoSupplementalExhibits';
 import type {
   MuseumMediaMountDefinition,
@@ -142,7 +143,7 @@ type JusticeExhibitInput = Omit<MuseumSupplementalExhibit, 'presentation'> & {
 
 const justiceExhibit = <T extends JusticeExhibitInput>(record: T): T => record;
 
-export const JUSTICE_SUPPLEMENTAL_EXHIBITS = [
+export const JUSTICE_SUPPLEMENTAL_EXHIBITS = ([
   justiceExhibit({
     id: 'political-authority-legitimacy',
     displayName: 'Political Philosophy: Authority and Legitimacy',
@@ -637,22 +638,22 @@ export const JUSTICE_SUPPLEMENTAL_EXHIBITS = [
       {label: 'Atlas route', value: 'Political Philosophy'},
     ], 'Open Political Philosophy in the Atlas', 'branch'),
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+] as const satisfies readonly MuseumSupplementalExhibit[]).map(reviewJusticeDemocraticReasonSupplementalExhibit);
 
 export const JUSTICE_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  layout({id: 'political-authority-legitimacy', parentExhibitId: 'political-philosophy', zoneId: 'justice-political-orientation', position: {x: -5.55, z: -27.38}, rotationY: 0, assetId: 'political-authority-interpretive', mediaWidth: 2.05, mediaHeight: 3.2, installationKind: 'justice-concept', accent: JUSTICE_PALETTE.indigo}),
-  layout({id: 'public-action-civil-disobedience', parentExhibitId: 'political-philosophy', zoneId: 'justice-political-orientation', position: {x: -5.55, z: -9.953}, rotationY: Math.PI, assetId: 'march-washington-leaders-1963', mediaWidth: 3.4, mediaHeight: 2.71, installationKind: 'justice-context', accent: JUSTICE_PALETTE.civicRed}),
-  layout({id: 'arendt-human-condition', parentExhibitId: 'arendt', zoneId: 'justice-political-orientation', position: {x: 5.55, z: -27.38}, rotationY: 0, assetId: 'arendt-human-condition-interpretive', mediaWidth: 2.05, mediaHeight: 3.2, installationKind: 'justice-work', accent: JUSTICE_PALETTE.copper}),
+  layout({id: 'political-authority-legitimacy', parentExhibitId: 'political-philosophy', zoneId: 'justice-political-orientation', position: {x: -5.55, z: -27.38}, rotationY: 0, assetId: 'political-authority-interpretive', mediaWidth: 2.135, mediaHeight: 3.2, installationKind: 'justice-concept', accent: JUSTICE_PALETTE.indigo}),
+  layout({id: 'public-action-civil-disobedience', parentExhibitId: 'political-philosophy', zoneId: 'justice-political-orientation', position: {x: -5.55, z: -9.953}, rotationY: Math.PI, assetId: 'march-washington-leaders-1963', mediaWidth: 3.4, mediaHeight: 2.709375, installationKind: 'justice-context', accent: JUSTICE_PALETTE.civicRed}),
+  layout({id: 'arendt-human-condition', parentExhibitId: 'arendt', zoneId: 'justice-political-orientation', position: {x: 5.55, z: -27.38}, rotationY: 0, assetId: 'arendt-human-condition-interpretive', mediaWidth: 2.135, mediaHeight: 3.2, installationKind: 'justice-work', accent: JUSTICE_PALETTE.copper}),
   layout({id: 'arendt-eichmann-judgment', parentExhibitId: 'arendt', zoneId: 'justice-political-orientation', position: {x: 5.55, z: -9.953}, rotationY: Math.PI, assetId: 'eichmann-trial-1961', mediaWidth: 2.4, mediaHeight: 3.2, installationKind: 'justice-context', accent: JUSTICE_PALETTE.ink}),
-  layout({id: 'rawls-theory-of-justice', parentExhibitId: 'rawls', zoneId: 'justice-distribution-rights', position: {x: -5.55, z: -8.713}, rotationY: 0, assetId: 'rawls-theory-justice-1971', mediaWidth: 2.14, mediaHeight: 3.2, installationKind: 'justice-work', accent: JUSTICE_PALETTE.indigo}),
-  layout({id: 'rawls-original-position', parentExhibitId: 'rawls', zoneId: 'justice-distribution-rights', position: {x: -5.55, z: 8.713}, rotationY: Math.PI, assetId: 'rawls-original-position-interpretive', mediaWidth: 2.05, mediaHeight: 3.2, installationKind: 'justice-concept', accent: JUSTICE_PALETTE.copper}),
-  layout({id: 'nozick-anarchy-state-utopia', parentExhibitId: 'nozick', zoneId: 'justice-distribution-rights', position: {x: 5.55, z: -8.713}, rotationY: 0, assetId: 'nozick-anarchy-state-utopia-1974', mediaWidth: 2.18, mediaHeight: 3.2, installationKind: 'justice-work', accent: JUSTICE_PALETTE.ink}),
-  layout({id: 'nozick-entitlement-rectification', parentExhibitId: 'nozick', zoneId: 'justice-distribution-rights', position: {x: 5.55, z: 8.713}, rotationY: Math.PI, assetId: 'nozick-entitlement-interpretive', mediaWidth: 2.05, mediaHeight: 3.2, installationKind: 'justice-concept', accent: JUSTICE_PALETTE.civicRed}),
-  layout({id: 'nussbaum-capabilities-approach', parentExhibitId: 'martha-nussbaum', zoneId: 'justice-capabilities-democracy', position: {x: -5.55, z: 9.953}, rotationY: 0, assetId: 'nussbaum-capabilities-interpretive', mediaWidth: 2.05, mediaHeight: 3.2, installationKind: 'justice-concept', accent: JUSTICE_PALETTE.indigo}),
-  layout({id: 'nussbaum-frontiers-justice', parentExhibitId: 'martha-nussbaum', zoneId: 'justice-capabilities-democracy', position: {x: -5.55, z: 27.38}, rotationY: Math.PI, assetId: 'ada-signing-1990', mediaWidth: 3.4, mediaHeight: 2.3, installationKind: 'justice-context', accent: JUSTICE_PALETTE.civicRed}),
+  layout({id: 'rawls-theory-of-justice', parentExhibitId: 'rawls', zoneId: 'justice-distribution-rights', position: {x: -5.55, z: -8.713}, rotationY: 0, assetId: 'rawls-theory-justice-1971', mediaWidth: 2.145, mediaHeight: 3.2, installationKind: 'justice-work', accent: JUSTICE_PALETTE.indigo}),
+  layout({id: 'rawls-original-position', parentExhibitId: 'rawls', zoneId: 'justice-distribution-rights', position: {x: -5.55, z: 8.713}, rotationY: Math.PI, assetId: 'rawls-original-position-interpretive', mediaWidth: 2.135, mediaHeight: 3.2, installationKind: 'justice-concept', accent: JUSTICE_PALETTE.copper}),
+  layout({id: 'nozick-anarchy-state-utopia', parentExhibitId: 'nozick', zoneId: 'justice-distribution-rights', position: {x: 5.55, z: -8.713}, rotationY: 0, assetId: 'nozick-anarchy-state-utopia-1974', mediaWidth: 2.53, mediaHeight: 3.2, installationKind: 'justice-work', accent: JUSTICE_PALETTE.ink}),
+  layout({id: 'nozick-entitlement-rectification', parentExhibitId: 'nozick', zoneId: 'justice-distribution-rights', position: {x: 5.55, z: 8.713}, rotationY: Math.PI, assetId: 'nozick-entitlement-interpretive', mediaWidth: 2.135, mediaHeight: 3.2, installationKind: 'justice-concept', accent: JUSTICE_PALETTE.civicRed}),
+  layout({id: 'nussbaum-capabilities-approach', parentExhibitId: 'martha-nussbaum', zoneId: 'justice-capabilities-democracy', position: {x: -5.55, z: 9.953}, rotationY: 0, assetId: 'nussbaum-capabilities-interpretive', mediaWidth: 2.135, mediaHeight: 3.2, installationKind: 'justice-concept', accent: JUSTICE_PALETTE.indigo}),
+  layout({id: 'nussbaum-frontiers-justice', parentExhibitId: 'martha-nussbaum', zoneId: 'justice-capabilities-democracy', position: {x: -5.55, z: 27.38}, rotationY: Math.PI, assetId: 'ada-signing-1990', mediaWidth: 3.4, mediaHeight: 2.3003125, installationKind: 'justice-context', accent: JUSTICE_PALETTE.civicRed}),
   layout({id: 'amartya-sen-capability-development', parentExhibitId: 'martha-nussbaum', zoneId: 'justice-capabilities-democracy', position: {x: 5.55, z: 9.953}, rotationY: 0, assetId: 'amartya-sen-pmo-2005', mediaWidth: 2.12, mediaHeight: 3.2, installationKind: 'justice-context', accent: JUSTICE_PALETTE.copper}),
-  layout({id: 'habermas-public-sphere', parentExhibitId: 'martha-nussbaum', zoneId: 'justice-capabilities-democracy', position: {x: 5.55, z: 27.38}, rotationY: Math.PI, assetId: 'habermas-portrait', mediaWidth: 3.4, mediaHeight: 2.27, installationKind: 'justice-context', accent: JUSTICE_PALETTE.ink}),
-  layout({id: 'democratic-deliberation-assembly', parentExhibitId: 'martha-nussbaum', zoneId: 'justice-capabilities-democracy', position: {x: 10.85, z: 18.667}, rotationY: -Math.PI / 2, assetId: 'glarus-landsgemeinde-2009', mediaWidth: 3.4, mediaHeight: 2.26, installationKind: 'justice-context', accent: JUSTICE_PALETTE.paper}),
+  layout({id: 'habermas-public-sphere', parentExhibitId: 'martha-nussbaum', zoneId: 'justice-capabilities-democracy', position: {x: 5.55, z: 27.38}, rotationY: Math.PI, assetId: 'habermas-portrait', mediaWidth: 3.4, mediaHeight: 2.2684375, installationKind: 'justice-context', accent: JUSTICE_PALETTE.ink}),
+  layout({id: 'democratic-deliberation-assembly', parentExhibitId: 'martha-nussbaum', zoneId: 'justice-capabilities-democracy', position: {x: 10.85, z: 18.667}, rotationY: -Math.PI / 2, assetId: 'glarus-landsgemeinde-2009', mediaWidth: 3.4, mediaHeight: 2.263125, installationKind: 'justice-context', accent: JUSTICE_PALETTE.paper}),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 const supplementalById = new Map<MuseumSupplementalExhibitId, MuseumSupplementalExhibit>(

@@ -99,30 +99,30 @@ const slot = (
 export const FEMINIST_PHILOSOPHIES_INSTALLATION_SLOTS = [
   slot('feminist-orientation-genealogies:north-outer', 'feminist-orientation-genealogies', -9, -12.8, 0, outerWallId('north')),
   slot('feminist-orientation-genealogies:west-outer', 'feminist-orientation-genealogies', -12.8, -9, Math.PI / 2, outerWallId('west')),
-  slot('feminist-orientation-genealogies:east-room-face', 'feminist-orientation-genealogies', -5.2, -11, -Math.PI / 2, baffleId('nw', 'vertical')),
+  slot('feminist-orientation-genealogies:east-room-face', 'feminist-orientation-genealogies', -5.2, -11, -Math.PI / 2, baffleId('nw', 'vertical'), 2.1),
   slot('feminist-orientation-genealogies:east-cross-face', 'feminist-orientation-genealogies', -3, -11, Math.PI / 2, baffleId('nw', 'vertical'), 2.5),
-  slot('feminist-orientation-genealogies:south-room-face', 'feminist-orientation-genealogies', -11, -5.2, Math.PI, baffleId('nw', 'horizontal')),
+  slot('feminist-orientation-genealogies:south-room-face', 'feminist-orientation-genealogies', -11, -5.2, Math.PI, baffleId('nw', 'horizontal'), 2.1),
   slot('feminist-orientation-genealogies:south-cross-face', 'feminist-orientation-genealogies', -11, -3, 0, baffleId('nw', 'horizontal'), 2.5),
 
   slot('feminist-early-genealogies:north-outer', 'feminist-early-genealogies', 9, -12.8, 0, outerWallId('north')),
   slot('feminist-early-genealogies:east-outer', 'feminist-early-genealogies', 12.8, -9, -Math.PI / 2, outerWallId('east')),
-  slot('feminist-early-genealogies:west-room-face', 'feminist-early-genealogies', 5.2, -11, Math.PI / 2, baffleId('ne', 'vertical')),
+  slot('feminist-early-genealogies:west-room-face', 'feminist-early-genealogies', 5.2, -11, Math.PI / 2, baffleId('ne', 'vertical'), 2.1),
   slot('feminist-early-genealogies:west-cross-face', 'feminist-early-genealogies', 3, -11, -Math.PI / 2, baffleId('ne', 'vertical'), 2.5),
-  slot('feminist-early-genealogies:south-room-face', 'feminist-early-genealogies', 11, -5.2, Math.PI, baffleId('ne', 'horizontal')),
+  slot('feminist-early-genealogies:south-room-face', 'feminist-early-genealogies', 11, -5.2, Math.PI, baffleId('ne', 'horizontal'), 2.1),
   slot('feminist-early-genealogies:south-cross-face', 'feminist-early-genealogies', 11, -3, 0, baffleId('ne', 'horizontal'), 2.5),
 
   slot('feminist-situated-freedom:east-outer', 'feminist-situated-freedom', 12.8, 9, -Math.PI / 2, outerWallId('east')),
   slot('feminist-situated-freedom:south-outer', 'feminist-situated-freedom', 9, 12.8, Math.PI, outerWallId('south')),
-  slot('feminist-situated-freedom:west-room-face', 'feminist-situated-freedom', 5.2, 11, Math.PI / 2, baffleId('se', 'vertical')),
+  slot('feminist-situated-freedom:west-room-face', 'feminist-situated-freedom', 5.2, 11, Math.PI / 2, baffleId('se', 'vertical'), 2.1),
   slot('feminist-situated-freedom:west-cross-face', 'feminist-situated-freedom', 3, 11, -Math.PI / 2, baffleId('se', 'vertical'), 2.5),
-  slot('feminist-situated-freedom:north-room-face', 'feminist-situated-freedom', 11, 5.2, 0, baffleId('se', 'horizontal')),
+  slot('feminist-situated-freedom:north-room-face', 'feminist-situated-freedom', 11, 5.2, 0, baffleId('se', 'horizontal'), 2.1),
   slot('feminist-situated-freedom:north-cross-face', 'feminist-situated-freedom', 11, 3, Math.PI, baffleId('se', 'horizontal'), 2.5),
 
   slot('feminist-gender-norms:west-outer', 'feminist-gender-norms', -12.8, 9, Math.PI / 2, outerWallId('west')),
   slot('feminist-gender-norms:south-outer', 'feminist-gender-norms', -9, 12.8, Math.PI, outerWallId('south')),
-  slot('feminist-gender-norms:east-room-face', 'feminist-gender-norms', -5.2, 11, -Math.PI / 2, baffleId('sw', 'vertical')),
+  slot('feminist-gender-norms:east-room-face', 'feminist-gender-norms', -5.2, 11, -Math.PI / 2, baffleId('sw', 'vertical'), 2.1),
   slot('feminist-gender-norms:east-cross-face', 'feminist-gender-norms', -3, 11, Math.PI / 2, baffleId('sw', 'vertical'), 2.5),
-  slot('feminist-gender-norms:north-room-face', 'feminist-gender-norms', -11, 5.2, 0, baffleId('sw', 'horizontal')),
+  slot('feminist-gender-norms:north-room-face', 'feminist-gender-norms', -11, 5.2, 0, baffleId('sw', 'horizontal'), 2.1),
   slot('feminist-gender-norms:north-cross-face', 'feminist-gender-norms', -11, 3, Math.PI, baffleId('sw', 'horizontal'), 2.5),
 ] as const satisfies readonly FeministPhilosophiesInstallationSlot[];
 

@@ -8,6 +8,7 @@ import {
   COLONIALISM_RACE_LIBERATION_GALLERY_ASSETS,
   type ColonialismRaceLiberationGalleryAssetId,
 } from './colonialismRaceLiberationGalleryAssets';
+import {reviewColonialismRaceLiberationSupplementalExhibit} from './gallery24To26SupplementalReview';
 import {
   authorSupplementalExhibit,
   authorSupplementalLayout,
@@ -152,7 +153,7 @@ const curated = (input: CuratedInput): MuseumSupplementalExhibit =>
     panelKicker: 'Gallery 26 work and context exhibit',
   });
 
-export const COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBITS = [
+export const COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBITS = ([
   curated({
     id: 'fanon-racializing-gaze',
     assetId: 'colonial-fanon-racial-schema',
@@ -474,7 +475,7 @@ export const COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBITS = [
     academicSource: WYNTER_REFERENCE,
     articleActionLabel: 'Compare Wynter’s Fanonian route with Fanon in the Atlas',
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+] as const satisfies readonly MuseumSupplementalExhibit[]).map(reviewColonialismRaceLiberationSupplementalExhibit);
 
 type InstallationKind = 'colonial-work' | 'colonial-context' | 'colonial-concept';
 
@@ -506,29 +507,30 @@ const layout = (
   mediaHeight,
   installationKind: installationKind as MuseumSupplementalInstallationKind,
   accent,
+  viewpointDistance: 3.1,
   ...(width ? {width} : {}),
 });
 
 export const COLONIALISM_RACE_LIBERATION_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  layout('fanon-racializing-gaze', 'fanon', 'fanon', 'colonial-embodiment-liberation', {x: -5.55, z: -26.88}, 0, 'colonial-fanon-racial-schema', 2.08, 2.7, 'colonial-concept', COLONIALISM_RACE_LIBERATION_PALETTE.ink),
-  layout('fanon-colonial-psychiatry', 'fanon', 'fanon', 'colonial-embodiment-liberation', {x: -5.55, z: -10.4533}, Math.PI, 'colonial-fanon-clinic', 3.15, 2.28, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.clinicBlue),
-  layout('fanon-algerian-revolution', 'fanon', 'fanon', 'colonial-embodiment-liberation', {x: 5.55, z: -26.88}, 0, 'colonial-fanon-algerian-revolution', 3.15, 2.32, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.anticolonialRed),
-  layout('fanon-violence-decolonization', 'fanon', 'fanon', 'colonial-embodiment-liberation', {x: 5.55, z: -10.4533}, Math.PI, 'colonial-fanon-war-displacement', 3.15, 2.28, 'colonial-concept', COLONIALISM_RACE_LIBERATION_PALETTE.abolitionPlum),
-  layout('fanon-national-consciousness', 'fanon', 'fanon', 'colonial-embodiment-liberation', {x: 10.85, z: -18.6667}, -Math.PI / 2, 'colonial-fanon-national-consciousness', 3.05, 2.35, 'colonial-work', COLONIALISM_RACE_LIBERATION_PALETTE.liberationGold),
+  layout('fanon-racializing-gaze', 'fanon', 'fanon', 'colonial-embodiment-liberation', {x: -5.55, z: -26.88}, 0, 'colonial-fanon-racial-schema', 3.15, 2.11640625, 'colonial-concept', COLONIALISM_RACE_LIBERATION_PALETTE.ink),
+  layout('fanon-colonial-psychiatry', 'fanon', 'fanon', 'colonial-embodiment-liberation', {x: -5.55, z: -10.4533}, Math.PI, 'colonial-fanon-clinic', 3.15, 2.19515625, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.clinicBlue),
+  layout('fanon-algerian-revolution', 'fanon', 'fanon', 'colonial-embodiment-liberation', {x: 5.55, z: -26.88}, 0, 'colonial-fanon-algerian-revolution', 3.15, 1.64390625, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.anticolonialRed),
+  layout('fanon-violence-decolonization', 'fanon', 'fanon', 'colonial-embodiment-liberation', {x: 5.55, z: -10.4533}, Math.PI, 'colonial-fanon-war-displacement', 1.91109375, 2.7, 'colonial-concept', COLONIALISM_RACE_LIBERATION_PALETTE.abolitionPlum),
+  layout('fanon-national-consciousness', 'fanon', 'fanon', 'colonial-embodiment-liberation', {x: 10.85, z: -18.6667}, -Math.PI / 2, 'colonial-fanon-national-consciousness', 3.05, 1.715625, 'colonial-work', COLONIALISM_RACE_LIBERATION_PALETTE.liberationGold),
 
-  layout('davis-prison-abolition', 'angela-davis', 'angela-davis', 'colonial-black-feminism-abolition', {x: -5.55, z: -8.2133}, 0, 'colonial-davis-prison-abolition', 3.15, 2.32, 'colonial-concept', COLONIALISM_RACE_LIBERATION_PALETTE.abolitionPlum),
-  layout('davis-race-gender-class', 'angela-davis', 'angela-davis', 'colonial-black-feminism-abolition', {x: -5.55, z: 8.2133}, Math.PI, 'colonial-davis-race-gender-class', 3.15, 2.32, 'colonial-work', COLONIALISM_RACE_LIBERATION_PALETTE.anticolonialRed),
-  layout('hooks-margin-center', 'bell-hooks', 'bell-hooks', 'colonial-black-feminism-abolition', {x: 5.55, z: -8.2133}, 0, 'colonial-hooks-margin-center', 3.15, 2.32, 'colonial-concept', COLONIALISM_RACE_LIBERATION_PALETTE.oceanIndigo),
-  layout('hooks-engaged-pedagogy-love', 'bell-hooks', 'bell-hooks', 'colonial-black-feminism-abolition', {x: 5.55, z: 8.2133}, Math.PI, 'colonial-hooks-engaged-pedagogy', 3.15, 2.32, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.pedagogyGreen),
+  layout('davis-prison-abolition', 'angela-davis', 'angela-davis', 'colonial-black-feminism-abolition', {x: -5.55, z: -8.2133}, 0, 'colonial-davis-prison-abolition', 3.15, 1.771875, 'colonial-concept', COLONIALISM_RACE_LIBERATION_PALETTE.abolitionPlum),
+  layout('davis-race-gender-class', 'angela-davis', 'angela-davis', 'colonial-black-feminism-abolition', {x: -5.55, z: 8.2133}, Math.PI, 'colonial-davis-race-gender-class', 3.15, 2.554453125, 'colonial-work', COLONIALISM_RACE_LIBERATION_PALETTE.anticolonialRed),
+  layout('hooks-margin-center', 'bell-hooks', 'bell-hooks', 'colonial-black-feminism-abolition', {x: 5.55, z: -8.2133}, 0, 'colonial-hooks-margin-center', 3.15, 2.25421875, 'colonial-concept', COLONIALISM_RACE_LIBERATION_PALETTE.oceanIndigo),
+  layout('hooks-engaged-pedagogy-love', 'bell-hooks', 'bell-hooks', 'colonial-black-feminism-abolition', {x: 5.55, z: 8.2133}, Math.PI, 'colonial-hooks-engaged-pedagogy', 1.99546875, 2.7, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.pedagogyGreen),
 
   // Room 03 has no canonical primary. Césaire and Wynter receive equal outer-wall scale;
   // all six records remain contextual and join the guided visit after hooks.
-  layout('cesaire-colonialism-thingification', 'fanon', 'bell-hooks', 'colonial-context-reserve', {x: -10.85, z: 18.6667}, Math.PI / 2, 'colonial-cesaire-anticolonialism', 3.48, 2.7, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.anticolonialRed, 4.6),
-  layout('dubois-color-line-colonial-world', 'angela-davis', 'bell-hooks', 'colonial-context-reserve', {x: -5.55, z: 10.4533}, 0, 'colonial-dubois-pan-africanism', 2.04, 2.7, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.liberationGold),
-  layout('said-orientalism-representation', 'fanon', 'bell-hooks', 'colonial-context-reserve', {x: 5.55, z: 10.4533}, 0, 'colonial-said-orientalism', 3.15, 2.32, 'colonial-work', COLONIALISM_RACE_LIBERATION_PALETTE.oceanIndigo),
-  layout('spivak-subaltern-representation', 'bell-hooks', 'bell-hooks', 'colonial-context-reserve', {x: -5.55, z: 26.88}, Math.PI, 'colonial-spivak-subaltern', 3.15, 2.32, 'colonial-concept', COLONIALISM_RACE_LIBERATION_PALETTE.abolitionPlum),
-  layout('ngugi-language-decolonization', 'fanon', 'bell-hooks', 'colonial-context-reserve', {x: 5.55, z: 26.88}, Math.PI, 'colonial-ngugi-language', 3.15, 2.32, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.pedagogyGreen),
-  layout('wynter-humanism-coloniality', 'fanon', 'bell-hooks', 'colonial-context-reserve', {x: 10.85, z: 18.6667}, -Math.PI / 2, 'colonial-wynter-humanism', 3.48, 2.7, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.ink, 4.6),
+  layout('cesaire-colonialism-thingification', 'fanon', 'bell-hooks', 'colonial-context-reserve', {x: -10.85, z: 18.6667}, Math.PI / 2, 'colonial-cesaire-anticolonialism', 2.8944723618090453, 2.7, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.anticolonialRed, 4.6),
+  layout('dubois-color-line-colonial-world', 'angela-davis', 'bell-hooks', 'colonial-context-reserve', {x: -5.55, z: 10.4533}, 0, 'colonial-dubois-pan-africanism', 3.15, 2.042578125, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.liberationGold),
+  layout('said-orientalism-representation', 'fanon', 'bell-hooks', 'colonial-context-reserve', {x: 5.55, z: 10.4533}, 0, 'colonial-said-orientalism', 2.19796875, 2.7, 'colonial-work', COLONIALISM_RACE_LIBERATION_PALETTE.oceanIndigo),
+  layout('spivak-subaltern-representation', 'bell-hooks', 'bell-hooks', 'colonial-context-reserve', {x: -5.55, z: 26.88}, Math.PI, 'colonial-spivak-subaltern', 3.15, 2.086875, 'colonial-concept', COLONIALISM_RACE_LIBERATION_PALETTE.abolitionPlum),
+  layout('ngugi-language-decolonization', 'fanon', 'bell-hooks', 'colonial-context-reserve', {x: 5.55, z: 26.88}, Math.PI, 'colonial-ngugi-language', 2.7, 2.7, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.pedagogyGreen),
+  layout('wynter-humanism-coloniality', 'fanon', 'bell-hooks', 'colonial-context-reserve', {x: 10.85, z: 18.6667}, -Math.PI / 2, 'colonial-wynter-humanism', 3.48, 2.3435625, 'colonial-context', COLONIALISM_RACE_LIBERATION_PALETTE.ink, 4.6),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getColonialismRaceLiberationSupplementalExhibit = (

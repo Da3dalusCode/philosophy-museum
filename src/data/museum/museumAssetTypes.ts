@@ -644,7 +644,7 @@ export type MuseumAssetId =
   | 'feminist-care-laundry-child'
   | 'feminist-astell-learned-woman'
   | 'feminist-wollstonecraft-portrait'
-  | 'feminist-de-gouges-presumed-portrait'
+  | 'feminist-de-gouges-patriotic-tax-print'
   | 'feminist-bluestocking-muses'
   | 'feminist-education-domestic-science'
   | 'feminist-abolition-convention'

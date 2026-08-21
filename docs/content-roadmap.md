@@ -9,7 +9,7 @@ Philosophy Atlas currently contains:
 <!-- public-collection-counts:start -->
 - **192 canonical full articles:** 147 philosopher profiles and 45 articles on philosophies, branches, schools, traditions, movements, methods, and frameworks; 192 of 192 are currently claim-reviewed.
 - **192 primary Museum exhibits:** 192 of 192 are standard-compliant under the separate primary exhibit-review standard.
-- **411 supplemental Museum exhibits:** 362 reviewed and 49 explicit backlog.
+- **411 supplemental Museum exhibits:** 411 reviewed and 0 explicit backlog.
 - **26 curated/open galleries and 105 rooms:** 603 interpreted stops on one connected public level.
 <!-- public-collection-counts:end -->
 

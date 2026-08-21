@@ -32,19 +32,19 @@
       "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/M%20Street%20High%20School.jpg?width=1600",
       "visualCharacter": "place-or-architecture",
       "textDominantOrSingleBook": false,
-      "sceneMaximum": 640,
-      "panelMaximum": 1280,
+      "sceneMaximum": 639,
+      "panelMaximum": 1278,
       "scene": {
-        "width": 640,
+        "width": 639,
         "height": 326,
-        "bytes": 38218,
-        "sha256": "8dc1a4269c9b4659c2b9891c4455ea57f303bdf03a221619909257d25e615ed0"
+        "bytes": 37632,
+        "sha256": "61975b0e60b924c18bee9158ce0a21a486b23e59fb02596747f6e51a8f716c4a"
       },
       "panel": {
-        "width": 1280,
-        "height": 653,
-        "bytes": 215226,
-        "sha256": "3f0e60755e32180d5b16d77cbfe5d8ec5f473c32d5e069b01703e1073c8d6aa3"
+        "width": 1278,
+        "height": 652,
+        "bytes": 215078,
+        "sha256": "5f48be7115f62c5ae243d24e3831f10d189d66af862f7a7fe6ef4f156d0ab354"
       }
     },
     "feminist-truth-self-representation": {
@@ -179,26 +179,26 @@
         "sha256": "8285a552fdfb13f68e05199e505d2a72422d6a5c642e3d4d558c576fe335aece"
       }
     },
-    "feminist-de-gouges-presumed-portrait": {
+    "feminist-de-gouges-patriotic-tax-print": {
       "hallFolder": "feminist-philosophies",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portrait_pr%C3%A9sum%C3%A9_de_Marie-Olympe_Aubry_de_Gouges.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait%20pr%C3%A9sum%C3%A9%20de%20Marie-Olympe%20Aubry%20de%20Gouges.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait%20pr%C3%A9sum%C3%A9%20de%20Marie-Olympe%20Aubry%20de%20Gouges.jpg?width=1600",
-      "visualCharacter": "portrait-or-figure",
+      "sourcePageUrl": "https://gallica.bnf.fr/ark:/12148/btv1b8410577m",
+      "sourceImageUrl": "https://gallica.bnf.fr/ark:/12148/btv1b8410577m.highres",
+      "selectedThumbnailUrl": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b8410577m/f1/full/1600,/0/native.jpg",
+      "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
       "sceneMaximum": 640,
       "panelMaximum": 1280,
       "scene": {
-        "width": 569,
+        "width": 374,
         "height": 640,
-        "bytes": 56330,
-        "sha256": "662764e14d82195b6360a32bef4689059440fe475bc45795cb4d92e809defe16"
+        "bytes": 50148,
+        "sha256": "f49f0b37517ba9114ac3ed93bbc1dbf0141dae8f56fab92576eb21f09be1db75"
       },
       "panel": {
-        "width": 960,
-        "height": 1080,
-        "bytes": 208260,
-        "sha256": "d8efc48c394c237abe2e534c7d6d7fa0c348c20b4492dd78d0a2d20f61776f40"
+        "width": 749,
+        "height": 1280,
+        "bytes": 282168,
+        "sha256": "db868e14bf28da1d1949387857ee499ad18a55de606a4495aa8e61885ae0d266"
       }
     },
     "feminist-bluestocking-muses": {
@@ -379,24 +379,24 @@
     },
     "feminist-boupacha-solidarity": {
       "hallFolder": "feminist-philosophies",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Djamila_Boupacha_1963.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Djamila%20Boupacha%201963.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Djamila%20Boupacha%201963.jpg?width=1600",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Djamila_BOUPACHA.jpg",
+      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Djamila%20BOUPACHA.jpg",
+      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Djamila%20BOUPACHA.jpg?width=1600",
       "visualCharacter": "portrait-or-figure",
       "textDominantOrSingleBook": false,
       "sceneMaximum": 640,
       "panelMaximum": 1280,
       "scene": {
-        "width": 630,
+        "width": 581,
         "height": 640,
-        "bytes": 34164,
-        "sha256": "1ed0432aaa609440736ca451f3cd9105e969d4db1e0c51bc489f4c04a0562717"
+        "bytes": 46974,
+        "sha256": "02b825af4926c50c7abea72e9558b5e92d69d9dba88cc11032c44b9f51efd343"
       },
       "panel": {
-        "width": 1261,
+        "width": 1161,
         "height": 1280,
-        "bytes": 234622,
-        "sha256": "4265fbdb193a6420f60e3ff633c61249cc8775bd7ae7f4b4036cfe2649d20e56"
+        "bytes": 215190,
+        "sha256": "20a5a275688b0d6938aef6f1afddccd1c76c30f5f79b149d32bc0d866bc366ac"
       }
     },
     "feminist-butler-portrait": {
@@ -516,19 +516,19 @@
       "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Women%27s%20March%20in%20Ithaca,%20New%20York.jpg?width=1600",
       "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
-      "sceneMaximum": 640,
-      "panelMaximum": 1280,
+      "sceneMaximum": 638,
+      "panelMaximum": 1276,
       "scene": {
-        "width": 640,
-        "height": 229,
-        "bytes": 41382,
-        "sha256": "e21a05ca966e3b1f0a2047ac1ded791635acbd40877c2a60e312bc82601979b0"
+        "width": 638,
+        "height": 228,
+        "bytes": 41416,
+        "sha256": "63cb817318e46a5f9cacd6dfe10d25c94f1a0dbd6cacb812c75a9ac61c2ab2c5"
       },
       "panel": {
-        "width": 1280,
-        "height": 457,
-        "bytes": 194528,
-        "sha256": "cf49f3b452626fee1a6370ce71ac420397e12a3c50c6d8367758d400517d34b3"
+        "width": 1276,
+        "height": 456,
+        "bytes": 194092,
+        "sha256": "34815767efebb8bfd394ab883fee719f93197b303717b96a464df53a440865db"
       }
     }
   }

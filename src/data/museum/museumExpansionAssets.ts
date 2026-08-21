@@ -295,10 +295,10 @@ export const MUSEUM_EXPANSION_ASSETS = [
   }),
   expansionAsset({
     id: 'rawls-theory-justice-1971', hallFolder: 'ethics-justice-political-life', entityId: 'rawls', role: 'material-history', mediaKind: 'book-page',
-    title: 'A Theory of Justice, first American hardcover', creator: 'Harvard University Press', objectDate: '1971', institution: 'Source copy described by Raptis Rare Books on the Commons file page',
+    title: 'A Theory of Justice, 1971 American hardcover shown in the source photograph', creator: 'Harvard University Press', objectDate: '1971 publication; displayed copy’s printing unverified', institution: 'Displayed copy and custody not independently identified; Commons cites a rare-books dealer',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:A_Theory_of_Justice_-_first_American_hardcover_edition.jpg', ...publicDomain('Public domain (simple typographic design ineligible for copyright)', 'https://commons.wikimedia.org/wiki/Template:PD-ineligible'),
-    attribution: 'Harvard University Press, simple typographic cover of A Theory of Justice, 1971. Cover image treated as copyright-ineligible by Wikimedia Commons.', alt: 'Plain green first-edition cover of John Rawls’s A Theory of Justice with simple white lettering.',
-    caption: 'The first American hardcover of A Theory of Justice, 1971.', historicalNote: 'A material witness to the book’s publication, not an illustration of the original position. Commons’ treatment of the simple cover does not place Rawls’s copyrighted text in the public domain.', likenessStatus: 'not-applicable',
+    attribution: 'Harvard University Press, simple typographic cover of A Theory of Justice, published 1971. Commons treats the cover design as copyright-ineligible; displayed-copy custody and printing are unverified.', alt: 'Plain green 1971 American hardcover of John Rawls’s A Theory of Justice with simple white lettering.',
+    caption: 'A 1971 American hardcover of A Theory of Justice shown in the source photograph; the displayed copy’s printing and custody are unverified.', historicalNote: 'The object witnesses the book’s 1971 publication but is not an illustration of the original position. The source page does not establish an accession, exact copy provenance, or first-printing status, and treatment of the simple cover does not place Rawls’s copyrighted text in the public domain.', likenessStatus: 'not-applicable',
   }),
   expansionAsset({
     id: 'nozick-portrait', hallFolder: 'ethics-justice-political-life', entityId: 'nozick', role: 'identity', mediaKind: 'photograph',

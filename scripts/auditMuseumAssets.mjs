@@ -453,10 +453,16 @@ const TRUSTED_EXTERNAL_SOURCE_LOCKS = new Map([
     sourceImageUrl: 'https://projectvox.org/wp-content/uploads/2017/03/First-edition-of-A-serious-proposal-to-the-ladies-ed.jpg',
     selectedThumbnailUrl: 'https://projectvox.org/wp-content/uploads/2017/03/First-edition-of-A-serious-proposal-to-the-ladies-ed.jpg',
   }],
+  ['feminist-de-gouges-patriotic-tax-print', {
+    sourcePageUrl: 'https://gallica.bnf.fr/ark:/12148/btv1b8410577m',
+    sourceImageUrl: 'https://gallica.bnf.fr/ark:/12148/btv1b8410577m.highres',
+    selectedThumbnailUrl: 'https://gallica.bnf.fr/iiif/ark:/12148/btv1b8410577m/f1/full/1600,/0/native.jpg',
+  }],
 ]);
 const TRUSTED_EXTERNAL_OBJECT_PAGES = new Map([
   ['saadia-beliefs-landauer', 'https://archive.org/details/kitbalamnt00saaduoft'],
   ['maimonides-mishneh-torah', 'https://www.loc.gov/item/2021667526/'],
+  ['feminist-de-gouges-patriotic-tax-print', 'https://catalogue.bnf.fr/ark:/12148/cb40257593r'],
 ]);
 const manifestAssets = modernManifest?.assets ?? {};
 const mediterraneanManifestAssets = mediterraneanManifest?.assets ?? {};
