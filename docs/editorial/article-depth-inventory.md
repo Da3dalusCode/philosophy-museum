@@ -111,7 +111,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | augustine | Augustine | #/philosophers/augustine | 2137 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | boethius | Boethius | #/philosophers/boethius | 2005 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | anselm | Anselm | #/philosophers/anselm | 2010 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | maimonides | Maimonides | #/philosophers/maimonides | 2025 | pass | yes | yes (1 primary; 4 supplemental) |
+| philosopher | maimonides | Maimonides | #/philosophers/maimonides | 2025 | pass | yes | yes (1 primary; 5 supplemental) |
 | philosopher | aquinas | Thomas Aquinas | #/philosophers/aquinas | 2143 | pass | yes | yes (1 primary; 3 supplemental) |
 | philosopher | duns-scotus | Duns Scotus | #/philosophers/duns-scotus | 2168 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | ockham | William of Ockham | #/philosophers/ockham | 2140 | pass | yes | yes (1 primary; 0 supplemental) |
@@ -163,7 +163,7 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 | philosopher | abelard | Peter Abelard | #/philosophers/abelard | 2151 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | meister-eckhart | Meister Eckhart | #/philosophers/meister-eckhart | 2112 | pass | yes | yes (1 primary; 1 supplemental) |
 | philosopher | marsilius-padua | Marsilius of Padua | #/philosophers/marsilius-padua | 2160 | pass | yes | yes (1 primary; 0 supplemental) |
-| philosopher | saadia-gaon | Saadia Gaon | #/philosophers/saadia-gaon | 2022 | pass | yes | yes (1 primary; 1 supplemental) |
+| philosopher | saadia-gaon | Saadia Gaon | #/philosophers/saadia-gaon | 2022 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | judah-halevi | Judah Halevi | #/philosophers/judah-halevi | 2043 | pass | yes | yes (1 primary; 2 supplemental) |
 | philosopher | ibn-tufayl | Ibn Tufayl | #/philosophers/ibn-tufayl | 2219 | pass | yes | yes (1 primary; 0 supplemental) |
 | philosopher | suhrawardi | Suhrawardi | #/philosophers/suhrawardi | 2161 | pass | yes | yes (1 primary; 2 supplemental) |
@@ -255,14 +255,14 @@ Each pilot article was replaced as one reviewed body, so removed substantive wor
 ## Museum article-backing audit
 
 - Primary Museum interpretations: 192; each maps one-to-one to a canonical philosopher or philosophy article.
-- Supplemental Museum surfaces: 411; 409 claim a philosopher/philosophy article route and 2 explicitly do not.
+- Supplemental Museum surfaces: 411; 411 claim a philosopher/philosophy article route and 0 explicitly do not.
 - Standalone Museum full articles discovered: 0.
 - Full per-surface mappings are recorded in `docs/editorial/article-depth-inventory.json`.
 
 | Example surface | Title | Supporting prose words | Canonical target | Target words | Target status | Standalone full article? |
 | --- | --- | ---: | --- | ---: | --- | --- |
-| plato-cave-book-vii | The Allegory of the Cave | 180 | plato | 4900 | pass | no — this is a short Museum surface |
-| plato-republic | Plato’s Republic | 249 | plato | 4900 | pass | no — this is a short Museum surface |
+| plato-cave-book-vii | The Allegory of the Cave | 348 | plato | 4900 | pass | no — this is a short Museum surface |
+| plato-republic | Plato’s Republic | 364 | plato | 4900 | pass | no — this is a short Museum surface |
 
 ## Commands
 

@@ -925,26 +925,26 @@
         "sha256": "e35e41f0b6f968e73c965689fdb145f6baafa6bcad5e17293605cce4461f4b51"
       }
     },
-    "dewey-dubinsky-kilpatrick-labor-education-1949": {
+    "dewey-hine-night-school-boston-1909": {
       "hallFolder": "pragmatism-democratic-inquiry",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:David_Dubinsky_greets_John_Dewey_on_his_90th_birthday,_October_20,_1949._William_H._Kilpatrick,_Professor_Emeritus_of_Education_at_Columbia_University,_looks_on._(5279010141).jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/David_Dubinsky_greets_John_Dewey_on_his_90th_birthday,_October_20,_1949._William_H._Kilpatrick,_Professor_Emeritus_of_Education_at_Columbia_University,_looks_on._(5279010141).jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/David_Dubinsky_greets_John_Dewey_on_his_90th_birthday,_October_20,_1949._William_H._Kilpatrick,_Professor_Emeritus_of_Education_at_Columbia_University,_looks_on._(5279010141).jpg?width=1600",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Immigrants_in_night_school._LOC_nclc.04549.jpg",
+      "sourceImageUrl": "https://cdn.loc.gov/master/pnp/nclc/04500/04549u.tif",
+      "selectedThumbnailUrl": "https://cdn.loc.gov/service/pnp/nclc/04500/04549v.jpg",
       "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
       "sceneMaximum": 640,
       "panelMaximum": 1280,
       "scene": {
         "width": 640,
-        "height": 512,
-        "bytes": 16972,
-        "sha256": "1a10985e2c3faedb644c94b4b843d216d04168b63ae7d3d26f2e49d1f85d0991"
+        "height": 450,
+        "bytes": 31912,
+        "sha256": "2b307d992e716a7dfa36bbf15a133a15e043e85760e50d531983974fa692b2c6"
       },
       "panel": {
-        "width": 1280,
-        "height": 1025,
-        "bytes": 118004,
-        "sha256": "5d98b3f8dbbc6e6af194f7de9d54cc1d97eee7a2ba432e3df809fe502bb58f13"
+        "width": 1024,
+        "height": 720,
+        "bytes": 95328,
+        "sha256": "776b0abf6bf009daa14ac015eaecae322702a6f1779ddcb41999d40c3bfa9db7"
       }
     },
     "pragmatism-continuity-jane-addams-hine-1913": {
@@ -1052,9 +1052,9 @@
       },
       "panel": {
         "width": 1280,
-        "height": 777,
-        "bytes": 124164,
-        "sha256": "92f310adeb4fe7dc28166465508d0aa2870f6c999401dd2203e01615087b34e0"
+        "height": 778,
+        "bytes": 121196,
+        "sha256": "fb87af5bc9ac71825d878b268deba562484d24b48e233c1e2bdc26829c4cbf81"
       }
     },
     "pragmatism-continuity-fannie-lou-hamer-1964": {

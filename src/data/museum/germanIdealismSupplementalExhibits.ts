@@ -691,6 +691,7 @@ const layout = (
   mediaHeight: number,
   installationKind: InstallationKind,
   accent: string,
+  viewpointDistance?: number,
 ) => authorSupplementalLayout({
   id: id as MuseumSupplementalExhibitId,
   parentExhibitId,
@@ -703,6 +704,7 @@ const layout = (
   mediaHeight,
   installationKind: installationKind as MuseumSupplementalInstallationKind,
   accent,
+  viewpointDistance,
 });
 
 export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
@@ -920,6 +922,7 @@ export const GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     2.7,
     'idealism-context',
     GERMAN_IDEALISM_PALETTE.critiqueBlue,
+    3,
   ),
   layout(
     'afterlives-runge-morning',

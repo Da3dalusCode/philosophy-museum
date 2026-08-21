@@ -9,6 +9,7 @@ import {
   FAITH_PESSIMISM_VALUE_ROOM_SIGN_COPY,
 } from './faithPessimismValueGalleryCuration';
 import type {FaithPessimismValueGalleryAssetId} from './faithPessimismValueGalleryAssets';
+import {reviewFaithPessimismValueSupplementalExhibit} from './faithPessimismValueSupplementalReview';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -215,7 +216,7 @@ export const FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS = [
     cautions: ['The Will to Power is not a completed or authorized Nietzsche book.', 'Do not equate Nietzsche with Nazi ideology or use the distinction to sanitize troubling claims in his texts.'],
     imageSource: 'https://commons.wikimedia.org/wiki/File:Villa_Silberblick.jpg',
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+].map(reviewFaithPessimismValueSupplementalExhibit) satisfies readonly MuseumSupplementalExhibit[];
 
 type InstallationKind = 'value-work' | 'value-context' | 'value-concept';
 const layout = (
@@ -241,29 +242,30 @@ const layout = (
   mediaHeight,
   installationKind: installationKind as MuseumSupplementalInstallationKind,
   accent,
+  viewpointDistance: 3,
 });
 
 export const FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
-  layout('schopenhauer-kant-and-representation', 'schopenhauer', 'nineteenth-will-pessimism', {x: -5.55, z: -26.88}, 0, 'value-kant-hagemann-bust', 2.02, 2.7, 'value-concept', FAITH_PESSIMISM_VALUE_PALETTE.gold),
-  layout('schopenhauer-frankfurt-work', 'schopenhauer', 'nineteenth-will-pessimism', {x: -5.55, z: -10.4533}, Math.PI, 'value-schopenhauer-house-1861', 3.15, 2.44, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.forest),
-  layout('schopenhauer-music-and-wagner', 'schopenhauer', 'nineteenth-will-pessimism', {x: 5.55, z: -26.88}, 0, 'value-wagner-met-portrait', 1.85, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.wine),
-  layout('schopenhauer-oupnekhat-route', 'schopenhauer', 'nineteenth-will-pessimism', {x: 5.55, z: -10.4533}, Math.PI, 'value-anquetil-duperron-medallion', 2.68, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.violet),
-  layout('schopenhauer-pessimism-afterlife', 'schopenhauer', 'nineteenth-will-pessimism', {x: 10.85, z: -18.6667}, -Math.PI / 2, 'value-schopenhauer-monument-frankfurt', 2.02, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.midnight),
-  layout('kierkegaard-indirect-communication', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: -5.55, z: -8.2133}, 0, 'value-kierkegaard-copenhagen-salon', 3.18, 2.38, 'value-concept', FAITH_PESSIMISM_VALUE_PALETTE.violet),
-  layout('kierkegaard-fear-trembling', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: -5.55, z: 8.2133}, Math.PI, 'value-caravaggio-sacrifice-isaac', 3.18, 2.45, 'value-work', FAITH_PESSIMISM_VALUE_PALETTE.wine),
-  layout('kierkegaard-christendom-attack', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: 5.55, z: -8.2133}, 0, 'value-church-our-lady-copenhagen', 2.08, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.gold),
-  layout('dostoevsky-brothers-karamazov', 'dostoevsky', 'nineteenth-faith-subjectivity', {x: 5.55, z: 8.2133}, Math.PI, 'value-brothers-karamazov-contemplator', 1.71, 2.7, 'value-work', FAITH_PESSIMISM_VALUE_PALETTE.forest),
-  layout('nietzsche-birth-tragedy', 'nietzsche', 'nineteenth-genealogy-value', {x: -5.55, z: 10.4533}, 0, 'value-greek-tragedy-mask-taranto', 3.18, 2.12, 'value-work', FAITH_PESSIMISM_VALUE_PALETTE.gold),
-  layout('nietzsche-lou-interlocutor', 'nietzsche', 'nineteenth-genealogy-value', {x: -5.55, z: 26.88}, Math.PI, 'value-lou-andreas-salome-elvira-1897', 1.85, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.wine),
-  layout('nietzsche-writing-machine', 'nietzsche', 'nineteenth-genealogy-value', {x: 5.55, z: 10.4533}, 0, 'value-nietzsche-writing-ball', 3.18, 2.05, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.midnight),
-  layout('nietzsche-eternal-recurrence', 'nietzsche', 'nineteenth-genealogy-value', {x: 10.85, z: 18.6667}, -Math.PI / 2, 'value-nietzsche-stone-surlej', 3.05, 2.29, 'value-concept', FAITH_PESSIMISM_VALUE_PALETTE.alpine),
-  layout('nietzsche-archive-afterlife', 'nietzsche', 'nineteenth-genealogy-value', {x: 5.55, z: 26.88}, Math.PI, 'value-villa-silberblick-archive', 2.02, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.forest),
+  layout('schopenhauer-kant-and-representation', 'schopenhauer', 'nineteenth-will-pessimism', {x: -5.55, z: -26.88}, 0, 'value-kant-hagemann-bust', 2.7 * 478 / 640, 2.7, 'value-concept', FAITH_PESSIMISM_VALUE_PALETTE.gold),
+  layout('schopenhauer-frankfurt-work', 'schopenhauer', 'nineteenth-will-pessimism', {x: -5.55, z: -10.4533}, Math.PI, 'value-schopenhauer-house-1861', 3.15, 3.15 * 497 / 640, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.forest),
+  layout('schopenhauer-music-and-wagner', 'schopenhauer', 'nineteenth-will-pessimism', {x: 5.55, z: -26.88}, 0, 'value-wagner-met-portrait', 2.7 * 438 / 640, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.wine),
+  layout('schopenhauer-oupnekhat-route', 'schopenhauer', 'nineteenth-will-pessimism', {x: 5.55, z: -10.4533}, Math.PI, 'value-anquetil-duperron-medallion', 2.7 * 637 / 640, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.violet),
+  layout('schopenhauer-pessimism-afterlife', 'schopenhauer', 'nineteenth-will-pessimism', {x: 10.85, z: -18.6667}, -Math.PI / 2, 'value-schopenhauer-monument-frankfurt', 2.7 * 480 / 640, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.midnight),
+  layout('kierkegaard-indirect-communication', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: -5.55, z: -8.2133}, 0, 'value-kierkegaard-copenhagen-salon', 3.18, 3.18 * 479 / 640, 'value-concept', FAITH_PESSIMISM_VALUE_PALETTE.violet),
+  layout('kierkegaard-fear-trembling', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: -5.55, z: 8.2133}, Math.PI, 'value-caravaggio-sacrifice-isaac', 3.18, 3.18 * 493 / 640, 'value-work', FAITH_PESSIMISM_VALUE_PALETTE.wine),
+  layout('kierkegaard-christendom-attack', 'kierkegaard', 'nineteenth-faith-subjectivity', {x: 5.55, z: -8.2133}, 0, 'value-church-our-lady-copenhagen', 2.7 * 495 / 640, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.gold),
+  layout('dostoevsky-brothers-karamazov', 'dostoevsky', 'nineteenth-faith-subjectivity', {x: 5.55, z: 8.2133}, Math.PI, 'value-brothers-karamazov-contemplator', 2.7 * 428 / 640, 2.7, 'value-work', FAITH_PESSIMISM_VALUE_PALETTE.forest),
+  layout('nietzsche-birth-tragedy', 'nietzsche', 'nineteenth-genealogy-value', {x: -5.55, z: 10.4533}, 0, 'value-greek-tragedy-mask-taranto', 3.18, 3.18 * 426 / 640, 'value-work', FAITH_PESSIMISM_VALUE_PALETTE.gold),
+  layout('nietzsche-lou-interlocutor', 'nietzsche', 'nineteenth-genealogy-value', {x: -5.55, z: 26.88}, Math.PI, 'value-lou-andreas-salome-elvira-1897', 2.7 * 439 / 640, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.wine),
+  layout('nietzsche-writing-machine', 'nietzsche', 'nineteenth-genealogy-value', {x: 5.55, z: 10.4533}, 0, 'value-nietzsche-writing-ball', 3.18, 3.18 * 413 / 640, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.midnight),
+  layout('nietzsche-eternal-recurrence', 'nietzsche', 'nineteenth-genealogy-value', {x: 10.85, z: 18.6667}, -Math.PI / 2, 'value-nietzsche-stone-surlej', 3.05, 3.05 * 480 / 640, 'value-concept', FAITH_PESSIMISM_VALUE_PALETTE.alpine),
+  layout('nietzsche-archive-afterlife', 'nietzsche', 'nineteenth-genealogy-value', {x: 5.55, z: 26.88}, Math.PI, 'value-villa-silberblick-archive', 2.7 * 480 / 640, 2.7, 'value-context', FAITH_PESSIMISM_VALUE_PALETTE.forest),
 ] as const satisfies readonly MuseumSupplementalExhibitLayout[];
 
 export const getFaithPessimismValueSupplementalExhibit = (
   id: MuseumSupplementalExhibitId,
 ): MuseumSupplementalExhibit => {
   const record = FAITH_PESSIMISM_VALUE_SUPPLEMENTAL_EXHIBITS.find((item) => item.id === id);
-  if (!record) throw new Error(`Gallery 21 supplemental exhibit ${id} is missing.`);
+  if (!record) throw new Error(`Gallery 18 supplemental exhibit ${id} is missing.`);
   return record;
 };

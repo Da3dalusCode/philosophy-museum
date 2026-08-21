@@ -10,6 +10,7 @@ import {
   PRAGMATISM_ROOM_SIGN_COPY,
 } from './pragmatismGalleryCuration';
 import type {PragmatismGalleryAssetId} from './pragmatismGalleryAssets';
+import {reviewPragmatismSupplementalExhibit} from './pragmatismSupplementalReview';
 import type {
   MuseumSupplementalExhibitId,
   MuseumSupplementalExhibitLayout,
@@ -77,7 +78,9 @@ type CuratedInput = {
 };
 
 const image = (url: string) => ({
-  label: 'Wikimedia Commons — displayed object or image record',
+  label: url.includes('loc.gov/')
+    ? 'Library of Congress — displayed object or image record'
+    : 'Wikimedia Commons — displayed object or image record',
   url,
   kind: 'collection-record' as const,
 });
@@ -148,7 +151,7 @@ const curated = (input: CuratedInput): MuseumSupplementalExhibit => authorSupple
   sources: [image(input.imageSource), academic(input.academicSource)],
   articleRoute: input.articleRoute ?? philosopherRoute(input.parent),
   entityKind: input.entityKind ?? 'philosopher',
-  panelKicker: 'Gallery 22 evidence and context exhibit',
+  panelKicker: 'Gallery 19 evidence and context exhibit',
 });
 
 const PRAGMATISM_CURATED_EXHIBITS = [
@@ -595,29 +598,29 @@ const PRAGMATISM_CURATED_EXHIBITS = [
   }),
   curated({
     id: 'dewey-labor-education',
-    assetId: 'dewey-dubinsky-kilpatrick-labor-education-1949',
+    assetId: 'dewey-hine-night-school-boston-1909',
     parent: 'dewey',
-    displayName: 'Democratic Learning Beyond School: Dewey, Dubinsky, and Kilpatrick',
-    shortTitle: 'Labor and Education',
-    focus: 'PUBLIC LIFE · LABOR EDUCATION, ASSOCIATION, LEADERSHIP, AND ADULT LEARNING',
-    dateLabel: 'Dewey’s ninetieth birthday, 20 October 1949',
-    question: 'Why must democratic education continue through workplaces, unions, associations, and adult public life?',
-    lead: 'Labor leader David Dubinsky greets John Dewey while educator William H. Kilpatrick looks on. The source describes a birthday encounter, not a policy meeting, so the handshake cannot prove agreement. It nevertheless places Dewey’s public standing near institutions that linked worker organization and education.',
+    displayName: 'Democratic Learning Beyond School: Night School and Public Life',
+    shortTitle: 'Night School and Democracy',
+    focus: 'PUBLIC LIFE · NIGHT SCHOOL, IMMIGRATION, ASSOCIATION, AND PARTICIPANT VOICE',
+    dateLabel: 'Boston night-school photograph, October 1909',
+    question: 'When does a night school become a democratic institution rather than merely an extension of institutional discipline?',
+    lead: 'Rows of students read and write at wooden desks in an October 1909 Boston night school. The Library of Congress title identifies the students collectively as immigrants, while the National Child Labor Committee provenance supports the attribution to Lewis Hine. The photograph records organized learning beyond the daytime school without naming the institution, teacher, assigned text, students, or their purposes.',
     ideas: [
-      'The photograph connects a philosopher, an educator, and a labor leader without collapsing their distinct roles or politics.',
-      'Dewey understood democracy as habits of communication and associated life that schools alone cannot produce.',
-      'Adult education can expand workers’ power to interpret shared conditions, but leadership structures must remain answerable to participants.',
+      'Desks, open books, bent heads, a chalkboard, and rows of male students establish a photographed night-school session, not its curriculum or outcome.',
+      'Dewey understood democracy as associated inquiry and communication that cannot be confined to childhood schooling or electoral procedure.',
+      'Night schools can widen access to literacy and public participation while also imposing assimilation, discipline, and institutional definitions of need.',
     ],
     sectionDetails: [
-      'The image marks celebration and recognition: Dubinsky reaches toward the elderly Dewey, and Kilpatrick observes. It does not record a seminar, negotiation, or endorsement of a specific union policy. Careful interpretation uses the encounter to open a documented field of labor education while refusing to manufacture substantive dialogue from a posed moment.',
-      'Dewey’s political philosophy treats democracy as more than electoral machinery. People need institutions in which they communicate experience, investigate common problems, and acquire capacities for collective action. Unions, workers’ schools, libraries, associations, and public forums can become educational environments because decisions there have shared and revisable consequences.',
-      'No association is democratic simply because it represents workers or invokes education. Officials can monopolize information, suppress dissent, or treat instruction as message discipline. A pragmatist test asks whether members can initiate questions, inspect evidence, contest leaders, learn from failed strategies, and convert inquiry into genuine influence over the conditions of work.',
+      'The LOC record dates the print to October 1909, preserves the NCLC caption-card title, and qualifies Hine’s attribution as provenance-based. The frame cannot identify a book, language, occupation, immigration history, length of attendance, teacher–student relation, or what anyone learned. Visible concentration is not participant testimony.',
+      'Dewey’s political philosophy treats democracy as a way institutions organize shared experience, communication, and revision. Night schools, libraries, unions, settlements, and public forums may become educational environments because people encounter common consequences there. This photograph documents none of Dewey’s presence or influence; the relationship must be argued from his writings, not read from faces or desks.',
+      'A democratic test therefore asks who defined the course, who could attend, which languages and experiences counted, whether students could question instruction, and how learning altered their agency. The official collective label “immigrants” cannot replace individual identities or voices. The scene opens those questions while withholding the evidence needed to answer them.',
     ],
     cautions: [
-      'The source documents a birthday greeting, not a labor conference or a specific philosophical agreement.',
-      'Do not idealize unions or educational institutions as democratic without examining their internal practices and exclusions.',
+      'The caption identifies immigrants collectively but does not name individuals, origins, occupations, school, teacher, text, or curriculum.',
+      'No evidence makes Dewey the school’s designer, teacher, participant, or influence.',
     ],
-    imageSource: 'https://commons.wikimedia.org/wiki/File:David_Dubinsky_greets_John_Dewey_on_his_90th_birthday,_October_20,_1949._William_H._Kilpatrick,_Professor_Emeritus_of_Education_at_Columbia_University,_looks_on._(5279010141).jpg',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Immigrants_in_night_school._LOC_nclc.04549.jpg',
     academicSource: DEWEY_REFERENCE,
   }),
   curated({
@@ -707,7 +710,7 @@ const PRAGMATISM_CURATED_EXHIBITS = [
     articleRoute: {kind: 'branch', branchId: 'pragmatism'},
     entityKind: 'branch',
   }),
-] as const satisfies readonly MuseumSupplementalExhibit[];
+].map(reviewPragmatismSupplementalExhibit) satisfies readonly MuseumSupplementalExhibit[];
 
 const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_ORDER = [
   'peirce-observatory-measurement',
@@ -735,7 +738,7 @@ const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_ORDER = [
 export const PRAGMATISM_SUPPLEMENTAL_EXHIBITS =
   PRAGMATISM_SUPPLEMENTAL_EXHIBIT_ORDER.map((id) => {
     const exhibit = PRAGMATISM_CURATED_EXHIBITS.find((candidate) => candidate.id === id);
-    if (!exhibit) throw new Error(`Gallery 22 supplemental exhibit ${id} is missing.`);
+    if (!exhibit) throw new Error(`Gallery 19 supplemental exhibit ${id} is missing.`);
     return exhibit;
   }) satisfies readonly MuseumSupplementalExhibit[];
 
@@ -769,6 +772,7 @@ const layout = (
   mediaHeight,
   installationKind: installationKind as MuseumSupplementalInstallationKind,
   accent,
+  viewpointDistance: 3,
 });
 
 export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
@@ -780,7 +784,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: -5.55, z: -26.88},
     0,
     'peirce-harvard-observatory-telescope-c1900',
-    2.26,
+    2.7 * 535 / 640,
     2.7,
     'pragmatism-context',
     PRAGMATISM_PALETTE.inquiryBlue,
@@ -794,7 +798,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     Math.PI,
     'peirce-coast-survey-calais-observatory',
     3.2,
-    2.13,
+    3.2 * 425 / 640,
     'pragmatism-context',
     PRAGMATISM_PALETTE.educationGreen,
   ),
@@ -807,7 +811,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'peirce-coast-survey-mapmaking-division-1940',
     3.2,
-    2.57,
+    3.2 * 514 / 640,
     'pragmatism-concept',
     PRAGMATISM_PALETTE.fallibilistGold,
   ),
@@ -820,7 +824,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     Math.PI,
     'peirce-coast-survey-press-room-1937',
     3.2,
-    2.53,
+    3.2 * 505 / 640,
     'pragmatism-concept',
     PRAGMATISM_PALETTE.archiveCharcoal,
   ),
@@ -833,7 +837,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'william-james-thayer-expedition-group-c1866',
     3.2,
-    2.42,
+    3.2 * 485 / 640,
     'pragmatism-context',
     PRAGMATISM_PALETTE.educationGreen,
   ),
@@ -845,7 +849,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: -5.55, z: -1.12},
     Math.PI,
     'william-james-alexandrina-woodcut-1865',
-    2.44,
+    2.7 * 578 / 640,
     2.7,
     'pragmatism-context',
     PRAGMATISM_PALETTE.democracyRed,
@@ -859,7 +863,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'william-james-house-library-habs-1967',
     3.2,
-    2.29,
+    3.2 * 458 / 640,
     'pragmatism-context',
     PRAGMATISM_PALETTE.fallibilistGold,
   ),
@@ -871,8 +875,8 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: 10.85, z: -7},
     -Math.PI / 2,
     'william-james-leonora-piper-newspaper-1899',
-    2.98,
-    2.7,
+    3.05,
+    3.05 * 581 / 640,
     'pragmatism-concept',
     PRAGMATISM_PALETTE.experiencePlum,
   ),
@@ -884,7 +888,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: 5.55, z: -1.12},
     Math.PI,
     'william-james-self-portrait-c1866',
-    2.02,
+    2.7 * 479 / 640,
     2.7,
     'pragmatism-work',
     PRAGMATISM_PALETTE.experiencePlum,
@@ -898,7 +902,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'dewey-inlander-staff-faculty-advisers-c1884-93',
     3.2,
-    2.5,
+    3.2 * 499 / 640,
     'pragmatism-context',
     PRAGMATISM_PALETTE.inquiryBlue,
   ),
@@ -911,7 +915,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     Math.PI,
     'dewey-child-cave-and-trees-drawing-1900',
     3.2,
-    2.4,
+    3.2 * 480 / 640,
     'pragmatism-work',
     PRAGMATISM_PALETTE.fallibilistGold,
   ),
@@ -924,7 +928,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     0,
     'dewey-hull-house-kindergarten-1902',
     3.2,
-    2.1,
+    3.2 * 375 / 571,
     'pragmatism-context',
     PRAGMATISM_PALETTE.democracyRed,
   ),
@@ -937,7 +941,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     -Math.PI / 2,
     'dewey-laboratory-schools-exterior-2006',
     3.2,
-    2.4,
+    3.2 * 480 / 640,
     'pragmatism-context',
     PRAGMATISM_PALETTE.educationGreen,
   ),
@@ -948,9 +952,9 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     'pragmatism-dewey-democracy',
     {x: 5.55, z: 12.88},
     Math.PI,
-    'dewey-dubinsky-kilpatrick-labor-education-1949',
+    'dewey-hine-night-school-boston-1909',
     3.2,
-    2.56,
+    3.2 * 450 / 640,
     'pragmatism-concept',
     PRAGMATISM_PALETTE.democracyRed,
   ),
@@ -962,7 +966,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: -5.55, z: 15.12},
     0,
     'pragmatism-continuity-jane-addams-hine-1913',
-    1.89,
+    2.7 * 448 / 640,
     2.7,
     'pragmatism-context',
     PRAGMATISM_PALETTE.democracyRed,
@@ -976,7 +980,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     Math.PI / 2,
     'pragmatism-continuity-hull-house-singing-class-1929',
     3.2,
-    2.06,
+    3.2 * 412 / 640,
     'pragmatism-context',
     PRAGMATISM_PALETTE.educationGreen,
   ),
@@ -988,7 +992,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: -5.55, z: 26.88},
     Math.PI,
     'pragmatism-continuity-alain-locke-rhodes-portrait-1907',
-    1.92,
+    2.7 * 455 / 640,
     2.7,
     'pragmatism-concept',
     PRAGMATISM_PALETTE.experiencePlum,
@@ -1001,7 +1005,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: 5.55, z: 15.12},
     0,
     'pragmatism-continuity-anna-julia-cooper-bell-c1902',
-    1.95,
+    2.7 * 462 / 640,
     2.7,
     'pragmatism-concept',
     PRAGMATISM_PALETTE.fallibilistGold,
@@ -1015,7 +1019,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     -Math.PI / 2,
     'pragmatism-continuity-shaw-university-public-inquiry-1960',
     3.2,
-    1.94,
+    3.2 * 389 / 640,
     'pragmatism-context',
     PRAGMATISM_PALETTE.inquiryBlue,
   ),
@@ -1027,7 +1031,7 @@ export const PRAGMATISM_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
     {x: 5.55, z: 26.88},
     Math.PI,
     'pragmatism-continuity-fannie-lou-hamer-1964',
-    1.79,
+    2.7 * 425 / 640,
     2.7,
     'pragmatism-concept',
     PRAGMATISM_PALETTE.democracyRed,
@@ -1038,6 +1042,6 @@ export const getPragmatismSupplementalExhibit = (
   id: MuseumSupplementalExhibitId,
 ): MuseumSupplementalExhibit => {
   const record = PRAGMATISM_SUPPLEMENTAL_EXHIBITS.find((item) => item.id === id);
-  if (!record) throw new Error(`Gallery 22 supplemental exhibit ${id} is missing.`);
+  if (!record) throw new Error(`Gallery 19 supplemental exhibit ${id} is missing.`);
   return record;
 };

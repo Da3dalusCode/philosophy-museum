@@ -563,7 +563,7 @@ export type MuseumAssetId =
   | 'dewey-child-cave-and-trees-drawing-1900'
   | 'dewey-hull-house-kindergarten-1902'
   | 'dewey-laboratory-schools-exterior-2006'
-  | 'dewey-dubinsky-kilpatrick-labor-education-1949'
+  | 'dewey-hine-night-school-boston-1909'
   | 'pragmatism-continuity-jane-addams-hine-1913'
   | 'pragmatism-continuity-hull-house-singing-class-1929'
   | 'pragmatism-continuity-alain-locke-rhodes-portrait-1907'

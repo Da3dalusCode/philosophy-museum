@@ -118,6 +118,7 @@ export const authorSupplementalLayout = ({
   installationKind,
   accent,
   width = 4.35,
+  viewpointDistance,
 }: {
   id: MuseumSupplementalExhibitId;
   parentExhibitId: MuseumExhibitId;
@@ -131,6 +132,7 @@ export const authorSupplementalLayout = ({
   installationKind: MuseumSupplementalInstallationKind;
   accent: string;
   width?: number;
+  viewpointDistance?: number;
 }): MuseumSupplementalExhibitLayout => ({
   id,
   parentExhibitId,
@@ -141,7 +143,7 @@ export const authorSupplementalLayout = ({
   rotationY,
   interactionRadius: 3.65,
   collider: {id: `supplemental:${id}`, center: position, size: {width, depth: 1.05}, rotation: rotationY},
-  viewpoint: {...cameraFor(position, rotationY), yaw: rotationY, pitch: -.055},
+  viewpoint: {...cameraFor(position, rotationY, viewpointDistance), yaw: rotationY, pitch: -.055},
   assetId,
   mediaMount: mediaMount(id, assetId, mediaWidth, mediaHeight),
   label: {position: [0, 4.04, -.3], width: width - .36, height: .72},

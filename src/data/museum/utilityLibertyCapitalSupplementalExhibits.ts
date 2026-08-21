@@ -405,6 +405,7 @@ const layout = (
   mediaHeight: number,
   installationKind: InstallationKind,
   accent: string,
+  viewpointDistance?: number,
 ) => authorSupplementalLayout({
   id: id as MuseumSupplementalExhibitId,
   parentExhibitId,
@@ -417,6 +418,7 @@ const layout = (
   mediaHeight,
   installationKind: installationKind as MuseumSupplementalInstallationKind,
   accent,
+  viewpointDistance,
 });
 
 export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
@@ -436,7 +438,7 @@ export const UTILITY_LIBERTY_CAPITAL_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   layout('capital-commodity-spectacle', 'marx', 'nineteenth-labor-capital', {x: 10.85, z: 7}, -Math.PI / 2, 'utility-crystal-palace-interior', 3.2, 3.2 * 402 / 640, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.reformBlue),
   layout('capital-class-revolution-1848', 'marx', 'nineteenth-labor-capital', {x: 5.55, z: 12.88}, Math.PI, 'utility-meissonier-barricade', 2.7 * 473 / 640, 2.7, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
   layout('transformations-ricardo-political-economy', 'marx', 'nineteenth-social-transformations', {x: -5.55, z: 15.12}, 0, 'utility-ricardo-phillips-portrait', 2.7 * 496 / 640, 2.7, 'utility-concept', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
-  layout('transformations-industrial-city', 'marx', 'nineteenth-social-transformations', {x: -10.85, z: 17.5}, Math.PI / 2, 'utility-manchester-kersal-moor', 3.2, 3.2 * 410 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.charcoal),
+  layout('transformations-industrial-city', 'marx', 'nineteenth-social-transformations', {x: -10.85, z: 17.5}, Math.PI / 2, 'utility-manchester-kersal-moor', 3.2, 3.2 * 410 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.charcoal, 3),
   layout('transformations-gendered-labor', 'marx', 'nineteenth-social-transformations', {x: -5.55, z: 26.88}, Math.PI, 'utility-redgrave-sempstress', 3.05, 3.05 * 535 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.plum),
   layout('transformations-global-cotton', 'marx', 'nineteenth-social-transformations', {x: 5.55, z: 15.12}, 0, 'utility-degas-cotton-office', 3.12, 3.12 * 505 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.industryGold),
   layout('transformations-chartist-politics', 'marx', 'nineteenth-social-transformations', {x: 10.85, z: 21}, -Math.PI / 2, 'utility-chartist-kennington-common', 3.2, 3.2 * 455 / 640, 'utility-context', UTILITY_LIBERTY_CAPITAL_PALETTE.civicRed),
