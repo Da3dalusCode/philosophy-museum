@@ -2668,14 +2668,14 @@
       "scene": {
         "width": 640,
         "height": 182,
-        "bytes": 35442,
-        "sha256": "19a4cddd75f95946a3040b78c47de4e3d99fde512a16fb25bae9214dd5e74d5c"
+        "bytes": 41236,
+        "sha256": "da4da3cfca32419b518ae7eb33f4681fe8895e9251c2dfe8788a6ddc9f3b7577"
       },
       "panel": {
-        "width": 800,
-        "height": 227,
-        "bytes": 68068,
-        "sha256": "3f369fc3cfb3f52b17b6746cf45607fb1acfb11d0fc60147238c435c9f6c4d01"
+        "width": 1280,
+        "height": 364,
+        "bytes": 120002,
+        "sha256": "d5cfbff289674d2c848285a89a884b1b40bdad29a5166f472de4a1f04649b9e5"
       }
     },
     "anscombe-truman-portrait": {
