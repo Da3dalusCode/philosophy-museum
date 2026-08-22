@@ -86,7 +86,7 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     ],
     'philosophy-religion-plural-inquiry-interpretive',
     'This original 2026 Philosophy Atlas Museum illustration stages an imagined plural forum with readers, conversation, contemplation, gathering, doubt, natural awe, and paths approaching or leaving an open center. It is not an artifact from a religious tradition, a neutral map of religions, or evidence that their claims converge. The image is a conceptual prompt for careful comparison: it can foreground multiple modes of inquiry while leaving the histories, commitments, and disagreements of particular communities to the article and its sources.',
-    'fnv1a64:08ea95587048a2ba',
+    'fnv1a64:fe644319d771a3d9',
   ),
   antisthenes: objectLed(
     'Antisthenes',

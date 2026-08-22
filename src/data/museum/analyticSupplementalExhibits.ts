@@ -586,10 +586,10 @@ export const ANALYTIC_SUPPLEMENTAL_EXHIBITS = ([
     displayName: 'Wittgenstein: Philosophical Investigations',
     shortTitle: 'Wittgenstein: Investigations',
     workLabel: 'WITTGENSTEIN · PHILOSOPHICAL INVESTIGATIONS',
-    dateLabel: 'Published posthumously in 1953',
+    dateLabel: 'Skjolden site photographed 3 October 2022 · Philosophical Investigations published posthumously in 1953',
     question: 'What if philosophical confusion arises because language is forced into one misleading picture?',
     frontSubtitle: 'Use, grammar, reminders, cases, and philosophical therapy',
-    lead: 'Philosophical Investigations replaces the search for one essence of language with comparisons among varied uses: requesting, calculating, joking, promising, reporting, praying, and more. Meaning is often illuminated by use within a practice, not by locating a hidden object attached to every word. Wittgenstein’s remarks offer examples and reminders intended to loosen philosophical pictures rather than establish a new total system. Wittgenstein repeatedly drafted and rearranged material with publication in view but did not issue the book himself; G. E. M. Anscombe and Rush Rhees edited the first edition after his death in 1953. The displayed cover is therefore a publication artifact and part of an editorial history, not evidence of one author-final system.',
+    lead: 'The installed 2022 photograph shows Wittgenstein’s reconstructed house at Skjolden, a biographical site rather than a textual witness. Philosophical Investigations replaces the search for one essence of language with comparisons among varied uses: requesting, calculating, joking, promising, reporting, praying, and more. Meaning is often illuminated by use within a practice, not by locating a hidden object attached to every word. Wittgenstein’s remarks offer examples and reminders intended to loosen philosophical pictures rather than establish a new total system. He repeatedly drafted and rearranged material with publication in view but did not issue the book himself; G. E. M. Anscombe and Rush Rhees edited the first edition after his death in 1953.',
     keyIdeas: [
       'Words operate within diverse language-games rather than one universal representational function.',
       'Grammar concerns the rules and contrasts that organize meaningful use.',
@@ -598,7 +598,7 @@ export const ANALYTIC_SUPPLEMENTAL_EXHIBITS = ([
     cautions: [
       '“Meaning is use” is an orientation, not the claim that dictionaries, reference, or truth never matter.',
       'Ordinary use can be contested, changing, specialized, and entangled with power.',
-      'The cover does not illustrate the arguments, and later editions reconsidered the status of material once printed as Part II.',
+      'The reconstructed house and landscape do not illustrate the arguments, and later editions reconsidered the status of material once printed as Part II.',
     ],
     sections: [
       {heading: 'Against a single picture', paragraphs: ['The opening critique of Augustine challenges the idea that every word names an object and every sentence combines names. Wittgenstein multiplies examples to show how little one template explains.']},
@@ -606,6 +606,7 @@ export const ANALYTIC_SUPPLEMENTAL_EXHIBITS = ([
       {heading: 'An unfinished book', paragraphs: ['Anscombe and Rhees prepared the 1953 posthumous text from manuscripts Wittgenstein had repeatedly selected and revised. The fourth revised edition treats the former Part II as Philosophy of Psychology—A Fragment, making edition and editorial history material to interpretation.']},
     ],
     sources: [
+      {label: 'Ludwig Wittgenstein Project — Philosophische Untersuchungen, §1', url: 'https://wittgensteinproject.org/w/index.php/Philosophische_Untersuchungen', kind: 'primary-text'},
       {label: 'Stanford Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://plato.stanford.edu/entries/wittgenstein/', kind: 'academic-reference'},
       {label: 'Internet Encyclopedia of Philosophy — Ludwig Wittgenstein', url: 'https://iep.utm.edu/wittgens/', kind: 'academic-reference'},
       {label: 'Wittgenstein Archives at the University of Bergen', url: 'https://www.wittgensteinsource.org/', kind: 'collection-record'},

@@ -184,9 +184,18 @@ for (const entry of reviewedEntries) {
   }
 }
 
+const supplementalTotal = data.museumSupplementalExhibits.length;
+const supplementalReviewed = data.museumSupplementalExhibits.filter(({exhibit}) =>
+  data.exhibitReview.authoredMuseumExhibitReviewStatus(exhibit) !== 'unreviewed').length;
+const supplementalBacklog = supplementalTotal - supplementalReviewed;
+const museumStopCount = entries.length + supplementalTotal;
 const dataAsOf = reviewedEntries.map(({reviewedOn}) => reviewedOn).filter(Boolean).sort().at(-1) ?? null;
 const ledger = {
   dataAsOf,
+  museumProgramContext: {
+    supplementalExhibits: {total: supplementalTotal, reviewed: supplementalReviewed, backlog: supplementalBacklog},
+    museumStops: museumStopCount,
+  },
   canonicalArticleBaseline: {
     total: articleStatusEntries.length,
     countsByEffectiveStatus: articleCounts,
@@ -212,6 +221,8 @@ Data as of: ${dataAsOf ?? 'no exhibit reviews'}
 This generated ledger inventories the canonical Museum program and joins each exhibit to the live canonical article registry, current article review lock, primary interpretation, principal object, and exhibit review lock. Authored review metadata remains in the canonical interpretation records; this file is a reproducible report, not a parallel source of truth.
 
 Regenerate it with \`npm run report:exhibits\` and verify it with \`npm run audit:exhibits\`.
+
+Current generated Museum context: **${supplementalReviewed}/${supplementalTotal} supplemental exhibits reviewed**, **${supplementalBacklog === 0 ? 'zero backlog' : `${supplementalBacklog} in backlog`}**, and **${museumStopCount}/${museumStopCount} current Museum stops interpreted**. These are internal, AI-assisted editorial review states, not independent academic or peer review.
 
 ## Article baseline
 

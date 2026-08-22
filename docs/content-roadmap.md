@@ -9,24 +9,24 @@ Philosophy Atlas currently contains:
 <!-- public-collection-counts:start -->
 - **192 canonical full articles:** 147 philosopher profiles and 45 articles on philosophies, branches, schools, traditions, movements, methods, and frameworks; 192 of 192 are currently claim-reviewed.
 - **192 primary Museum exhibits:** 192 of 192 are standard-compliant under the separate primary exhibit-review standard.
-- **411 supplemental Museum exhibits:** 411 reviewed and 0 explicit backlog.
-- **26 curated/open galleries and 105 rooms:** 603 interpreted stops on one connected public level.
+- **411 supplemental Museum exhibits:** 411/411 reviewed; zero backlog.
+- **26 curated/open galleries and 105 rooms:** 603/603 current Museum stops interpreted on one connected public level.
 <!-- public-collection-counts:end -->
 
-The supplemental accuracy-and-depth program is complete through Galleries 01–23.
+The supplemental accuracy-and-depth program currently covers Galleries 01–26: 411/411 reviewed, with zero backlog. This records the internal program state rather than an independent closeout judgment.
 
 All 192 canonical full articles meet the 2,000-word substantive-prose floor. This closes the universal depth migration; it does not complete sourcing or review.
 
 ## Editorial state
 
-The current generated reports record no stale canonical article or primary exhibit review locks and no unmatched or ambiguous primary exhibit-to-article relationships. The 49 unreviewed supplemental exhibits remain explicit backlog rather than being treated as reviewed or compliant.
+The current generated reports record no stale canonical article or primary exhibit review locks, no unmatched or ambiguous primary exhibit-to-article relationships, 411/411 reviewed supplementals, zero supplemental backlog, and 603/603 current Museum stops interpreted.
 
 Article depth, bibliography presence, claim review, and exhibit review are independent milestones. A long article is not necessarily claim-reviewed, and a claim-reviewed article does not by itself make the related Museum exhibit standard-compliant. These are internal, AI-assisted editorial review states; Philosophy Atlas has not received independent academic or peer review.
 
 ## Current priorities
 
 1. Maintain current canonical article and primary exhibit review locks as content, evidence, or interpretation changes.
-2. Complete the supplemental Museum exhibit backlog only after each related article and displayed object can be reconciled to the supplemental exhibit standard.
+2. Maintain the 411 supplemental review locks and apply evidence-led corrections when an installed object, source, or interpretation changes.
 3. Advance the approved flagship roster toward its higher depth targets without filler or weakened source discipline.
 4. Maintain source, image-rights, accessibility, chronology, classification, and relationship metadata as the collection evolves.
 5. Deepen comparison and learning routes selectively while keeping Big History and Philosophy Map readable.

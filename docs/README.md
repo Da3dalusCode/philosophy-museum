@@ -28,7 +28,7 @@ These files and checks define what the application actually ships:
 - `npm run check:museum-building` and `npm run check:route-manifest` — prove generated manifests match their checked-in sources.
 - `npm run validate:museum-masterplan`, `npm run validate:museum-building-plan`, and the `audit:*` commands — enforce program, geometry, routes, content, media, accuracy, and referential-integrity contracts.
 
-The current validated Museum contains 26 curated/open galleries, 105 rooms, 192 primary exhibits, 411 supplemental exhibits, and 603 interpreted stops. Counts in archived documents describe their own checkpoints, not the current release.
+The current validated Museum contains 26 curated/open galleries, 105 rooms, 192 primary exhibits, **411/411 supplemental exhibits reviewed with zero backlog**, and **603/603 current Museum stops interpreted**. These are internal, AI-assisted editorial review states, not independent academic or peer review. Counts in archived documents describe their own checkpoints, not the current release.
 
 ## Historical and superseded evidence
 

@@ -546,9 +546,13 @@ const gallerySummaries = data.museumPublicRouteHallIds.map((hallId, index) => {
       exhibitReview.effectiveStatus === 'standard-compliant' && contract.status === 'pass').length,
   };
 });
+const primaryStopCount = data.museumCanonicalProgram.reduce((total, hall) =>
+  total + hall.rooms.reduce((hallTotal, room) => hallTotal + room.exhibits.length, 0), 0);
+const museumStopCount = primaryStopCount + entries.length;
 const dataAsOf = reviewedEntries.map(({exhibitReview}) => exhibitReview.reviewedOn).filter(Boolean).sort().at(-1) ?? null;
 const ledger = {
   dataAsOf,
+  museumProgramContext: {primaryExhibits: primaryStopCount, museumStops: museumStopCount},
   authority: 'Runtime MUSEUM_SUPPLEMENTAL_EXHIBITS registry ordered by the runtime public route and guided walking order',
   contract: {
     articleDepthMinimum: ARTICLE_PROSE_WORD_MINIMUM,
@@ -592,6 +596,8 @@ Regenerate with \`npm run report:supplementals\`. Audit reviewed regressions saf
 | Total | Backlog | Reviewed | Standard compliant | Errors |
 | ---: | ---: | ---: | ---: | ---: |
 | ${entries.length} | ${ledger.inventory.backlog} | ${reviewedEntries.length} | ${resolvedEntries.length} | ${ledgerErrors.length} |
+
+Current generated state: **${reviewedEntries.length}/${entries.length} supplemental exhibits reviewed**, **${ledger.inventory.backlog === 0 ? 'zero backlog' : `${ledger.inventory.backlog} in backlog`}**, and **${museumStopCount}/${museumStopCount} current Museum stops interpreted**. These are internal, AI-assisted editorial review states, not independent academic or peer review.
 
 Unreviewed records are explicit backlog: they are inventoried but neither reported as compliant nor treated as a global audit failure. Reviewed lock regressions and objective contract regressions fail.
 

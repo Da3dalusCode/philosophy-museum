@@ -77,9 +77,9 @@ const evidence: Record<string, ReviewEvidence> = {
     resolution: 'Resolved: verified the 2010 licensed photograph, dated Zhu Xi’s revival carefully, distinguished institutional transmission from surviving fabric, mapped every claim, preserved natural proportions, and linked the current Zhu Xi article.', lock: 'fnv1a64:144aba11ea3b22be',
   },
   'eac-wang-letters': {
-    plaqueTitle: 'Letters to Zheng Bangrui',
-    invitation: 'Wang Yangming’s handscroll makes philosophy visible as addressed counsel, where innate moral knowing and the unity of knowledge and action meet relationships, decisions, and correction.',
-    plaqueType: 'work-or-text', canonicalContexts: [{kind: 'philosopher', id: 'wang-yangming'}], articleTitle: 'Wang Yangming',
+    plaqueTitle: 'Former Residence Site of Wang Shouren',
+    invitation: 'This 2017 photograph supplies place context for Wang Yangming; Princeton’s separate 1523–1525 handscroll supplies related evidence for addressed counsel and correspondence.',
+    plaqueType: 'object-manuscript-site-or-archaeological-context', canonicalContexts: [{kind: 'philosopher', id: 'wang-yangming'}], articleTitle: 'Wang Yangming',
     objectInterpretation: '猫猫的日记本 photographed the restored former-residence site of Wang Shouren in Shaoxing in 2017 under CC BY-SA 4.0. The courtyard grounds Wang’s life in place, but it is neither the setting of the Zheng correspondence nor intact sixteenth-century fabric and cannot illustrate innate knowing.',
     context: [
       'Princeton’s separate collection record identifies Wang Shouren’s ink-on-paper Letters to Zheng Bangrui as a handscroll made about 1523–1525, accession y1979-95. The letter form makes teaching responsive to a named person and difficulty rather than a detached slogan.',
@@ -95,11 +95,11 @@ const evidence: Record<string, ReviewEvidence> = {
     guide: ['Counsel and moral practice', [
       ['Innate knowing', 'Liangzhi names a capacity for moral recognition that can be obscured; it does not make every sincere feeling reliable.', ['wang-sep']],
       ['Knowledge and action', 'Ethically serious knowing already inclines conduct while remaining answerable to reflection, correction, and consequences.', ['wang-sep']],
-    ], 'Reading the handscroll', [
+    ], 'Separating site and handscroll', [
       ['Addressed writing', 'A letter answers a person and circumstance, letting philosophical instruction become relational and practical.', ['wang-letters-princeton', 'wang-sep']],
       ['Two separate objects', 'The installed residence photograph and Princeton handscroll have different makers, dates, holdings, rights, and evidentiary limits.', ['wang-residence-commons', 'wang-letters-princeton']],
     ]],
-    resolution: 'Resolved: identified the installed 2017 CC BY-SA residence photograph separately from Princeton’s 1523–1525 handscroll, mapped each object and the moral-practice claims to exact evidence, preserved the diversity asset and natural proportions, and linked the current Wang Yangming article.', lock: 'fnv1a64:3930bcbc201f90e6',
+    resolution: 'Resolved: retitled and redated the plaque for the installed 26 February 2017 CC BY-SA residence photograph, assigned it a contextual site role, kept Princeton’s 1523–1525 handscroll as a separate related object, mapped each claim to its evidence, preserved the asset bytes and natural proportions, and linked the current Wang Yangming article.', lock: 'fnv1a64:494aae3d84373cbd',
   },
   'eac-taijitu-heartmind': {
     plaqueTitle: 'Zhou Dunyi’s Taijitu',

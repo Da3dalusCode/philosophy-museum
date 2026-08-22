@@ -2,11 +2,11 @@
 
 > Current inventory and policy are stated first. The canonical-six and Phase 2 tables later in this file are preserved historical evidence, not the live roster. If a prose count drifts, `src/data/museum/museumAssets.ts` and `npm run audit:museum-assets` are authoritative.
 
-The current Museum registry contains **661 provenance records** and **1,322 committed local WebP derivatives**, with scene and panel variants for every registered source object. The complete 26-gallery Museum contains **603 interpreted stops**—192 primary exhibits and 411 supplemental/context exhibits—and resolves **619 live media placements**. Preparation manifests maintain **1,284 exact derivative hash locks**.
+The current Museum registry contains **661 provenance records** and **1,322 committed local WebP derivatives**, with scene and panel variants for every registered source object. The complete 26-gallery Museum records **411/411 supplemental exhibits reviewed with zero backlog** and **603/603 current Museum stops interpreted**—192 primary exhibits plus 411 supplemental/context exhibits—and resolves **619 live media placements**. The authoritative on-disk census contains **12 preparation manifests**, **646 unique manifest assets**, and **1,292 exact derivative hash locks**.
 
 Typed records are assembled by `src/data/museum/museumAssets.ts` from the Ancient, modern, expansion, canonical, and gallery-specific registries. They preserve titles, creators, object dates, institutions, exact source pages, rights terms, attribution, transformation notices, dimensions, alt text, captions, focal points, and likeness cautions.
 
-Human review establishes provenance and interpretive suitability. The deterministic audit verifies committed records and files without pretending to re-verify remote collection metadata.
+Human review establishes provenance and interpretive suitability. These are internal, AI-assisted editorial review states, not independent fact-checking or independent academic or peer review. The deterministic audit verifies committed records and files without pretending to re-verify remote collection metadata.
 
 ## Curatorial and technical policy
 
@@ -16,10 +16,11 @@ Human review establishes provenance and interpretive suitability. The determinis
 - Where practical, a philosopher exhibit pairs an identity or contextual anchor with a primary text, manuscript, document, or other material witness.
 - Public-domain and CC0 sources are preferred. CC BY and CC BY-SA sources remain acceptable when creator, license, attribution, and derivative notice are explicit.
 - Downloaded originals are not committed. Exact source pages, selected download URLs, derivative dimensions, byte counts, and hashes are retained in the relevant preparation manifests.
+- Owner-approved generated assets use repository provenance pinned to an immutable commit revision; local scene and panel bytes remain independently protected by exact hashes. Mutable branch URLs fail the asset audit.
 
 ## Current registry and lock pipeline
 
-The asset registry composes gallery-specific typed records while preparation scripts under `scripts/` verify the managed source sets. Those sets include the modern and Mediterranean foundations, successor galleries, Galleries 13 and 16, Galleries 17 and 18, paired later-gallery releases, and the Gallery 25 and 26 releases. Together they account for the current **1,284 exact hash locks**.
+The asset registry composes gallery-specific typed records while preparation scripts under `scripts/` verify the managed source sets. Those sets include the modern and Mediterranean foundations, the Gallery 12 supplemental lock, successor galleries, Galleries 13 and 16, Galleries 17 and 18, paired later-gallery releases, and the Gallery 25 and 26 releases. The audit enumerates all matching manifest files rather than trusting a prose list; the current 12-manifest census accounts for **646 unique assets** and **1,292 exact hash locks**.
 
 Preparation scripts download originals only into temporary workspaces, apply orientation and bounded resizing, write optimized WebP candidates, and compare generated files with the committed lock metadata. `--refresh-locks` is an explicit curatorial operation; ordinary verification must not silently rewrite the corpus.
 
@@ -159,4 +160,4 @@ These two manifests are historical foundations of the lock system, not the whole
 - CC BY-SA 2.0, 3.0, and 4.0
 - Commons public-domain templates for anonymous European works, Portugal, and U.S. press material
 
-Run `npm run audit:museum-assets` to verify the current **661 records**, **1,322 local derivatives**, **1,284 exact hash locks**, **619 live media placements**, and media resolution across all **603 interpreted stops**. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, manifest-to-typed-record agreement, byte and SHA-256 locks, runtime hotlink prevention, visual-diversity rules, and unexpected missing or orphaned files. It performs no network requests.
+Run `npm run audit:museum-assets` to compute and verify the current **661 records**, **1,322 local derivatives**, **1,292 exact hash locks across 12 manifests and 646 unique manifest assets**, **619 live media placements**, and media resolution across all **603/603 current interpreted stops**. The audit also checks local path safety and case, WebP dimensions, rights-kind and license-URL consistency, derivative notices, attribution, alt text, likeness classification, complete on-disk manifest coverage including Gallery 12, manifest-to-typed-record agreement, byte and SHA-256 locks, immutable generated-asset provenance, runtime hotlink prevention, visual-diversity rules, and unexpected missing or orphaned files. It performs no network requests.

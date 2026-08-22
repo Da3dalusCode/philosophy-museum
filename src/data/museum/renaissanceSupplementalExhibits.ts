@@ -445,7 +445,7 @@ export const RENAISSANCE_SUPPLEMENTAL_EXHIBITS = ([
       {heading: 'Depth: a live alternative beside Hobbes', paragraphs: ['Hobbes answers divided judgment by constructing an authorized sovereign whose public decisions end the contest. Putney keeps another possibility visible: political order might be stabilized through a written agreement and a wider account of who may authorize it. The room invites comparison without pretending the Levellers solved every exclusion.']},
     ],
     sources: [
-      {label: 'Wikisource: The Putney Debates', url: 'https://en.wikisource.org/wiki/The_Putney_Debates', kind: 'primary-text'},
+      {label: 'Wikisource: Putney debates', url: 'https://en.wikisource.org/wiki/Putney_debates', kind: 'primary-text'},
       {label: 'The National Archives: The Putney Debates', url: 'https://www.nationalarchives.gov.uk/explore-the-collection/on-the-record-podcast/on-the-record-the-putney-debates/', kind: 'academic-reference'},
       {label: 'Wikimedia Commons: Agreement of the People, 1648 edition', url: 'https://commons.wikimedia.org/wiki/File:Agreement_of_the_people_(1648_edition)_(IA_agreement1648).djvu', kind: 'collection-record'},
     ],

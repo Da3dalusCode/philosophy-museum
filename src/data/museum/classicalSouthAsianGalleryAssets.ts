@@ -9,7 +9,7 @@ const folder = 'classical-south-asian-worlds';
 const derivativeNotice = 'Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.';
 const originalNotice = 'Original Philosophy Atlas Museum illustration retained uncropped, resized, and converted to WebP.';
 const generatedSource = (id: string) =>
-  `https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/${folder}/${id}-panel.webp`;
+  `https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/${folder}/${id}-panel.webp`;
 
 const variant = (id: string, kind: 'scene' | 'panel', size: readonly [number, number]): MuseumAssetVariant => ({
   path: `assets/museum/${folder}/${id}-${kind}.webp`,
@@ -196,7 +196,7 @@ export const CLASSICAL_SOUTH_ASIAN_GALLERY_ASSETS = [
     likenessStatus: 'not-applicable',
   }),
   asset({
-    id: 'shankara-aitareya-bhasya-1593', entityKind: 'philosopher', entityId: 'shankara', role: 'primary-source', mediaKind: 'manuscript',
+    id: 'shankara-aitareya-bhasya-1593', entityKind: 'philosopher', entityId: 'shankara', role: 'context', mediaKind: 'manuscript',
     title: 'Ādi Śaṅkarācārya with Disciples', creator: 'Modern sculptor unrecorded; photograph by Shishirdasika', objectDate: 'Modern devotional sculpture; photographed 26 December 2016', institution: 'Warangal, Telangana; holding institution not verified',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Adi_Shankaracharya_with_Disciples.jpg', ...licensed('CC BY-SA 4.0', 'https://creativecommons.org/licenses/by-sa/4.0/'), derivativeNotice,
     attribution: 'Shishirdasika, photograph of Ādi Śaṅkarācārya with Disciples, Warangal, 26 December 2016, CC BY-SA 4.0.',
@@ -295,14 +295,14 @@ export const CLASSICAL_SOUTH_ASIAN_GALLERY_ASSETS = [
     likenessStatus: 'not-applicable',
   }),
   asset({
-    id: 'nyaya-spitzer-philosophical-fragments', entityKind: 'philosopher', entityId: 'kanada', role: 'primary-source', mediaKind: 'manuscript',
-    title: 'Spitzer manuscript folio 383 fragments', creator: 'Ancient copyist unknown; recto/verso image assembly by Ms Sarah Welch', objectDate: 'Second–third century CE; conventional calibrated range 80–230 CE', institution: 'Specific folio holding not established; Spitzer fragments divided between Berlin State Library and British Library',
+    id: 'nyaya-spitzer-philosophical-fragments', entityKind: 'philosopher', entityId: 'kanada', role: 'context', mediaKind: 'manuscript',
+    title: 'Uploader’s assembly attributed to Spitzer manuscript folio 383', creator: 'Ancient copyist unknown; recto/verso image assembly by Ms Sarah Welch', objectDate: 'Second–third century CE; calibrated radiocarbon range 80–230 CE', institution: 'SHT 810 is held by the Staatsbibliothek zu Berlin; the installed assembly lacks an institutional image record authenticating its exact fragments',
     sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:2nd-century_CE_Sanskrit,_Kizil_China,_Spitzer_Manuscript_folio_383_fragment_recto_and_verso.jpg', ...licensed('CC BY-SA 4.0', 'https://creativecommons.org/licenses/by-sa/4.0/'), derivativeNotice,
-    attribution: 'Ms Sarah Welch, assembly of Spitzer manuscript folio 383 fragments, CC BY-SA 4.0.',
+    attribution: 'Ms Sarah Welch, 2019 assembly attributed by its Commons record to Spitzer manuscript folio 383, CC BY-SA 4.0.',
     scene: [640, 356], panel: [1280, 712],
     alt: 'A modern image assembly places the recto and verso of small brown Sanskrit manuscript fragments in two labeled horizontal rows.',
-    caption: 'Ms Sarah Welch’s recto/verso assembly presents fragments assigned to Spitzer manuscript folio 383.',
-    historicalNote: 'The fragmentary work is not specifically a Nyāya or Vaiśeṣika manuscript; its relevance is contextual and reconstruction remains incomplete.',
+    caption: 'A modern recto/verso assembly that its uploader assigns to Spitzer manuscript folio 383.',
+    historicalNote: 'Scholarship identifies the Spitzer manuscript as Berlin SHT 810 and reconstructs folio *383, but no institutional image record was found that authenticates the installed assembly’s exact fragment-to-image chain. It is not a Nyāya or Vaiśeṣika witness.',
     likenessStatus: 'not-applicable',
   }),
   asset({

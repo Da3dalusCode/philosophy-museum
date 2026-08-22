@@ -21,7 +21,7 @@ type FinalWorldTraditionId =
   | 'german-idealism';
 
 const EXHIBIT_REVIEW_LOCKS_BY_NAME: Readonly<Record<string, `fnv1a64:${string}`>> = {
-  'Indian Philosophy': 'fnv1a64:3345949d9cb7fde0',
+  'Indian Philosophy': 'fnv1a64:20116ad8857f98bb',
   'Buddhist Philosophy': 'fnv1a64:8b03f10aa6151542',
   Rationalism: 'fnv1a64:1ba4e9db4b2c3270',
   Empiricism: 'fnv1a64:f1af1ea138b6e265',
@@ -115,7 +115,7 @@ Readonly<Record<FinalWorldTraditionId, BranchExhibitEditorialRecord>> = {
         {label: 'Stanford Encyclopedia of Philosophy — Language and Testimony in Classical Indian Philosophy', url: 'https://plato.stanford.edu/entries/language-india/', kind: 'academic-reference'},
         {label: 'The Early Upaniṣads: Annotated Text and Translation', url: 'https://global.oup.com/academic/product/the-early-upanisads-9780195124354', kind: 'primary-text'},
         {label: 'Nyāya Sūtras of Gautama — registered primary-text edition', url: 'https://archive.org/details/nyayasutrasofgautama00gautuoft', kind: 'primary-text'},
-        {label: 'Many schools, shared questions, unfinished routes — registered Museum asset record', url: 'https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/classical-south-asian-worlds/south-many-schools-interpretive-panel.webp', kind: 'collection-record'},
+        {label: 'Many schools, shared questions, unfinished routes — registered Museum asset record', url: 'https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/classical-south-asian-worlds/south-many-schools-interpretive-panel.webp', kind: 'collection-record'},
       ],
     ),
   },

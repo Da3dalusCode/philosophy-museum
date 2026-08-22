@@ -6,6 +6,8 @@ This generated ledger inventories the canonical Museum program and joins each ex
 
 Regenerate it with `npm run report:exhibits` and verify it with `npm run audit:exhibits`.
 
+Current generated Museum context: **411/411 supplemental exhibits reviewed**, **zero backlog**, and **603/603 current Museum stops interpreted**. These are internal, AI-assisted editorial review states, not independent academic or peer review.
+
 ## Article baseline
 
 | Total | Unreviewed | Bibliography only | Source mapped | Claim reviewed | Review out of date |

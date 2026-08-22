@@ -239,7 +239,7 @@ export const ISLAMIC_GALLERY_ASSETS = [
     id: 'avicenna-pointers-tusi-commentary',
     entityKind: 'philosopher',
     entityId: 'avicenna',
-    role: 'primary-source',
+    role: 'context',
     mediaKind: 'manuscript',
     title: 'Al-Tusi’s resolution of problems in Avicenna’s Pointers',
     creator: 'Nasir al-Din al-Tusi; manuscript copyist unknown',

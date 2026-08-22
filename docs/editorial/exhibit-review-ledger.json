@@ -1,5 +1,13 @@
 {
   "dataAsOf": "2026-08-10",
+  "museumProgramContext": {
+    "supplementalExhibits": {
+      "total": 411,
+      "reviewed": 411,
+      "backlog": 0
+    },
+    "museumStops": 603
+  },
   "canonicalArticleBaseline": {
     "total": 192,
     "countsByEffectiveStatus": {

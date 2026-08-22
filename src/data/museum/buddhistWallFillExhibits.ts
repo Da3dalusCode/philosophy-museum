@@ -336,17 +336,17 @@ const gallery05WallFillCompletionEvidence: Partial<Record<MuseumSupplementalExhi
     invitation: 'This fourteenth-century Chinese tapestry visualizes a later cosmological reception; Vasubandhu’s article explains why Abhidharma joined world systems to analysis and debate.',
     objectInterpretation: 'Metropolitan Museum of Art 1989.140 is an anonymous fourteenth-century Chinese silk kesi tapestry, acquired through the Fletcher Fund and Hotung and Rosenberg gifts. It is later reception, not Vasubandhu’s diagram or proof of a uniform Buddhist cosmos.',
     detail: [
-      'The Met identifies the installed object as a Yuan-period Cosmological Mandala with Mount Meru woven in silk kesi. Its accession and credit line document museum custody and acquisition; the Met also places the work in the public domain. The near-square tapestry’s concentric terrain and architecture belong to a later Chinese artistic and ritual setting.',
-      'Abhidharma cosmology organizes realms, world systems, embodiment, karma, and possible forms of experience within accounts of conditioned continuity. Vasubandhu reports and criticizes scholastic positions rather than merely listing an uncontested map. Cosmological categories therefore participate in arguments about causation and what should count as conventionally or ultimately real.',
-      'The tapestry was made centuries after Vasubandhu and does not reproduce a page of the Abhidharmakośa. Its coherence demonstrates reception and reorganization, not timeless uniformity across India, China, Tibet, schools, or periods. The object source establishes material history; the article and text establish the bounded philosophical relationship.',
+      'The Met records object 1989.140 as an anonymous fourteenth-century Chinese silk kesi tapestry measuring 33 inches square. Mount Meru rises at the center, with sun, moon, continents, architecture, and a floral border ordered around it. The Fletcher Fund and Hotung and Rosenberg gifts document the 1989 acquisition, and the Met marks the collection image public domain.',
+      'In the Abhidharmakośabhāṣya’s Lokanirdeśa discussion, Mount Meru and surrounding world structures locate realms of embodiment and rebirth within a causal account shaped by karma. Vasubandhu reports and tests inherited scholastic positions rather than presenting one uncontested picture, so cosmology participates in analysis of conditioned experience and disputes about what is ultimately or conventionally real.',
+      'The tapestry shows how those inherited materials were transformed in Yuan China: the Met identifies Indo-Himalayan cosmological imagery, Chinese blue-and-green landscape conventions for the four continents, and border motifs linked to central Tibetan monasteries and the Yuan court. This is evidence of artistic and ritual transmission centuries after Vasubandhu, not a page from his text or proof of one unchanged Buddhist map.',
     ],
     sources: [
       {id: 'meru-met', label: 'Metropolitan Museum of Art — Cosmological Mandala with Mount Meru, 1989.140', url: 'https://www.metmuseum.org/art/collection/search/39738', kind: 'collection-record'},
       {id: 'meru-commons', label: 'Wikimedia Commons — installed Met tapestry image', url: 'https://commons.wikimedia.org/wiki/File:%E5%85%83_%E7%B7%99%E7%B5%B2_%E9%A0%88%E5%BD%8C%E5%B1%B1%E6%9B%BC%E9%99%80%E7%BE%85-Cosmological_Mandala_with_Mount_Meru_MET_DP276037.jpg', kind: 'collection-record'},
       {id: 'vasubandhu-sep', label: 'Stanford Encyclopedia of Philosophy — Vasubandhu', url: 'https://plato.stanford.edu/entries/vasubandhu/', kind: 'academic-reference'},
-      {id: 'abhidharma-gretil', label: 'GRETIL — Vasubandhu, Abhidharmakośabhāṣya', url: 'https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_vasubandhu-abhidharmakozabhASya.htm', kind: 'primary-text'},
+      {id: 'abhidharma-gretil', label: 'GRETIL — Vasubandhu, Abhidharmakośabhāṣya, Lokanirdeśa (AK 3.45–48)', url: 'https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_vasubandhu-abhidharmakozabhASya.htm', kind: 'primary-text'},
     ],
-    sectionSourceIds: [['meru-met', 'meru-commons'], ['vasubandhu-sep', 'abhidharma-gretil'], ['meru-met', 'vasubandhu-sep']],
+    sectionSourceIds: [['meru-met', 'meru-commons'], ['vasubandhu-sep', 'abhidharma-gretil'], ['meru-met']],
     visitorGuide: [
       {heading: 'Reading the woven mandala', items: [
         {label: 'Met object 1989.140', description: 'The Met records an anonymous fourteenth-century Chinese silk kesi tapestry and its acquisition credit.', sourceIds: ['meru-met']},
@@ -358,7 +358,7 @@ const gallery05WallFillCompletionEvidence: Partial<Record<MuseumSupplementalExhi
       ]},
     ],
     articleTitle: 'Vasubandhu', canonicalContexts: [{kind: 'philosopher', id: 'vasubandhu'}], plaqueType: 'reception-or-transmission-history',
-    resolution: 'Resolved: added the Met object and acquisition record, preserved public-domain rights, separated the Yuan tapestry from Vasubandhu’s text, qualified cosmological diversity, and matched the exact 640×619 scene ratio.', lock: 'fnv1a64:239e1fd2e4a221a0', reviewMethod: gallery05CompletionMethod,
+    resolution: 'Resolved: added the Met object and acquisition record, preserved public-domain rights, separated the Yuan tapestry from Vasubandhu’s text, qualified cosmological diversity, and matched the exact 640×619 scene ratio.', lock: 'fnv1a64:051809fea6aa5769', reviewMethod: gallery05CompletionMethod,
   },
   'asanga-yogacara-transmission': {
     plaqueTitle: 'Unkei’s Muchaku (Asaṅga)',

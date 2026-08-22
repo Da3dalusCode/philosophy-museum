@@ -44,7 +44,7 @@ const licensed = (license: string, licenseUrl: string) => ({
 const derivativeNotice = 'Resized and converted to WebP by Philosophy Atlas.';
 const originalNotice = 'Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.';
 const generatedSource = (id: string) =>
-  `https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/phenomenology-existence-embodiment/${id}-panel.webp`;
+  `https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/${id}-panel.webp`;
 
 export const PHENOMENOLOGY_GALLERY_ASSETS = [
   galleryAsset({

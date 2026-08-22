@@ -32,7 +32,7 @@ const publicDomain = {
 const derivativeNotice = 'Original image retained uncropped; resized and converted to WebP by Philosophy Atlas.';
 const originalNotice = 'Original Philosophy Atlas Museum illustration retained uncropped, resized, and converted to WebP.';
 const generatedSource = (id: string) =>
-  `https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/core-questions-forum/${id}-panel.webp`;
+  `https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/${id}-panel.webp`;
 
 export const CORE_QUESTIONS_FORUM_ASSETS = [
   forumAsset({

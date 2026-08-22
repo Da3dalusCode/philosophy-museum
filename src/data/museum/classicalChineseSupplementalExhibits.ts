@@ -433,16 +433,18 @@ const gallery06ReviewEvidence: Record<string, Gallery06ReviewEvidence> = {
     invitation: 'A much later portrait introduces the White Horse Dialogue, whose disputed reasoning tests how general and qualified names guide selection without becoming a simple modern logic puzzle.',
     objectInterpretation: 'This anonymous Yuan-dynasty album leaf in the National Palace Museum is a traditional representation of Gongsun Long made roughly fifteen centuries after his conventional Warring States setting. It records later commemoration, not his appearance or the dialogue’s original performance.',
     detail: [
-      'The portrait presents a formally robed scholar identified by tradition as Gongsun Long. The collection record supports its anonymous Yuan attribution, National Palace Museum holding, and public-domain status. Nothing in the image demonstrates the White Horse argument, verifies a biography, or makes the later category School of Names a self-declared ancient institution.',
+      'The portrait presents a formally robed scholar identified by tradition as Gongsun Long. Commons records an anonymous Yuan attribution, National Palace Museum holding, and a Public Domain Mark for the faithful reproduction while warning that reuse can vary by jurisdiction. The museum’s own open-data terms distinguish low-resolution CC0 images, selected mid-resolution images under Taiwan’s Open Government Data License, and separately requested high-resolution delivery; the installed Commons file has not been mapped to one of those museum tiers. Nothing in the image demonstrates the White Horse argument, verifies a biography, or makes the later category School of Names a self-declared ancient institution.',
       'The dialogue contrasts seeking a horse with seeking a white horse: qualification changes which candidates satisfy a request. Its exchange has generated semantic, pragmatic, metaphysical, and dialectical readings. Translating its pivotal terms into English copula constructions can make one modern class-inclusion problem appear obvious while concealing how names operated in ancient disputation and practical discrimination.',
       'Following the reasoning remains useful even when a visitor rejects its conclusion. The exchange trains attention to shifts between general and qualified terms, to the task a name performs, and to the difference between reconstructing an argument and endorsing it. The Chinese Philosophy article provides the wider argumentative field without pretending that one paradox defines Chinese views of language.',
     ],
     sources: [
       {id: 'gongsun-portrait-commons', label: 'Wikimedia Commons — Yuan-dynasty traditional portrait of Gongsun Long', url: 'https://commons.wikimedia.org/wiki/File:%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg', kind: 'collection-record'},
+      {id: 'npm-open-data-terms', label: 'National Palace Museum — image and text open-data licensing tiers', url: 'https://theme.npm.edu.tw/opendata/%E6%95%85%E5%AE%AEOpen%20Data%E5%B0%88%E5%8D%80%E5%9C%96%E5%83%8F%E8%88%87%E6%96%87%E5%AD%97%E6%8E%88%E6%AC%8A%E8%A6%8F%E7%AF%84.pdf', kind: 'collection-record'},
+      {id: 'npm-image-request', label: 'National Palace Museum — image authorization and high-resolution request information', url: 'https://www.npm.gov.tw/Articles.aspx?l=2&sno=03012918', kind: 'collection-record'},
       {id: 'school-names-sep', label: 'Stanford Encyclopedia of Philosophy — School of Names', url: 'https://plato.stanford.edu/entries/school-names/', kind: 'academic-reference'},
       {id: 'gongsun-ctext', label: 'Chinese Text Project — Gongsun Longzi', url: 'https://ctext.org/gongsunlongzi', kind: 'primary-text'},
     ],
-    sectionSourceIds: [['gongsun-portrait-commons', 'school-names-sep'], ['school-names-sep', 'gongsun-ctext'], ['school-names-sep', 'gongsun-ctext']],
+    sectionSourceIds: [['gongsun-portrait-commons', 'npm-open-data-terms', 'npm-image-request', 'school-names-sep'], ['school-names-sep', 'gongsun-ctext'], ['school-names-sep', 'gongsun-ctext']],
     visitorGuide: [
       {heading: 'Following the dialogue', items: [
         {label: 'Qualification', description: 'Adding “white” changes which horses can satisfy the request under discussion.', sourceIds: ['school-names-sep', 'gongsun-ctext']},
@@ -451,10 +453,11 @@ const gallery06ReviewEvidence: Record<string, Gallery06ReviewEvidence> = {
       {heading: 'Keeping categories historical', items: [
         {label: 'Later school label', description: '“School of Names” is a retrospective organizing category, not a securely documented membership list.', sourceIds: ['school-names-sep']},
         {label: 'Commemorative portrait', description: 'The Yuan album leaf is later reception, not a lifetime likeness or argument diagram.', sourceIds: ['gongsun-portrait-commons']},
+        {label: 'Rights tiers stay separate', description: 'The Commons PDM record does not establish which National Palace Museum delivery tier supplied the installed file or confer one blanket worldwide status.', sourceIds: ['gongsun-portrait-commons', 'npm-open-data-terms', 'npm-image-request']},
       ]},
     ],
     articleTitle: 'Chinese Philosophy', canonicalContexts: [{kind: 'branch', id: 'chinese-philosophy'}], plaqueType: 'work-or-text',
-    resolution: 'Resolved: retained the verified Yuan portrait and public-domain credit, replaced the author-plus-thesis plaque with the factual dialogue title, mapped contested interpretations and taxonomy cautions, preserved natural proportions, and linked Chinese Philosophy.', lock: 'fnv1a64:fa1e1366aace7ca2',
+    resolution: 'Resolved: retained the verified Yuan portrait, replaced the blanket public-domain claim with the Commons PDM jurisdiction caveat, distinguished the National Palace Museum’s CC0, government-license, and requested high-resolution tiers without assigning the installed file to one, mapped contested interpretations and taxonomy cautions, preserved asset bytes and natural proportions, and linked Chinese Philosophy.', lock: 'fnv1a64:417be1a443ca45af',
   },
   'china-sunzi-strategic-reason': {
     plaqueTitle: 'The Art of War',

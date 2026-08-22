@@ -8,9 +8,13 @@ import {build} from 'vite';
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const publicRoot = resolve(repoRoot, 'public');
 const museumMediaRoot = resolve(publicRoot, 'assets/museum');
+const assetProvenanceDocument = readFileSync(resolve(repoRoot, 'docs/museum-asset-provenance.md'), 'utf8');
 const sceneMediaSource = readFileSync(resolve(repoRoot, 'src/components/MuseumGallery/MuseumSceneMedia.tsx'), 'utf8');
 const preparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumModernAssets.py'), 'utf8');
 const modernManifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumModernAssetManifest.json'), 'utf8'));
+const gallery12SupplementalManifest = JSON.parse(
+  readFileSync(resolve(repoRoot, 'scripts/museumGallery12SupplementalAssetManifest.json'), 'utf8'),
+);
 const mediterraneanPreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumMediterraneanAssets.py'), 'utf8');
 const mediterraneanManifest = JSON.parse(readFileSync(resolve(repoRoot, 'scripts/museumMediterraneanAssetManifest.json'), 'utf8'));
 const successorPreparationSource = readFileSync(resolve(repoRoot, 'scripts/prepareMuseumSuccessorGalleriesAssets.py'), 'utf8');
@@ -413,11 +417,6 @@ const MEDITERRANEAN_ASSET_IDS = [
   'plato-republic-parisinus-1807',
 ];
 const TRUSTED_EXTERNAL_SOURCE_LOCKS = new Map([
-  ['wang-yangming-letters-zheng', {
-    sourcePageUrl: 'https://artmuseum.princeton.edu/art/collections/objects/32340',
-    sourceImageUrl: 'https://media.artmuseum.princeton.edu/iiif/3/collection/PUAMSTU2016_38492/full/max/0/default.jpg',
-    selectedThumbnailUrl: 'https://media.artmuseum.princeton.edu/iiif/3/collection/PUAMSTU2016_38492/full/1280,/0/default.jpg',
-  }],
   ['east-daoist-ritual-robe', {
     sourcePageUrl: 'https://www.metmuseum.org/art/collection/search/69669',
     sourceImageUrl: 'https://collectionapi.metmuseum.org/api/collection/v1/iiif/69669/2467731/main-image',
@@ -475,6 +474,26 @@ const galleries19And22ManifestAssets = galleries19And22Manifest?.assets ?? {};
 const galleries23And24ManifestAssets = galleries23And24Manifest?.assets ?? {};
 const gallery26ManifestAssets = gallery26Manifest?.assets ?? {};
 const gallery25ManifestAssets = gallery25Manifest?.assets ?? {};
+const gallery12SupplementalManifestAssets = gallery12SupplementalManifest?.assets ?? {};
+const staticManifestRegistry = [
+  {fileName: 'museumModernAssetManifest.json', manifest: modernManifest},
+  {fileName: 'museumMediterraneanAssetManifest.json', manifest: mediterraneanManifest},
+  {fileName: 'museumSuccessorGalleriesAssetManifest.json', manifest: successorManifest},
+  {fileName: 'museumGalleries13And16AssetManifest.json', manifest: galleries13And16Manifest},
+  {fileName: 'museumGallery17AssetManifest.json', manifest: gallery17Manifest},
+  {fileName: 'museumGallery18AssetManifest.json', manifest: gallery18Manifest},
+  {fileName: 'museumGalleries20And21AssetManifest.json', manifest: galleries20And21Manifest},
+  {fileName: 'museumGalleries19And22AssetManifest.json', manifest: galleries19And22Manifest},
+  {fileName: 'museumGalleries23And24AssetManifest.json', manifest: galleries23And24Manifest},
+  {fileName: 'museumGallery26AssetManifest.json', manifest: gallery26Manifest},
+  {fileName: 'museumGallery25AssetManifest.json', manifest: gallery25Manifest},
+  {fileName: 'museumGallery12SupplementalAssetManifest.json', manifest: gallery12SupplementalManifest},
+];
+const authoritativeManifestEntries = staticManifestRegistry.flatMap(({fileName, manifest}) =>
+  Object.entries(manifest?.assets ?? {}).map(([id, lock]) => ({fileName, id, lock})),
+);
+const authoritativeManifestAssetCount = authoritativeManifestEntries.length;
+const authoritativeDerivativeLockCount = authoritativeManifestAssetCount * 2;
 const assetById = new Map(MUSEUM_ASSETS.map((asset) => [asset.id, asset]));
 const liveExhibits = MUSEUM_HALLS.flatMap((hall) => hall.exhibits.map((exhibit) => ({hall, exhibit})));
 const canonicalReferencedIds = liveExhibits.flatMap(({exhibit}) => [
@@ -692,6 +711,16 @@ const walkFiles = (directory) => readdirSync(directory, {withFileTypes: true}).f
   return directoryEntry.isDirectory() ? walkFiles(path) : [path];
 });
 
+const immutableRepositoryRevision = (value) => {
+  const url = new URL(value);
+  const match = url.hostname === 'github.com'
+    ? url.pathname.match(/^\/Da3dalusCode\/philosophy-museum\/(?:blob|raw)\/([0-9a-f]{40})\//u)
+    : url.hostname === 'raw.githubusercontent.com'
+      ? url.pathname.match(/^\/Da3dalusCode\/philosophy-museum\/([0-9a-f]{40})\//u)
+      : null;
+  return match?.[1];
+};
+
 const readUInt24LE = (bytes, offset) => bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16);
 const webpDimensions = (path) => {
   const bytes = readFileSync(path);
@@ -713,6 +742,73 @@ const webpDimensions = (path) => {
   }
   assert.fail(`Unable to determine WebP dimensions for ${path}`);
 };
+
+check('the authoritative static-manifest census includes every manifest file and every exact derivative lock', () => {
+  const manifestFileNamesOnDisk = readdirSync(resolve(repoRoot, 'scripts'))
+    .filter((fileName) => /^museum.*AssetManifest\.json$/u.test(fileName))
+    .sort();
+  const registeredManifestFileNames = staticManifestRegistry.map(({fileName}) => fileName).sort();
+  assert.deepEqual(
+    registeredManifestFileNames,
+    manifestFileNamesOnDisk,
+    'The asset audit omits or invents a static Museum asset manifest.',
+  );
+  assert.equal(
+    new Set(authoritativeManifestEntries.map(({id}) => id)).size,
+    authoritativeManifestAssetCount,
+    'Static Museum asset manifests contain duplicate asset IDs.',
+  );
+  for (const {fileName, manifest} of staticManifestRegistry) {
+    assert.equal(manifest.version, 1, `${fileName} has an unsupported manifest version`);
+  }
+  for (const {fileName, id, lock} of authoritativeManifestEntries) {
+    const asset = assetById.get(id);
+    assert(asset, `${fileName} locks ${id}, which has no runtime provenance record`);
+    assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${fileName} source provenance drifted for ${id}`);
+    for (const variantName of ['scene', 'panel']) {
+      const expected = lock[variantName];
+      assert(expected, `${fileName} omits the ${variantName} lock for ${id}`);
+      const path = exactCasePath(asset.variants[variantName].path);
+      assert.equal(statSync(path).size, expected.bytes, `${fileName} byte count drifted for ${id}.${variantName}`);
+      assert.equal(sha256(path), expected.sha256, `${fileName} SHA-256 drifted for ${id}.${variantName}`);
+      assert.deepEqual(webpDimensions(path), {width: expected.width, height: expected.height}, `${fileName} dimensions drifted for ${id}.${variantName}`);
+    }
+  }
+  assert.equal(gallery12SupplementalManifest.version, 1);
+  assert.equal(Object.keys(gallery12SupplementalManifestAssets).length, 1, 'Gallery 12 supplemental manifest coverage drifted');
+  assert(authoritativeManifestEntries.some(({fileName}) => fileName === 'museumGallery12SupplementalAssetManifest.json'));
+  const formattedAssetCount = new Intl.NumberFormat('en-US').format(authoritativeManifestAssetCount);
+  const formattedLockCount = new Intl.NumberFormat('en-US').format(authoritativeDerivativeLockCount);
+  assert(
+    assetProvenanceDocument.includes(`**${formattedLockCount} exact hash locks across ${staticManifestRegistry.length} manifests and ${formattedAssetCount} unique manifest assets**`),
+    'The public asset-provenance census contradicts the authoritative on-disk manifest census.',
+  );
+});
+
+check('generated-asset provenance uses immutable repository revisions in manifests and authored Museum data', () => {
+  const originalEntries = authoritativeManifestEntries.filter(({lock}) =>
+    lock.sourceKind === 'owner-approved-original-illustration');
+  assert.deepEqual(
+    originalEntries.map(({id}) => id).sort(),
+    [...ORIGINAL_INTERPRETIVE_ASSET_IDS].sort(),
+    'The generated-asset provenance inventory drifted.',
+  );
+  for (const {id, lock} of originalEntries) {
+    const revisions = ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']
+      .map((field) => immutableRepositoryRevision(lock[field]));
+    assert(revisions.every(Boolean), `${id} retains mutable or non-repository generated provenance`);
+    assert.equal(new Set(revisions).size, 1, `${id} generated provenance fields point at different revisions`);
+  }
+  const authoredMuseumSource = walkFiles(resolve(repoRoot, 'src/data/museum'))
+    .filter((path) => /\.(?:ts|json)$/u.test(path))
+    .map((path) => readFileSync(path, 'utf8'))
+    .join('\n');
+  assert.doesNotMatch(
+    authoredMuseumSource,
+    /https:\/\/(?:github\.com\/Da3dalusCode\/philosophy-museum\/(?:blob|raw)|raw\.githubusercontent\.com\/Da3dalusCode\/philosophy-museum)\/main\//u,
+    'Authored Museum data contains mutable generated-asset provenance.',
+  );
+});
 
 check('Galleries 1–16 classify every textual-media candidate and cap plain pages or lone books at one per room', () => {
   const replacementIds = [...legacyStandaloneReplacementIds];
@@ -2711,4 +2807,4 @@ check('scene-media policy keeps local images unlit, front-facing, and clear of f
   assert.doesNotMatch(sceneMediaSource, /sourcePageUrl|objectPageUrl|selectedThumbnailUrl/);
 });
 
-console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${Object.keys(manifestAssets).length * 2 + Object.keys(mediterraneanManifestAssets).length * 2 + Object.keys(successorManifestAssets).length * 2 + Object.keys(galleries13And16ManifestAssets).length * 2 + Object.keys(gallery17ManifestAssets).length * 2 + Object.keys(gallery18ManifestAssets).length * 2 + Object.keys(galleries20And21ManifestAssets).length * 2 + Object.keys(galleries19And22ManifestAssets).length * 2 + Object.keys(galleries23And24ManifestAssets).length * 2 + Object.keys(gallery26ManifestAssets).length * 2 + Object.keys(gallery25ManifestAssets).length * 2} exact hash locks, and ${referencedIds.length} live media placements.`);
+console.log(`\nMuseum asset audit passed: ${checks} groups, ${MUSEUM_ASSETS.length} provenance records, ${MUSEUM_ASSETS.length * 2} local derivatives, ${authoritativeDerivativeLockCount} exact hash locks across ${staticManifestRegistry.length} manifests and ${authoritativeManifestAssetCount} unique assets, and ${referencedIds.length} live media placements.`);

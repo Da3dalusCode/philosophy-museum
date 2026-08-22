@@ -194,7 +194,7 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
       {id: 'republic-turning', label: 'Plato, Republic 518c–d: education as turning the soul (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+518C', kind: 'primary-text'},
       {id: 'republic-return', label: 'Plato, Republic 519c–520e: compelled return (Perseus)', url: 'https://www.perseus.tufts.edu/hopper/text?doc=Plat.+Rep.+519C', kind: 'primary-text'},
       {id: 'iep-republic', label: 'Internet Encyclopedia of Philosophy: Plato’s Republic', url: 'https://iep.utm.edu/republic/', kind: 'academic-reference'},
-      {id: 'cave-illustration', label: 'Philosophy Atlas Museum: Cave interpretive illustration', url: 'https://github.com/Da3dalusCode/philosophy-museum/blob/main/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp', kind: 'collection-record'},
+      {id: 'cave-illustration', label: 'Philosophy Atlas Museum: Cave interpretive illustration', url: 'https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp', kind: 'collection-record'},
     ],
     objectInterpretation: 'This contemporary Museum illustration places the prisoners, shadow-making objects, cave, and sunlit world in one vertical composition. It interprets Plato’s argument rather than documenting an ancient place or object.',
     assetId: 'plato-cave-interpretive-illustration',
@@ -225,7 +225,7 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
       reviewedOn: '2026-08-12',
       method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, subject-specific structured interpretation, and aspect-safe object-led presentation.',
       resolution: 'Resolved: restored the approved portrait-format Museum interpretive illustration; identified it honestly as contemporary interpretation; corrected its presentation metadata; and restored a claim-mapped ascent, education, and return sidebar while retaining its natural 4:5 wall format.',
-      lock: 'fnv1a64:e6686f5d26301468',
+      lock: 'fnv1a64:8084f0e300c4ba99',
     },
   },
   {

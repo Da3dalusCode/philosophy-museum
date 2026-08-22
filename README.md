@@ -32,10 +32,10 @@ Depth is not the same as evidence or completed editorial review. The [generated 
 <!-- public-collection-counts:start -->
 The current generated reports record **192 of 192 canonical articles as currently claim-reviewed**—147 philosopher profiles and 45 articles on philosophies, branches, schools, traditions, movements, methods, and frameworks—and **192 of 192 primary Museum exhibits as standard-compliant**. Article depth, claim review, and primary exhibit review remain separate milestones; completing one does not confer another.
 
-The Museum also contains **411 supplemental/context exhibits**: **411 reviewed supplementals** and **0 explicit backlog supplementals**. Together, the 192 primary and 411 supplemental exhibits make **603 interpreted Museum stops**.
+The Museum also contains **411/411 supplemental/context exhibits reviewed**, with **zero backlog**. Together, the 192 primary and 411 supplemental exhibits make **603/603 current Museum stops interpreted**.
 <!-- public-collection-counts:end -->
 
-The supplemental accuracy-and-depth program is complete through Galleries 01–23.
+The supplemental accuracy-and-depth program currently covers Galleries 01–26: 411/411 supplementals reviewed, with zero backlog. This is an internal review state, not an independent closeout judgment.
 
 These are internal, AI-assisted editorial review states; they are not independent fact-checking or independent academic or peer review. The in-app [About & editorial method](https://da3daluscode.github.io/philosophy-museum/#/methodology) and repository [editorial model](docs/editorial/editorial-model.md) explain these states and their limits.
 
@@ -117,7 +117,7 @@ The universal article-depth audit is a blocking release gate. It currently passe
 
 **Philosophy Atlas v1.0.2 is the current published release.** The long-form Atlas, timelines, maps, comparisons, learning paths, search, and complete 26-gallery Museum are published and usable without an account.
 
-The editorial program remains active even though the current canonical article and primary exhibit review passes are complete. Ongoing work includes the supplemental-exhibit backlog, stale-lock maintenance, corrections, relationship enrichment, and targeted accessibility and visual refinement. The Philosophy Map remains intentionally selective for readability, and the static local-first application does not provide accounts or durable cross-device progress.
+The editorial program remains active even though the current canonical article, primary exhibit, and supplemental exhibit review passes record zero backlog. Ongoing work includes stale-lock maintenance, corrections, relationship enrichment, future-evidence review, and targeted accessibility and visual refinement. The Philosophy Map remains intentionally selective for readability, and the static local-first application does not provide accounts or durable cross-device progress.
 
 ## License and media rights
 

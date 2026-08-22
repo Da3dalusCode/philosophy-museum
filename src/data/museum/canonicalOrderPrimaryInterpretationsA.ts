@@ -91,7 +91,7 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     ],
     'ontology-being-process-interpretive',
     'This 2026 Philosophy Atlas interpretive illustration centers one vessel as it shifts from intact ceramic through cracked, darkened, corroded, and disintegrating states, with diagrams and related forms around it. It is not a historical artifact or canonical ontology chart. The image invites questions about identity, change, parts, kinds, and relations without privileging substance over process or settling any ontology debate.',
-    'fnv1a64:4a963e30b617f4f5',
+    'fnv1a64:48043d72b23495ba',
   ),
   whitehead: objectLed(
     'Alfred North Whitehead',
@@ -141,7 +141,7 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     ],
     'philosophy-mind-subjective-objective-interpretive',
     'This 2026 Philosophy Atlas interpretive illustration shows a cutaway embodied head: a luminous experiential landscape occupies one side while anatomical and worldly networks spread across the other. It is a conceptual prompt, not neuroscience, a portrait of a mind, or proof of dualism, physicalism, idealism, or any single theory of consciousness and embodiment.',
-    'fnv1a64:d88efbc95af54aa8',
+    'fnv1a64:a5691b2cce19d22f',
   ),
   'thomas-nagel': objectLed(
     'Thomas Nagel',

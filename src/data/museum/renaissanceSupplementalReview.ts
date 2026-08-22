@@ -365,7 +365,7 @@ const evidence: Record<string, ReviewEvidence> = {
     paragraphSourceIds: [['agreement-commons'], ['putney-archives', 'putney-primary'], ['hobbes-moral-sep', 'agreement-commons', 'putney-archives']],
     sources: [
       collection('agreement-commons', 'Wikimedia Commons — Foundations of Freedom; or, An Agreement of the People, 1648', 'https://commons.wikimedia.org/wiki/File:Agreement_of_the_people_(1648_edition)_(IA_agreement1648).djvu'),
-      primary('putney-primary', 'Wikisource — The Putney Debates', 'https://en.wikisource.org/wiki/The_Putney_Debates'),
+      primary('putney-primary', 'Wikisource — Putney debates', 'https://en.wikisource.org/wiki/Putney_debates'),
       academic('putney-archives', 'The National Archives — The Putney Debates', 'https://www.nationalarchives.gov.uk/explore-the-collection/on-the-record-podcast/on-the-record-the-putney-debates/'),
       academic('hobbes-moral-sep', 'Stanford Encyclopedia of Philosophy — Hobbes’s Moral and Political Philosophy', 'https://plato.stanford.edu/entries/hobbes-moral/'),
     ],
@@ -380,7 +380,7 @@ const evidence: Record<string, ReviewEvidence> = {
       ]},
     ],
     resolution: 'Resolved: corrected the installed plural title and 1648 object identity, separated the Agreement from the Putney report and its internal disagreements, mapped the Hobbes comparison without inventing participation or influence, preserved public-domain attribution and natural proportions, and linked the current Thomas Hobbes article.',
-    lock: 'fnv1a64:b2c652eda0401ade',
+    lock: 'fnv1a64:a032c84bb0abd925',
   },
   'hobbes-leviathan': {
     plaqueTitle: 'Leviathan',

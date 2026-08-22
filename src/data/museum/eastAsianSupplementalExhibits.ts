@@ -139,21 +139,21 @@ const eastAsianSupplementalExhibits = [
   record({
     id: 'eac-wang-letters',
     assetId: 'wang-yangming-letters-zheng',
-    displayName: 'Wang Yangming’s Letters to Zheng Bangrui: Philosophy in Practice',
-    shortTitle: 'Wang Yangming: Letters in Practice',
-    workLabel: 'WANG YANGMING · LETTERS AND MORAL JUDGMENT',
-    dateLabel: 'Handscroll written about 1523–1525',
+    displayName: 'Wang Yangming’s Former Residence and Letters to Zheng Bangrui',
+    shortTitle: 'Wang Yangming: Site and Letters',
+    workLabel: 'WANG YANGMING · RESIDENCE SITE AND RELATED LETTERS',
+    dateLabel: 'Residence site photographed 26 February 2017 · related Princeton handscroll c. 1523–1525',
     question: 'How does a philosophy change when it is taught through counsel and correspondence?',
     frontSubtitle: 'Writing, administration, friendship, instruction, decision, and the unity of knowledge and action',
-    lead: 'Wang Yangming’s calligraphic letters locate philosophy inside relationships and decisions. His account of innate moral knowing and the unity of knowledge and action was worked out through teaching, administration, correspondence, and reflection—not delivered as an isolated slogan.',
+    lead: 'The installed photograph records Wang Yangming’s restored former-residence site in Shaoxing. Princeton’s separate Letters to Zheng Bangrui handscroll locates philosophy inside relationships and decisions; it is related textual evidence, not the mounted object. Wang’s account of innate moral knowing and the unity of knowledge and action was worked out through teaching, administration, correspondence, and reflection—not delivered as an isolated slogan.',
     keyIdeas: [
       'A letter responds to a particular person and situation while advancing a general claim.',
       'Knowing is morally significant when it changes attention, desire, and action.',
-      'Calligraphy is material evidence of communication, not a transparent picture of an inner doctrine.',
+      'A residence-site photograph supplies place context; the separate handscroll supplies material evidence of correspondence.',
     ],
     cautions: [
       'Do not reduce “unity of knowledge and action” to acting on any sincere impulse.',
-      'The letters require historical context; they are not a timeless self-help manual.',
+      'The restored site is not intact sixteenth-century fabric or the documented setting of the Zheng correspondence.',
     ],
     sections: [
       {heading: 'Teaching is addressed', paragraph: 'Wang’s instruction often begins from a correspondent’s difficulty. That format makes ethical knowledge answerable to circumstances while still seeking standards that are not mere preference.'},
@@ -161,6 +161,7 @@ const eastAsianSupplementalExhibits = [
       {heading: 'Practice tests doctrine', paragraph: 'Administrative responsibilities and political conflict prevent the philosophy from floating free of institutions. They also generate enduring controversies over Wang’s own decisions and later uses of his teaching. His career makes moral judgment answerable to consequences as well as intention.'},
     ],
     sources: [
+      image('Wikimedia Commons — former residence site of Wang Shouren in Shaoxing', 'https://commons.wikimedia.org/wiki/File:Former_Residence_of_Wang_Shouren_in_Shaoxing_01_2017-02.jpg'),
       image('Princeton University Art Museum — Letters to Zheng Bangrui', 'https://artmuseum.princeton.edu/art/collections/objects/32340'),
       songMing,
     ],
