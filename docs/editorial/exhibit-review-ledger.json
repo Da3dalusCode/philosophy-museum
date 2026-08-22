@@ -1234,7 +1234,7 @@
       "presentation": {
         "standardCompliant": true,
         "plaqueWords": 32,
-        "mainInterpretationWords": 320,
+        "mainInterpretationWords": 325,
         "paragraphCount": 3,
         "guideSectionCount": 2,
         "guideItemCount": 6,
@@ -1822,7 +1822,7 @@
       "presentation": {
         "standardCompliant": true,
         "plaqueWords": 32,
-        "mainInterpretationWords": 319,
+        "mainInterpretationWords": 324,
         "paragraphCount": 3,
         "guideSectionCount": 3,
         "guideItemCount": 5,
@@ -1962,11 +1962,11 @@
       "presentation": {
         "standardCompliant": true,
         "plaqueWords": 32,
-        "mainInterpretationWords": 304,
+        "mainInterpretationWords": 306,
         "paragraphCount": 3,
         "guideSectionCount": 3,
         "guideItemCount": 6,
-        "principalAssetId": "vedanta-telugu-manuscript",
+        "principalAssetId": "samaveda-telugu-manuscript",
         "issues": []
       }
     },

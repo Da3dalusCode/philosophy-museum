@@ -20,7 +20,7 @@ type WallFillInput = {
     {heading: string; paragraph: string},
   ];
   imageSource: {label: string; url: string};
-  reference: {label: string; url: string};
+  reference: {label: string; url: string; kind?: 'academic-reference' | 'collection-record'};
   articleRoute: Extract<NonNullable<MuseumSupplementalExhibit['articleRoute']>, {kind: 'philosopher'}>;
   entityKind: 'philosopher' | 'branch';
 };
@@ -48,16 +48,16 @@ const remainingReviewEvidence: Record<string, {
     lock: 'fnv1a64:6473e7e113e85119',
   },
   'nyaya-spitzer-philosophy-fragments': {
-    plaqueTitle: 'Commons Assembly Attributed to Spitzer Folio 383',
-    invitation: 'A modern recto-verso assembly of early Sanskrit fragments reveals mobile philosophical transmission while refusing to assign this damaged witness to Kaṇāda or Vaiśeṣika.',
-    objectInterpretation: 'Ms Sarah Welch’s Commons assembly labels recto and verso fragments as Spitzer folio 383. SHT 810 is held by the Staatsbibliothek zu Berlin, but no institutional record authenticates these pixels or their fragment-to-folio chain. This is contextual evidence, not a Vaiśeṣika primary source.',
+    plaqueTitle: 'SHT 810 Verified Fact Map',
+    invitation: 'A code-native map follows only verified facts about SHT 810 while declaring that it reproduces no manuscript image, fragment, folio, or join.',
+    objectInterpretation: 'This contemporary Museum diagram links SHT 810’s Kizil discovery context, fragmentary form, and Berlin holding. It is interpretation rather than manuscript evidence and makes no claim to show a leaf, a reconstructed folio, or any authenticated fragment pixels.',
     detail: [
-      'The installed file is Ms Sarah Welch’s 2019 CC BY-SA 4.0 assembly, not an unmediated institutional photograph of an intact leaf. Its Commons page is the source for the “folio 383” label and the recto-verso arrangement. The FWF research record independently identifies the wider manuscript as SHT 810, discovered at Kizil and held by the Oriental Department of the Staatsbibliothek zu Berlin; it does not authenticate this uploader-created image or identify the exact component fragments visible in it.',
-      'Radiocarbon results reported for SHT 810 span roughly 80–230 CE, while paleographic judgment has favored the later part of that interval. “Second–third century CE” is therefore more responsible than the raw display’s former “around 130 CE.” Damage, lost pieces, editorial joins, and incomplete text make reconstruction part of the evidence rather than an inconvenience to hide.',
-      'Its relevance to Kaṇāda’s room is contextual: it witnesses an argumentative and classificatory world moving across South and Central Asia. It does not name a Vaiśeṣika author, preserve the Vaiśeṣika Sūtra, or license claims that one school owned its surviving arguments.',
+      'The Austrian Science Fund identifies the Spitzer manuscript as SHT 810, discovered at Kizil during the third Prussian Turfan expedition in 1906 and held by the Oriental Department of the Staatsbibliothek zu Berlin. The installed image is a deterministic Museum diagram of those reported relationships, not a photograph supplied by either institution.',
+      'The same research record describes about one thousand mostly small, difficult fragments and assigns the manuscript to the third century on palaeographic grounds. It identifies the unique surviving work as a noncanonical Abhidharma tract. The panel repeats only that bounded account; it does not infer a radiocarbon range, intact leaf, fragment order, folio number, or reconstruction.',
+      'The record reports that the tract includes a discussion of the Vaiśeṣika theory of qualities, or guṇa. That makes the witness relevant to Kaṇāda’s intellectual context without turning it into the Vaiśeṣika Sūtra, attributing its author to Kaṇāda’s school, or treating the diagram as primary manuscript evidence.',
     ],
-    resolution: 'Resolved: classified the installed file as a contextual Commons assembly, identified the wider SHT 810 holding in Berlin, widened the visible date to second–third century, and disclosed that no institutional image record was found to authenticate the uploader’s exact folio-383 pixels or fragment chain; asset bytes and natural ratio remain unchanged.',
-    lock: 'fnv1a64:1670c4399599153e',
+    resolution: 'Resolved: installed a code-native fact map based on the FWF institutional research record and labeled the image, plaque, caption, alt text, provenance, and interpretation as non-manuscript evidence.',
+    lock: 'fnv1a64:d10d38eda1607d9a',
   },
   'nyaya-smoke-fire-inference': {
     plaqueTitle: 'Winter Haze over Northern India',
@@ -108,13 +108,19 @@ const remainingReviewEvidence: Record<string, {
       'The comparison still matters. A gallery dominated by male sages can mistake its own image selection for the historical whole. Asavari Ragini invites questions about gender, visibility, patronage, and ascetic imagination, while the caution prevents representation from becoming evidence of equal institutional access or a single Yoga tradition.',
     ],
     resolution: 'Resolved: followed Cleveland’s c. 1650 date and full object title, recorded anonymous maker, Bikaner origin, acquisition provenance and CC0 rights, preserved the Ragamala genre, and retained the natural ratio.',
-    lock: 'fnv1a64:fe7ce0afe4320936',
+    lock: 'fnv1a64:c255168814dcfb80',
   },
 };
 
 const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => {
   const evidence = remainingReviewEvidence[input.id];
   if (!evidence) throw new Error(`Missing Gallery 04 evidence review for ${input.id}.`);
+  const contentReviewedOn = input.id === 'nyaya-spitzer-philosophy-fragments' || input.id === 'yoga-asavari-ascetic-princess'
+    ? '2026-08-22'
+    : '2026-08-12';
+  const desktopReviewedOn = contentReviewedOn;
+  const mobileReviewedOn = input.id === 'nyaya-spitzer-philosophy-fragments' ? '2026-08-22' : '2026-08-12';
+  const stagedReviewedOn = contentReviewedOn;
   const imageId = `${input.id}-image`;
   const referenceId = `${input.id}-reference`;
   const objectId = `${input.id}-object`;
@@ -148,7 +154,7 @@ const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => {
   sources: [
     {id: imageId, label: input.imageSource.label, url: input.imageSource.url, kind: 'collection-record'},
     ...(evidence.objectSource ? [{id: objectId, label: evidence.objectSource.label, url: evidence.objectSource.url, kind: 'collection-record' as const}] : []),
-    {id: referenceId, label: input.reference.label, url: input.reference.url, kind: 'academic-reference'},
+    {id: referenceId, label: input.reference.label, url: input.reference.url, kind: input.reference.kind ?? 'academic-reference'},
   ],
   objectInterpretation: evidence.objectInterpretation,
   assetId: input.assetId,
@@ -170,13 +176,13 @@ const wallFill = (input: WallFillInput): MuseumSupplementalExhibit => {
   },
   wallPlaque: {type: 'object-manuscript-site-or-archaeological-context', title: evidence.plaqueTitle, invitation: evidence.invitation, canonicalContexts: [{kind: 'philosopher', id: articleTitle === 'Patañjali' ? 'patanjali' : 'kanada'}]},
   review: {
-    status: 'standard-compliant', reviewedOn: '2026-08-12',
+    status: 'standard-compliant', reviewedOn: contentReviewedOn,
     method: 'Gallery 04 supplemental review: two non-overlapping Terra/High evidence scopes reconciled by the Sol parent across installed-object identity, attribution, dating, institution, source record, rights, claim mapping, accessibility, provenance, routes, and aspect-safe presentation.',
     resolution: evidence.resolution, lock: evidence.lock,
     visualReview: {
-      desktop: {reviewedOn: '2026-08-12', viewport: '1280×720', evidence: `Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/${input.id}.png`},
-      mobile: {reviewedOn: '2026-08-12', viewport: '390×844', evidence: `Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/${input.id}.png`},
-      threeDimensional: {reviewedOn: '2026-08-12', viewport: '1280×720 fresh direct-route session', evidence: `Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/${input.id}.png`},
+      desktop: {reviewedOn: desktopReviewedOn, viewport: input.id === 'nyaya-spitzer-philosophy-fragments' || input.id === 'yoga-asavari-ascetic-princess' ? '1440×900' : '1280×720', evidence: `Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/desktop/${input.id}.png`},
+      mobile: {reviewedOn: mobileReviewedOn, viewport: '390×844', evidence: `Direct route inspected with wrapped copy, loaded object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-04-supplementals/mobile/${input.id}.png`},
+      threeDimensional: {reviewedOn: stagedReviewedOn, viewport: '1280×720 fresh direct-route session', evidence: `Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable plaque, distinct installation, and the image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-04-supplementals/staged-3d/${input.id}.png`},
     },
   },
   });
@@ -545,23 +551,23 @@ export const CLASSICAL_SOUTH_ASIAN_WALL_FILL_EXHIBITS = [
   }),
   wallFill({
     id: 'nyaya-spitzer-philosophy-fragments',
-    assetId: 'nyaya-spitzer-philosophical-fragments',
-    displayName: 'Kaṇāda’s Intellectual World: The Spitzer Manuscript Fragments',
-    shortTitle: 'Kaṇāda’s Context: Spitzer Fragments',
-    workLabel: 'SANSKRIT PHILOSOPHY · EARLY MATERIAL WITNESS',
-    dateLabel: 'SHT 810 · second–third century CE · Commons assembly attributed to folio 383',
-    question: 'What can a damaged manuscript reveal about an argumentative world?',
-    frontSubtitle: 'Fragments, classification, debate, Silk Road transmission, and cautious reconstruction',
-    lead: 'The Spitzer manuscript is often described as the oldest surviving Sanskrit philosophical manuscript. Its fragmented leaves preserve parts of a wide-ranging scholastic work and were found far from the subcontinent at Kizil. The object is not a Vaiśeṣika Sūtra witness, but it reveals a mobile intellectual world in which classification and cross-tradition argument circulated through fragile material forms.',
-    keyIdeas: ['Fragmentary evidence can still reveal structures of argument.', 'Sanskrit philosophical texts traveled across long-distance networks.', 'A material witness should not be assigned to a school without evidence.'],
-    cautions: ['The fragments are not specifically a Nyāya or Vaiśeṣika manuscript.', 'Reconstruction remains scholarly and incomplete.'],
+    assetId: 'nyaya-spitzer-sht810-interpretive',
+    displayName: 'Kaṇāda’s Intellectual World: Reading SHT 810 Carefully',
+    shortTitle: 'Kaṇāda’s Context: SHT 810',
+    workLabel: 'SHT 810 · VERIFIED FACTS AND EVIDENCE LIMITS',
+    dateLabel: 'Third-century manuscript · contemporary interpretive panel',
+    question: 'What may an institutional research record support when no verified reusable object image is installed?',
+    frontSubtitle: 'Kizil, fragmentary survival, Berlin custody, cross-tradition argument, and explicit limits',
+    lead: 'This code-native panel is not a manuscript photograph or reconstruction. It presents a small set of facts reported by the Austrian Science Fund about SHT 810: discovery at Kizil, about one thousand mostly small fragments, a third-century palaeographic date, Berlin custody, and a noncanonical Abhidharma tract that includes discussion of Vaiśeṣika qualities. Its purpose is to make both the intellectual connection and the evidentiary limit visible.',
+    keyIdeas: ['An interpretive diagram must identify itself as interpretation.', 'Fragmentary witnesses can preserve cross-tradition philosophical discussion.', 'Institutional facts do not authenticate unrelated manuscript pixels.'],
+    cautions: ['No manuscript fragment, folio, join, or photograph appears in this panel.', 'The reported Vaiśeṣika discussion does not make SHT 810 a Vaiśeṣika Sūtra witness.'],
     sections: [
-      {heading: 'Damage is part of the evidence', paragraph: 'Missing passages limit certainty, while script, ordering, physical joins, and surviving topics permit careful reconstruction. The manuscript teaches visitors to distinguish what an object preserves from what editors infer.'},
-      {heading: 'Philosophy crossed regions', paragraph: 'A Sanskrit manuscript found at Kizil complicates any picture of fixed civilizational containers. Texts moved with travelers, institutions, languages, and collection histories that joined South and Central Asian intellectual worlds.'},
-      {heading: 'Context without false ownership', paragraph: 'The fragments support a room about realist classification and reasoning because they witness a broader argumentative culture. They do not authorize calling the unnamed author a follower of Kaṇāda or claiming the folio contains a specific Vaiśeṣika doctrine.'},
+      {heading: 'Fragmentary survival limits reconstruction', paragraph: 'The FWF record describes about one thousand mostly small fragments that are difficult to reassemble. That documented condition limits certainty and keeps the Museum from presenting an intact leaf, fixed sequence, or complete text.'},
+      {heading: 'A record can support bounded history', paragraph: 'The FWF record connects Kizil, the 1906 expedition, the fragmentary witness, and its current Berlin holding. The Museum diagram visualizes those documented relations without inventing manuscript geography or a complete transmission route.'},
+      {heading: 'Context without false ownership', paragraph: 'The reported discussion of Vaiśeṣika guṇa makes SHT 810 relevant to a room about realist classification. It does not authorize calling the unnamed author a follower of Kaṇāda, treating the work as the Vaiśeṣika Sūtra, or assigning any pictured fragment to a doctrine.'},
     ],
-    imageSource: {label: 'Wikimedia Commons — Spitzer manuscript folio 383 fragments', url: 'https://commons.wikimedia.org/wiki/File:2nd-century_CE_Sanskrit,_Kizil_China,_Spitzer_Manuscript_folio_383_fragment_recto_and_verso.jpg'},
-    reference: {label: 'Austrian Science Fund — Spitzer Manuscript (SHT 810) project and Berlin holding', url: 'https://www.fwf.ac.at/forschungsradar/10.55776/D3658'},
+    imageSource: {label: 'Philosophy Atlas Museum — deterministic SHT 810 panel renderer', url: 'https://github.com/Da3dalusCode/philosophy-museum/blob/main/scripts/renderMuseumInterpretivePanels.py'},
+    reference: {label: 'Austrian Science Fund — Spitzer Manuscript (SHT 810) project and Berlin holding', url: 'https://www.fwf.ac.at/forschungsradar/10.55776/D3658', kind: 'collection-record'},
     articleRoute: {kind: 'philosopher', philosopherId: 'kanada'},
     entityKind: 'philosopher',
   }),
@@ -637,7 +643,7 @@ export const CLASSICAL_SOUTH_ASIAN_WALL_FILL_EXHIBITS = [
     displayName: 'Patañjali’s Yoga in Reception: The Ascetic Princess Āsāvarī',
     shortTitle: 'Patañjali’s Context: Ascetic Princess',
     workLabel: 'YOGA · GENDER, ASCETICISM, AND RECEPTION',
-    dateLabel: 'Bikaner Ragamala painting · 1640',
+    dateLabel: 'Bikaner Ragamala painting · c. 1650',
     question: 'Who disappears when ascetic practice is pictured only through male sages?',
     frontSubtitle: 'A female ascetic personification, wilderness, music, and careful comparison',
     lead: 'This Bikaner painting personifies the musical mode Āsāvarī as an ascetic princess in the wilderness. It is not direct documentation of a woman practicing Patañjali Yoga. Its strong female ascetic figure nevertheless challenges the visual habit of representing discipline only through male sages and opens questions about gender, renunciation, patronage, and artistic reception.',

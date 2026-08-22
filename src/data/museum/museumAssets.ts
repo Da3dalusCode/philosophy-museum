@@ -112,9 +112,9 @@ const ANCIENT_MUSEUM_ASSETS = [
   },
   {
     id: 'plato-cave-interpretive-illustration', entityKind: 'philosopher', entityId: 'plato', role: 'context', mediaKind: 'drawing',
-    title: 'The Allegory of the Cave — interpretive illustration', creator: 'Philosophy Atlas Museum', objectDate: '2026', institution: 'Philosophy Atlas Museum',
+    title: 'The Allegory of the Cave — interpretive illustration', creator: 'Philosophy Atlas Museum; generation details unavailable', objectDate: 'Generation date unknown', institution: 'Philosophy Atlas Museum repository',
     sourcePageUrl: 'https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/ancient-greek/plato-cave-interpretive-illustration-panel.webp',
-    license: 'Original Philosophy Atlas Museum interpretive illustration', rightsKind: 'rights-status', derivativeNotice: 'Owner-approved source resized without cropping and converted to WebP for this installation.', attribution: 'Philosophy Atlas Museum interpretive illustration, 2026.',
+    license: 'Philosophy Atlas Museum interpretive illustration; generation lineage incomplete', rightsKind: 'rights-status', derivativeNotice: 'Repository-pinned display derivative retained without cropping and converted to WebP for this installation; it is not identified as a raw generation output.', attribution: 'Philosophy Atlas Museum interpretive image; prompt, model, version, generation date, and raw original output unknown.',
     variants: {scene: assetPath('plato-cave-interpretive-illustration', 'scene', 360, 450), panel: assetPath('plato-cave-interpretive-illustration', 'panel', 720, 900)},
     alt: 'Museum interpretive illustration split between a sunlit landscape above and a subterranean cave below, where chained prisoners watch shadows cast by carried objects.',
     caption: 'Philosophy Atlas Museum interpretive illustration of the Cave’s shadows, awakening, and ascent toward the light.',

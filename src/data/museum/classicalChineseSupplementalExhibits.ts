@@ -223,11 +223,11 @@ const exhibits = [
   }),
   supplemental({
     id: 'china-gongsun-long-white-horse',
-    assetId: 'china-gongsun-long-yuan-portrait',
+    assetId: 'china-gongsun-long-horse-and-groom',
     displayName: 'Gongsun Long and the School of Names: Is a White Horse a Horse?',
     shortTitle: 'Gongsun Long: White Horse',
     workLabel: 'NAMES AND DISTINCTIONS · WHITE HORSE DIALOGUE',
-    dateLabel: 'Warring States argument · portrait painted centuries later',
+    dateLabel: 'Warring States argument · Yuan tomb figure used comparatively',
     question: 'When does a more specific name change what can be admitted or selected?',
     frontSubtitle: 'Names, kinds, qualification, reference, disputation, and translation',
     lead: 'The White Horse Dialogue is famous for the claim that a white horse is not a horse. Read as a cheap paradox, it seems merely perverse. Read as an argument about what names select, the role of qualification, and the difference between seeking a horse and seeking a white horse, it becomes a disciplined puzzle about language and classification whose exact force remains debated.',
@@ -237,7 +237,7 @@ const exhibits = [
       'Its form stages disagreement rather than delivering an uncontested theory.',
     ],
     cautions: [
-      'The later portrait is a traditional representation, not a lifetime likeness.',
+      'The later horse-and-groom tomb figure is not a portrait or dialogue witness.',
       'Mapping the dialogue directly onto modern predicate logic can hide ancient linguistic questions.',
     ],
     sections: [
@@ -246,7 +246,7 @@ const exhibits = [
       {heading: 'A paradox can train attention', paragraphs: ['Even if a visitor rejects the conclusion, following the exchange reveals where an apparently obvious classification depends on context. The exercise belongs to a wider field of debates about names and realities, not an isolated joke detached from governance and communication.']},
     ],
     sources: [
-      {label: 'National Palace Museum image on Wikimedia Commons — Gongsun Long', url: 'https://commons.wikimedia.org/wiki/File:%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg', kind: 'collection-record'},
+      {label: 'The Metropolitan Museum of Art — Horse and groom, 2005.25', url: 'https://www.metmuseum.org/art/collection/search/72630', kind: 'collection-record'},
       {label: 'Stanford Encyclopedia of Philosophy — School of Names', url: 'https://plato.stanford.edu/entries/school-names/', kind: 'academic-reference'},
     ],
     articleRoute: {kind: 'branch', branchId: 'chinese-philosophy'},
@@ -430,21 +430,19 @@ const gallery06ReviewEvidence: Record<string, Gallery06ReviewEvidence> = {
   },
   'china-gongsun-long-white-horse': {
     plaqueTitle: 'White Horse Dialogue',
-    invitation: 'A much later portrait introduces the White Horse Dialogue, whose disputed reasoning tests how general and qualified names guide selection without becoming a simple modern logic puzzle.',
-    objectInterpretation: 'This anonymous Yuan-dynasty album leaf in the National Palace Museum is a traditional representation of Gongsun Long made roughly fifteen centuries after his conventional Warring States setting. It records later commemoration, not his appearance or the dialogue’s original performance.',
+    invitation: 'A public-domain Yuan horse-and-groom tomb figure supplies a later material comparison for the White Horse Dialogue while refusing to picture Gongsun Long or turn sculpture into textual evidence.',
+    objectInterpretation: 'The Met’s thirteenth-century Horse and groom, 2005.25, belonged to a larger tomb procession. This much later object offers a concrete horse for conceptual comparison; it is not a likeness of Gongsun Long, a “white horse” selected by the dialogue, or evidence of the argument’s original performance.',
     detail: [
-      'The portrait presents a formally robed scholar identified by tradition as Gongsun Long. Commons records an anonymous Yuan attribution, National Palace Museum holding, and a Public Domain Mark for the faithful reproduction while warning that reuse can vary by jurisdiction. The museum’s own open-data terms distinguish low-resolution CC0 images, selected mid-resolution images under Taiwan’s Open Government Data License, and separately requested high-resolution delivery; the installed Commons file has not been mapped to one of those museum tiers. Nothing in the image demonstrates the White Horse argument, verifies a biography, or makes the later category School of Names a self-declared ancient institution.',
+      'The Metropolitan Museum of Art identifies the installed object as Horse and groom, China, thirteenth century, Yuan dynasty, earthenware, accession 2005.25. The collection page marks its image Public Domain and available through Open Access. The group was part of a larger tomb procession, originally brightly painted, and has no documented connection to Gongsun Long. Its stable identity and reuse status do not make it a closer historical witness.',
       'The dialogue contrasts seeking a horse with seeking a white horse: qualification changes which candidates satisfy a request. Its exchange has generated semantic, pragmatic, metaphysical, and dialectical readings. Translating its pivotal terms into English copula constructions can make one modern class-inclusion problem appear obvious while concealing how names operated in ancient disputation and practical discrimination.',
       'Following the reasoning remains useful even when a visitor rejects its conclusion. The exchange trains attention to shifts between general and qualified terms, to the task a name performs, and to the difference between reconstructing an argument and endorsing it. The Chinese Philosophy article provides the wider argumentative field without pretending that one paradox defines Chinese views of language.',
     ],
     sources: [
-      {id: 'gongsun-portrait-commons', label: 'Wikimedia Commons — Yuan-dynasty traditional portrait of Gongsun Long', url: 'https://commons.wikimedia.org/wiki/File:%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg', kind: 'collection-record'},
-      {id: 'npm-open-data-terms', label: 'National Palace Museum — image and text open-data licensing tiers', url: 'https://theme.npm.edu.tw/opendata/%E6%95%85%E5%AE%AEOpen%20Data%E5%B0%88%E5%8D%80%E5%9C%96%E5%83%8F%E8%88%87%E6%96%87%E5%AD%97%E6%8E%88%E6%AC%8A%E8%A6%8F%E7%AF%84.pdf', kind: 'collection-record'},
-      {id: 'npm-image-request', label: 'National Palace Museum — image authorization and high-resolution request information', url: 'https://www.npm.gov.tw/Articles.aspx?l=2&sno=03012918', kind: 'collection-record'},
+      {id: 'met-horse-groom', label: 'The Metropolitan Museum of Art — Horse and groom, 2005.25', url: 'https://www.metmuseum.org/art/collection/search/72630', kind: 'collection-record'},
       {id: 'school-names-sep', label: 'Stanford Encyclopedia of Philosophy — School of Names', url: 'https://plato.stanford.edu/entries/school-names/', kind: 'academic-reference'},
       {id: 'gongsun-ctext', label: 'Chinese Text Project — Gongsun Longzi', url: 'https://ctext.org/gongsunlongzi', kind: 'primary-text'},
     ],
-    sectionSourceIds: [['gongsun-portrait-commons', 'npm-open-data-terms', 'npm-image-request', 'school-names-sep'], ['school-names-sep', 'gongsun-ctext'], ['school-names-sep', 'gongsun-ctext']],
+    sectionSourceIds: [['met-horse-groom', 'school-names-sep'], ['school-names-sep', 'gongsun-ctext'], ['school-names-sep', 'gongsun-ctext']],
     visitorGuide: [
       {heading: 'Following the dialogue', items: [
         {label: 'Qualification', description: 'Adding “white” changes which horses can satisfy the request under discussion.', sourceIds: ['school-names-sep', 'gongsun-ctext']},
@@ -452,12 +450,12 @@ const gallery06ReviewEvidence: Record<string, Gallery06ReviewEvidence> = {
       ]},
       {heading: 'Keeping categories historical', items: [
         {label: 'Later school label', description: '“School of Names” is a retrospective organizing category, not a securely documented membership list.', sourceIds: ['school-names-sep']},
-        {label: 'Commemorative portrait', description: 'The Yuan album leaf is later reception, not a lifetime likeness or argument diagram.', sourceIds: ['gongsun-portrait-commons']},
-        {label: 'Rights tiers stay separate', description: 'The Commons PDM record does not establish which National Palace Museum delivery tier supplied the installed file or confer one blanket worldwide status.', sourceIds: ['gongsun-portrait-commons', 'npm-open-data-terms', 'npm-image-request']},
+        {label: 'Later comparison', description: 'The Yuan tomb figure is not Gongsun Long, the dialogue’s chosen example, or evidence of an ancient performance.', sourceIds: ['met-horse-groom', 'school-names-sep']},
+        {label: 'Stable object and rights', description: 'The Met identifies accession 2005.25 and marks its collection image Public Domain under Open Access.', sourceIds: ['met-horse-groom']},
       ]},
     ],
     articleTitle: 'Chinese Philosophy', canonicalContexts: [{kind: 'branch', id: 'chinese-philosophy'}], plaqueType: 'work-or-text',
-    resolution: 'Resolved: retained the verified Yuan portrait, replaced the blanket public-domain claim with the Commons PDM jurisdiction caveat, distinguished the National Palace Museum’s CC0, government-license, and requested high-resolution tiers without assigning the installed file to one, mapped contested interpretations and taxonomy cautions, preserved asset bytes and natural proportions, and linked Chinese Philosophy.', lock: 'fnv1a64:417be1a443ca45af',
+    resolution: 'Resolved: installed the Met’s public-domain Horse and groom, 2005.25; bounded it as later conceptual context rather than likeness or dialogue evidence; and mapped object, rights, interpretation, guide, and source dependencies.', lock: 'fnv1a64:3346d1f16f6bec3a',
   },
   'china-sunzi-strategic-reason': {
     plaqueTitle: 'The Art of War',
@@ -719,6 +717,7 @@ const gallery06ReviewEvidence: Record<string, Gallery06ReviewEvidence> = {
 const reviewGallery06Exhibit = (input: MuseumSupplementalExhibit): MuseumSupplementalExhibit => {
   const evidence = gallery06ReviewEvidence[input.id];
   if (!evidence) throw new Error(`Missing Gallery 06 review evidence for ${input.id}.`);
+  const reviewedOn = input.id === 'china-gongsun-long-white-horse' ? '2026-08-22' : '2026-08-12';
   const basePresentation = input.presentation;
   if (!basePresentation) throw new Error(`Missing Gallery 06 presentation for ${input.id}.`);
   return {
@@ -739,12 +738,12 @@ const reviewGallery06Exhibit = (input: MuseumSupplementalExhibit): MuseumSupplem
     },
     wallPlaque: {type: evidence.plaqueType, title: evidence.plaqueTitle, invitation: evidence.invitation, canonicalContexts: evidence.canonicalContexts},
     review: {
-      status: 'standard-compliant', reviewedOn: '2026-08-12', method: gallery06ReviewMethod,
+      status: 'standard-compliant', reviewedOn, method: gallery06ReviewMethod,
       resolution: evidence.resolution, lock: evidence.lock,
       visualReview: {
-        desktop: {reviewedOn: '2026-08-12', viewport: '1440×900', evidence: `Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-06-supplementals/desktop/${input.id}.png`},
-        mobile: {reviewedOn: '2026-08-12', viewport: '390×844', evidence: `Direct route inspected with wrapped copy, loaded full-composition object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-06-supplementals/mobile/${input.id}.png`},
-        threeDimensional: {reviewedOn: '2026-08-12', viewport: '1280×720 fresh direct-route session', evidence: `Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable factual plaque, distinct installation, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-06-supplementals/staged-3d/${input.id}.png`},
+        desktop: {reviewedOn, viewport: '1440×900', evidence: `Direct route inspected with the installed object, three-paragraph interpretation, subject-specific sidebar, article CTA, and no horizontal overflow. Evidence: docs/visual-validation/gallery-06-supplementals/desktop/${input.id}.png`},
+        mobile: {reviewedOn, viewport: '390×844', evidence: `Direct route inspected with wrapped copy, loaded full-composition object preview, scrollable interpretation, visible controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-06-supplementals/mobile/${input.id}.png`},
+        threeDimensional: {reviewedOn, viewport: '1280×720 fresh direct-route session', evidence: `Fresh-session authored viewpoint inspected with a live 3D canvas, closed detail panel, readable factual plaque, distinct installation, and image mounted at its natural scene ratio. Evidence: docs/visual-validation/gallery-06-supplementals/staged-3d/${input.id}.png`},
       },
     },
   };
@@ -764,7 +763,7 @@ export const CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   layout({id: 'china-warring-states-courts', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:west-outer', assetId: 'china-warring-states-map-260-bce', mediaWidth: 2.65, mediaHeight: 2.438828125, installationKind: classicalChineseKind('context'), accent: CLASSICAL_CHINESE_PALETTE.bronze}),
   layout({id: 'china-excavated-bamboo-texts', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:east-room-face', assetId: 'china-warring-states-bamboo-slips', mediaWidth: 3.05, mediaHeight: 2.034921875, installationKind: classicalChineseKind('work'), accent: CLASSICAL_CHINESE_PALETTE.jade, authoredViewpointTarget: true}),
   layout({id: 'china-writing-on-bamboo', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:east-cross-face', assetId: 'china-making-bamboo-slips', mediaWidth: 1.634609375, mediaHeight: 2.45, installationKind: classicalChineseKind('context'), accent: CLASSICAL_CHINESE_PALETTE.bamboo}),
-  layout({id: 'china-gongsun-long-white-horse', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:south-room-face', assetId: 'china-gongsun-long-yuan-portrait', mediaWidth: 1.741796875, mediaHeight: 2.45, installationKind: classicalChineseKind('concept'), accent: CLASSICAL_CHINESE_PALETTE.indigo, authoredViewpointTarget: true}),
+  layout({id: 'china-gongsun-long-white-horse', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:south-room-face', assetId: 'china-gongsun-long-horse-and-groom', mediaWidth: 3.2, mediaHeight: 2.405, installationKind: classicalChineseKind('concept'), accent: CLASSICAL_CHINESE_PALETTE.indigo, authoredViewpointTarget: true}),
   layout({id: 'china-sunzi-strategic-reason', parentExhibitId: 'chinese-philosophy', slotId: 'china-many-ways:south-cross-face', assetId: 'china-sunzi-art-of-war-slips', mediaWidth: 3.05, mediaHeight: 2.034921875, installationKind: classicalChineseKind('work'), accent: CLASSICAL_CHINESE_PALETTE.lacquer}),
   layout({id: 'china-analects-layered-record', parentExhibitId: 'confucius', slotId: 'china-confucian-cultivation:west-cross-face', assetId: 'china-analects-stockholm', mediaWidth: 3.05, mediaHeight: 2.034921875, installationKind: classicalChineseKind('work'), accent: CLASSICAL_CHINESE_PALETTE.lacquer}),
   layout({id: 'china-confucian-ritual-music', parentExhibitId: 'confucianism', slotId: 'china-confucian-cultivation:south-cross-face', assetId: 'china-eastern-zhou-stone-chimes', mediaWidth: 3.05, mediaHeight: 2.034921875, installationKind: classicalChineseKind('context'), accent: CLASSICAL_CHINESE_PALETTE.bronze}),

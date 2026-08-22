@@ -231,7 +231,7 @@ def validate_program(program: dict) -> dict[str, dict]:
             commons_file_title(replacement["sourcePageUrl"])
             if not replacement.get("licenseUrl"):
                 raise RuntimeError(f"{asset_id} Commons replacement has no rights-status URL.")
-        elif source_kind == "owner-approved-original-illustration":
+        elif source_kind == "repository-source-art-input":
             if not replacement.get("localSourcePath"):
                 raise RuntimeError(f"{asset_id} original illustration has no local source path.")
             if urllib.parse.urlparse(replacement["sourcePageUrl"]).hostname != "github.com":
@@ -255,7 +255,7 @@ def refresh(program: dict, replacements: dict[str, dict], manifests: dict[Path, 
                 raise RuntimeError(f"{asset_id} has no locked hall folder.")
 
             source_kind = replacement.get("sourceKind", "commons")
-            if source_kind == "owner-approved-original-illustration":
+            if source_kind == "repository-source-art-input":
                 source_path = ROOT / replacement["localSourcePath"]
                 if not source_path.is_file():
                     raise RuntimeError(f"{asset_id} local source is missing: {source_path}")
@@ -312,7 +312,7 @@ def refresh(program: dict, replacements: dict[str, dict], manifests: dict[Path, 
                 "standaloneReplacementVersion": 1,
                 **variant_locks,
             })
-            if source_kind == "owner-approved-original-illustration":
+            if source_kind == "repository-source-art-input":
                 lock["sourceKind"] = source_kind
             else:
                 lock.pop("sourceKind", None)

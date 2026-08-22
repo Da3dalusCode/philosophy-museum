@@ -21,7 +21,7 @@ type FinalWorldTraditionId =
   | 'german-idealism';
 
 const EXHIBIT_REVIEW_LOCKS_BY_NAME: Readonly<Record<string, `fnv1a64:${string}`>> = {
-  'Indian Philosophy': 'fnv1a64:20116ad8857f98bb',
+  'Indian Philosophy': 'fnv1a64:231c06ffab89d679',
   'Buddhist Philosophy': 'fnv1a64:8b03f10aa6151542',
   Rationalism: 'fnv1a64:1ba4e9db4b2c3270',
   Empiricism: 'fnv1a64:f1af1ea138b6e265',
@@ -76,8 +76,8 @@ Readonly<Record<FinalWorldTraditionId, BranchExhibitEditorialRecord>> = {
       id: 'south-many-schools-interpretive',
       title: 'Many schools, shared questions, unfinished routes',
       caption: 'An interpretive orientation image makes plurality—and the gallery’s omissions—visible.',
-      provenance: 'Philosophy Atlas Museum with OpenAI ImageGen, 2026; original interpretive illustration held by Philosophy Atlas Museum. It is a contemporary conceptual aid, not a historical map, a sacred diagram, or a record of a unified South Asian system.',
-      rights: 'Original Philosophy Atlas Museum interpretive illustration; rights-status record. Retain the registered attribution “Original interpretive illustration created for Philosophy Atlas Museum with OpenAI ImageGen, 2026.” This is not an external collection object or independently licensed historical image.',
+      provenance: 'Philosophy Atlas Museum with generation details unavailable; original interpretive illustration held by Philosophy Atlas Museum. It is a contemporary conceptual aid, not a historical map, a sacred diagram, or a record of a unified South Asian system.',
+      rights: 'Original Philosophy Atlas Museum interpretive illustration; rights-status record. Retain the registered attribution “Original interpretive illustration created for Philosophy Atlas Museum with generation details unavailable.” This is not an external collection object or independently licensed historical image.',
       alt: 'A dark museum collage of divergent pathways, manuscript leaves, debate circles, and one visibly unfinished route.',
       preview: 'Preserve the complete portrait-oriented registered panel without crop or distortion; scale it within the bounded preview so the divergent paths, manuscript leaves, debate circles, and unfinished route remain visible.',
       visualInspection: 'At desktop, verify that the full portrait composition and compact guide leave the opening prose readable. On narrow screens, verify that the complete collage remains visible and that the generated, non-historical provenance and its interpretive limits are easy to find.',
@@ -93,7 +93,7 @@ Readonly<Record<FinalWorldTraditionId, BranchExhibitEditorialRecord>> = {
       [
         'Indian philosophy is a retrospective umbrella for many multilingual traditions produced in and across South Asia, not the name of one religion, people, canon, or timeless spiritual outlook. Vedic and Upaniṣadic materials, śramaṇa movements, Buddhist and Jain arguments, Brahmanical schools, materialist and skeptical positions, devotional currents, and later Islamic, colonial, anticolonial, diasporic, and academic settings enter changing conversations. They developed through teachers, monasteries, courts, temples, households, debates, manuscripts, commentary, and translation. A gallery label can orient visitors only if it does not turn this immense and contested archive into a single civilizational voice or silently make Veda-connected traditions representative of every South Asian philosophical project.',
         'Across those disagreements, thinkers ask what makes cognition reliable; how perception, inference, testimony, language, and error work; whether persons, selves, bodies, causation, universals, or divine reality are fundamental; and how action shapes bondage, responsibility, or release. Nyāya develops exacting accounts of pramāṇas, or means of warranted cognition, while Mīmāṃsā, Buddhist, Jain, Sāṃkhya, Yoga, Vedānta, and other traditions contest authority, ontology, semantics, and practice on different terms. The familiar six-school arrangement is a later organizing schema, not a census of six synchronized institutions. Nor do mokṣa, nirvāṇa, and kaivalya name one interchangeable goal. Shared questions make comparison possible; rival answers keep comparison honest.',
-        'This 2026 illustration shows paths, leaves, debate circles, and an unfinished route. It is not evidence from a historical archive, a map of actual schools, or a sacred image representing their practices. Its modern authorship and generated provenance make its limit part of the exhibit: a Museum has chosen an orientation device because no single object could stand for the traditions gathered under this label. The image can prompt visitors to ask which texts, languages, institutions, and communities its framing leaves out. It cannot settle a contested canon, establish influence, or convert regional proximity into philosophical agreement. Read the object as an admission of curatorial incompleteness, then return to arguments and texts.',
+        'This illustration of unknown generation date shows paths, leaves, debate circles, and an unfinished route. It is not evidence from a historical archive, a map of actual schools, or a sacred image representing their practices. Its contemporary Museum authorship and incomplete generated provenance make its limit part of the exhibit: a Museum has chosen an orientation device because no single object could stand for the traditions gathered under this label. The image can prompt visitors to ask which texts, languages, institutions, and communities its framing leaves out. It cannot settle a contested canon, establish influence, or convert regional proximity into philosophical agreement. Read the object as an admission of curatorial incompleteness, then return to arguments and texts.',
       ],
       [
         {heading: 'A qualified umbrella', items: [
@@ -109,7 +109,7 @@ Readonly<Record<FinalWorldTraditionId, BranchExhibitEditorialRecord>> = {
         ]},
       ],
       'south-many-schools-interpretive',
-      'This 2026 generated Museum illustration is a contemporary orientation device, not a historical source, map, or sacred diagram. Its paths and unfinished route make curatorial selection visible, but cannot prove a canon, an influence chain, or a shared South Asian philosophical system.',
+      'This generated Museum illustration of unknown generation date is a contemporary orientation device, not a historical source, map, or sacred diagram. Its paths and unfinished route make curatorial selection visible, but cannot prove a canon, an influence chain, or a shared South Asian philosophical system.',
       [
         {label: 'Stanford Encyclopedia of Philosophy — Epistemology in Classical Indian Philosophy', url: 'https://plato.stanford.edu/entries/epistemology-india/', kind: 'academic-reference'},
         {label: 'Stanford Encyclopedia of Philosophy — Language and Testimony in Classical Indian Philosophy', url: 'https://plato.stanford.edu/entries/language-india/', kind: 'academic-reference'},

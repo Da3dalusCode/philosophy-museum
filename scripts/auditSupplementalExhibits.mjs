@@ -252,7 +252,11 @@ const rawEntries = await Promise.all(data.museumSupplementalExhibits.map(async (
   const directHash = data.hashRouter.serializeHashRoute(directRoute);
   const parsedDirectRoute = data.hashRouter.parseHashRoute(directHash);
   const expectedArticleHash = exhibit.articleRoute ? data.hashRouter.serializeHashRoute(exhibit.articleRoute) : null;
-  const expectedCtaLabel = article ? `Read the full sourced ${article.title} article` : null;
+  const expectedCtaLabel = article
+    ? exhibit.id === 'spivak-subaltern-representation'
+      ? 'Compare Spivak’s representation problem with the full sourced bell hooks article'
+      : `Read the full sourced ${article.title} article`
+    : null;
   const mountRatio = layout.mediaMount?.width && layout.mediaMount?.height
     ? layout.mediaMount.width / layout.mediaMount.height
     : null;

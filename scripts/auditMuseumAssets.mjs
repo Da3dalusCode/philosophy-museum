@@ -61,6 +61,9 @@ const legacyImageDiversityPreparationSource = readFileSync(
 const legacyImageDiversityProgram = JSON.parse(
   readFileSync(resolve(repoRoot, 'src/data/museum/museumLegacyImageDiversity.json'), 'utf8'),
 );
+const generatedAssetLineage = JSON.parse(
+  readFileSync(resolve(repoRoot, 'src/data/museum/museumGeneratedAssetLineage.json'), 'utf8'),
+);
 const auditBase = '/philosophy-atlas-audit/';
 const virtualEntry = 'virtual:philosophy-atlas-museum-asset-audit';
 const resolvedEntry = `\0${virtualEntry}`;
@@ -327,7 +330,7 @@ const NEW_CANONICAL_ASSET_IDS = [
   'jain-lokapurusha-cosmology',
   'mahavira-chandigarh-bust',
   'kanada-vaisesika-sutra-1793',
-  'vedanta-telugu-manuscript',
+  'samaveda-telugu-manuscript',
   'shankara-ravi-varma',
   'ramanuja-statue-cc0',
   'madhva-pajaka-vigraha',
@@ -353,9 +356,9 @@ const NEW_CANONICAL_ASSET_IDS = [
   'buddhist-tibetan-pecha',
   'buddhist-diamond-sutra-868',
 ];
-const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
+const GENERATED_INTERPRETIVE_ASSET_IDS = new Set([
   'plato-cave-interpretive-illustration',
-  'levinas-totality-infinity-2002',
+  'levinas-ethical-interruption-interpretive',
   'phenomenology-intentionality-interpretive',
   'heidegger-being-time-interpretive',
   'merleau-perception-interpretive',
@@ -377,6 +380,9 @@ const ORIGINAL_INTERPRETIVE_ASSET_IDS = new Set([
   'philosophy-mind-subjective-objective-interpretive',
   'philosophy-religion-plural-inquiry-interpretive',
   'south-many-schools-interpretive',
+]);
+const CODE_NATIVE_INTERPRETIVE_ASSET_IDS = new Set([
+  'nyaya-spitzer-sht810-interpretive',
 ]);
 const FORUM_FIELD_ASSET_IDS = [
   'metaphysics-reality-layers-interpretive',
@@ -457,11 +463,17 @@ const TRUSTED_EXTERNAL_SOURCE_LOCKS = new Map([
     sourceImageUrl: 'https://gallica.bnf.fr/ark:/12148/btv1b8410577m.highres',
     selectedThumbnailUrl: 'https://gallica.bnf.fr/iiif/ark:/12148/btv1b8410577m/f1/full/1600,/0/native.jpg',
   }],
+  ['china-gongsun-long-horse-and-groom', {
+    sourcePageUrl: 'https://www.metmuseum.org/art/collection/search/72630',
+    sourceImageUrl: 'https://images.metmuseum.org/CRDImages/as/original/DP158773.jpg',
+    selectedThumbnailUrl: 'https://collectionapi.metmuseum.org/api/collection/v1/iiif/72630/152281/main-image',
+  }],
 ]);
 const TRUSTED_EXTERNAL_OBJECT_PAGES = new Map([
   ['saadia-beliefs-landauer', 'https://archive.org/details/kitbalamnt00saaduoft'],
   ['maimonides-mishneh-torah', 'https://www.loc.gov/item/2021667526/'],
   ['feminist-de-gouges-patriotic-tax-print', 'https://catalogue.bnf.fr/ark:/12148/cb40257593r'],
+  ['china-gongsun-long-horse-and-groom', 'https://www.metmuseum.org/art/collection/search/72630'],
 ]);
 const manifestAssets = modernManifest?.assets ?? {};
 const mediterraneanManifestAssets = mediterraneanManifest?.assets ?? {};
@@ -785,20 +797,72 @@ check('the authoritative static-manifest census includes every manifest file and
   );
 });
 
-check('generated-asset provenance uses immutable repository revisions in manifests and authored Museum data', () => {
-  const originalEntries = authoritativeManifestEntries.filter(({lock}) =>
-    lock.sourceKind === 'owner-approved-original-illustration');
+check('the exact 23 generated assets preserve only durable, recoverable lineage', () => {
+  const generatedEntries = authoritativeManifestEntries.filter(({lock}) =>
+    ['repository-pinned-interpretive-derivative', 'repository-source-art-input'].includes(lock.sourceKind));
   assert.deepEqual(
-    originalEntries.map(({id}) => id).sort(),
-    [...ORIGINAL_INTERPRETIVE_ASSET_IDS].sort(),
+    generatedEntries.map(({id}) => id).sort(),
+    [...GENERATED_INTERPRETIVE_ASSET_IDS].sort(),
     'The generated-asset provenance inventory drifted.',
   );
-  for (const {id, lock} of originalEntries) {
+  assert.equal(generatedAssetLineage.version, 1);
+  assert.deepEqual(
+    Object.keys(generatedAssetLineage.assets).sort(),
+    [...GENERATED_INTERPRETIVE_ASSET_IDS].sort(),
+    'The generated-asset lineage ledger does not cover the exact reviewed set.',
+  );
+  for (const {id, lock} of generatedEntries) {
+    const lineage = generatedAssetLineage.assets[id];
+    const asset = assetById.get(id);
+    assert(asset, `${id} has lineage but no runtime asset record`);
+    assert.doesNotMatch(
+      `${asset.creator} ${asset.objectDate} ${asset.attribution} ${asset.historicalNote}`,
+      /\b2026\b|OpenAI|ImageGen/i,
+      `${id} reintroduces an unrecoverable generation date, model, or service claim`,
+    );
+    assert.match(
+      `${asset.creator} ${asset.objectDate} ${asset.attribution} ${asset.historicalNote}`,
+      /unknown|unavailable/i,
+      `${id} does not expose incomplete generation lineage`,
+    );
+    const expectedKind = id === 'levinas-ethical-interruption-interpretive'
+      ? 'repository-source-art-input'
+      : 'repository-pinned-interpretive-derivative';
+    assert.equal(lock.sourceKind, expectedKind, `${id} has the wrong recoverable source-reference role`);
+    assert.equal(lineage.sourceReferenceUrl, lock.sourcePageUrl, `${id} lineage reference differs from its manifest`);
+    assert.equal(lineage.sourceReferenceKind, lock.sourceKind, `${id} lineage role differs from its manifest`);
     const revisions = ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']
       .map((field) => immutableRepositoryRevision(lock[field]));
     assert(revisions.every(Boolean), `${id} retains mutable or non-repository generated provenance`);
     assert.equal(new Set(revisions).size, 1, `${id} generated provenance fields point at different revisions`);
+    for (const field of [
+      'generationPrompt',
+      'generationModel',
+      'generationModelVersion',
+      'generationDate',
+      'originalGenerationOutput',
+      'originalGenerationOutputSha256',
+    ]) assert.equal(lineage[field], 'unknown', `${id}.${field} invents unrecoverable generation lineage`);
+    const artifactHash = id === 'levinas-ethical-interruption-interpretive'
+      ? sha256(resolve(repoRoot, 'source-art/museum/levinas-face-to-face-contemporary-interpretation.png'))
+      : lock.panel.sha256;
+    assert.equal(lineage.repositoryArtifactSha256, artifactHash, `${id} recoverable repository artifact hash drifted`);
+    if (id === 'levinas-ethical-interruption-interpretive') {
+      assert.match(lineage.repositoryArtifactRole, /source-art input.+raw generation output is unknown/i);
+    } else {
+      assert.match(lineage.repositoryArtifactRole, /display derivative.+not presented as the original generation output/i);
+    }
   }
+  assert.deepEqual(generatedAssetLineage.assets['anscombe-portrait-interpretive'].knownAntecedents, [{
+    url: 'https://commons.wikimedia.org/wiki/File:Elisabeth_Anscombe.jpg',
+    role: 'Source portrait antecedent for the later interpretive derivative.',
+    license: 'CC BY-SA 3.0',
+  }]);
+  assert.equal(
+    authoritativeManifestEntries.some(({lock}) => lock.sourceKind === 'owner-approved-original-illustration'),
+    false,
+    'A retired generated-asset source role was reintroduced.',
+  );
   const authoredMuseumSource = walkFiles(resolve(repoRoot, 'src/data/museum'))
     .filter((path) => /\.(?:ts|json)$/u.test(path))
     .map((path) => readFileSync(path, 'utf8'))
@@ -808,6 +872,60 @@ check('generated-asset provenance uses immutable repository revisions in manifes
     /https:\/\/(?:github\.com\/Da3dalusCode\/philosophy-museum\/(?:blob|raw)|raw\.githubusercontent\.com\/Da3dalusCode\/philosophy-museum)\/main\//u,
     'Authored Museum data contains mutable generated-asset provenance.',
   );
+});
+
+check('displaced conditional assets and the Samaveda/Vedanta mismatch cannot return', () => {
+  const activeSourceFiles = [
+    ...walkFiles(resolve(repoRoot, 'src/data/museum')).filter((path) => /\.(?:ts|json)$/u.test(path)),
+    ...walkFiles(resolve(repoRoot, 'docs/editorial')).filter((path) => /\.(?:md|json)$/u.test(path)),
+    ...walkFiles(resolve(repoRoot, 'scripts')).filter((path) => /museum.*AssetManifest\.json$/u.test(path)),
+    resolve(repoRoot, 'docs/museum-asset-provenance.md'),
+  ];
+  const activeSource = activeSourceFiles.map((path) => readFileSync(path, 'utf8')).join('\n');
+  for (const retiredReference of [
+    'nyaya-spitzer-philosophical-fragments',
+    '2nd-century_CE_Sanskrit,_Kizil_China,_Spitzer_Manuscript_folio_383_fragment_recto_and_verso',
+    'china-gongsun-long-yuan-portrait',
+    '%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg',
+    'reuse can vary by jurisdiction',
+    'levinas-totality-infinity-2002',
+    'vedanta-telugu-manuscript',
+  ]) assert(!activeSource.includes(retiredReference), `Retired active reference returned: ${retiredReference}`);
+
+  const publicAssetPaths = walkFiles(museumMediaRoot).map((path) => relative(museumMediaRoot, path).split(sep).join('/'));
+  for (const retiredAssetId of [
+    'nyaya-spitzer-philosophical-fragments',
+    'china-gongsun-long-yuan-portrait',
+    'levinas-totality-infinity-2002',
+    'vedanta-telugu-manuscript',
+  ]) assert.equal(publicAssetPaths.some((path) => path.includes(retiredAssetId)), false, `Retired derivative remains active: ${retiredAssetId}`);
+
+  const spitzer = assetById.get('nyaya-spitzer-sht810-interpretive');
+  assert(spitzer, 'The SHT 810 interpretive replacement is absent.');
+  assert.equal(spitzer.sourcePageUrl, 'https://www.fwf.ac.at/forschungsradar/10.55776/D3658');
+  assert.equal(spitzer.role, 'context');
+  assert.equal(spitzer.mediaKind, 'digital-image');
+  assert.match(`${spitzer.title} ${spitzer.alt} ${spitzer.caption} ${spitzer.historicalNote}`, /interpret/i);
+  assert.match(`${spitzer.alt} ${spitzer.caption} ${spitzer.historicalNote}`, /no manuscript image|not manuscript evidence|reproducing no fragment/i);
+  assert.doesNotMatch(`${spitzer.alt} ${spitzer.caption} ${spitzer.historicalNote}`, /folio\s*383|manuscript photograph/i);
+
+  const whiteHorse = assetById.get('china-gongsun-long-horse-and-groom');
+  assert(whiteHorse, 'The Gongsun Long historical-object replacement is absent.');
+  assert.equal(whiteHorse.sourcePageUrl, 'https://www.metmuseum.org/art/collection/search/72630');
+  assert.equal(whiteHorse.institution, 'The Metropolitan Museum of Art, 2005.25');
+  assert.equal(whiteHorse.license, 'Public domain; The Met Open Access');
+  assert.match(`${whiteHorse.caption} ${whiteHorse.historicalNote}`, /not evidence about Gongsun Long|neither his likeness nor a witness/i);
+
+  const samaveda = assetById.get('samaveda-telugu-manuscript');
+  assert(samaveda, 'The reclassified Sāmaveda object is absent.');
+  assert.equal(samaveda.role, 'context');
+  assert.equal(samaveda.variants.scene.width, 640);
+  assert.equal(samaveda.variants.scene.height, 177);
+  assert.equal(samaveda.variants.panel.width, 1280);
+  assert.equal(samaveda.variants.panel.height, 354);
+  assert.match(`${samaveda.title} ${samaveda.attribution} ${samaveda.alt} ${samaveda.caption} ${samaveda.historicalNote}`, /Sāmaveda/u);
+  assert.match(`${samaveda.caption} ${samaveda.historicalNote}`, /not (?:a )?Vedānta|rather than as Vedānta/u);
+  assert.doesNotMatch(`${samaveda.objectDate} ${samaveda.institution}`, /18th|Andhra Pradesh|repository|holding:|British|museum/i);
 });
 
 check('Galleries 1–16 classify every textual-media candidate and cap plain pages or lone books at one per room', () => {
@@ -902,10 +1020,10 @@ check('Galleries 1–16 classify every textual-media candidate and cap plain pag
     if (lock.sourceCropBox) {
       assert.match(asset.derivativeNotice ?? '', /cropped.+resized.+converted.+WebP/i, `${id} does not disclose its source crop`);
     }
-    if (lock.sourceKind === 'owner-approved-original-illustration') {
-      assert.equal(id, 'levinas-totality-infinity-2002', `${id} is an unreviewed original illustration`);
-      assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com', `${id} original source page is not on GitHub`);
-      assert.equal(new URL(lock.sourceImageUrl).hostname, 'raw.githubusercontent.com', `${id} original source file is not raw GitHub content`);
+    if (lock.sourceKind === 'repository-source-art-input') {
+      assert.equal(id, 'levinas-ethical-interruption-interpretive', `${id} is an unreviewed source-art input`);
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com', `${id} source-art page is not on GitHub`);
+      assert.equal(new URL(lock.sourceImageUrl).hostname, 'raw.githubusercontent.com', `${id} source-art file is not immutable raw GitHub content`);
       assert.match(asset.historicalNote, /contemporary interpretive/i, `${id} does not disclose its contemporary interpretation`);
     } else {
       assert.equal(new URL(lock.sourcePageUrl).hostname, 'commons.wikimedia.org', `${id} source is not on Commons`);
@@ -1885,7 +2003,7 @@ check('all asset records carry complete provenance, rights, interpretation, and 
     const trustedExternalSource = legacyStandaloneReplacementIds.has(asset.id)
       ? undefined
       : TRUSTED_EXTERNAL_SOURCE_LOCKS.get(asset.id);
-    if (ORIGINAL_INTERPRETIVE_ASSET_IDS.has(asset.id)) {
+    if (GENERATED_INTERPRETIVE_ASSET_IDS.has(asset.id)) {
       assert.equal(sourcePage.hostname, 'github.com');
       if (asset.id === 'anscombe-portrait-interpretive') {
         assert.equal(asset.license, 'CC BY-SA 3.0');
@@ -1893,6 +2011,13 @@ check('all asset records carry complete provenance, rights, interpretation, and 
       } else {
         assert.equal(asset.license, 'Original Philosophy Atlas Museum interpretive illustration');
       }
+    } else if (CODE_NATIVE_INTERPRETIVE_ASSET_IDS.has(asset.id)) {
+      assert.equal(asset.id, 'nyaya-spitzer-sht810-interpretive');
+      assert.equal(asset.sourcePageUrl, 'https://www.fwf.ac.at/forschungsradar/10.55776/D3658');
+      assert.equal(asset.role, 'context');
+      assert.equal(asset.mediaKind, 'digital-image');
+      assert.match(`${asset.title} ${asset.alt} ${asset.caption} ${asset.historicalNote}`, /interpret/i);
+      assert.doesNotMatch(`${asset.title} ${asset.alt} ${asset.caption} ${asset.historicalNote}`, /folio\s*383|manuscript photograph|photograph of.+fragment/i);
     } else if (asset.id === 'plato-republic-justice-ideal-city') {
       assert.equal(sourcePage.hostname, 'www.nga.gov');
       assert.equal(asset.objectPageUrl, 'https://art.thewalters.org/object/37.677/');
@@ -1906,7 +2031,12 @@ check('all asset records carry complete provenance, rights, interpretation, and 
       assert(isHttpUrl(asset.licenseUrl), `${asset.id} license or rights-status URL is invalid`);
       assert.equal(new URL(asset.licenseUrl).protocol, 'https:', `${asset.id} licenseUrl must use HTTPS`);
     } else {
-      assert(ORIGINAL_INTERPRETIVE_ASSET_IDS.has(asset.id) || asset.id === 'plato-republic-justice-ideal-city', `${asset.id} needs a license or rights-status URL`);
+      assert(
+        GENERATED_INTERPRETIVE_ASSET_IDS.has(asset.id)
+          || CODE_NATIVE_INTERPRETIVE_ASSET_IDS.has(asset.id)
+          || asset.id === 'plato-republic-justice-ideal-city',
+        `${asset.id} needs a license or rights-status URL`,
+      );
     }
     if (asset.objectPageUrl) {
       assert(isHttpUrl(asset.objectPageUrl), `${asset.id} objectPageUrl is invalid`);
@@ -1998,18 +2128,30 @@ check('the 318-source modern-manifest subset excludes all separately locked Gall
     assert(MANAGED_HALL_FOLDERS.includes(lock.hallFolder), `${asset.id} has invalid hallFolder ${lock.hallFolder}`);
     countsByFolder.set(lock.hallFolder, (countsByFolder.get(lock.hallFolder) ?? 0) + 1);
     assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${asset.id} lock source page differs from provenance`);
-    for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) assert(lock[field]?.startsWith('https://'), `${asset.id}.${field} must be locked HTTPS`);
+    for (const field of ['sourcePageUrl', 'sourceImageUrl', 'selectedThumbnailUrl']) {
+      const value = lock[field];
+      const localRendererReference = lock.sourceKind === 'repository-code-native-interpretive'
+        && field !== 'sourcePageUrl'
+        && value === 'repository://scripts/renderMuseumInterpretivePanels.py#spitzer-sht810';
+      assert(value?.startsWith('https://') || localRendererReference, `${asset.id}.${field} must be locked HTTPS or an exact reviewed local renderer reference`);
+    }
     const trustedExternalSource = legacyStandaloneReplacementIds.has(asset.id)
       ? undefined
       : TRUSTED_EXTERNAL_SOURCE_LOCKS.get(asset.id);
-    if (lock.sourceKind === 'owner-approved-original-illustration') {
+    if (GENERATED_INTERPRETIVE_ASSET_IDS.has(asset.id)) {
       assert(
-        asset.id.endsWith('-interpretive') || legacyStandaloneReplacementIds.has(asset.id),
-        `${asset.id} marks an unreviewed asset as an original illustration`,
+        ['repository-pinned-interpretive-derivative', 'repository-source-art-input'].includes(lock.sourceKind),
+        `${asset.id} has an unsupported generated-asset source role`,
       );
-      assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com', `${asset.id} original source page must use GitHub`);
-      assert.equal(new URL(lock.sourceImageUrl).hostname, 'raw.githubusercontent.com', `${asset.id} original source image must use the repository`);
-      assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'raw.githubusercontent.com', `${asset.id} original thumbnail must use the repository`);
+      assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com', `${asset.id} immutable repository reference must use GitHub`);
+      assert.equal(new URL(lock.sourceImageUrl).hostname, 'raw.githubusercontent.com', `${asset.id} immutable source reference must use the repository`);
+      assert.equal(new URL(lock.selectedThumbnailUrl).hostname, 'raw.githubusercontent.com', `${asset.id} immutable selected reference must use the repository`);
+    } else if (lock.sourceKind === 'repository-code-native-interpretive') {
+      assert.equal(asset.id, 'nyaya-spitzer-sht810-interpretive');
+      assert.equal(lock.sourcePageUrl, 'https://www.fwf.ac.at/forschungsradar/10.55776/D3658');
+      assert.equal(lock.sourceImageUrl, 'repository://scripts/renderMuseumInterpretivePanels.py#spitzer-sht810');
+      assert.equal(lock.selectedThumbnailUrl, 'repository://scripts/renderMuseumInterpretivePanels.py#spitzer-sht810');
+      assert.equal(lock.localRenderer, 'scripts/renderMuseumInterpretivePanels.py#spitzer-sht810');
     } else if (trustedExternalSource) {
       assert.equal(lock.sourcePageUrl, trustedExternalSource.sourcePageUrl, `${asset.id} trusted source page changed`);
       assert.equal(lock.sourceImageUrl, trustedExternalSource.sourceImageUrl, `${asset.id} trusted source image changed`);
@@ -2090,7 +2232,7 @@ check('the 25-source Gallery 01 lock reproduces all curated Mediterranean media'
     const asset = assetById.get(id);
     assert(asset && lock, `${id} is absent from its runtime record or source lock`);
     assert.equal(lock.sourcePageUrl, asset.sourcePageUrl, `${id} lock source page differs from provenance`);
-    if (lock.sourceKind === 'owner-approved-original-illustration') {
+    if (lock.sourceKind === 'repository-pinned-interpretive-derivative') {
       assert.equal(id, 'plato-cave-interpretive-illustration');
       assert.equal(new URL(lock.sourcePageUrl).hostname, 'github.com');
       assert.equal(new URL(lock.sourceImageUrl).hostname, 'github.com');

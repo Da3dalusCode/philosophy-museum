@@ -652,10 +652,10 @@ export const PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS = ([
     displayName: 'Levinas: Ethics Before Ontology',
     shortTitle: 'Levinas: Ethics First',
     workLabel: 'LEVINAS · ALTERITY · RESPONSIBILITY',
-    dateLabel: 'Totality and Infinity, 1961',
+    dateLabel: 'Contemporary interpretation · generation date unknown',
     question: 'What if responsibility begins in an encounter that cannot be reduced to one more object of knowledge?',
     frontSubtitle: 'The face, alterity, asymmetry, and the third person',
-    lead: 'Levinas transforms phenomenology by arguing that another person exceeds the categories through which the self tries to comprehend the world. The face is not primarily a visible arrangement of features. It names the other’s exposure and ethical demand, a resistance to being absorbed into the same. Responsibility is therefore not first chosen by an autonomous subject; it interrupts and obligates. The displayed German study edition makes Totality and Infinity visibly Levinas’s work while remaining a later 2002 cover rather than the 1961 French first edition.',
+    lead: 'Levinas transforms phenomenology by arguing that another person exceeds the categories through which the self tries to comprehend the world. The face is not primarily a visible arrangement of features. It names the other’s exposure and ethical demand, a resistance to being absorbed into the same. Responsibility is therefore not first chosen by an autonomous subject; it interrupts and obligates. The installed contemporary scene is only an interpretive prompt: neither a pictured expression nor a staged act can establish that philosophical claim.',
     keyIdeas: [
       'Alterity means that another person cannot be exhausted by the meanings the self assigns.',
       'The face names ethical exposure and command, not a theory of reading facial appearance.',
@@ -665,7 +665,7 @@ export const PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS = ([
     cautions: [
       'The face is not restricted to literal visual perception and should not become a physiognomic concept.',
       'Ethical asymmetry does not remove the need for law, politics, institutions, or competing claims.',
-      'The displayed cover is a later German edition, not the 1961 French first edition.',
+      'The installed scene is interpretation rather than historical, biographical, or textual evidence.',
     ],
     sections: [
       {
@@ -686,13 +686,13 @@ export const PHENOMENOLOGY_SUPPLEMENTAL_EXHIBITS = ([
       {label: 'Routledge Encyclopedia of Philosophy — Emmanuel Levinas', url: 'https://www.rep.routledge.com/articles/biographical/levinas-emmanuel-1906-95/v-1', kind: 'academic-reference'},
       {label: 'BnF Data — Emmanuel Levinas authority record', url: 'https://data.bnf.fr/en/ark:/12148/cb119128222', kind: 'collection-record'},
     ],
-    assetId: 'levinas-totality-infinity-2002',
-    panelAssetId: 'levinas-totality-infinity-2002',
+    assetId: 'levinas-ethical-interruption-interpretive',
+    panelAssetId: 'levinas-ethical-interruption-interpretive',
     articleRoute: {kind: 'philosopher', philosopherId: 'levinas'},
     presentation: presentation('Gallery 03 concept exhibit', 'Alterity and responsibility', [
       {label: 'Philosopher', value: 'Emmanuel Levinas'},
-      {label: 'Work', value: 'Totality and Infinity'},
-      {label: 'Visual', value: 'German study edition of Totality and Infinity'},
+      {label: 'Philosophical focus', value: 'Ethical interruption, alterity, and responsibility'},
+      {label: 'Visual', value: 'Contemporary interpretive scene · generation details unavailable'},
       {label: 'Atlas route', value: 'Levinas’s full profile'},
     ], 'Open Levinas’s full Atlas article'),
   },
@@ -1199,7 +1199,7 @@ export const PHENOMENOLOGY_SUPPLEMENTAL_EXHIBIT_LAYOUTS = [
   layout({id: 'sartre-existentialism-humanism', parentExhibitId: 'sartre', zoneId: 'existentialism-freedom', position: {x: 5.55, z: -4.98}, rotationY: 0, assetId: 'sartre-ens-portrait-1924', mediaWidth: 3.2 * 450 / 513, mediaHeight: 3.2, installationKind: 'phenomenology-work', accent: PHENOMENOLOGY_PALETTE.flesh}),
   layout({id: 'beauvoir-ethics-ambiguity', parentExhibitId: 'existentialism', zoneId: 'existentialism-situated-absurd', position: {x: 5.55, z: 16.18}, rotationY: Math.PI, assetId: 'beauvoir-gpo-1967', mediaWidth: 3.2 * 504 / 640, mediaHeight: 3.2, installationKind: 'phenomenology-context', accent: PHENOMENOLOGY_PALETTE.ambiguity}),
   layout({id: 'camus-absurd-revolt', parentExhibitId: 'camus', zoneId: 'existentialism-situated-absurd', position: {x: -5.55, z: 16.18}, rotationY: Math.PI, assetId: 'camus-absurd-sisyphus-stuck', mediaWidth: 3.2 * 554 / 640, mediaHeight: 3.2, installationKind: 'phenomenology-work', accent: PHENOMENOLOGY_PALETTE.horizon}),
-  layout({id: 'levinas-ethics-before-ontology', parentExhibitId: 'levinas', zoneId: 'phenomenology-interpretation-alterity', position: {x: -5.55, z: 27.38}, rotationY: Math.PI, assetId: 'levinas-totality-infinity-2002', mediaWidth: 3.2, mediaHeight: 3.2 * 480 / 640, installationKind: 'phenomenology-concept', accent: PHENOMENOLOGY_PALETTE.alterity}),
+  layout({id: 'levinas-ethics-before-ontology', parentExhibitId: 'levinas', zoneId: 'phenomenology-interpretation-alterity', position: {x: -5.55, z: 27.38}, rotationY: Math.PI, assetId: 'levinas-ethical-interruption-interpretive', mediaWidth: 3.2, mediaHeight: 2.4, installationKind: 'phenomenology-concept', accent: PHENOMENOLOGY_PALETTE.alterity}),
   layout({id: 'gadamer-truth-method', parentExhibitId: 'gadamer', zoneId: 'phenomenology-interpretation-alterity', position: {x: 5.55, z: 27.38}, rotationY: Math.PI, assetId: 'gadamer-letter-pawliszyn', mediaWidth: 3.2 * 447 / 640, mediaHeight: 3.2, installationKind: 'phenomenology-context', accent: PHENOMENOLOGY_PALETTE.midnight}),
   layout({id: 'husserl-epoche-reduction', parentExhibitId: 'husserl', zoneId: 'phenomenology-method', position: {x: -5.55, z: -27.38}, rotationY: 0, assetId: 'husserl-epoche-portrait-1900', mediaWidth: 3.2 * 419 / 550, mediaHeight: 3.2, installationKind: 'phenomenology-concept', accent: PHENOMENOLOGY_PALETTE.horizon}),
   layout({id: 'husserl-time-consciousness', parentExhibitId: 'husserl', zoneId: 'phenomenology-method', position: {x: 5.55, z: -27.38}, rotationY: 0, assetId: 'husserl-time-beethoven-op101', mediaWidth: 2.1, mediaHeight: 2.1 * 640 / 413, installationKind: 'phenomenology-concept', accent: PHENOMENOLOGY_PALETTE.midnight}),

@@ -31,7 +31,7 @@ const locks: Record<string, string> = {
   'continental-college-institutions': 'fnv1a64:063ea4b1f1b154b4',
   'continental-berlin-history-rupture': 'fnv1a64:558428a8deebfeb4',
   'continental-freiburg-phenomenological-line': 'fnv1a64:c5759eabc477a83a',
-  'foucault-panopticon-visibility': 'fnv1a64:cfcec56002eef819',
+  'foucault-panopticon-visibility': 'fnv1a64:4c9ec481f19d79aa',
   'foucault-clinical-gaze': 'fnv1a64:121985b32cf320ff',
   'foucault-bertillon-examination': 'fnv1a64:0322c879819df82f',
   'foucault-mettray-disciplinary-labor': 'fnv1a64:b94e67ab7d8b75d4',
@@ -121,6 +121,10 @@ const evidence: Record<string, Evidence> = {
     boundary: 'Commons identifies an unbuilt proposal but supplies no holding institution, accession, full provenance, or documented transmission from Bentham’s plans. No evidence connects Foucault to this drawing, and its colonial setting requires historical research rather than an inferred story of ideas traveling unchanged.',
     guide: ['Begin with the proposed, unbuilt, photographed drawing and its unresolved original custody.', 'Compare radial visibility with Foucault’s text while withholding claims about construction, effects, direct transmission, or authorial use.'],
     resolution: 'corrected the portrait-oriented distortion, disclosed missing custody and provenance, and withdrew unsupported claims of direct transfer or Foucault use.',
+    additionalSources: [
+      source('National Archives of Singapore — McNair-era private-record context', 'https://www.nas.gov.sg/archivesonline/private_records/record-details/e4a36317-115b-11e3-83d5-0050568939ad', 'collection-record'),
+      source('Stanford Encyclopedia of Philosophy — Michel Foucault', 'https://plato.stanford.edu/entries/foucault/', 'academic-reference'),
+    ],
   },
   'foucault-clinical-gaze': {
     plaqueTitle: 'A Clinical Lesson at the Salpêtrière', plaqueType: 'reception-or-transmission-history', articleTitle: 'Michel Foucault',

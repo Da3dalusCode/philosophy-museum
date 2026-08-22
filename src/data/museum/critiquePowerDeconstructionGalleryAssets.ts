@@ -304,7 +304,7 @@ export const CRITIQUE_POWER_DECONSTRUCTION_GALLERY_ASSETS = [
     id: 'critique-panopticon-outram-proposal-1880s',
     entityKind: 'philosopher',
     entityId: 'foucault',
-    role: 'primary-source',
+    role: 'context',
     mediaKind: 'architectural-plan',
     visualCharacter: 'map-or-diagram',
     title: 'Proposed Prison at Outram, Singapore',

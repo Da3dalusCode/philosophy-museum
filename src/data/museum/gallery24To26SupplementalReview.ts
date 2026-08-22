@@ -26,55 +26,55 @@ const source = (
 ): MuseumSupplementalInterpretationSource => ({label, url, kind});
 
 const locks: Record<string, string> = {
-  'political-authority-legitimacy': 'fnv1a64:1a7ba8920124ddcc',
-  'public-action-civil-disobedience': 'fnv1a64:b71a65d4a2295f54',
-  'arendt-human-condition': 'fnv1a64:130a6ee3a1331dea',
-  'arendt-eichmann-judgment': 'fnv1a64:6cee82876ee04a1f',
-  'rawls-theory-of-justice': 'fnv1a64:9e5e9abab07f01b9',
-  'rawls-original-position': 'fnv1a64:42db2553f96acc68',
-  'nozick-anarchy-state-utopia': 'fnv1a64:ac39a12b1c314285',
-  'nozick-entitlement-rectification': 'fnv1a64:b551f841281ac908',
-  'nussbaum-capabilities-approach': 'fnv1a64:9ef73d5e8f3982ac',
-  'nussbaum-frontiers-justice': 'fnv1a64:3e3cd8233ca189ac',
-  'amartya-sen-capability-development': 'fnv1a64:db6ef0fe02d9df33',
-  'habermas-public-sphere': 'fnv1a64:60c1e5e5641f9d39',
-  'democratic-deliberation-assembly': 'fnv1a64:8e9d94895229bc50',
-  'feminist-cooper-voice-education': 'fnv1a64:540d82980a2be53d',
-  'feminist-truth-abolition-rights': 'fnv1a64:c087356e64822f8f',
-  'feminist-crenshaw-intersectionality': 'fnv1a64:60ea85f32c93ab04',
-  'feminist-standpoint-situated-objectivity': 'fnv1a64:c34c883a12b853a7',
-  'feminist-care-dependency-labor': 'fnv1a64:86deb60202be016d',
-  'feminist-astell-reason-education': 'fnv1a64:3a8e18f26a7acbcf',
-  'feminist-wollstonecraft-manufactured-inequality': 'fnv1a64:582bb1e2125557db',
-  'feminist-de-gouges-citizenship': 'fnv1a64:db163838cfc909bb',
-  'feminist-bluestocking-intellectual-publics': 'fnv1a64:42f7da825ad3c93d',
-  'feminist-education-domesticity': 'fnv1a64:b78b2ee0f71df0c4',
-  'feminist-abolition-convention-exclusion': 'fnv1a64:13c5403277bf03fa',
-  'beauvoir-labor-and-immanence': 'fnv1a64:39c65976749c6070',
-  'beauvoir-situation-and-place': 'fnv1a64:67d205d1ac0053ff',
-  'beauvoir-second-sex-movement': 'fnv1a64:4980ae3a74fbdcf4',
-  'beauvoir-aging-and-otherness': 'fnv1a64:72d6d3cc77a39e3d',
-  'beauvoir-boupacha-colonial-violence': 'fnv1a64:36bb8f40dc2d6f6d',
-  'butler-performativity-and-action': 'fnv1a64:3f8eebb041988f7a',
-  'butler-trans-livability': 'fnv1a64:7a40571e669af189',
-  'butler-disability-dependency': 'fnv1a64:728a7ad1e8cf49b6',
-  'butler-coalition-and-contestation': 'fnv1a64:fa6db46f8a1875a3',
-  'butler-assembly-precarity': 'fnv1a64:12a88e4ac8f4afc2',
-  'fanon-racializing-gaze': 'fnv1a64:3891db5a16a2322c',
-  'fanon-colonial-psychiatry': 'fnv1a64:8619f7bcd8c0c157',
-  'fanon-algerian-revolution': 'fnv1a64:ab60661f4ecefae2',
-  'fanon-violence-decolonization': 'fnv1a64:63037181e75d4e44',
-  'fanon-national-consciousness': 'fnv1a64:c03343084725546d',
-  'davis-prison-abolition': 'fnv1a64:36965e6b3a27ccab',
-  'davis-race-gender-class': 'fnv1a64:922bfb3c1e804437',
-  'hooks-margin-center': 'fnv1a64:60b4dc63ee120d90',
-  'hooks-engaged-pedagogy-love': 'fnv1a64:ed79772c5cab3a7d',
-  'cesaire-colonialism-thingification': 'fnv1a64:535185168a5aa26c',
-  'dubois-color-line-colonial-world': 'fnv1a64:aa180fbacc9d511b',
-  'said-orientalism-representation': 'fnv1a64:73c7347205ad2650',
-  'spivak-subaltern-representation': 'fnv1a64:71a9b8381a911c03',
-  'ngugi-language-decolonization': 'fnv1a64:5c08ba8732405d9b',
-  'wynter-humanism-coloniality': 'fnv1a64:efecb0f35b8abcfb',
+  'political-authority-legitimacy': 'fnv1a64:eb9397ba1dc7cf41',
+  'public-action-civil-disobedience': 'fnv1a64:9218a51ec211057f',
+  'arendt-human-condition': 'fnv1a64:0b9cd89d3a7ea55d',
+  'arendt-eichmann-judgment': 'fnv1a64:5fbee8748e07ce5c',
+  'rawls-theory-of-justice': 'fnv1a64:2a94e6c323e42424',
+  'rawls-original-position': 'fnv1a64:8172440f3d06c3bb',
+  'nozick-anarchy-state-utopia': 'fnv1a64:d7b3eb8870429288',
+  'nozick-entitlement-rectification': 'fnv1a64:cb7123f91b66bdb3',
+  'nussbaum-capabilities-approach': 'fnv1a64:156eebc2cc78344d',
+  'nussbaum-frontiers-justice': 'fnv1a64:8250622f5f1455c2',
+  'amartya-sen-capability-development': 'fnv1a64:65f8a5d243566f11',
+  'habermas-public-sphere': 'fnv1a64:ab182506a03c55fc',
+  'democratic-deliberation-assembly': 'fnv1a64:2494c5f79a9d49db',
+  'feminist-cooper-voice-education': 'fnv1a64:41e91d609b25b102',
+  'feminist-truth-abolition-rights': 'fnv1a64:a210c083edcb7130',
+  'feminist-crenshaw-intersectionality': 'fnv1a64:2aaacd7ebc79d5cd',
+  'feminist-standpoint-situated-objectivity': 'fnv1a64:7c1b67582a7f7d28',
+  'feminist-care-dependency-labor': 'fnv1a64:e217f154c9d0c24b',
+  'feminist-astell-reason-education': 'fnv1a64:511e7621fd268615',
+  'feminist-wollstonecraft-manufactured-inequality': 'fnv1a64:2b56d1478f7b949b',
+  'feminist-de-gouges-citizenship': 'fnv1a64:1b889a91f8def047',
+  'feminist-bluestocking-intellectual-publics': 'fnv1a64:d38dff6946e4c41a',
+  'feminist-education-domesticity': 'fnv1a64:bc6ffd216829e453',
+  'feminist-abolition-convention-exclusion': 'fnv1a64:631590bc4e8d5790',
+  'beauvoir-labor-and-immanence': 'fnv1a64:2d254855d395f276',
+  'beauvoir-situation-and-place': 'fnv1a64:63c74126868e7e69',
+  'beauvoir-second-sex-movement': 'fnv1a64:f5d5a2bc5905d852',
+  'beauvoir-aging-and-otherness': 'fnv1a64:7e91d559d92e11a6',
+  'beauvoir-boupacha-colonial-violence': 'fnv1a64:153a090b5460f44e',
+  'butler-performativity-and-action': 'fnv1a64:f01dcd029cdcf7b1',
+  'butler-trans-livability': 'fnv1a64:45ec001e50f3341d',
+  'butler-disability-dependency': 'fnv1a64:442fc74474307244',
+  'butler-coalition-and-contestation': 'fnv1a64:16725ec11a984aff',
+  'butler-assembly-precarity': 'fnv1a64:fb6ed36690ded9bc',
+  'fanon-racializing-gaze': 'fnv1a64:fb0bf82bc6a2db0f',
+  'fanon-colonial-psychiatry': 'fnv1a64:12846ac525c59e73',
+  'fanon-algerian-revolution': 'fnv1a64:95b4e270195a70c5',
+  'fanon-violence-decolonization': 'fnv1a64:d4f224432422fe9c',
+  'fanon-national-consciousness': 'fnv1a64:153f95617a039a07',
+  'davis-prison-abolition': 'fnv1a64:a5f5e2fcbf08fd38',
+  'davis-race-gender-class': 'fnv1a64:fac664499eb7b5d5',
+  'hooks-margin-center': 'fnv1a64:6c220c5966f1985b',
+  'hooks-engaged-pedagogy-love': 'fnv1a64:60ca692005e66a67',
+  'cesaire-colonialism-thingification': 'fnv1a64:4268c4987e083ea5',
+  'dubois-color-line-colonial-world': 'fnv1a64:de358f1b5f8e4540',
+  'said-orientalism-representation': 'fnv1a64:7ceb548ae122378d',
+  'spivak-subaltern-representation': 'fnv1a64:b80c74828c2723dd',
+  'ngugi-language-decolonization': 'fnv1a64:d3dfb8f622180695',
+  'wynter-humanism-coloniality': 'fnv1a64:5285566e29fd8b40',
 };
 
 /** Walking order is deliberately identical to Galleries 24, 25, and 26. */
@@ -82,7 +82,7 @@ const evidence: Record<string, Evidence> = {
   'political-authority-legitimacy': {
     plaqueTitle: 'Authority, Institutions, and Public Accountability', plaqueType: 'concept-argument-diagram-or-method', articleTitle: 'Political Philosophy',
     invitation: 'Follow this original interpretive circuit from public authorization through institutions and back through contest and revision, while keeping coercion, obedience, legitimacy, and democratic accountability distinct rather than treating authority as self-justifying power.',
-    visualReading: 'The circular table, civic buildings, connecting routes, and revision arrows belong to an original 2026 Museum drawing. They identify a conceptual comparison only; they are not a historical constitution, an author’s diagram, or evidence that public institutions are accountable in practice.',
+    visualReading: 'The circular table, civic buildings, connecting routes, and revision arrows belong to an original contemporary Museum drawing. They identify a conceptual comparison only; they are not a historical constitution, an author’s diagram, or evidence that public institutions are accountable in practice.',
     claim: 'Political authority concerns a claimed right to issue binding directives and a correlative question of political obligation. Legitimacy may be defended through consent, fair procedure, public reason, benefits, necessity, or justice, but no single path is assumed by the image.',
     boundary: 'A diagram can separate authorization, exercise, challenge, and revision without proving that any regime satisfies them. De facto power, legal validity, moral legitimacy, and a person’s reasons to obey remain different judgments, especially where exclusion or coercion corrupts apparent consent.',
     guide: ['Trace authorization, institutional exercise, contest, and revision as separate stages rather than one circle of automatic legitimacy.', 'Distinguish de facto command, legal office, justified authority, political obligation, dissent, and remedies for exclusion.'],
@@ -98,7 +98,7 @@ const evidence: Record<string, Evidence> = {
   'arendt-human-condition': {
     plaqueTitle: 'Labor, Work, and Action: Interpretive Triptych', plaqueType: 'concept-argument-diagram-or-method', articleTitle: 'Hannah Arendt',
     invitation: 'Read this original triptych as a prompt for Arendt’s distinctions among recurring life-process, a durable made world, and plural public action, while testing the hierarchy and exclusions her framework can reproduce.',
-    visualReading: 'Three equal collage panels show bodily maintenance, fabricated objects, and people speaking together. The 2026 Museum drawing is not by Arendt and does not depict an actual household, workplace, polis, or stable division among activities.',
+    visualReading: 'Three equal collage panels show bodily maintenance, fabricated objects, and people speaking together. The contemporary Museum drawing is not by Arendt and does not depict an actual household, workplace, polis, or stable division among activities.',
     claim: 'The Human Condition distinguishes labor, work, and action to ask what kinds of activity sustain life, build a common world, and disclose persons among equals. The categories organize an argument rather than assign every task or person to one permanent sphere.',
     boundary: 'The image cannot settle feminist criticism of Arendt’s public/private distinction or make maintenance visually inferior. Care, racialized and gendered labor, disability, household coercion, exclusion from citizenship, and the material supports of public appearance must remain visible when evaluating the framework.',
     guide: ['Use the three panels to compare temporal patterns and social conditions, not to rank people or occupations.', 'Track labor, work, action, plurality, natality, worldliness, household power, and feminist criticism through Arendt’s texts and reception.'],
@@ -123,7 +123,7 @@ const evidence: Record<string, Evidence> = {
   'rawls-original-position': {
     plaqueTitle: 'The Original Position and Veil of Ignorance', plaqueType: 'concept-argument-diagram-or-method', articleTitle: 'John Rawls',
     invitation: 'Use this original interpretive scene to follow Rawls’s decision device under fair informational limits, without mistaking the veil for ignorance of social facts, human difference, or an actual founding contract.',
-    visualReading: 'Equal figures, a translucent veil, and branching social arrangements form an original 2026 Museum drawing. The composition visualizes a choice situation only; it is neither Rawls’s diagram nor a historical meeting or empirical experiment.',
+    visualReading: 'Equal figures, a translucent veil, and branching social arrangements form an original contemporary Museum drawing. The composition visualizes a choice situation only; it is neither Rawls’s diagram nor a historical meeting or empirical experiment.',
     claim: 'The original position models fair agreement by restricting knowledge of one’s place, talents, class, religion, and conception of the good while retaining general social knowledge. Its parties select principles for a basic structure, not rules for every private choice.',
     boundary: 'The device does not erase embodiment or demand political amnesia. Critics question its assumptions about persons, disability, race, gender, family, global justice, motivation, and idealization; a balanced circle cannot answer whether its informational restrictions or selected principles are justified.',
     guide: ['Identify which particular facts are withheld and which general knowledge the parties retain.', 'Separate the hypothetical device, circumstances of justice, parties’ reasoning, selected principles, basic structure, and objections to idealization.'],
@@ -139,7 +139,7 @@ const evidence: Record<string, Evidence> = {
   'nozick-entitlement-rectification': {
     plaqueTitle: 'Acquisition, Transfer, and Rectification', plaqueType: 'concept-argument-diagram-or-method', articleTitle: 'Robert Nozick',
     invitation: 'Follow this original interpretive chain through acquisition and transfer to rupture and repair, keeping possession distinct from entitlement and refusing to let an incomplete rectification principle certify present holdings.',
-    visualReading: 'A 2026 Museum drawing links acquisition and transfer before broken chains and dispossession redirect the sequence toward investigation and rectification. It is not Nozick’s diagram, a legal title chain, or a record of any particular property.',
+    visualReading: 'A contemporary Museum drawing links acquisition and transfer before broken chains and dispossession redirect the sequence toward investigation and rectification. It is not Nozick’s diagram, a legal title chain, or a record of any particular property.',
     claim: 'Entitlement theory evaluates holdings historically through just acquisition, just transfer, and rectification of injustice. It therefore cannot infer justice from a present pattern alone, and Nozick left the content and institutional application of rectification notably underdeveloped.',
     boundary: 'The image foregrounds theft, enslavement, colonial seizure, and exclusion without proposing one remedy. Evidence, descendants, institutional responsibility, collective claims, compensation, restitution, and limits on otherwise voluntary exchange demand arguments beyond the schematic arrows.',
     guide: ['Ask what evidence would establish each acquisition and transfer rather than treating possession as a moral title.', 'Keep rectification central while distinguishing Nozick’s sketch from legal doctrine, reparations programs, and rival theories of historical justice.'],
@@ -147,7 +147,7 @@ const evidence: Record<string, Evidence> = {
   'nussbaum-capabilities-approach': {
     plaqueTitle: 'Central Capabilities as Real Opportunities', plaqueType: 'concept-argument-diagram-or-method', articleTitle: 'Martha Nussbaum',
     invitation: 'Read ten open portals as an original prompt for plural real opportunities, not a ladder or official diagram, then test universal thresholds against disability, culture, democratic voice, resources, and paternalism.',
-    visualReading: 'The 2026 Museum drawing places a person before ten differently pictured openings. It evokes plurality and access but does not reproduce Nussbaum’s wording, rank capabilities, show achieved functionings, or measure what anyone can actually do or be.',
+    visualReading: 'The contemporary Museum drawing places a person before ten differently pictured openings. It evokes plurality and access but does not reproduce Nussbaum’s wording, rank capabilities, show achieved functionings, or measure what anyone can actually do or be.',
     claim: 'Nussbaum proposes a list of central capabilities protected to threshold levels as requirements of dignity and political justice. Capabilities are substantive opportunities, not resources alone or compulsory achievements, and practical reason and affiliation play architectonic roles.',
     boundary: 'Open doors can conceal conversion barriers, care needs, social stigma, violence, environment, and institutional exclusion. Critics dispute the list’s authorship, universality, threshold setting, democratic legitimacy, and paternalism; Sen’s comparative capability approach is related but not interchangeable.',
     guide: ['Distinguish resources, conversion factors, capability, chosen functioning, threshold, and actual institutional access.', 'Compare Nussbaum’s specified list with Sen’s open comparative framework and disability, feminist, global, and democratic critiques.'],
@@ -600,6 +600,14 @@ const referenceUrls = {
   edinburghRights: 'https://library.ed.ac.uk/digitisation-services/cultural-heritage-digitisation-service/image-licensing',
   wynterOralHistory: 'https://historicalsociety.stanford.edu/sylvia-wynter',
   wynterCeremony: 'https://doi.org/10.1215/01642472-8750064',
+  butlerAssemblyReview: 'https://ndpr.nd.edu/reviews/notes-toward-a-performative-theory-of-assembly/',
+  davisPrisonScholarship: 'https://harvardlawreview.org/wp-content/uploads/2019/04/1568-1574_Online.pdf',
+  davisRaceScholarship: 'https://plato.stanford.edu/entries/femapproach-continental/',
+  hooksMarginScholarship: 'https://iep.utm.edu/fem-race/',
+  hooksPedagogyScholarship: 'https://strathprints.strath.ac.uk/77445/',
+  hooksLoveScholarship: 'https://academic.oup.com/bjsw/article/53/1/570/6633585',
+  spivakScholarship: 'https://press-files.anu.edu.au/downloads/press/p15131/html/ch01.xhtml?page=3',
+  ngugiInterview: 'https://www.humanities.uci.edu/news/power-language',
 } as const;
 
 type ReferenceKey = keyof typeof referenceUrls;
@@ -623,6 +631,7 @@ const authoritativeSources: Partial<Record<string, readonly MuseumSupplementalIn
   ],
   'butler-disability-dependency': [source('Judith Butler — Notes Toward a Performative Theory of Assembly', referenceUrls.butlerAssembly, 'primary-text')],
   'butler-coalition-and-contestation': [source('Judith Butler — Notes Toward a Performative Theory of Assembly', referenceUrls.butlerAssembly, 'primary-text')],
+  'butler-assembly-precarity': [source('Notre Dame Philosophical Reviews — Notes Toward a Performative Theory of Assembly', referenceUrls.butlerAssemblyReview, 'academic-reference')],
   'fanon-racializing-gaze': [source('Grove Atlantic — Black Skin, White Masks', referenceUrls.blackSkin, 'primary-text')],
   'fanon-colonial-psychiatry': [
     source('IMEC — Frantz Fanon archive, 178FNN', referenceUrls.fanonArchive, 'collection-record'),
@@ -631,18 +640,60 @@ const authoritativeSources: Partial<Record<string, readonly MuseumSupplementalIn
   'fanon-algerian-revolution': [source('IMEC — Frantz Fanon archive, 178FNN', referenceUrls.fanonArchive, 'collection-record')],
   'fanon-violence-decolonization': [source('Grove Atlantic — The Wretched of the Earth', referenceUrls.wretchedEarth, 'primary-text')],
   'fanon-national-consciousness': [source('Grove Atlantic — The Wretched of the Earth', referenceUrls.wretchedEarth, 'primary-text')],
-  'davis-race-gender-class': [source('Vintage — Women, Race & Class', referenceUrls.womenRaceClass, 'primary-text')],
-  'hooks-margin-center': [source('Routledge — Feminist Theory: From Margin to Center', referenceUrls.hooksFeministTheory, 'primary-text')],
+  'davis-prison-abolition': [source('Harvard Law Review — Prison Abolition and Grounded Justice', referenceUrls.davisPrisonScholarship, 'academic-reference')],
+  'davis-race-gender-class': [
+    source('Vintage — Women, Race & Class', referenceUrls.womenRaceClass, 'primary-text'),
+    source('Stanford Encyclopedia of Philosophy — Continental Feminism', referenceUrls.davisRaceScholarship, 'academic-reference'),
+  ],
+  'hooks-margin-center': [
+    source('Routledge — Feminist Theory: From Margin to Center', referenceUrls.hooksFeministTheory, 'primary-text'),
+    source('Internet Encyclopedia of Philosophy — Feminist Perspectives on Class and Work', referenceUrls.hooksMarginScholarship, 'academic-reference'),
+  ],
   'hooks-engaged-pedagogy-love': [
     source('Routledge — Teaching to Transgress', referenceUrls.hooksTeaching, 'primary-text'),
     source('William Morrow — All About Love', referenceUrls.hooksLove, 'primary-text'),
+    source('Strathclyde repository — scholarship on hooks’s engaged pedagogy', referenceUrls.hooksPedagogyScholarship, 'academic-reference'),
+    source('British Journal of Social Work — scholarship on hooks’s ethics of love', referenceUrls.hooksLoveScholarship, 'academic-reference'),
   ],
-  'ngugi-language-decolonization': [source('University of Edinburgh Library — image licensing and rights guidance', referenceUrls.edinburghRights, 'collection-record')],
+  'spivak-subaltern-representation': [source('Australian National University Press — scholarly analysis of “Can the Subaltern Speak?”', referenceUrls.spivakScholarship, 'academic-reference')],
+  'ngugi-language-decolonization': [
+    source('University of Edinburgh Library — image licensing and rights guidance', referenceUrls.edinburghRights, 'collection-record'),
+    source('UC Irvine — Ngũgĩ wa Thiong’o interview on the power of language', referenceUrls.ngugiInterview, 'primary-interview'),
+  ],
 };
+
+const bibliographicRecordUrls = new Set<string>([
+  referenceUrls.humanCondition,
+  referenceUrls.eichmannBook,
+  referenceUrls.theoryOfJustice,
+  referenceUrls.nozickBook,
+  referenceUrls.frontiersOfJustice,
+  referenceUrls.developmentAsFreedom,
+  referenceUrls.situatedKnowledges,
+  referenceUrls.genderTrouble,
+  referenceUrls.undoingGender,
+  referenceUrls.butlerAssembly,
+  referenceUrls.blackSkin,
+  referenceUrls.fanonClinicalWritings,
+  referenceUrls.wretchedEarth,
+  referenceUrls.prisonsObsolete,
+  referenceUrls.womenRaceClass,
+  referenceUrls.hooksFeministTheory,
+  referenceUrls.hooksTeaching,
+  referenceUrls.hooksLove,
+  referenceUrls.cesaireDiscourse,
+  referenceUrls.saidOrientalism,
+  referenceUrls.spivakSubaltern,
+  referenceUrls.ngugiDecolonising,
+  referenceUrls.wynterCeremony,
+]);
 
 const sourceKindOverrides: Partial<Record<string, Readonly<Record<string, MuseumSupplementalInterpretationSource['kind']>>>> = {
   'ngugi-language-decolonization': {
-    'https://www.humanities.uci.edu/news/power-language': 'collection-record',
+    [referenceUrls.ngugiInterview]: 'primary-interview',
+  },
+  'wynter-humanism-coloniality': {
+    [referenceUrls.wynterOralHistory]: 'primary-interview',
   },
 };
 
@@ -676,25 +727,25 @@ const paragraphEvidence: Record<string, ParagraphEvidencePlan> = {
   'beauvoir-second-sex-movement': {claim: ['feministBody'], boundary: ['feministBody']},
   'beauvoir-aging-and-otherness': {claim: ['beauvoirSep'], boundary: ['beauvoirSep']},
   'beauvoir-boupacha-colonial-violence': {claim: ['boupachaBook', 'boupachaArchive', 'beauvoirSep'], boundary: ['boupachaBook', 'boupachaArchive', 'beauvoirSep']},
-  'butler-performativity-and-action': {claim: ['genderTrouble', 'genderSep'], boundary: ['genderTrouble', 'nlmStorm']},
-  'butler-trans-livability': {opening: ['capitalPrideMarch'], claim: ['undoingGender', 'genderSep'], boundary: ['capitalPrideMarch', 'undoingGender']},
+  'butler-performativity-and-action': {claim: ['genderTrouble', 'genderSep'], boundary: ['genderTrouble', 'genderSep', 'nlmStorm']},
+  'butler-trans-livability': {opening: ['capitalPrideMarch'], claim: ['undoingGender', 'genderSep'], boundary: ['capitalPrideMarch', 'undoingGender', 'genderSep']},
   'butler-disability-dependency': {claim: ['feministDisability', 'butlerAssembly'], boundary: ['feministDisability', 'butlerAssembly']},
   'butler-coalition-and-contestation': {claim: ['butlerAssembly', 'genderSep'], boundary: ['butlerAssembly', 'genderSep']},
-  'butler-assembly-precarity': {claim: ['butlerAssembly'], boundary: ['butlerAssembly']},
+  'butler-assembly-precarity': {claim: ['butlerAssembly', 'butlerAssemblyReview'], boundary: ['butlerAssemblyReview']},
   'fanon-racializing-gaze': {claim: ['blackSkin', 'fanonSep'], boundary: ['blackSkin', 'fanonSep']},
   'fanon-colonial-psychiatry': {claim: ['fanonClinicalWritings', 'fanonSep'], boundary: ['fanonArchive', 'fanonSep']},
   'fanon-algerian-revolution': {claim: ['fanonSep', 'fanonArchive'], boundary: ['fanonSep', 'fanonArchive']},
   'fanon-violence-decolonization': {claim: ['wretchedEarth', 'fanonSep'], boundary: ['wretchedEarth', 'fanonSep']},
   'fanon-national-consciousness': {claim: ['wretchedEarth', 'fanonSep'], boundary: ['wretchedEarth', 'fanonSep']},
-  'davis-prison-abolition': {claim: ['prisonsObsolete'], boundary: ['prisonsObsolete']},
-  'davis-race-gender-class': {claim: ['womenRaceClass'], boundary: ['womenRaceClass']},
-  'hooks-margin-center': {claim: ['hooksFeministTheory'], boundary: ['hooksFeministTheory']},
-  'hooks-engaged-pedagogy-love': {claim: ['hooksTeaching', 'hooksLove'], boundary: ['hooksTeaching', 'hooksLove']},
+  'davis-prison-abolition': {claim: ['prisonsObsolete', 'davisPrisonScholarship'], boundary: ['davisPrisonScholarship']},
+  'davis-race-gender-class': {claim: ['womenRaceClass', 'davisRaceScholarship'], boundary: ['davisRaceScholarship']},
+  'hooks-margin-center': {claim: ['hooksFeministTheory', 'hooksMarginScholarship'], boundary: ['hooksMarginScholarship']},
+  'hooks-engaged-pedagogy-love': {claim: ['hooksTeaching', 'hooksLove', 'hooksPedagogyScholarship', 'hooksLoveScholarship'], boundary: ['hooksPedagogyScholarship', 'hooksLoveScholarship']},
   'cesaire-colonialism-thingification': {claim: ['cesaireDiscourse', 'colonialismSep'], boundary: ['cesaireDiscourse', 'colonialismSep']},
   'dubois-color-line-colonial-world': {claim: ['duboisSep'], boundary: ['duboisSep']},
   'said-orientalism-representation': {claim: ['saidOrientalism', 'colonialismSep'], boundary: ['saidOrientalism', 'colonialismSep']},
-  'spivak-subaltern-representation': {claim: ['spivakSubaltern', 'colonialismSep'], boundary: ['spivakSubaltern', 'colonialismSep']},
-  'ngugi-language-decolonization': {opening: ['edinburghRights'], claim: ['ngugiDecolonising'], boundary: ['ngugiDecolonising', 'edinburghRights']},
+  'spivak-subaltern-representation': {claim: ['spivakSubaltern', 'spivakScholarship', 'colonialismSep'], boundary: ['spivakScholarship', 'colonialismSep']},
+  'ngugi-language-decolonization': {opening: ['edinburghRights'], claim: ['ngugiDecolonising', 'ngugiInterview'], boundary: ['ngugiInterview', 'edinburghRights']},
   'wynter-humanism-coloniality': {claim: ['wynterCeremony', 'wynterOralHistory'], boundary: ['wynterCeremony', 'wynterOralHistory']},
 };
 
@@ -750,13 +801,16 @@ const objectLedDevelopments: Record<string, string> = {
   'wynter-humanism-coloniality': 'The illustrator and hostile caption frame Morant Bay through a British colonial narrative, making viewpoint part of the surviving evidence. The print cannot neutrally reconstruct the rebellion or visualize Wynter’s theory; her writing and oral history support the separate analysis of how one genre of the human becomes universalized.',
 };
 
-const reviewMethod = 'Galleries 24–26 editorial closeout remediation: exactly three concurrent GPT-5.6 Terra/High read-only evidence scopes of seventeen, sixteen, and sixteen non-overlapping exhibits were reconciled by the Sol parent against the assembled runtime registry and installed bytes. The review separated object, reproduction, primary-text, reception, and interpretive evidence; assigned minimum paragraph-specific sources; rewrote all three-paragraph panels around their particular objects; verified desktop and mobile direct routes; and retained the prior staged-3D evidence because geometry and interaction contracts did not change.';
+const reviewMethod = 'Independent supplemental remediation: exactly three concurrent GPT-5.6 Terra/High read-only scopes examined all 49 Gallery 24–26 records, isolated Gallery 04/16/21/22 findings, and replacement evidence plus generated-asset lineage. The Sol parent reconciled every judgment and edit, separated object, reproduction, bibliographic, primary, interview, scholarly, reception, and interpretive evidence, and retained accurate object-specific guidance while repairing only demonstrated source-role and claim-mapping failures.';
 
-const visualReview = (id: string): NonNullable<NonNullable<MuseumSupplementalExhibit['review']>['visualReview']> => ({
-  desktop: {reviewedOn: '2026-08-21', viewport: '1440×900', evidence: `Direct route inspected with the full aspect-safe object preview, three untitled sourced paragraphs, subject-specific evidence guide, factual plaque relationship, exact article action, and no horizontal overflow. Evidence: docs/visual-validation/gallery-24-26-supplementals/desktop/${id}.png`},
-  mobile: {reviewedOn: '2026-08-21', viewport: '390×844', evidence: `Direct route inspected with a wrapped factual title, aspect-safe object preview, scrollable interpretation, complete controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-24-26-supplementals/mobile/${id}.png`},
-  threeDimensional: {reviewedOn: '2026-08-21', viewport: '1280×720 retained staged-3D evidence', evidence: `The prior direct-route capture remains applicable because this remediation changed editorial evidence and provenance without changing geometry or interaction handlers. It records target activation, close/resume, the intended proximity card, and exact routed-target reopening. Evidence: docs/visual-validation/gallery-24-26-supplementals/staged-3d/${id}.png`},
-});
+const visualReview = (id: string): NonNullable<NonNullable<MuseumSupplementalExhibit['review']>['visualReview']> => {
+  const directReviewedOn = id === 'spivak-subaltern-representation' ? '2026-08-22' : '2026-08-21';
+  return {
+    desktop: {reviewedOn: directReviewedOn, viewport: '1440×900', evidence: `Direct route inspected with the full aspect-safe object preview, three untitled sourced paragraphs, subject-specific evidence guide, factual plaque relationship, exact article action, and no horizontal overflow. Evidence: docs/visual-validation/gallery-24-26-supplementals/desktop/${id}.png`},
+    mobile: {reviewedOn: directReviewedOn, viewport: '390×844', evidence: `Direct route inspected with a wrapped factual title, aspect-safe object preview, scrollable interpretation, complete controls, and no horizontal overflow. Evidence: docs/visual-validation/gallery-24-26-supplementals/mobile/${id}.png`},
+    threeDimensional: {reviewedOn: '2026-08-21', viewport: '1280×720 retained staged-3D evidence', evidence: `The prior direct-route capture remains applicable because this remediation changed editorial evidence and provenance without changing geometry or interaction handlers. It records target activation, close/resume, the intended proximity card, and exact routed-target reopening. Evidence: docs/visual-validation/gallery-24-26-supplementals/staged-3d/${id}.png`},
+  };
+};
 
 const canonicalContext = (input: MuseumSupplementalExhibit): MuseumCanonicalContextRef => {
   if (input.articleRoute?.kind === 'philosopher') return {kind: 'philosopher', id: input.articleRoute.philosopherId};
@@ -785,7 +839,10 @@ const reviewSupplementalExhibit = (galleryNumber: 24 | 25 | 26, input: MuseumSup
   const kindOverrides: Readonly<Record<string, MuseumSupplementalInterpretationSource['kind']>> = sourceKindOverrides[input.id] ?? {};
   const supplementary = [...input.sources, ...(reviewed.additionalSources ?? []), ...(authoritativeSources[input.id] ?? [])]
     .filter(({url}, index, items) => !objectSourceUrls.has(url) && items.findIndex((item) => item.url === url) === index)
-    .map((item) => ({...item, kind: kindOverrides[item.url] ?? item.kind}));
+    .map((item) => ({
+      ...item,
+      kind: kindOverrides[item.url] ?? (bibliographicRecordUrls.has(item.url) ? 'bibliographic-record' : item.kind),
+    }));
   const claimSources: MuseumSupplementalInterpretationSource[] = supplementary.map((item, index) => ({...item, id: `claim-${index + 1}`}));
   const sources = [...objectSources, ...claimSources];
   const objectIds = objectSources.flatMap((item) => item.id ? [item.id] : []);
@@ -818,9 +875,11 @@ const reviewSupplementalExhibit = (galleryNumber: 24 | 25 | 26, input: MuseumSup
         {label: 'Identity and date', description: `${asset.title}; ${asset.creator}; ${asset.objectDate}.`, sourceIds: paragraphSourceIds[0]},
         {label: 'Custody and rights', description: `${asset.institution}. ${asset.license}.`, sourceIds: paragraphSourceIds[0]},
       ]},
-      {heading: `${reviewed.articleTitle}: claims and limits`, items: [
-        {label: 'Establish first', description: reviewed.guide[0], sourceIds: paragraphSourceIds[0]},
-        {label: 'Carry forward', description: reviewed.guide[1], sourceIds: paragraphSourceIds[1]},
+      {heading: input.id === 'spivak-subaltern-representation'
+        ? 'Spivak and representation: claims and limits'
+        : `${reviewed.articleTitle}: claims and limits`, items: [
+        {label: 'Establish first', description: reviewed.guide[0], sourceIds: uniqueSourceIds([...paragraphSourceIds[0], ...paragraphSourceIds[1]])},
+        {label: 'Carry forward', description: reviewed.guide[1], sourceIds: uniqueSourceIds([...paragraphSourceIds[1], ...paragraphSourceIds[2]])},
       ]},
     ],
     objectInterpretation,
@@ -834,7 +893,9 @@ const reviewSupplementalExhibit = (galleryNumber: 24 | 25 | 26, input: MuseumSup
         {label: 'Custody / rights', value: `${asset.institution} · ${asset.license}`},
         {label: 'Atlas route', value: reviewed.articleTitle},
       ],
-      articleActionLabel: `Read the full sourced ${reviewed.articleTitle} article`,
+      articleActionLabel: input.id === 'spivak-subaltern-representation'
+        ? 'Compare Spivak’s representation problem with the full sourced bell hooks article'
+        : `Read the full sourced ${reviewed.articleTitle} article`,
       exhibitLayout: 'object-led',
     },
     wallPlaque: {
@@ -845,7 +906,7 @@ const reviewSupplementalExhibit = (galleryNumber: 24 | 25 | 26, input: MuseumSup
     },
     review: {
       status: 'standard-compliant',
-      reviewedOn: '2026-08-21',
+      reviewedOn: '2026-08-22',
       method: reviewMethod,
       resolution: `Resolved: ${reviewed.resolution ?? `reconciled ${reviewed.plaqueTitle} across object identity, attribution, date, institution, provenance, rights, caption, alt text, claim boundaries, natural ratio, plaque, guide, sources, route, and interaction evidence.`}`,
       lock: locks[input.id] ?? 'fnv1a64:0000000000000000',

@@ -1804,7 +1804,7 @@
     },
     "phenomenology-intentionality-interpretive": {
       "hallFolder": "phenomenology-existence-embodiment",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/phenomenology-intentionality-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/phenomenology-intentionality-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/phenomenology-intentionality-interpretive-panel.webp",
@@ -1841,7 +1841,7 @@
     },
     "heidegger-being-time-interpretive": {
       "hallFolder": "phenomenology-existence-embodiment",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/heidegger-being-time-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/heidegger-being-time-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/heidegger-being-time-interpretive-panel.webp",
@@ -1860,7 +1860,7 @@
     },
     "merleau-perception-interpretive": {
       "hallFolder": "phenomenology-existence-embodiment",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/merleau-perception-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/merleau-perception-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/merleau-perception-interpretive-panel.webp",
@@ -1915,7 +1915,7 @@
     },
     "existentialism-situated-freedom-interpretive": {
       "hallFolder": "phenomenology-existence-embodiment",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/existentialism-situated-freedom-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/existentialism-situated-freedom-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/existentialism-situated-freedom-interpretive-panel.webp",
@@ -1934,7 +1934,7 @@
     },
     "sartre-bad-faith-look-interpretive": {
       "hallFolder": "phenomenology-existence-embodiment",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/sartre-bad-faith-look-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/sartre-bad-faith-look-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/phenomenology-existence-embodiment/sartre-bad-faith-look-interpretive-panel.webp",
@@ -2149,7 +2149,7 @@
         "sha256": "9c61456a88c1b8da669373f9838eb96f18bfd2a24072acb681ae47393ecc87ec"
       }
     },
-    "levinas-totality-infinity-2002": {
+    "levinas-ethical-interruption-interpretive": {
       "hallFolder": "phenomenology-existence-embodiment",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/source-art/museum/levinas-face-to-face-contemporary-interpretation.png",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/source-art/museum/levinas-face-to-face-contemporary-interpretation.png",
@@ -2169,7 +2169,7 @@
       "visualCharacter": "artwork-or-social-scene",
       "textDominantOrSingleBook": false,
       "standaloneReplacementVersion": 1,
-      "sourceKind": "owner-approved-original-illustration"
+      "sourceKind": "repository-source-art-input"
     },
     "levinas-signature-1983": {
       "hallFolder": "phenomenology-existence-embodiment",
@@ -2365,7 +2365,7 @@
     },
     "moore-open-question-interpretive": {
       "hallFolder": "analytic-traditions",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/moore-open-question-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/moore-open-question-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/moore-open-question-interpretive-panel.webp",
@@ -2496,7 +2496,7 @@
     },
     "wittgenstein-language-games-interpretive": {
       "hallFolder": "analytic-traditions",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/wittgenstein-language-games-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/wittgenstein-language-games-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/wittgenstein-language-games-interpretive-panel.webp",
@@ -2515,7 +2515,7 @@
     },
     "quine-web-belief-interpretive": {
       "hallFolder": "analytic-traditions",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/quine-web-belief-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/quine-web-belief-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/quine-web-belief-interpretive-panel.webp",
@@ -2606,7 +2606,7 @@
     },
     "anscombe-portrait-interpretive": {
       "hallFolder": "analytic-traditions",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/anscombe-portrait-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/anscombe-portrait-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/anscombe-portrait-interpretive-panel.webp",
@@ -2625,7 +2625,7 @@
     },
     "anscombe-intention-interpretive": {
       "hallFolder": "analytic-traditions",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/anscombe-intention-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/anscombe-intention-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/analytic-traditions/anscombe-intention-interpretive-panel.webp",
@@ -2734,7 +2734,7 @@
     },
     "political-authority-interpretive": {
       "hallFolder": "justice-democratic-reason",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/political-authority-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/political-authority-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/political-authority-interpretive-panel.webp",
@@ -2771,7 +2771,7 @@
     },
     "arendt-human-condition-interpretive": {
       "hallFolder": "justice-democratic-reason",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/arendt-human-condition-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/arendt-human-condition-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/arendt-human-condition-interpretive-panel.webp",
@@ -2808,7 +2808,7 @@
     },
     "rawls-original-position-interpretive": {
       "hallFolder": "justice-democratic-reason",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/rawls-original-position-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/rawls-original-position-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/rawls-original-position-interpretive-panel.webp",
@@ -2827,7 +2827,7 @@
     },
     "nozick-entitlement-interpretive": {
       "hallFolder": "justice-democratic-reason",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/nozick-entitlement-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/nozick-entitlement-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/nozick-entitlement-interpretive-panel.webp",
@@ -2846,7 +2846,7 @@
     },
     "nussbaum-capabilities-interpretive": {
       "hallFolder": "justice-democratic-reason",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/nussbaum-capabilities-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/nussbaum-capabilities-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/d51e4a00acd0f2848614b9c4917b502f37602bc5/public/assets/museum/justice-democratic-reason/nussbaum-capabilities-interpretive-panel.webp",
@@ -2919,7 +2919,7 @@
     },
     "metaphysics-reality-layers-interpretive": {
       "hallFolder": "core-questions-forum",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/metaphysics-reality-layers-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/metaphysics-reality-layers-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/metaphysics-reality-layers-interpretive-panel.webp",
@@ -2938,7 +2938,7 @@
     },
     "ontology-being-process-interpretive": {
       "hallFolder": "core-questions-forum",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/ontology-being-process-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/ontology-being-process-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/ontology-being-process-interpretive-panel.webp",
@@ -2957,7 +2957,7 @@
     },
     "epistemology-evidence-lens-interpretive": {
       "hallFolder": "core-questions-forum",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/epistemology-evidence-lens-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/epistemology-evidence-lens-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/epistemology-evidence-lens-interpretive-panel.webp",
@@ -2976,7 +2976,7 @@
     },
     "philosophy-mind-subjective-objective-interpretive": {
       "hallFolder": "core-questions-forum",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/philosophy-mind-subjective-objective-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/philosophy-mind-subjective-objective-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/philosophy-mind-subjective-objective-interpretive-panel.webp",
@@ -3067,7 +3067,7 @@
     },
     "philosophy-religion-plural-inquiry-interpretive": {
       "hallFolder": "core-questions-forum",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/philosophy-religion-plural-inquiry-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/philosophy-religion-plural-inquiry-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/core-questions-forum/philosophy-religion-plural-inquiry-interpretive-panel.webp",
@@ -3086,7 +3086,7 @@
     },
     "south-many-schools-interpretive": {
       "hallFolder": "classical-south-asian-worlds",
-      "sourceKind": "owner-approved-original-illustration",
+      "sourceKind": "repository-pinned-interpretive-derivative",
       "sourcePageUrl": "https://github.com/Da3dalusCode/philosophy-museum/blob/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/classical-south-asian-worlds/south-many-schools-interpretive-panel.webp",
       "sourceImageUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/classical-south-asian-worlds/south-many-schools-interpretive-panel.webp",
       "selectedThumbnailUrl": "https://raw.githubusercontent.com/Da3dalusCode/philosophy-museum/4e8587112422ca01c2a3b70b02bcd4e356f529b0/public/assets/museum/classical-south-asian-worlds/south-many-schools-interpretive-panel.webp",
@@ -3160,23 +3160,24 @@
       "textDominantOrSingleBook": false,
       "standaloneReplacementVersion": 1
     },
-    "vedanta-telugu-manuscript": {
+    "samaveda-telugu-manuscript": {
       "hallFolder": "classical-south-asian-worlds",
       "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:18th-century_Vedanta_manuscript,_Sanskrit,_Telugu_script,_Andhra_Pradesh.jpg",
       "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/18th-century_Vedanta_manuscript,_Sanskrit,_Telugu_script,_Andhra_Pradesh.jpg",
       "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/18th-century_Vedanta_manuscript,_Sanskrit,_Telugu_script,_Andhra_Pradesh.jpg?width=1280",
       "scene": {
         "width": 640,
-        "height": 180,
-        "bytes": 54460,
-        "sha256": "c564a99ff6278037cfedb008452e9c9cece1554cac07c2fd3de8825d6e8d0c61"
+        "height": 177,
+        "bytes": 57326,
+        "sha256": "eab83636cd246cd70a5801d41cc05556fe155445553dc7f8f280f8b2e6b0906f"
       },
       "panel": {
         "width": 1280,
         "height": 354,
         "bytes": 244944,
         "sha256": "f92e0120fbd93740f19467f381aa6c8fea46296b21db830f9fb049ec3e7c3f87"
-      }
+      },
+      "preserveNaturalAspectRatio": true
     },
     "shankara-ravi-varma": {
       "hallFolder": "classical-south-asian-worlds",
@@ -3742,22 +3743,24 @@
         "sha256": "c4ce548e76b8c957be640f62d0e43eed50c20f85ab461629195b6713ab42d16e"
       }
     },
-    "nyaya-spitzer-philosophical-fragments": {
+    "nyaya-spitzer-sht810-interpretive": {
       "hallFolder": "classical-south-asian-worlds",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:2nd-century_CE_Sanskrit,_Kizil_China,_Spitzer_Manuscript_folio_383_fragment_recto_and_verso.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2nd-century_CE_Sanskrit,_Kizil_China,_Spitzer_Manuscript_folio_383_fragment_recto_and_verso.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2nd-century_CE_Sanskrit,_Kizil_China,_Spitzer_Manuscript_folio_383_fragment_recto_and_verso.jpg?width=1280",
+      "sourcePageUrl": "https://www.fwf.ac.at/forschungsradar/10.55776/D3658",
+      "sourceImageUrl": "repository://scripts/renderMuseumInterpretivePanels.py#spitzer-sht810",
+      "selectedThumbnailUrl": "repository://scripts/renderMuseumInterpretivePanels.py#spitzer-sht810",
+      "sourceKind": "repository-code-native-interpretive",
+      "localRenderer": "scripts/renderMuseumInterpretivePanels.py#spitzer-sht810",
       "scene": {
         "width": 640,
-        "height": 356,
-        "bytes": 48946,
-        "sha256": "a2e6918586efae83a282ec4627a9f296709164b0c4903a600c9110a1201beaec"
+        "height": 360,
+        "bytes": 14840,
+        "sha256": "b2b4e9205cc23c668d65ea4c4dc78c551834af5b6456cf652391320713b89056"
       },
       "panel": {
         "width": 1280,
-        "height": 712,
-        "bytes": 145036,
-        "sha256": "e218fb2ecde037ed4843eb1137ae5aa75f60dea3e83988bd12e7f29b834d67a3"
+        "height": 720,
+        "bytes": 42924,
+        "sha256": "5a157a260ddf6b65728f99c12fbe1fcee03cc6ab6f72756ece58f5d9774888bd"
       }
     },
     "nyaya-smoke-fire-inference": {
@@ -4354,22 +4357,22 @@
         "sha256": "84526a27fd49a737358bc8062c6f0450905f7b4f1c13ecdbf324e8da21e192b8"
       }
     },
-    "china-gongsun-long-yuan-portrait": {
+    "china-gongsun-long-horse-and-groom": {
       "hallFolder": "classical-chinese-traditions",
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg",
-      "sourceImageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg",
-      "selectedThumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg?width=1280",
+      "sourcePageUrl": "https://www.metmuseum.org/art/collection/search/72630",
+      "sourceImageUrl": "https://images.metmuseum.org/CRDImages/as/original/DP158773.jpg",
+      "selectedThumbnailUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/72630/152281/main-image",
       "scene": {
-        "width": 455,
-        "height": 640,
-        "bytes": 27178,
-        "sha256": "e4b03cd1f4217e43dd6f4a6c872a01983399684635ce79874eaef300fad6163e"
+        "width": 640,
+        "height": 481,
+        "bytes": 17868,
+        "sha256": "2f7f3e447092334e2d0c6d8ad666f749bb2ff6b2351c91568d8ca5034d8adc89"
       },
       "panel": {
-        "width": 910,
-        "height": 1280,
-        "bytes": 346102,
-        "sha256": "05e6b3dc2e2a8ae593042c71222975683e09dcd75849c43b1be313dcbfe93680"
+        "width": 1200,
+        "height": 901,
+        "bytes": 75662,
+        "sha256": "bba6560c3c65d616dfdc7d5755c65e2b6b635ce1aaefcaea6622555f9c4a410a"
       }
     },
     "china-sunzi-art-of-war-slips": {

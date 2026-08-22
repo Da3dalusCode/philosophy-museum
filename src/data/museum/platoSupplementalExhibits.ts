@@ -13,7 +13,7 @@ export type MuseumSupplementalInterpretationSource = {
   id?: string;
   label: string;
   url: string;
-  kind: 'primary-text' | 'academic-reference' | 'collection-record';
+  kind: 'primary-text' | 'primary-interview' | 'academic-reference' | 'bibliographic-record' | 'collection-record';
 };
 
 export type MuseumSupplementalInterpretationSection = {
@@ -205,7 +205,7 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
       proximityKicker: 'Plato work',
       factRows: [
         {label: 'Text', value: 'Republic VII, 514a–520e'},
-        {label: 'Object', value: 'Philosophy Atlas Museum interpretive illustration · 2026'},
+        {label: 'Object', value: 'Philosophy Atlas Museum interpretive illustration · generation date unknown'},
         {label: 'Museum role', value: 'Contemporary argument image; not ancient evidence'},
       ],
       articleActionLabel: 'Read the full sourced Plato article',
@@ -225,7 +225,7 @@ export const PLATO_SUPPLEMENTAL_EXHIBITS = [
       reviewedOn: '2026-08-12',
       method: 'Gallery 01 supplemental review: object identity, claims, sources, rights, accessibility, provenance, subject-specific structured interpretation, and aspect-safe object-led presentation.',
       resolution: 'Resolved: restored the approved portrait-format Museum interpretive illustration; identified it honestly as contemporary interpretation; corrected its presentation metadata; and restored a claim-mapped ascent, education, and return sidebar while retaining its natural 4:5 wall format.',
-      lock: 'fnv1a64:8084f0e300c4ba99',
+      lock: 'fnv1a64:763b2eb986ae8f43',
     },
   },
   {

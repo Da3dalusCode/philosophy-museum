@@ -22,7 +22,7 @@ const STANDARD_REVIEW_BY_NAME: Readonly<Record<string, MuseumExhibitReview>> = {
   'Gottlob Frege': standardReview('fnv1a64:c115071bc8ca04ca'),
   'G. E. Moore': standardReview('fnv1a64:5c3f9ecd95c2490f'),
   'W. V. O. Quine': standardReview('fnv1a64:42df89ae8020bda9'),
-  'Elizabeth Anscombe': standardReview('fnv1a64:acbf548916e3996c'),
+  'Elizabeth Anscombe': standardReview('fnv1a64:1442e01cc4c4f9d3'),
 };
 
 const primary = (
@@ -213,7 +213,7 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
     [
       'Elizabeth Anscombe changes the question of intention from “what inner event caused this movement?” to “under what description is this person intentionally acting?” In Intention, a distinctive sense of “Why?” can reveal reasons, ends, ignorance, or the practical intelligibility of an action. The same movement may be moving an arm, pumping water, replenishing a supply, or producing an unanticipated harm. An agent can intentionally do some of these without intentionally doing all of them. Intention is therefore neither a private object hidden behind behavior nor a label automatically attached to every consequence. It belongs to how action, reasons, circumstances, and descriptions hang together in practice.',
       'Practical knowledge names an agent’s non-observational knowledge of what they are doing while acting. It is productive in a qualified sense: an error can call for correction in the action rather than in a detached report. That does not make agents infallible, immune to self-deception, or fully aware of every result. Anscombe’s account invites close attention to failure, mistaken circumstances, and foreseen side effects. Her challenge to consequentialism likewise does not say consequences never matter. It rejects treating every act-type as available as a means once projected totals look favorable. Modern Moral Philosophy helped redirect discussion toward moral psychology and virtue, but it is not itself a complete virtue theory and does not make Anscombe virtue ethics’ sole founder.',
-      'Her work engages Wittgenstein, Aristotle, Aquinas, causation, religion, controversy, and war. Her translation and literary executorship of Wittgenstein matter, but do not reduce her action theory to his method. Her opposition to honoring Truman concerned intentional killing of noncombatants, not pacifism; her Catholic commitments and contested conclusions need neither sanitizing nor dismissal by association. The displayed portrait is a 2026 restyling of a posthumous 2014 illustration. It is not a documentary photograph or authenticated likeness, and its composed face cannot show intention, practical knowledge, or moral seriousness. The object signals reception; its action questions remain open.',
+      'Her work engages Wittgenstein, Aristotle, Aquinas, causation, religion, controversy, and war. Her translation and literary executorship of Wittgenstein matter, but do not reduce her action theory to his method. Her opposition to honoring Truman concerned intentional killing of noncombatants, not pacifism; her Catholic commitments and contested conclusions need neither sanitizing nor dismissal by association. The displayed portrait is a generation-derived restyling, of unknown generation date, based on a posthumous 2014 illustration. It is not a documentary photograph or authenticated likeness, and its composed face cannot show intention, practical knowledge, or moral seriousness. The object signals reception; its action questions remain open.',
     ],
     [
       {heading: 'Action and knowledge', items: [
@@ -228,6 +228,6 @@ Readonly<Record<string, MuseumPrimaryInterpretationEnrichment>> = {
       ]},
     ],
     'anscombe-portrait-interpretive',
-    'This 2026 charcoal-and-sepia rendering substantially restyles a posthumous 2014 illustration of Anscombe. It is neither a documentary photograph nor an independently authenticated likeness, and its composed face cannot establish her action theory, ethics, Catholic commitments, or relation to Wittgenstein.',
+    'This charcoal-and-sepia rendering of unknown generation date substantially restyles a posthumous 2014 illustration of Anscombe. It is neither a documentary photograph nor an independently authenticated likeness, and its composed face cannot establish her action theory, ethics, Catholic commitments, or relation to Wittgenstein.',
   ),
 };

@@ -19,6 +19,8 @@ from pathlib import Path
 
 from PIL import Image, ImageOps
 
+from renderMuseumInterpretivePanels import render_spitzer_sht810_source
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "scripts" / "museumModernAssetManifest.json"
@@ -70,8 +72,19 @@ def load_manifest(refresh_locks: bool) -> dict[str, dict[str, object]]:
             raise RuntimeError(f"{slug} has an invalid hallFolder.")
         for field in ("sourcePageUrl", "sourceImageUrl", "selectedThumbnailUrl"):
             value = record.get(field)
-            if not isinstance(value, str) or not value.startswith("https://"):
-                raise RuntimeError(f"{slug}.{field} must be a locked HTTPS URL.")
+            code_native = record.get("sourceKind") == "repository-code-native-interpretive"
+            expected_repository_source = "repository://scripts/renderMuseumInterpretivePanels.py#spitzer-sht810"
+            is_valid = isinstance(value, str) and (
+                value.startswith("https://")
+                or (code_native and field != "sourcePageUrl" and value == expected_repository_source)
+            )
+            if not is_valid:
+                raise RuntimeError(f"{slug}.{field} must be a locked HTTPS URL or its reviewed repository renderer.")
+        if record.get("sourceKind") == "repository-code-native-interpretive":
+            if slug != "nyaya-spitzer-sht810-interpretive":
+                raise RuntimeError(f"{slug} uses an unreviewed code-native renderer.")
+            if record.get("localRenderer") != "scripts/renderMuseumInterpretivePanels.py#spitzer-sht810":
+                raise RuntimeError(f"{slug}.localRenderer must identify the reviewed renderer entry point.")
         if not refresh_locks:
             for variant in ("scene", "panel"):
                 expected = record.get(variant)
@@ -220,8 +233,11 @@ def main() -> None:
             candidate_scene = temporary / f"{slug}-scene.webp"
             candidate_panel = temporary / f"{slug}-panel.webp"
             print(f"[{index:02d}/{len(assets)}] {slug}", flush=True)
-            download(str(record["selectedThumbnailUrl"]), source)
-            image = rgb_image(source)
+            if record.get("sourceKind") == "repository-code-native-interpretive":
+                image = render_spitzer_sht810_source()
+            else:
+                download(str(record["selectedThumbnailUrl"]), source)
+                image = rgb_image(source)
             rotation_degrees = record.get("rotationDegrees", 0)
             if rotation_degrees:
                 if rotation_degrees not in {90, 180, 270}:
@@ -232,7 +248,7 @@ def main() -> None:
                 candidate_scene,
                 int(record.get("sceneMaximum", 640)),
                 82,
-                MIN_MUSEUM_SHORT_EDGE,
+                0 if record.get("preserveNaturalAspectRatio") else MIN_MUSEUM_SHORT_EDGE,
             )
             panel_lock = save_variant(image, candidate_panel, 1280, 88)
 

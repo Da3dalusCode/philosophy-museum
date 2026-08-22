@@ -10,6 +10,8 @@
     "check:route-manifest": "node scripts/compileRouteManifest.mjs --check",
     "compile:public-counts": "node scripts/compilePublicCollectionCounts.mjs",
     "check:public-counts": "node scripts/compilePublicCollectionCounts.mjs --check",
+    "compile:generated-lineage": "node scripts/compileMuseumGeneratedAssetLineage.mjs",
+    "check:generated-lineage": "node scripts/compileMuseumGeneratedAssetLineage.mjs --check",
     "compile:museum-building": "node scripts/compileContinuousEnfiladeManifest.mjs",
     "check:museum-building": "node scripts/compileContinuousEnfiladeManifest.mjs --check",
     "validate:museum-masterplan": "node scripts/validateMuseumMasterplan.mjs",

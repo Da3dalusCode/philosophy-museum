@@ -279,13 +279,13 @@ export const CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBITS = ([
     parent: 'foucault',
     displayName: 'The Panoptic Diagram Travels',
     shortTitle: 'Asymmetric Visibility',
-    focus: 'DISCIPLINE · COLONIAL TRANSFER, VISIBILITY, UNCERTAINTY, AND SELF-REGULATION',
+    focus: 'DISCIPLINE · RADIAL VISIBILITY, PROPOSAL STATUS, UNCERTAINTY, AND COMPARISON',
     dateLabel: 'Unbuilt Outram proposal, 1880s · Discipline and Punish published 1975',
-    question: 'What changes when a plan for asymmetric visibility travels into a colonial prison proposal?',
-    lead: 'McNair’s unbuilt proposal for Outram prison in colonial Singapore arranges radiating wings around a central hub. It is not Bentham’s original Panopticon, and Foucault did not build his argument from this drawing. The proposal instead makes historical transfer visible: inspection principles could be adapted, recombined, and projected into institutions far from the metropolitan debates in which the panoptic diagram was formulated.',
+    question: 'What can a radial prison proposal show about visibility when its design lineage and institutional effects remain undocumented?',
+    lead: 'The source record describes McNair’s drawing as an unbuilt proposal for Outram prison in Singapore and shows radiating wings around a central hub. It is not Bentham’s original Panopticon, and no evidence connects Foucault to this sheet. Its geometry can prompt a comparison with asymmetric visibility; it cannot establish a route of transmission, a completed colonial institution, or disciplinary effects in practice.',
     ideas: [
       'The drawing’s radial geometry concentrates circulation and sightlines around a central point. Foucault’s analysis helps ask how such arrangements distribute knowledge unequally: the inspected can be made visible without knowing when observation occurs, so possible scrutiny can shape conduct before direct intervention is needed.',
-      'Its colonial setting matters. Institutional forms did not simply diffuse unchanged from Europe; administrators and designers translated them within imperial projects of confinement, labor, classification, and rule. The artifact therefore prompts a question Foucault’s diagram alone cannot settle: whose authority moved the design, and what local histories did it encounter?',
+      'The National Archives of Singapore record supplies wider McNair-era administrative context, but the accessible image record does not document why this geometry was chosen, which precedents McNair used, how officials evaluated it, or how local histories shaped the proposal. Those are research questions rather than facts visible in the plan.',
       'Discipline is productive as well as restrictive. Timetables, exercises, ranks, files, examinations, and comparisons train capacities while making individuals measurable. Modern cameras and data systems may invite analogy, but their distributed, predictive, commercial, and automated operations require fresh historical analysis rather than a one-word “Panopticon” label.',
     ],
     cautions: [

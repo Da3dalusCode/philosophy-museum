@@ -2445,14 +2445,89 @@ check('Gallery 03 gives every unobstructed half-room wall one substantial exhibi
 
   const levinas = supplemental.find(({exhibit}) => exhibit.id === 'levinas-ethics-before-ontology')?.exhibit;
   const gadamer = supplemental.find(({exhibit}) => exhibit.id === 'gadamer-truth-method')?.exhibit;
-  assert.equal(levinas?.assetId, 'levinas-totality-infinity-2002');
-  assert.match(`${levinas?.lead} ${levinas?.cautions.join(' ')}`, /German study edition|1961 French first edition/i);
+  assert.equal(levinas?.assetId, 'levinas-ethical-interruption-interpretive');
+  assert.equal(levinas?.panelAssetId, 'levinas-ethical-interruption-interpretive');
+  assert.match(levinas?.dateLabel ?? '', /generation date unknown/i);
+  assert.doesNotMatch(JSON.stringify(levinas), /German study edition|book cover|2002 edition|French first edition|publication date/i);
+  assert.match(`${levinas?.lead} ${levinas?.cautions.join(' ')}`, /interpretive prompt|interpretation rather than historical/i);
   assert.equal(gadamer?.assetId, 'gadamer-letter-pawliszyn');
   assert.match(`${gadamer?.lead} ${gadamer?.cautions.join(' ')}`, /signed 1989 letter|scholarly correspondence/i);
   assert.match(canonicalSceneSource, /<PhenomenologySupplementalExhibits/u, 'Gallery 03 does not mount its shared supplemental collection');
   assert.match(phenomenologySupplementalSceneSource, /onClick=\{activate\}/u, 'Gallery 03 supplemental installations lack mouse activation');
   assert.match(phenomenologySupplementalSceneSource, /interactionForSupplemental/u, 'Gallery 03 supplemental installations lack stable interaction identity');
   assert.match(phenomenologySupplementalDataSource, /Room 01 · Attend[\s\S]*Room 05 · Answer/u, 'Gallery 03 room sequence copy is incomplete');
+});
+
+check('isolated remediation preserves object parity, honest dates, and bounded evidence', () => {
+  const spitzer = CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'nyaya-spitzer-philosophy-fragments');
+  const spitzerLayout = CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS.find(({id}) => id === spitzer?.id);
+  assert(spitzer && spitzerLayout, 'The SHT 810 replacement or its staged placement is absent.');
+  assert.equal(spitzer.assetId, 'nyaya-spitzer-sht810-interpretive');
+  assert.equal(spitzer.panelAssetId, spitzer.assetId);
+  assert.equal(spitzerLayout.assetId, spitzer.assetId);
+  assert.equal(spitzerLayout.mediaMount.assetId, spitzer.assetId);
+  assert.deepEqual(new Set(spitzer.sources.map(({url}) => url)), new Set([
+    'https://github.com/Da3dalusCode/philosophy-museum/blob/main/scripts/renderMuseumInterpretivePanels.py',
+    'https://www.fwf.ac.at/forschungsradar/10.55776/D3658',
+  ]));
+  assert.match(JSON.stringify(spitzer), /interpretation rather than manuscript evidence|not a manuscript photograph|no manuscript fragment/i);
+  assert.doesNotMatch(JSON.stringify(spitzer), /folio\s*383|radiocarbon|uploader-created|Commons assembly/i);
+  assert.equal(new Set(spitzer.sources.map(({url}) => url)).size, spitzer.sources.length, 'The SHT 810 interpretation must not register duplicate source URLs.');
+  assert.equal(spitzer.sources.find(({url}) => url.includes('renderMuseumInterpretivePanels.py'))?.kind, 'collection-record');
+  assert.equal(spitzer.sources.find(({url}) => url === 'https://www.fwf.ac.at/forschungsradar/10.55776/D3658')?.kind, 'collection-record');
+
+  const whiteHorse = CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'china-gongsun-long-white-horse');
+  const whiteHorseLayout = CLASSICAL_CHINESE_SUPPLEMENTAL_EXHIBIT_LAYOUTS.find(({id}) => id === whiteHorse?.id);
+  assert(whiteHorse && whiteHorseLayout, 'The Gongsun Long replacement or its staged placement is absent.');
+  assert.equal(whiteHorse.assetId, 'china-gongsun-long-horse-and-groom');
+  assert.equal(whiteHorse.panelAssetId, whiteHorse.assetId);
+  assert.equal(whiteHorseLayout.assetId, whiteHorse.assetId);
+  assert.equal(whiteHorseLayout.mediaMount.assetId, whiteHorse.assetId);
+  assert.equal(whiteHorse.sources.find(({id}) => id === 'met-horse-groom')?.url, 'https://www.metmuseum.org/art/collection/search/72630');
+  assert.match(JSON.stringify(whiteHorse), /public-domain Yuan horse-and-groom|Public Domain under Open Access/i);
+  assert.doesNotMatch(JSON.stringify(whiteHorse), /National Palace Museum|licensing-ambiguous|yuan portrait chain/i);
+
+  const yoga = CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'yoga-asavari-ascetic-princess');
+  const yogaLayout = CLASSICAL_SOUTH_ASIAN_SUPPLEMENTAL_EXHIBIT_LAYOUTS.find(({id}) => id === yoga?.id);
+  const yogaAsset = assetById.get('yoga-asavari-ascetic-princess');
+  assert(yoga && yogaLayout && yogaAsset, 'Asavari Ragini staged-card parity records are incomplete.');
+  assert.equal(yoga.assetId, yogaAsset.id);
+  assert.equal(yoga.panelAssetId, yogaAsset.id);
+  assert.equal(yogaLayout.assetId, yogaAsset.id);
+  assert.equal(yogaLayout.mediaMount.assetId, yogaAsset.id);
+  assert.equal(yogaAsset.objectDate, 'c. 1650');
+  assert.match(yoga.dateLabel, /c\. 1650/i);
+  assert.match(`${yogaAsset.attribution} ${yoga.objectInterpretation}`, /c\. 1650/i);
+  assert.doesNotMatch(JSON.stringify(yoga), /c\. 1640/i);
+
+  const goethe = GERMAN_IDEALISM_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'nature-goethe-color');
+  assert(goethe, 'The Goethe color exhibit is absent.');
+  assert.equal(goethe.sources.find(({url}) => url === 'https://library.si.edu/digital-library/book/zurfarbenlehre00goeta')?.kind, 'primary-text');
+  assert.equal(goethe.sources.find(({url}) => url === 'https://goethe-lexicon.pitt.edu/GL/article/download/52/50')?.kind, 'academic-reference');
+  assert.equal(goethe.sources.find(({url}) => url.startsWith('https://freies-deutsches-hochstift.de/'))?.kind, 'collection-record');
+  assert(goethe.sections.every(({sourceIds}) => sourceIds?.length), 'Goethe paragraphs must remain source-mapped.');
+  assert.match(JSON.stringify(goethe), /physical optics, experienced appearance, and affective symbolism distinct/i);
+
+  const panopticon = CRITIQUE_POWER_DECONSTRUCTION_SUPPLEMENTAL_EXHIBITS.find(({id}) => id === 'foucault-panopticon-visibility');
+  assert(panopticon, 'The Outram proposal exhibit is absent.');
+  assert.equal(panopticon.sources.find(({url}) => url.startsWith('https://www.nas.gov.sg/'))?.kind, 'collection-record');
+  assert.equal(panopticon.sources.find(({url}) => url === 'https://plato.stanford.edu/entries/foucault/')?.kind, 'academic-reference');
+  assert.match(JSON.stringify(panopticon), /unbuilt proposal|no evidence connects Foucault|research questions rather than facts/i);
+  assert.doesNotMatch(JSON.stringify(panopticon), /demonstrates colonial transfer|institutional translation from Bentham|completed Outram prison/i);
+
+  const vedantaProgram = MUSEUM_CANONICAL_PROGRAM
+    .flatMap(({rooms}) => rooms.flatMap(({exhibits}) => exhibits))
+    .find(({id}) => id === 'vedanta');
+  const vedantaInterpretation = MUSEUM_INTERPRETATIONS.find(({id}) => id === 'vedanta');
+  const samavedaAsset = assetById.get('samaveda-telugu-manuscript');
+  assert(vedantaProgram && vedantaInterpretation && samavedaAsset, 'The Vedanta/Samaveda canonical dependency is incomplete.');
+  assert.equal(vedantaProgram.principalAssetId, samavedaAsset.id);
+  assert.deepEqual(Object.keys(vedantaInterpretation.objectInterpretations), [samavedaAsset.id]);
+  assert.equal(samavedaAsset.role, 'context');
+  assert.deepEqual(samavedaAsset.variants.scene, {path: 'assets/museum/classical-south-asian-worlds/samaveda-telugu-manuscript-scene.webp', width: 640, height: 177});
+  assert.deepEqual(samavedaAsset.variants.panel, {path: 'assets/museum/classical-south-asian-worlds/samaveda-telugu-manuscript-panel.webp', width: 1280, height: 354});
+  assert.match(`${samavedaAsset.title} ${samavedaAsset.caption} ${samavedaAsset.historicalNote} ${vedantaInterpretation.objectInterpretations[samavedaAsset.id]}`, /Sāmaveda/u);
+  assert.match(`${samavedaAsset.caption} ${samavedaAsset.historicalNote} ${vedantaInterpretation.objectInterpretations[samavedaAsset.id]}`, /not (?:a )?Vedānta|rather than as Vedānta/u);
 });
 
 check('Gallery 20 fills thirty usable wall faces with resolved, philosopher-led installations', () => {
