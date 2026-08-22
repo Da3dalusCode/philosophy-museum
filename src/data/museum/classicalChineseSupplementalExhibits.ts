@@ -717,7 +717,7 @@ const gallery06ReviewEvidence: Record<string, Gallery06ReviewEvidence> = {
 const reviewGallery06Exhibit = (input: MuseumSupplementalExhibit): MuseumSupplementalExhibit => {
   const evidence = gallery06ReviewEvidence[input.id];
   if (!evidence) throw new Error(`Missing Gallery 06 review evidence for ${input.id}.`);
-  const reviewedOn = input.id === 'china-gongsun-long-white-horse' ? '2026-08-22' : '2026-08-12';
+  const reviewedOn = String(input.id) === 'china-gongsun-long-white-horse' ? '2026-08-22' : '2026-08-12';
   const basePresentation = input.presentation;
   if (!basePresentation) throw new Error(`Missing Gallery 06 presentation for ${input.id}.`);
   return {

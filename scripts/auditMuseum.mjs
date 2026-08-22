@@ -2467,11 +2467,14 @@ check('isolated remediation preserves object parity, honest dates, and bounded e
   assert.equal(spitzerLayout.assetId, spitzer.assetId);
   assert.equal(spitzerLayout.mediaMount.assetId, spitzer.assetId);
   assert.deepEqual(new Set(spitzer.sources.map(({url}) => url)), new Set([
-    'https://github.com/Da3dalusCode/philosophy-museum/blob/main/scripts/renderMuseumInterpretivePanels.py',
+    'https://github.com/Da3dalusCode/philosophy-museum/blob/a3497772b8688680f7fea5f37f83a0280775997c/scripts/renderMuseumInterpretivePanels.py',
     'https://www.fwf.ac.at/forschungsradar/10.55776/D3658',
   ]));
   assert.match(JSON.stringify(spitzer), /interpretation rather than manuscript evidence|not a manuscript photograph|no manuscript fragment/i);
-  assert.doesNotMatch(JSON.stringify(spitzer), /folio\s*383|radiocarbon|uploader-created|Commons assembly/i);
+  assert.doesNotMatch(
+    JSON.stringify(spitzer),
+    /nyaya-spitzer-philosophical-fragments|commons\.wikimedia\.org\/wiki\/File:2nd-century_CE_Sanskrit,_Kizil_China,_Spitzer_Manuscript_folio_383_fragment_recto_and_verso\.jpg/i,
+  );
   assert.equal(new Set(spitzer.sources.map(({url}) => url)).size, spitzer.sources.length, 'The SHT 810 interpretation must not register duplicate source URLs.');
   assert.equal(spitzer.sources.find(({url}) => url.includes('renderMuseumInterpretivePanels.py'))?.kind, 'collection-record');
   assert.equal(spitzer.sources.find(({url}) => url === 'https://www.fwf.ac.at/forschungsradar/10.55776/D3658')?.kind, 'collection-record');

@@ -57,7 +57,7 @@ const remainingReviewEvidence: Record<string, {
       'The record reports that the tract includes a discussion of the Vaiśeṣika theory of qualities, or guṇa. That makes the witness relevant to Kaṇāda’s intellectual context without turning it into the Vaiśeṣika Sūtra, attributing its author to Kaṇāda’s school, or treating the diagram as primary manuscript evidence.',
     ],
     resolution: 'Resolved: installed a code-native fact map based on the FWF institutional research record and labeled the image, plaque, caption, alt text, provenance, and interpretation as non-manuscript evidence.',
-    lock: 'fnv1a64:d10d38eda1607d9a',
+    lock: 'fnv1a64:9d4f5f38bdc704c4',
   },
   'nyaya-smoke-fire-inference': {
     plaqueTitle: 'Winter Haze over Northern India',
@@ -566,7 +566,7 @@ export const CLASSICAL_SOUTH_ASIAN_WALL_FILL_EXHIBITS = [
       {heading: 'A record can support bounded history', paragraph: 'The FWF record connects Kizil, the 1906 expedition, the fragmentary witness, and its current Berlin holding. The Museum diagram visualizes those documented relations without inventing manuscript geography or a complete transmission route.'},
       {heading: 'Context without false ownership', paragraph: 'The reported discussion of Vaiśeṣika guṇa makes SHT 810 relevant to a room about realist classification. It does not authorize calling the unnamed author a follower of Kaṇāda, treating the work as the Vaiśeṣika Sūtra, or assigning any pictured fragment to a doctrine.'},
     ],
-    imageSource: {label: 'Philosophy Atlas Museum — deterministic SHT 810 panel renderer', url: 'https://github.com/Da3dalusCode/philosophy-museum/blob/main/scripts/renderMuseumInterpretivePanels.py'},
+    imageSource: {label: 'Philosophy Atlas Museum — deterministic SHT 810 panel renderer', url: 'https://github.com/Da3dalusCode/philosophy-museum/blob/a3497772b8688680f7fea5f37f83a0280775997c/scripts/renderMuseumInterpretivePanels.py'},
     reference: {label: 'Austrian Science Fund — Spitzer Manuscript (SHT 810) project and Berlin holding', url: 'https://www.fwf.ac.at/forschungsradar/10.55776/D3658', kind: 'collection-record'},
     articleRoute: {kind: 'philosopher', philosopherId: 'kanada'},
     entityKind: 'philosopher',
